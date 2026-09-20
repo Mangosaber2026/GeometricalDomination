@@ -4,7 +4,7 @@ from .Shapes_Dictionary import Shapes
 from collections.abc import Callable
 from typing import TypeAlias
 from functools import wraps
-from .UniversalFunctions import sine, Real, class_decorator
+from .UniversalFunctions import sine, Real, class_decorator, classes_to_dict
 
 alphabet_function: TypeAlias = Callable[[Real, ChainTurtle], None]
 
@@ -413,9 +413,13 @@ class Alphabets(metaclass=AlphabetsMeta):
             for _ in range(5): tls.fd(height / sine(62)).lt(144)
             tls.seth(direction - 90).fd(height * 0.4).lt(90)
 
-    @staticmethod
-    def list_alphabets() -> list[str]:
-        return list(ALPHABETS)
+    @classmethod
+    def list_alphabets(cls) -> dict[str, Callable[[Real, ChainTurtle], None]]:
+        """
+        Creates a dictionary with the functions in Alphabets and returns it
+        :return: dictionary containing function names -> function
+        """
+        return classes_to_dict(cls.Letters, cls.Punctuation, cls.Shapes, cls)
 
 # ALPHABET DICTIONARY
 ALPHABETS: dict[str, alphabet_function] = {
