@@ -1,6 +1,10 @@
 from typing import Sequence
 from collections.abc import Callable
-from .UniversalFunctions import Real, get_num, helper, sine, class_decorator
+from .UniversalFunctions.TypingVariables import Real
+from .UniversalFunctions.GetVariable import get_num
+from .UniversalFunctions.HelperFunctions import helper, sine
+from .UniversalFunctions.DecoratorArchive import class_decorator
+from .UniversalFunctions.ClassToDict import class_to_dict
 from .TurtleSkeleton import tl
 
 return_shape = Sequence[tuple[float|int,float|int]] | None
@@ -51,6 +55,14 @@ class UserShape:
             tl.lt(60); tl.pu(); tl.bk(side); tl.pd(); tl.lt(60)
         tl.end_poly()
         return tl.get_poly()
+
+    @classmethod
+    def list_shapes(cls) -> dict[str, Callable[[None], return_shape]]:
+        """
+        Creates a dictionary with the functions in Alphabets and returns it
+        :return: dictionary containing function names -> function
+        """
+        return class_to_dict(cls)
 
 CUSTOM_SHAPES: dict[str, Callable[[], return_shape]] = {
     "cm circle": UserShape.custom_circle,

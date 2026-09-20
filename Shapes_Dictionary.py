@@ -1,4 +1,4 @@
-from .UniversalFunctions import Shapes
+from .UniversalFunctions.Shapes import Shapes
 
 # DICTIONARY: SHAPES REQUIRING LENGTH
 SHAPES_LENGTH = {

@@ -1,5 +1,5 @@
 from typing import overload
-from .UniversalFunctions import get_num
+from .UniversalFunctions.GetVariable import get_num
 from .TurtleSkeleton import tl, ChainTurtle
 from .GlobalVariables import t_shape, UV
 from turtle import TurtleGraphicsError

@@ -3,6 +3,7 @@ from math import sqrt, sin, radians
 from .GetVariable import get_num
 from .DecoratorArchive import class_decorator
 from .TypingVariables import Real
+from .ClassToDict import class_to_dict
 
 
 @class_decorator(staticmethod)
@@ -65,6 +66,14 @@ class HelperFunctions:
         """Asks the user for the y value (on the coordinate system)"""
         y_val: float = get_num(float, "Enter y value: ")
         return y_val
+
+    def list_helperfunctions() -> dict:
+        """
+        Creates a dictionary with all helper functions
+        :return: dictionary
+        """
+        return class_to_dict(HelperFunctions)
+
 helper = HelperFunctions
 
 def sine(angle: Real) -> Real:

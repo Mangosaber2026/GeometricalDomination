@@ -4,7 +4,12 @@ from .Alphabets import ALPHABETS
 from .CustomTurtleShapes import CUSTOM_SHAPES
 from time import sleep as rest
 from collections.abc import Callable
-from .UniversalFunctions import get_num, get_str, Real, helper, class_decorator
+from .UniversalFunctions.GetVariable import get_num
+from .UniversalFunctions.StringCheck import get_str
+from .UniversalFunctions.TypingVariables import Real
+from .UniversalFunctions.HelperFunctions import helper
+from .UniversalFunctions.DecoratorArchive import class_decorator
+from .UniversalFunctions.ClassToDict import class_to_dict
 from .TurtleSkeleton import tl
 
 @class_decorator(staticmethod)
@@ -97,20 +102,27 @@ class Command:
         if user_shape in turtle_shapes_list:
             t_now().shape(user_shape)
         else:
-            user_tls_shape_ft()
+            Command.user_tls_shape_ft()
 
-def user_tls_shape_ft() -> None:
-    """Lets the user create custom turtle shapes"""
-    user_shape: str = get_str('''
-        Here are some custom options:
-        cm circle, cm square, cm triangle, cm poly, cm sod (star of David)
-        Enter choice: 
-        ''', CUSTOM_SHAPES)
-    tl.home()
-    shape_made = CUSTOM_SHAPES[user_shape]()
-    tl.addshape(user_shape, shape_made)
-    t_now().shape(user_shape)
-    tl.clear(); tl.ht()
+    def user_tls_shape_ft() -> None:
+        """Lets the user create custom turtle shapes"""
+        user_shape: str = get_str('''
+            Here are some custom options:
+            cm circle, cm square, cm triangle, cm poly, cm sod (star of David)
+            Enter choice: 
+            ''', CUSTOM_SHAPES)
+        tl.home()
+        shape_made = CUSTOM_SHAPES[user_shape]()
+        tl.addshape(user_shape, shape_made)
+        t_now().shape(user_shape)
+        tl.clear(); tl.ht()
+
+    def list_commands() -> dict:
+        """
+        Creates a dictionary with all User Commands and returns it
+        :return: dictionary
+        """
+        return class_to_dict(Command)
 
 def exec_ft() -> None:
     """Special side function ONLY for debugging purposes"""

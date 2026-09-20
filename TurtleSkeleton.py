@@ -1,4 +1,5 @@
 import turtle as tl
+from .UniversalFunctions.ClassToDict import class_to_dict
 
 
 class ChainTurtle(tl.Turtle):
@@ -24,3 +25,11 @@ class ChainTurtle(tl.Turtle):
     def teleport(self,x,y): super().teleport(x,y); return self
     def shape(self, shape_name): super().shape(shape_name); return self
     def undo(self): super().undo(); return self
+
+    @classmethod
+    def list_methods(cls):
+        """
+        Creates a dictionary with all ChainTurtle methods and returns it
+        :return: dictionary
+        """
+        return class_to_dict(cls)

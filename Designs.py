@@ -3,7 +3,10 @@ from .GlobalVariables import UV
 from .Shapes_Dictionary import Shapes
 from .TurtleSkeleton import ChainTurtle
 from math import pi, sqrt, degrees, asin
-from .UniversalFunctions import get_num, sine, helper, range_f, get_str
+from .UniversalFunctions.GetVariable import get_num
+from .UniversalFunctions.HelperFunctions import helper, sine, range_f
+from .UniversalFunctions.StringCheck import get_str
+from .UniversalFunctions.ClassToDict import class_to_dict
 
 def turtles(amount: int):
     """
@@ -458,17 +461,20 @@ class Designs(metaclass=DesignsMeta):
         return tls
 
     @classmethod
-    def __getattr__(cls, item):
-        for category in (
-            cls.TurtleOne,
-            cls.TurtleTwo,
-        ):
-            function = getattr(category, item, None)
+    def list_designs(cls):
+        """
+        Creates a dictionary with all the designs and returns it
+        :return: dictionary
+        """
+        dictionary = {}
+        for name, item in vars(cls).items():
+            if name.startswith("Turtle") and isinstance(item, type):
+                dictionary[name] = item
+                dictionary.update(class_to_dict(item))
+            elif callable(item):
+                dictionary[name] = item
 
-            if callable(function):
-                return function
-
-        raise AttributeError(f"{cls.__name__} has no attribute {item!r}")
+        return dictionary
 
 def change_shape() -> None:
     """Changes the shape of the turtle according to user input"""
@@ -477,7 +483,7 @@ def change_shape() -> None:
         arrow, blank, circle, classic, square, triangle, turtle
         Enter choice: 
         ''', ("arrow","blank","circle","classic","square","triangle","turtle"))
-    UV["tls_shape"] = shape_choice
+    UV["tls_shape"]: str = shape_choice
 
 # DICTIONARY: ALL COMMANDS OF MAIN MENU
 PATTERNS = {

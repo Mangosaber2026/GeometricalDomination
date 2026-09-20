@@ -4,7 +4,9 @@ from .Shapes_Dictionary import Shapes
 from collections.abc import Callable
 from typing import TypeAlias
 from functools import wraps
-from .UniversalFunctions import sine, Real, class_decorator, classes_to_dict
+from .UniversalFunctions.HelperFunctions import sine, Real
+from .UniversalFunctions.DecoratorArchive import class_decorator
+from .UniversalFunctions.ClassToDict import classes_to_dict
 
 alphabet_function: TypeAlias = Callable[[Real, ChainTurtle], None]
 
@@ -422,3 +424,45 @@ class Alphabets(metaclass=AlphabetsMeta):
         return classes_to_dict(cls.Letters, cls.Punctuation, cls.Shapes, cls)
 
 # ALPHABET DICTIONARY
+ALPHABETS: dict[str, alphabet_function] = {
+    "a": Alphabets.A,
+    "b": Alphabets.B,
+    "c": Alphabets.C,
+    "d": Alphabets.D,
+    "e": Alphabets.E,
+    "f": Alphabets.F,
+    "g": Alphabets.G,
+    "h": Alphabets.H,
+    "i": Alphabets.I,
+    "j": Alphabets.J,
+    "k": Alphabets.K,
+    "l": Alphabets.L,
+    "m": Alphabets.M,
+    "n": Alphabets.N,
+    "o": Alphabets.O,
+    "p": Alphabets.P,
+    "q": Alphabets.Q,
+    "r": Alphabets.R,
+    "s": Alphabets.S,
+    "t": Alphabets.T,
+    "u": Alphabets.U,
+    "v": Alphabets.V,
+    "w": Alphabets.W,
+    "x": Alphabets.X,
+    "y": Alphabets.Y,
+    "z": Alphabets.Z,
+    " ": Alphabets.space,
+    ".": Alphabets.dot,
+    "!": Alphabets.exclamation,
+    "?": Alphabets.question,
+    "'": Alphabets.apostrophe,
+    ":": Alphabets.colon,
+    ",": Alphabets.comma,
+    "+": Alphabets.plus,
+    "=": Alphabets.equals,
+    "*": Alphabets.times,
+    "-": Alphabets.minus,
+    "_": Alphabets.underline,
+    "<": Alphabets.heart,
+    "#": Alphabets.star,
+}

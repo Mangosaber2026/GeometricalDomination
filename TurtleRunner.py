@@ -2,7 +2,7 @@
 from .Designs import *
 from .UserCommands import *
 from .GlobalFunctions import reset_tls
-from .UniversalFunctions import get_str
+from .UniversalFunctions.StringCheck import get_str
 from time import sleep as rest
 from .GlobalVariables import *
 from .Shapes_Dictionary import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES

@@ -3,6 +3,7 @@ from ..TurtleSkeleton import ChainTurtle
 from .HelperFunctions import sine
 from .DecoratorArchive import class_decorator
 from .TypingVariables import Real
+from .ClassToDict import class_to_dict
 
 
 @class_decorator(staticmethod)
@@ -189,3 +190,10 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         """
         tls_num.begin_fill(); Shapes.polygon(length,sides,tls_num); tls_num.end_fill()
+
+    def list_shapes(self) -> dict:
+        """
+        Creates a dictionary with all Shapes and returns it
+        :return: dictionary
+        """
+        return class_to_dict(self)
