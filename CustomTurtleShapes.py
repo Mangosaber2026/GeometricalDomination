@@ -7,7 +7,7 @@ from .UniversalFunctions.DecoratorArchive import class_decorator
 from .UniversalFunctions.ClassToDict import class_to_dict
 from .TurtleSkeleton import tl
 
-return_shape = Sequence[tuple[float|int,float|int]] | None
+return_shape = Sequence[tuple[Real,Real]] | None
 
 @class_decorator(staticmethod)
 class UserShape:
@@ -57,17 +57,22 @@ class UserShape:
         return tl.get_poly()
 
     @classmethod
-    def list_shapes(cls) -> dict[str, Callable[[None], return_shape]]:
+    def _list_shapes(cls) -> dict[str, Callable[[None], return_shape]]:
         """
         Creates a dictionary with the functions in Alphabets and returns it
         :return: dictionary containing function names -> function
         """
         return class_to_dict(cls)
 
-CUSTOM_SHAPES: dict[str, Callable[[], return_shape]] = {
-    "cm circle": UserShape.custom_circle,
-    "cm square": UserShape.custom_square,
-    "cm triangle": UserShape.custom_triangle,
-    "cm poly": UserShape.custom_poly,
-    "cm sod": UserShape.custom_SOD,
-}
+def get_UserShape_dict() -> dict[str, Callable[[], return_shape]]:
+    """
+    Takes all custom turtle functions in UserShape and returns a dictionary
+    :return: dictionary
+    """
+    return {
+        f"cm {name.removeprefix('custom_')}": func
+        for name, func in class_to_dict(UserShape).items()
+        if not name.startswith("_")
+    }
+
+CUSTOM_SHAPES: dict[str, Callable[[], return_shape]] = get_UserShape_dict()
