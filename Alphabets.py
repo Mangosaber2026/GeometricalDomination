@@ -6,7 +6,7 @@ from typing import TypeAlias
 from functools import wraps
 from .UniversalFunctions.HelperFunctions import sine, Real
 from .UniversalFunctions.DecoratorArchive import class_decorator
-from .UniversalFunctions.ClassToDict import classes_to_dict
+from .UniversalFunctions.ClassToDict import classes_to_dict, class_to_dict
 
 alphabet_function: TypeAlias = Callable[[Real, ChainTurtle], None]
 
@@ -423,34 +423,20 @@ class Alphabets(metaclass=AlphabetsMeta):
         """
         return classes_to_dict(cls.Letters, cls.Punctuation, cls.Shapes, cls)
 
+def letters_functions() -> dict[str, alphabet_function]:
+    """
+    Takes all Letters in Alphabets.Letters and returns a dictionary
+    :return: dictionary
+    """
+    return {
+        name.lower(): func
+        for name, func in class_to_dict(Alphabets.Letters).items()
+    }
+
+letters_dict: dict[str, alphabet_function] = letters_functions()
 # ALPHABET DICTIONARY
 ALPHABETS: dict[str, alphabet_function] = {
-    "a": Alphabets.A,
-    "b": Alphabets.B,
-    "c": Alphabets.C,
-    "d": Alphabets.D,
-    "e": Alphabets.E,
-    "f": Alphabets.F,
-    "g": Alphabets.G,
-    "h": Alphabets.H,
-    "i": Alphabets.I,
-    "j": Alphabets.J,
-    "k": Alphabets.K,
-    "l": Alphabets.L,
-    "m": Alphabets.M,
-    "n": Alphabets.N,
-    "o": Alphabets.O,
-    "p": Alphabets.P,
-    "q": Alphabets.Q,
-    "r": Alphabets.R,
-    "s": Alphabets.S,
-    "t": Alphabets.T,
-    "u": Alphabets.U,
-    "v": Alphabets.V,
-    "w": Alphabets.W,
-    "x": Alphabets.X,
-    "y": Alphabets.Y,
-    "z": Alphabets.Z,
+    **letters_dict,
     " ": Alphabets.space,
     ".": Alphabets.dot,
     "!": Alphabets.exclamation,

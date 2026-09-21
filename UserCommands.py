@@ -62,7 +62,7 @@ class Command:
         """Sets turtle's position to (x|y) without trace"""
         t_now().teleport(helper.x_ft(),helper.y_ft())
 
-    def moveto_ft() -> None:
+    def move_to_ft() -> None:
         """Sets turtle's position to (x|y) with trace"""
         t_now().goto(helper.x_ft(),helper.y_ft())
 
@@ -92,7 +92,7 @@ class Command:
                     ALPHABETS[letter](vertical_val,t_now())
                 SU()
 
-    def user_tls_shape() -> None:
+    def change_shape() -> None:
         """Lets the user choose different turtles shapes, including a custom option"""
         turtle_shapes_list: list[str] = tl.getshapes()
         user_shape: str = get_str(f'''
@@ -102,9 +102,9 @@ class Command:
         if user_shape in turtle_shapes_list:
             t_now().shape(user_shape)
         else:
-            Command.user_tls_shape_ft()
+            Command._user_tls_shape_ft()
 
-    def user_tls_shape_ft() -> None:
+    def _user_tls_shape_ft() -> None:
         """Lets the user create custom turtle shapes"""
         user_shape: str = get_str('''
             Here are some custom options:
@@ -117,7 +117,7 @@ class Command:
         t_now().shape(user_shape)
         tl.clear(); tl.ht()
 
-    def list_commands() -> dict:
+    def _list_commands() -> dict:
         """
         Creates a dictionary with all User Commands and returns it
         :return: dictionary
@@ -136,21 +136,12 @@ def exec_ft() -> None:
         except Exception as exception_error:
             print(f"Invalid input! Error: {exception_error}"); rest(2)
 
+def get_Command_dict():
+    return {
+        name.removesuffix("_ft").replace("_", " "): obj
+        for name, obj in class_to_dict(Command).items()
+        if not name.startswith("_")
+    }
+
 # COMMAND STORAGE: USER PROGRAM
-COMMANDS: dict[str, Callable[[], None]] = {
-    "fd": Command.fd_ft,
-    "bk": Command.bk_ft,
-    "rt": Command.rt_ft,
-    "lt": Command.lt_ft,
-    "create tls": Command.create_tls,
-    "change tls": Command.change_tls,
-    "clear": Command.clear_ft,
-    "clear tls": Command.clear_tls,
-    "home": Command.home_ft,
-    "setpos": Command.setpos_ft,
-    "move to": Command.moveto_ft,
-    "set timer": Command.set_timer,
-    "del timer": Command.del_timer,
-    "writer": Command.writer,
-    "change shape": Command.user_tls_shape,
-}
+COMMANDS: dict[str, Callable[[], None]] = get_Command_dict()

@@ -1,4 +1,5 @@
 import turtle as tl
+from collections.abc import Callable
 from .UniversalFunctions.ClassToDict import class_to_dict
 
 
@@ -27,7 +28,7 @@ class ChainTurtle(tl.Turtle):
     def undo(self): super().undo(); return self
 
     @classmethod
-    def list_methods(cls):
+    def list_methods(cls) -> dict[str, Callable]:
         """
         Creates a dictionary with all ChainTurtle methods and returns it
         :return: dictionary

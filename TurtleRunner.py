@@ -115,6 +115,3 @@ def main() -> None:
         else:
             tls_list = PATTERNS[program_choice]()
         rest(3)
-
-if __name__ == "__main__":
-    main()
