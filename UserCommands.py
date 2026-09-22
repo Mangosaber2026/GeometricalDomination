@@ -36,8 +36,7 @@ class Command:
     def create_tls() -> None:
         """Create a chosen number of turtles"""
         turtles, turtles_num = tls_color(entry="Enter desired number of turtles: ")
-        for turtle in range(turtles_num):
-            UV["tls"].append(turtle)
+        UV["tls"].extend(turtles)
         UV["t"]: int = len(UV["tls"]) - 1
 
     def change_tls() -> None:
@@ -54,8 +53,10 @@ class Command:
     def clear_tls() -> None:
         """Clear all turtle drawings + delete turtles"""
         for t in UV["tls"]: t.clear(); t.ht()
-        UV["tls"].clear(); tls_color(entry="Enter number of new turtles: ")
-        UV["t"]: int = len(UV["tls"]) - 1
+        UV["tls"].clear()
+        turtles, turtle_num = tls_color(entry="Enter number of new turtles: ")
+        UV["tls"].extend(turtles)
+        UV["t"]: int = turtle_num - 1
 
     def home_ft() -> None:
         """Sets turtle's position+heading to home with trace"""
@@ -82,7 +83,10 @@ class Command:
         t_now().lt(90); x_val: Real = t_now().xcor()
         while True:
             while True:
-                text_entry: str = input("Enter text (% to exit): ").upper()
+                text_entry: str = input("""
+                < for heart, # for star
+                Enter text (% to exit): 
+                """).upper()
                 if all(letter in ALPHABETS for letter in text_entry) or text_entry == "%":
                     break
                 else:

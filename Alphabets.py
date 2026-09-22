@@ -421,7 +421,14 @@ class Alphabets(metaclass=AlphabetsMeta):
         Creates a dictionary with the functions in Alphabets and returns it
         :return: dictionary containing function names -> function
         """
-        return classes_to_dict(cls.Letters, cls.Punctuation, cls.Shapes, cls)
+        dictionary = classes_to_dict(cls.Letters, cls.Punctuation, cls.Shapes)
+        name: str
+        item: alphabet_function
+        for name, item in vars(cls).items():
+            if not isinstance(item, type):
+                dictionary[name] = item
+
+        return dictionary
 
 def letters_functions() -> dict[str, alphabet_function]:
     """

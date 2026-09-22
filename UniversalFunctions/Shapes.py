@@ -191,7 +191,7 @@ class Shapes:
         """
         tls_num.begin_fill(); Shapes.polygon(length,sides,tls_num); tls_num.end_fill()
 
-    def list_shapes(self) -> dict:
+    def list_shapes() -> dict:
         """
         Creates a dictionary with all Shapes and returns it
         :return: dictionary

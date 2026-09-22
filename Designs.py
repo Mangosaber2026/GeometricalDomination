@@ -464,6 +464,15 @@ class Designs(metaclass=DesignsMeta):
         SU()
         return tls
 
+    def change_shape() -> None:
+        """Changes the shape of the turtle according to user input"""
+        shape_choice: str = get_str('''
+            Which shape?
+            arrow, blank, circle, classic, square, triangle, turtle
+            Enter choice: 
+            ''', ("arrow","blank","circle","classic","square","triangle","turtle"))
+        UV["tls_shape"]: str = shape_choice
+
     @classmethod
     def _list_designs(cls) -> designs_dict:
         """
@@ -480,15 +489,6 @@ class Designs(metaclass=DesignsMeta):
                 dictionary[name] = item
 
         return dictionary
-
-def change_shape() -> None:
-    """Changes the shape of the turtle according to user input"""
-    shape_choice: str = get_str('''
-        Which shape?
-        arrow, blank, circle, classic, square, triangle, turtle
-        Enter choice: 
-        ''', ("arrow","blank","circle","classic","square","triangle","turtle"))
-    UV["tls_shape"]: str = shape_choice
 
 def get_Patterns_dict() -> designs_dict:
     return {
