@@ -1,9 +1,10 @@
-from typing import Generator, Any, Annotated
+from typing import Any, Annotated
+from collections.abc import Generator
 from math import sqrt, sin, radians
 from .GetVariable import get_num
 from .DecoratorArchive import class_decorator
 from .TypingVariables import Real
-from .ClassToDict import class_to_dict
+from .ClassToDict import classes_to_dict
 
 
 @class_decorator(staticmethod)
@@ -72,7 +73,7 @@ class HelperFunctions:
         Creates a dictionary with all helper functions
         :return: dictionary
         """
-        return class_to_dict(HelperFunctions)
+        return classes_to_dict(HelperFunctions)
 
 helper = HelperFunctions
 

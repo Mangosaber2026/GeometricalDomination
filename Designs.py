@@ -6,7 +6,11 @@ from math import pi, sqrt, degrees, asin
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.HelperFunctions import helper, sine, range_f
 from .UniversalFunctions.StringCheck import get_str
-from .UniversalFunctions.ClassToDict import class_to_dict
+from .UniversalFunctions.ClassToDict import classes_to_dict
+from collections.abc import Callable
+from typing import TypeAlias
+
+designs_dict: TypeAlias = dict[str, Callable[[list[ChainTurtle]|None], list[ChainTurtle]]]
 
 def turtles(amount: int):
     """
@@ -99,7 +103,7 @@ class Designs(metaclass=DesignsMeta):
 
                 tls[0].pu().fd((length+height)*diamond_num*2).lt(90).fd(outer_side).rt(90)
 
-        def hidden_stars_sd(tls: list[ChainTurtle]) -> None:
+        def hidden_sds(tls: list[ChainTurtle]) -> None:
             """
             Draws stars of David in the same orientation (1 turtle)
             :param tls: list of 1 chainable turtle
@@ -120,7 +124,7 @@ class Designs(metaclass=DesignsMeta):
                 tls[0].begin_fill().fd(diagonal).lt(150).fd(length).rt(120).bk(length).end_fill()
                 tls[0].fd(length).lt(120).fd(length).rt(60).bk(diagonal)
 
-        def triangular_wheel(tls: list[ChainTurtle]) -> None:
+        def tri_wheel(tls: list[ChainTurtle]) -> None:
             """
             Draws a wheel made with triangles on the sides
             :param tls: list of 1 chainable turtle
@@ -188,7 +192,7 @@ class Designs(metaclass=DesignsMeta):
             for t in tls:
                 Shapes.lines(length * 1.5, 4, t)
 
-        def triangle_hexaflower(tls: list[ChainTurtle]) -> None:
+        def tri_hexaflower(tls: list[ChainTurtle]) -> None:
             """
             Draws flowers with 12 triangle petals with lines in the middle in a horizontal + vertical pattern
             :param tls: list of 2 chainable turtles
@@ -212,7 +216,7 @@ class Designs(metaclass=DesignsMeta):
                     for t in tls:
                         t.fd_inv(length_total - diagonal).lt(90).fd_inv(height * 2).rt(90)
 
-        def star_of_david_pattern(tls: list[ChainTurtle]) -> None:
+        def sd_pattern(tls: list[ChainTurtle]) -> None:
             """
             Draws stars of David in a horizontal + vertical pattern
             :param tls: list of 2 chainable turtles
@@ -236,7 +240,7 @@ class Designs(metaclass=DesignsMeta):
                     for t in range(2):
                         tls[t].pu().fd((length + height) * (star_num * 2 + (-1) ** row)).lt(90).fd(outer_side * 1.5).rt(90)
 
-        def stars_of_david_spiral(tls: list[ChainTurtle]) -> None:
+        def sd_spiral(tls: list[ChainTurtle]) -> None:
             """
             Draws stars of David in a spiral pattern inside a main star with 2 turtles
             :param tls: list of 2 chainable turtles
@@ -250,7 +254,7 @@ class Designs(metaclass=DesignsMeta):
                     length = (length * sine(30)) / sine(120)
                     t.lt(60)
 
-        def sd_flower_triangle(tls: list[ChainTurtle]) -> None:
+        def sd_triflower(tls: list[ChainTurtle]) -> None:
             """
             Draws three 6 petalled flowers in triangular shape in a star of David in an external structure
             :param tls: list of 2 chainable turtles
@@ -276,7 +280,7 @@ class Designs(metaclass=DesignsMeta):
             for _ in range(3):
                 tls[0].fd(side_c).lt(180 - (angle_a * 2 + 60)).fd(side_c).lt(180 - (angle_b * 2 + 60))
 
-        def hexa_flower_sd(tls: list[ChainTurtle]) -> None:
+        def hexaflower_sd(tls: list[ChainTurtle]) -> None:
             """
             Draws six 6 petalled flowers in a hexagon pattern, with lines in between the petals, all inside a star of David
             :param tls: list of 2 chainable turtles
@@ -415,7 +419,7 @@ class Designs(metaclass=DesignsMeta):
                 SU()
 
     @staticmethod
-    def duo_triforce_request() -> list[ChainTurtle]:
+    def duo_triforce() -> list[ChainTurtle]:
         """Draws a duo triforce, triangles have corresponding colors"""
         length: float | int = helper.length_float()
 
@@ -461,16 +465,17 @@ class Designs(metaclass=DesignsMeta):
         return tls
 
     @classmethod
-    def list_designs(cls):
+    def _list_designs(cls) -> designs_dict:
         """
         Creates a dictionary with all the designs and returns it
         :return: dictionary
         """
-        dictionary = {}
+        dictionary: designs_dict = {}
+        name: str
+        item: Callable[[list[ChainTurtle]|None], list[ChainTurtle]]
         for name, item in vars(cls).items():
             if name.startswith("Turtle") and isinstance(item, type):
-                dictionary[name] = item
-                dictionary.update(class_to_dict(item))
+                dictionary.update(classes_to_dict(item))
             elif callable(item):
                 dictionary[name] = item
 
@@ -485,32 +490,12 @@ def change_shape() -> None:
         ''', ("arrow","blank","circle","classic","square","triangle","turtle"))
     UV["tls_shape"]: str = shape_choice
 
+def get_Patterns_dict() -> designs_dict:
+    return {
+        name.replace("_", " "): func
+        for name, func in Designs._list_designs().items()
+        if not name.startswith("_")
+    }
+
 # DICTIONARY: ALL COMMANDS OF MAIN MENU
-PATTERNS = {
-    "6 circles": Designs.circles6,
-    "2 spiral": Designs.duo_spiral,
-    "flower4": Designs.flower_4petals,
-    "square4": Designs.square4,
-    "squares8": Designs.squares8,
-    "squares10": Designs.squares10,
-    "flower...": Designs.flower_infinite,
-    "quadrant square": Designs.quadrant_square,
-    "multi grid4": Designs.multi_square_grid,
-    "hexa flower": Designs.hexaflower,
-    "hexa flower g": Designs.triangle_hexaflower,
-    "star of david": Designs.star_of_david,
-    "sd pattern": Designs.star_of_david_pattern,
-    "stars of david": Designs.stars_of_david_spiral,
-    "sd flower": Designs.sd_flower,
-    "sd flower3": Designs.sd_flower_triangle,
-    "flower6 sd": Designs.hexa_flower_sd,
-    "diamonds": Designs.diamond_pattern,
-    "hidden sds": Designs.hidden_stars_sd,
-    "gd reference": Designs.gd_reference,
-    "tri wheel": Designs.triangular_wheel,
-    "lotuses": Designs.lotus_pattern,
-    "turtle shape": change_shape,
-}
-REQUESTS = {
-    "duo triforce": Designs.duo_triforce_request,
-}
+PATTERNS = get_Patterns_dict()

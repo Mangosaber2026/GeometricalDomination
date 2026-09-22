@@ -1,13 +1,14 @@
-from typing import Sequence
-from collections.abc import Callable
+from typing import TypeAlias
+from collections.abc import Callable, Sequence
 from .UniversalFunctions.TypingVariables import Real
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.HelperFunctions import helper, sine
 from .UniversalFunctions.DecoratorArchive import class_decorator
-from .UniversalFunctions.ClassToDict import class_to_dict
+from .UniversalFunctions.ClassToDict import classes_to_dict
 from .TurtleSkeleton import tl
 
-return_shape = Sequence[tuple[Real,Real]] | None
+return_shape: TypeAlias = Sequence[tuple[Real,Real]] | None
+user_shape_dict: TypeAlias = dict[str, Callable[[None], return_shape]]
 
 @class_decorator(staticmethod)
 class UserShape:
@@ -57,22 +58,22 @@ class UserShape:
         return tl.get_poly()
 
     @classmethod
-    def _list_shapes(cls) -> dict[str, Callable[[None], return_shape]]:
+    def _list_shapes(cls) -> user_shape_dict:
         """
         Creates a dictionary with the functions in Alphabets and returns it
         :return: dictionary containing function names -> function
         """
-        return class_to_dict(cls)
+        return classes_to_dict(cls)
 
-def get_UserShape_dict() -> dict[str, Callable[[], return_shape]]:
+def get_UserShape_dict() -> user_shape_dict:
     """
     Takes all custom turtle functions in UserShape and returns a dictionary
     :return: dictionary
     """
     return {
         f"cm {name.removeprefix('custom_')}": func
-        for name, func in class_to_dict(UserShape).items()
+        for name, func in classes_to_dict(UserShape).items()
         if not name.startswith("_")
     }
 
-CUSTOM_SHAPES: dict[str, Callable[[], return_shape]] = get_UserShape_dict()
+CUSTOM_SHAPES: user_shape_dict = get_UserShape_dict()

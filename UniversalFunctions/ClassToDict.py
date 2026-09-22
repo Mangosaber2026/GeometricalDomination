@@ -1,15 +1,17 @@
-from typing import Callable
+from collections.abc import Callable
 
-
-def class_to_dict(cls) -> dict[str, Callable]:
-    return {
-        name: obj
-        for name, obj in vars(cls).items()
-        if callable(obj)
-    }
 
 def classes_to_dict(*classes: type) -> dict[str, Callable]:
+    """
+    Takes given classes, extracts the name + function of each class and returns a dictionary
+    :param classes:
+    :return:
+    """
     dictionary = {}
     for cls in classes:
-        dictionary.update(class_to_dict(cls))
+        dictionary.update({
+            name: obj
+            for name, obj in vars(cls).items()
+            if callable(obj)
+        })
     return dictionary

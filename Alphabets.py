@@ -6,7 +6,7 @@ from typing import TypeAlias
 from functools import wraps
 from .UniversalFunctions.HelperFunctions import sine, Real
 from .UniversalFunctions.DecoratorArchive import class_decorator
-from .UniversalFunctions.ClassToDict import classes_to_dict, class_to_dict
+from .UniversalFunctions.ClassToDict import classes_to_dict
 
 alphabet_function: TypeAlias = Callable[[Real, ChainTurtle], None]
 
@@ -416,7 +416,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.seth(direction - 90).fd(height * 0.4).lt(90)
 
     @classmethod
-    def list_alphabets(cls) -> dict[str, Callable[[Real, ChainTurtle], None]]:
+    def list_alphabets(cls) -> dict[str, alphabet_function]:
         """
         Creates a dictionary with the functions in Alphabets and returns it
         :return: dictionary containing function names -> function
@@ -429,8 +429,8 @@ def letters_functions() -> dict[str, alphabet_function]:
     :return: dictionary
     """
     return {
-        name.lower(): func
-        for name, func in class_to_dict(Alphabets.Letters).items()
+        name: func
+        for name, func in classes_to_dict(Alphabets.Letters).items()
     }
 
 letters_dict: dict[str, alphabet_function] = letters_functions()

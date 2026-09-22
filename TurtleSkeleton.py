@@ -1,6 +1,6 @@
 import turtle as tl
 from collections.abc import Callable
-from .UniversalFunctions.ClassToDict import class_to_dict
+from .UniversalFunctions.ClassToDict import classes_to_dict
 
 
 class ChainTurtle(tl.Turtle):
@@ -33,4 +33,4 @@ class ChainTurtle(tl.Turtle):
         Creates a dictionary with all ChainTurtle methods and returns it
         :return: dictionary
         """
-        return class_to_dict(cls)
+        return classes_to_dict(cls)

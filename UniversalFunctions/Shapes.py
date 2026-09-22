@@ -3,7 +3,7 @@ from ..TurtleSkeleton import ChainTurtle
 from .HelperFunctions import sine
 from .DecoratorArchive import class_decorator
 from .TypingVariables import Real
-from .ClassToDict import class_to_dict
+from .ClassToDict import classes_to_dict
 
 
 @class_decorator(staticmethod)
@@ -196,4 +196,4 @@ class Shapes:
         Creates a dictionary with all Shapes and returns it
         :return: dictionary
         """
-        return class_to_dict(self)
+        return classes_to_dict(self)

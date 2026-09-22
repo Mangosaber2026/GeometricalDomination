@@ -76,5 +76,6 @@ def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurt
 
 def reset_tls(tls_list: list[ChainTurtle]) -> None:
     """This function deletes the drawings of given turtle list + turtles"""
-    for t in tls_list: t.clear(); t.ht()
+    for t in tls_list:
+        t.clear(); t.ht()
     tls_list.clear()

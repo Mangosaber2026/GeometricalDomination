@@ -71,46 +71,43 @@ def main() -> None:
     print("There are 6 turtles in total, you can decide the trace & turtle color!"); rest(1.5)
     tls_list: list[ChainTurtle] | None = None
     while True:
-        program_choice: str = get_str('''Here are the options:
-        6 circles -> 6 circles with 6 turtles
-        2 spiral -> beautiful duo spiral
-        flower4 -> 4 flowers
+        program_choice: str = get_str('''Here are the options
+        
+        circles6 -> 6 circles with 6 turtles
+        duo spiral -> beautiful duo spiral
+        flower 4petals -> 4 flowers
         square4 -> 4 squares
-        quadrant square -> squares in each quadrant
         squares8 = 8 squares
         squares10 = squares8+twist
-        flower... -> flowers
-        multi grid4 -> square grid
-        hexa flower -> triangles(12) flower
-        hexa flower g -> triangles(12) flower + lines in the middle
+        flower infinite -> flowers
+        quadrant square -> squares in each quadrant
+        multi square grid -> square grid
+        hexaflower -> triangles(12) flower
+        tri hexaflower -> triangles(12) flower + lines in the middle
         star of david -> Star of David (SD)
         sd pattern -> SD pattern
-        stars of david -> Stars of David spiral
+        sd spiral -> Stars of David spiral
         sd flower -> flower inside SD
-        sd flower3 -> sd flower triangle formation
-        flower6 sd -> hexa flower inside SD
-        diamonds -> diamond pattern
+        sd triflower -> sd flower triangle formation
+        hexaflower sd -> hexa flower inside SD
+        diamond pattern -> diamond pattern
         hidden sds -> hidden SDs 
         gd reference -> gd reference icon
         tri wheel -> triangular wheel
-        lotuses -> lotus flower pattern
-        turtle shape -> change turtle shape
+        lotus pattern -> lotus flower pattern
+        change shape -> change turtle shape
+        duo triforce -> duo triforce from Zelda
+        
         n -> nothing
-        requests -> requested drawings
         own -> make your own design
-        Enter your choice: ''', PATTERNS, ("requests","own","n"))
+        Enter your choice: ''', PATTERNS, ("own","n"))
 
         if program_choice == "n":
             print("\nThank you very much for using Sabiq's mini Turtle DSL!!!")
             break
         if tls_list is not None: reset_tls(tls_list); SU()
 
-        if program_choice == "requests":
-            request_choice: str = get_str('''These are some requested drawings 
-                duo triforce -> zelda lore reference 
-                Enter choice: ''', REQUESTS)
-            tls_list = REQUESTS[request_choice]()
-        elif program_choice == "own":
+        if program_choice == "own":
             user_drawing_ft()
         else:
             tls_list = PATTERNS[program_choice]()

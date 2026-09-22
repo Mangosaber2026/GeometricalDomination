@@ -1,4 +1,4 @@
-from typing import Callable
+from collections.abc import Callable
 
 
 def class_decorator(decorator: Callable) -> Callable:

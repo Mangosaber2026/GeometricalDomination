@@ -4,13 +4,16 @@ from .Alphabets import ALPHABETS
 from .CustomTurtleShapes import CUSTOM_SHAPES
 from time import sleep as rest
 from collections.abc import Callable
+from typing import TypeAlias
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.StringCheck import get_str
 from .UniversalFunctions.TypingVariables import Real
 from .UniversalFunctions.HelperFunctions import helper
 from .UniversalFunctions.DecoratorArchive import class_decorator
-from .UniversalFunctions.ClassToDict import class_to_dict
+from .UniversalFunctions.ClassToDict import classes_to_dict
 from .TurtleSkeleton import tl
+
+command_dict: TypeAlias = dict[str, Callable[[None], None]]
 
 @class_decorator(staticmethod)
 class Command:
@@ -79,7 +82,7 @@ class Command:
         t_now().lt(90); x_val: Real = t_now().xcor()
         while True:
             while True:
-                text_entry: str = input("Enter text (% to exit): ").lower()
+                text_entry: str = input("Enter text (% to exit): ").upper()
                 if all(letter in ALPHABETS for letter in text_entry) or text_entry == "%":
                     break
                 else:
@@ -117,12 +120,12 @@ class Command:
         t_now().shape(user_shape)
         tl.clear(); tl.ht()
 
-    def _list_commands() -> dict:
+    def _list_commands() -> command_dict:
         """
         Creates a dictionary with all User Commands and returns it
         :return: dictionary
         """
-        return class_to_dict(Command)
+        return classes_to_dict(Command)
 
 def exec_ft() -> None:
     """Special side function ONLY for debugging purposes"""
@@ -134,14 +137,19 @@ def exec_ft() -> None:
                 break
             exec(executer); SU()
         except Exception as exception_error:
-            print(f"Invalid input! Error: {exception_error}"); rest(2)
+            print(f"Invalid input! Error: {exception_error}")
+            rest(2)
 
-def get_Command_dict():
+def get_Command_dict() -> command_dict:
+    """
+    Takes all functions from Command and returns a dictionary containing them
+    :return: dictionary
+    """
     return {
         name.removesuffix("_ft").replace("_", " "): obj
-        for name, obj in class_to_dict(Command).items()
+        for name, obj in classes_to_dict(Command).items()
         if not name.startswith("_")
     }
 
 # COMMAND STORAGE: USER PROGRAM
-COMMANDS: dict[str, Callable[[], None]] = get_Command_dict()
+COMMANDS: command_dict = get_Command_dict()
