@@ -3,8 +3,6 @@ from .Designs import *
 from .UserCommands import *
 from .GlobalFunctions import reset_tls
 from .UniversalFunctions.StringCheck import get_str
-from time import sleep as rest
-from .GlobalVariables import *
 from .Shapes_Dictionary import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
 
 # //////////////////////////////////////
@@ -45,6 +43,9 @@ def user_drawing_ft() -> None:
             poly fill -> polygon + fill
             lotus -> 12 petal flower
             writer -> text writer
+            
+            if you're an experienced programmer and know the program inside out, then here's another option:
+            exec -> pythons execution function
             Enter choice: ''', COMMANDS, SHAPES_LENGTH, SHAPES_LENGTH_SIDES, SHAPES_RADIUS, ("n","exec"))
 
         if user_choice in COMMANDS:

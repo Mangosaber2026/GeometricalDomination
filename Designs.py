@@ -1,16 +1,15 @@
 from .GlobalFunctions import SU, tls_color
-from .GlobalVariables import UV
 from .Shapes_Dictionary import Shapes
 from .TurtleSkeleton import ChainTurtle
 from math import pi, sqrt, degrees, asin
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.HelperFunctions import helper, sine, range_f
-from .UniversalFunctions.StringCheck import get_str
 from .UniversalFunctions.ClassToDict import classes_to_dict
 from collections.abc import Callable
 from typing import TypeAlias
+from .TurtleFunctions import TurtleFct
 
-designs_dict: TypeAlias = dict[str, Callable[[list[ChainTurtle]|None], list[ChainTurtle]]]
+designs_dict: TypeAlias = dict[str, Callable[[list[ChainTurtle]], list[ChainTurtle] | None]]
 
 def turtles(amount: int):
     """
@@ -31,13 +30,16 @@ def turtles(amount: int):
     return decorator
 
 def designs_decorator(cls):
-    for class_name, design_class in vars(cls).items():
-        if isinstance(design_class, type) and class_name.startswith("Turtle"):
-            amount = design_class.TURTLE_COUNT
+    for name, item in vars(cls).items():
+        if isinstance(item, type) and name.startswith("Turtle"):
+            amount = item.TURTLE_COUNT
 
-            for func_name, func in vars(design_class).items():
-                if callable(func):
-                    setattr(design_class, func_name, staticmethod(turtles(amount)(func)))
+            for func_name, func in vars(item).items():
+                if not func_name.startswith("_") and callable(func):
+                    setattr(item, func_name, staticmethod(turtles(amount)(func)))
+
+        elif not name.startswith("_") and callable(item):
+            setattr(item, name, staticmethod(item))
 
     return cls
 
@@ -418,7 +420,6 @@ class Designs(metaclass=DesignsMeta):
                     tls[b].fd(step).rt(1)
                 SU()
 
-    @staticmethod
     def duo_triforce() -> list[ChainTurtle]:
         """Draws a duo triforce, triangles have corresponding colors"""
         length: float | int = helper.length_float()
@@ -444,7 +445,6 @@ class Designs(metaclass=DesignsMeta):
         SU()
         return tls
 
-    @staticmethod
     def flower_infinite() -> list[ChainTurtle]:
         """Draws a customized flower: petals + circles number"""
         tls: list[ChainTurtle]
@@ -466,12 +466,7 @@ class Designs(metaclass=DesignsMeta):
 
     def change_shape() -> None:
         """Changes the shape of the turtle according to user input"""
-        shape_choice: str = get_str('''
-            Which shape?
-            arrow, blank, circle, classic, square, triangle, turtle
-            Enter choice: 
-            ''', ("arrow","blank","circle","classic","square","triangle","turtle"))
-        UV["tls_shape"]: str = shape_choice
+        TurtleFct.change_shape()
 
     @classmethod
     def _list_designs(cls) -> designs_dict:

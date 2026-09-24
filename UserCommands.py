@@ -1,19 +1,17 @@
 from .GlobalVariables import t_now, UV
 from .GlobalFunctions import SU, tls_color
 from .Alphabets import ALPHABETS
-from .CustomTurtleShapes import CUSTOM_SHAPES
 from time import sleep as rest
 from collections.abc import Callable
 from typing import TypeAlias
 from .UniversalFunctions.GetVariable import get_num
-from .UniversalFunctions.StringCheck import get_str
 from .UniversalFunctions.TypingVariables import Real
 from .UniversalFunctions.HelperFunctions import helper
 from .UniversalFunctions.DecoratorArchive import class_decorator
 from .UniversalFunctions.ClassToDict import classes_to_dict
-from .TurtleSkeleton import tl
+from .TurtleFunctions import TurtleFct
 
-command_dict: TypeAlias = dict[str, Callable[[None], None]]
+command_dict: TypeAlias = dict[str, Callable[[], None]]
 
 @class_decorator(staticmethod)
 class Command:
@@ -101,28 +99,7 @@ class Command:
 
     def change_shape() -> None:
         """Lets the user choose different turtles shapes, including a custom option"""
-        turtle_shapes_list: list[str] = tl.getshapes()
-        user_shape: str = get_str(f'''
-            Here are the options for the turtle shape:
-            {turtle_shapes_list}
-            Enter choice: ''', turtle_shapes_list, "custom")
-        if user_shape in turtle_shapes_list:
-            t_now().shape(user_shape)
-        else:
-            Command._user_tls_shape_ft()
-
-    def _user_tls_shape_ft() -> None:
-        """Lets the user create custom turtle shapes"""
-        user_shape: str = get_str('''
-            Here are some custom options:
-            cm circle, cm square, cm triangle, cm poly, cm sod (star of David)
-            Enter choice: 
-            ''', CUSTOM_SHAPES)
-        tl.home()
-        shape_made = CUSTOM_SHAPES[user_shape]()
-        tl.addshape(user_shape, shape_made)
-        t_now().shape(user_shape)
-        tl.clear(); tl.ht()
+        TurtleFct.change_shape(tls_num = t_now())
 
     def _list_commands() -> command_dict:
         """

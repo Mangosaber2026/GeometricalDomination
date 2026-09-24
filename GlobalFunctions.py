@@ -1,4 +1,3 @@
-from typing import overload
 from .UniversalFunctions.GetVariable import get_num
 from .TurtleSkeleton import tl, ChainTurtle
 from .GlobalVariables import t_shape, UV
@@ -13,21 +12,11 @@ def SU() -> None:
     global screen
     screen.update()
 
-@overload
-def tls_color(*, tl_num: int) -> list[ChainTurtle]: ...
-
-@overload
-def tls_color(*, entry: str) -> tuple[list[ChainTurtle], int]: ...
-
-@overload
-def tls_color(*, entry: str, index: int) -> int: ...
-
-@overload
-def tls_color(*, index: int) -> int: ...
-
 def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurtle] | None:
     """This function creates a turtle list with their colors or adds newly creates turtles to the UV["tls"] list
     to be used for the user_drawing_ft()
+
+    USERS NOTICE: it is HIGHLY recommended to NOT enter a turtles count of MORE than a few hundred (max. 200) unless required!!!
     :param options: tl_num -> number of turtles to create, entry -> input string, index -> number of turtles to be created for user_drawing_ft()
     & it returns the index of the last turtle
     :return: tls_num: turtle list with colored turtles, entry: list with colored turtles + number of turtles ,otherwise: index of last turtle

@@ -196,4 +196,4 @@ class Shapes:
         Creates a dictionary with all Shapes and returns it
         :return: dictionary
         """
-        return classes_to_dict(self)
+        return classes_to_dict(Shapes)

@@ -110,7 +110,6 @@ class Alphabets(metaclass=AlphabetsMeta):
             :param tls: a ChainTurtle
             """
             tls.rt(90).fd_inv(height/2).lt(90).fd_inv(height).lt(90).circle(height/2, 180).lt(90).fd(height/2).lt(90).fd(height*0.3).rt(180).fd_inv(height*0.4).lt(90).bk_inv(height/2)
-            print("Excuse the G, it isn't in the best condition...")
 
         def H(height: Real, tls: ChainTurtle) -> None:
             """
@@ -425,7 +424,7 @@ class Alphabets(metaclass=AlphabetsMeta):
         name: str
         item: alphabet_function
         for name, item in vars(cls).items():
-            if not isinstance(item, type):
+            if not isinstance(item, type) and isinstance(item, Callable):
                 dictionary[name] = item
 
         return dictionary

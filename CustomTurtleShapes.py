@@ -8,7 +8,7 @@ from .UniversalFunctions.ClassToDict import classes_to_dict
 from .TurtleSkeleton import tl
 
 return_shape: TypeAlias = Sequence[tuple[Real,Real]] | None
-user_shape_dict: TypeAlias = dict[str, Callable[[None], return_shape]]
+user_shape_dict: TypeAlias = dict[str, Callable[[], return_shape]]
 
 @class_decorator(staticmethod)
 class UserShape:
@@ -60,7 +60,7 @@ class UserShape:
     @classmethod
     def _list_shapes(cls) -> user_shape_dict:
         """
-        Creates a dictionary with the functions in Alphabets and returns it
+        Creates a dictionary with the functions in UserShape and returns it
         :return: dictionary containing function names -> function
         """
         return classes_to_dict(cls)
