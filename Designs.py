@@ -5,6 +5,7 @@ from math import pi, sqrt, degrees, asin
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.HelperFunctions import helper, sine, range_f
 from .UniversalFunctions.ClassToDict import classes_to_dict
+from .UniversalFunctions.FctInputValidators import validate
 from collections.abc import Callable
 from typing import TypeAlias
 from .TurtleFunctions import TurtleFct
@@ -17,9 +18,8 @@ def turtles(amount: int):
     Takes a given number of turtles, gets their colors from the user and executes the function
     :param amount: number of turtles > 0
     """
-    if not isinstance(amount, int):
-        raise TypeError("Number of turtles must be an integer > 0")
-    elif amount <= 0:
+    validate(amount, int, "amount")
+    if amount <= 0:
         raise ValueError("Number of turtles must be greater than 0!!!")
     def decorator(func):
         def wrapper():

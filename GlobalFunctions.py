@@ -3,6 +3,7 @@ from .TurtleSkeleton import tl, ChainTurtle
 from .GlobalVariables import t_shape, UV
 from turtle import TurtleGraphicsError
 from time import sleep as rest
+from .UniversalFunctions.FctInputValidators import validate
 
 screen = tl.Screen()
 screen.getcanvas().winfo_toplevel().state("zoomed")
@@ -22,19 +23,16 @@ def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurt
     :return: tls_num: turtle list with colored turtles, entry: list with colored turtles + number of turtles ,otherwise: index of last turtle
     """
     if "tl_num" in options:
-        if not isinstance(options["tl_num"], int):
-            raise TypeError("tl_num must be an integer > 0")
-        elif options["tl_num"] <= 0:
+        validate(options["tl_num"], int, "tl_num")
+        if options["tl_num"] <= 0:
             raise ValueError("tl_num must be greater than 0")
         turtles_num_count = options["tl_num"]
     elif "entry" in options:
-        if not isinstance(options["entry"], str):
-            raise TypeError("entry must be a string")
+        validate(options["entry"], int, "entry")
         turtles_num_count = get_num(int, options["entry"], MIN=1)
     elif "index" in options:
-        if not isinstance(options["index"], int):
-            raise TypeError("index must be an integer > 0")
-        elif options["index"] <= 0:
+        validate(options["index"], int, "index")
+        if options["index"] <= 0:
             raise ValueError("index must be greater than 0")
         turtles_num_count = options["index"]
     else:
@@ -65,6 +63,7 @@ def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurt
 
 def reset_tls(tls_list: list[ChainTurtle]) -> None:
     """This function deletes the drawings of given turtle list + turtles"""
+    validate(tls_list, list[ChainTurtle], "tls_list")
     for t in tls_list:
         t.clear(); t.ht()
     tls_list.clear()

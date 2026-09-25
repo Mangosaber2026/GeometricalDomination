@@ -7,6 +7,7 @@ from functools import wraps
 from .UniversalFunctions.HelperFunctions import sine, Real
 from .UniversalFunctions.DecoratorArchive import class_decorator
 from .UniversalFunctions.ClassToDict import classes_to_dict
+from .UniversalFunctions.FctInputValidators import validate
 
 alphabet_function: TypeAlias = Callable[[Real, ChainTurtle], None]
 
@@ -32,10 +33,8 @@ def alphabet_guard(func: alphabet_function) -> alphabet_function:
     """
     @wraps(func)
     def wrapper(height: Real, tls: ChainTurtle) -> None:
-        if not isinstance(height, Real):
-            raise TypeError("height must be a real number")
-        if not isinstance(tls, ChainTurtle):
-            raise TypeError("tls must be a ChainTurtle object")
+        validate(height, Real, "height")
+        validate(tls, ChainTurtle, "tls")
 
         return func(height, tls)
     return wrapper

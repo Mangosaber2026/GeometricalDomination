@@ -1,4 +1,5 @@
 from time import sleep as rest
+from .FctInputValidators import validate
 
 
 def get_str(str_input: str, *check_values: str|dict|list|tuple) -> str:
@@ -7,14 +8,12 @@ def get_str(str_input: str, *check_values: str|dict|list|tuple) -> str:
     :param str_input: input string
     :param check_values: allowed string values (all lowercase), options: str, dict, list, tuple
     """
-    if not isinstance(str_input, str):
-        raise TypeError("str_input must be a string")
+    validate(str_input, str, "str_input")
 
     while True:
         value: str = input(str_input).lower()
         for check in check_values:
-            if not isinstance(check, (str, dict, list, tuple)):
-                raise TypeError("check_values must be a string, dict, list, or tuple")
+            validate(check, (str, dict, list, tuple), "check")
             if isinstance(check, str) and check == value:
                 return value
             elif isinstance(check, (dict, list, tuple)) and value in check:

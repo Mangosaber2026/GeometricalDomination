@@ -1,4 +1,5 @@
 from collections.abc import Callable
+from .FctInputValidators import validate
 
 
 def classes_to_dict(*classes: type) -> dict[str, Callable]:
@@ -9,6 +10,8 @@ def classes_to_dict(*classes: type) -> dict[str, Callable]:
     """
     dictionary = {}
     for cls in classes:
+        validate(cls, type, "class")
+
         dictionary.update({
             name: obj
             for name, obj in vars(cls).items()

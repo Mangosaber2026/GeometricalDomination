@@ -4,10 +4,18 @@ from .HelperFunctions import sine
 from .DecoratorArchive import class_decorator
 from .TypingVariables import Real
 from .ClassToDict import classes_to_dict
+from .FctInputValidators import validation_deco
 
+class ShapesMeta(type):
+    def __new__(mcls, name, bases, namespace) -> type:
+        for func_name, func in namespace.items():
+            if callable(func) and not func_name.startswith("_"):
+                namespace[func_name] = validation_deco(func)
+
+        return super().__new__(mcls, name, bases, namespace)
 
 @class_decorator(staticmethod)
-class Shapes:
+class Shapes(metaclass=ShapesMeta):
 # ====== STAR OF DAVID ======
     def SOD(side: Real,tls_num: ChainTurtle) -> None:
         """
@@ -191,7 +199,7 @@ class Shapes:
         """
         tls_num.begin_fill(); Shapes.polygon(length,sides,tls_num); tls_num.end_fill()
 
-    def list_shapes() -> dict:
+    def _list_shapes() -> dict:
         """
         Creates a dictionary with all Shapes and returns it
         :return: dictionary

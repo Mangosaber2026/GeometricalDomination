@@ -1,6 +1,8 @@
 from collections.abc import Callable
+from .FctInputValidators import validation_deco
 
 
+@validation_deco
 def class_decorator(decorator: Callable) -> Callable:
     """
     DECORATOR!!   Creates a class decorator that applies the given decorator to every user defined function
