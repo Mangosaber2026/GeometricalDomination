@@ -15,3 +15,19 @@ def class_decorator(decorator: Callable) -> Callable:
                 setattr(cls, name, decorator(func))
         return cls
     return inner
+
+def deco_superposition(*decorators) -> Callable:
+    """
+    DECORATOR! this decorator takes multiple decorators and applies them to the given function the same way python would naturally
+    :param decorators: decorator functions
+    :return: supplied function
+    """
+
+    if not all(callable(decorator) for decorator in decorators):
+        raise TypeError("All decorators must be callable")
+    def inner_deco(func):
+        for decorator in reversed(decorators):
+            func = decorator(func)
+
+        return func
+    return inner_deco
