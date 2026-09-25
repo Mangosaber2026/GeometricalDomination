@@ -5,7 +5,7 @@ from .GetVariable import get_num
 from .DecoratorArchive import class_decorator
 from .TypingVariables import Real
 from .ClassToDict import classes_to_dict
-from .FctInputValidators import validation_deco
+from .Validators.FctInputValidators import validation_deco
 
 
 @class_decorator(staticmethod)

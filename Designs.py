@@ -5,7 +5,7 @@ from math import pi, sqrt, degrees, asin
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.HelperFunctions import helper, sine, range_f
 from .UniversalFunctions.ClassToDict import classes_to_dict
-from .UniversalFunctions.FctInputValidators import validate
+from .UniversalFunctions.Validators.FctInputValidators import validate
 from collections.abc import Callable
 from typing import TypeAlias
 from .TurtleFunctions import TurtleFct

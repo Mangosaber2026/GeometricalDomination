@@ -6,7 +6,7 @@ from typing import TypeAlias
 from .UniversalFunctions.HelperFunctions import sine, Real
 from .UniversalFunctions.DecoratorArchive import class_decorator
 from .UniversalFunctions.ClassToDict import classes_to_dict
-from .UniversalFunctions.FctInputValidators import validation_deco
+from .UniversalFunctions.Validators.FctInputValidators import validation_deco
 
 alphabet_function: TypeAlias = Callable[[Real, ChainTurtle], None]
 

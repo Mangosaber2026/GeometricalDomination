@@ -1,5 +1,5 @@
 from time import sleep as rest
-from .FctInputValidators import validate, validation_deco
+from .Validators.FctInputValidators import validate, validation_deco
 
 
 @validation_deco

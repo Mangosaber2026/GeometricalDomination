@@ -1,5 +1,5 @@
 from collections.abc import Callable
-from .FctInputValidators import validation_deco
+from .Validators.FctInputValidators import validation_deco
 
 
 @validation_deco

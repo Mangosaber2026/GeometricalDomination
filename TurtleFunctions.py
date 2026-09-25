@@ -2,7 +2,7 @@ from .CustomTurtleShapes import CUSTOM_SHAPES
 from .TurtleSkeleton import tl, ChainTurtle
 from .UniversalFunctions.StringCheck import get_str
 from .GlobalVariables import UV
-from .UniversalFunctions.FctInputValidators import validation_deco
+from .UniversalFunctions.Validators.FctInputValidators import validation_deco
 
 def turtlefct_deco(decorator):
     def wrapper(func):

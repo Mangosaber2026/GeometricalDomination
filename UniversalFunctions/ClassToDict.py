@@ -1,5 +1,5 @@
 from collections.abc import Callable
-from .FctInputValidators import validate
+from .Validators.FctInputValidators import validate
 
 
 def classes_to_dict(*classes: type) -> dict[str, Callable]:
