@@ -3,14 +3,14 @@ from collections.abc import Callable, Sequence
 from .UniversalFunctions.TypingVariables import Real
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.HelperFunctions import helper, sine
-from .UniversalFunctions.DecoratorArchive import class_decorator
+from .UniversalFunctions.DecoratorArchive import cls_deco_superposition
 from .UniversalFunctions.ClassToDict import classes_to_dict
 from .TurtleSkeleton import tl
 
 return_shape: TypeAlias = Sequence[tuple[Real,Real]] | None
 user_shape_dict: TypeAlias = dict[str, Callable[[], return_shape]]
 
-@class_decorator(staticmethod)
+@cls_deco_superposition(staticmethod)
 class UserShape:
     def custom_circle() -> return_shape:
         """Creates a custom circle turtle shape"""

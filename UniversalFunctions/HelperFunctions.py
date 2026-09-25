@@ -2,13 +2,13 @@ from typing import Any, Annotated
 from collections.abc import Generator
 from math import sqrt, sin, radians
 from .GetVariable import get_num
-from .DecoratorArchive import class_decorator
+from .DecoratorArchive import cls_deco_superposition
 from .TypingVariables import Real
 from .ClassToDict import classes_to_dict
 from .Validators.FctInputValidators import validation_deco
 
 
-@class_decorator(staticmethod)
+@cls_deco_superposition(staticmethod)
 class HelperFunctions:
 
     def intervals_f() -> Real:

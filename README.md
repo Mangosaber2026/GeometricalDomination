@@ -18,7 +18,7 @@ The project is structured as a Python package and there is no main version yet.
 * Custom turtle shapes `User`
 * User-defined drawing commands `Command`
 * Utility and validation functions `UniversalFunctions (package)`
-* Reusable decorators `class_decorator`
+* Reusable decorators `cls_deco_superposition`
 * Support for multiple turtles `Globalfunctions`
 * Tools for creating complex turtle-based drawings `Designs`
 

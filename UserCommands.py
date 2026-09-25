@@ -7,13 +7,13 @@ from typing import TypeAlias
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.TypingVariables import Real
 from .UniversalFunctions.HelperFunctions import helper
-from .UniversalFunctions.DecoratorArchive import class_decorator
+from .UniversalFunctions.DecoratorArchive import cls_deco_superposition
 from .UniversalFunctions.ClassToDict import classes_to_dict
 from .TurtleFunctions import TurtleFct
 
 command_dict: TypeAlias = dict[str, Callable[[], None]]
 
-@class_decorator(staticmethod)
+@cls_deco_superposition(staticmethod)
 class Command:
     def fd_ft() -> None:
         """Forward function for turtle"""

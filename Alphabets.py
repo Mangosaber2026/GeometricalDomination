@@ -4,7 +4,7 @@ from .Shapes_Dictionary import Shapes
 from collections.abc import Callable
 from typing import TypeAlias
 from .UniversalFunctions.HelperFunctions import sine, Real
-from .UniversalFunctions.DecoratorArchive import class_decorator
+from .UniversalFunctions.DecoratorArchive import cls_deco_superposition
 from .UniversalFunctions.ClassToDict import classes_to_dict
 from .UniversalFunctions.Validators.FctInputValidators import validation_deco
 
@@ -24,16 +24,23 @@ class AlphabetsMeta(type):
 
         raise AttributeError(f"{cls.__name__} has no attribute {func!r}")
 
-def alphabet_method(func: alphabet_function) -> Callable:
+def alphabets_main_deco(cls):
     """
-    Takes each alphabet function and apply staticmethod and alphabet_guard to it
-    :param func: alphabet function
-    :return: decorated function
+    Takes the Alphabets class and transforms it's subclasses Letters, Punctuation and Shapes with
+    the decorators staticmethod and validation_deco
+    :param cls: Alphabets class
+    :return: decorated Alphabets class
     """
-    return staticmethod(validation_deco(func))
+    for category in (
+        cls.Letters,
+        cls.Punctuation,
+        cls.Shapes,
+    ):
+        cls_deco_superposition(staticmethod, validation_deco)(category)
+    return cls
 
+@alphabets_main_deco
 class Alphabets(metaclass=AlphabetsMeta):
-    @class_decorator(alphabet_method)
     class Letters:
         def A(height: Real, tls: ChainTurtle) -> None:
             """
@@ -260,7 +267,6 @@ class Alphabets(metaclass=AlphabetsMeta):
             side_a = height / sine(50); side_b = sqrt(side_a**2 - height**2)
             tls.fd_inv(height).rt(90).fd(side_b).rt(130).fd(side_a).lt(130).fd(side_b).fd_inv(height/10).lt(90)
 
-    @class_decorator(alphabet_method)
     class Punctuation:
         def space(height: Real, tls: ChainTurtle) -> None:
             """
@@ -324,7 +330,6 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.begin_fill().rt(180).fd(height*0.05).circle(-height*0.05, 90).lt(90).fd(height*0.05).lt(90)
             tls.circle(height*0.1, 90).fd(height*0.05).lt(90).fd(height*0.05).end_fill().rt(180).fd_inv(height*0.15).lt(90)
 
-    @class_decorator(alphabet_method)
     class Shapes:
         def plus(height: Real, tls: ChainTurtle) -> None:
             """

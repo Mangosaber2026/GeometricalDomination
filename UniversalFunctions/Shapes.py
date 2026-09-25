@@ -1,7 +1,7 @@
 from typing import Literal
 from ..TurtleSkeleton import ChainTurtle
 from .HelperFunctions import sine
-from .DecoratorArchive import class_decorator
+from .DecoratorArchive import cls_deco_superposition
 from .TypingVariables import Real
 from .ClassToDict import classes_to_dict
 from .Validators.FctInputValidators import validation_deco
@@ -14,7 +14,7 @@ class ShapesMeta(type):
 
         return super().__new__(mcls, name, bases, namespace)
 
-@class_decorator(staticmethod)
+@cls_deco_superposition(staticmethod)
 class Shapes(metaclass=ShapesMeta):
 # ====== STAR OF DAVID ======
     def SOD(side: Real,tls_num: ChainTurtle) -> None:
