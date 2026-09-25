@@ -3,11 +3,10 @@ from math import sqrt, cos, asin, radians, degrees
 from .Shapes_Dictionary import Shapes
 from collections.abc import Callable
 from typing import TypeAlias
-from functools import wraps
 from .UniversalFunctions.HelperFunctions import sine, Real
 from .UniversalFunctions.DecoratorArchive import class_decorator
 from .UniversalFunctions.ClassToDict import classes_to_dict
-from .UniversalFunctions.FctInputValidators import validate
+from .UniversalFunctions.FctInputValidators import validation_deco
 
 alphabet_function: TypeAlias = Callable[[Real, ChainTurtle], None]
 
@@ -25,27 +24,13 @@ class AlphabetsMeta(type):
 
         raise AttributeError(f"{cls.__name__} has no attribute {func!r}")
 
-def alphabet_guard(func: alphabet_function) -> alphabet_function:
-    """
-    Takes the given alphabet function, checks it's inputs, and returns it
-    :param func: alphabet function
-    :return: decorated function
-    """
-    @wraps(func)
-    def wrapper(height: Real, tls: ChainTurtle) -> None:
-        validate(height, Real, "height")
-        validate(tls, ChainTurtle, "tls")
-
-        return func(height, tls)
-    return wrapper
-
 def alphabet_method(func: alphabet_function) -> Callable:
     """
     Takes each alphabet function and apply staticmethod and alphabet_guard to it
     :param func: alphabet function
     :return: decorated function
     """
-    return staticmethod(alphabet_guard(func))
+    return staticmethod(validation_deco(func))
 
 class Alphabets(metaclass=AlphabetsMeta):
     @class_decorator(alphabet_method)

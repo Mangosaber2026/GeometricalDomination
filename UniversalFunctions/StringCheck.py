@@ -1,15 +1,14 @@
 from time import sleep as rest
-from .FctInputValidators import validate
+from .FctInputValidators import validate, validation_deco
 
 
+@validation_deco
 def get_str(str_input: str, *check_values: str|dict|list|tuple) -> str:
     """
     Checks whether the input string matches the allowed values (*check_values)
     :param str_input: input string
     :param check_values: allowed string values (all lowercase), options: str, dict, list, tuple
     """
-    validate(str_input, str, "str_input")
-
     while True:
         value: str = input(str_input).lower()
         for check in check_values:

@@ -5,6 +5,7 @@ from .GetVariable import get_num
 from .DecoratorArchive import class_decorator
 from .TypingVariables import Real
 from .ClassToDict import classes_to_dict
+from .FctInputValidators import validation_deco
 
 
 @class_decorator(staticmethod)
@@ -45,13 +46,12 @@ class HelperFunctions:
         row_count: int = get_num(int, "Enter row pairs count(ℕ≥1): ", MIN=1)
         return row_count
 
+    @validation_deco
     def diameter_sq(length: Real) -> tuple[Real,Real]:
         """
         Calculates the diameter of a square with given length
         :return: diameter, diameter/2
         """
-        if not isinstance(length, Real):
-            raise TypeError("Length must be a real number")
         if length <= 0:
             raise ValueError("Length must be greater than 0")
 
@@ -77,13 +77,12 @@ class HelperFunctions:
 
 helper = HelperFunctions
 
+@validation_deco
 def sine(angle: Real) -> Real:
     """
     Calculates the sine of a given angle
     :param angle: value required in degrees
     """
-    if not isinstance(angle, Real):
-        raise TypeError("Angle must be a real number!")
     return sin(radians(angle))
 
 def range_f(start: Real,stop: Annotated[Real, "stop >= start"],step: Annotated[Real, "step > 0"]) -> Generator[Real,Any,None]:

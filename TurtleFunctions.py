@@ -2,9 +2,15 @@ from .CustomTurtleShapes import CUSTOM_SHAPES
 from .TurtleSkeleton import tl, ChainTurtle
 from .UniversalFunctions.StringCheck import get_str
 from .GlobalVariables import UV
+from .UniversalFunctions.FctInputValidators import validation_deco
+
+def turtlefct_deco(decorator):
+    def wrapper(func):
+        return decorator(validation_deco(func))
+    return wrapper
 
 class TurtleFct:
-    @classmethod
+    @turtlefct_deco(classmethod)
     def change_shape(cls, tls_num: None|ChainTurtle = None) -> None:
         """Lets the user choose different turtles shapes, including a custom option"""
         turtle_shapes_list: list[str] = tl.getshapes()
@@ -24,7 +30,7 @@ class TurtleFct:
             else:
                 cls._user_tls_shape_ft()
 
-    @staticmethod
+    @turtlefct_deco(staticmethod)
     def _user_tls_shape_ft(tls_num: None|ChainTurtle = None) -> None:
         """Lets the user create custom turtle shapes"""
         user_shape: str = get_str(f'''
