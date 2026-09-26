@@ -63,8 +63,8 @@ def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurt
 
 def reset_tls(tls_list: list[ChainTurtle]) -> None:
     """This function deletes the drawings of given turtle list + turtles"""
-    if not all(isinstance(turtle, ChainTurtle) for turtle in tls_list):
-        raise TypeError("All objects in the list must be of type ChainTurtle!")
+    for turtle in tls_list:
+        validate(turtle, ChainTurtle, "turtle")
 
     for t in tls_list:
         t.clear(); t.ht()

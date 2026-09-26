@@ -7,9 +7,6 @@ def cls_deco_superposition(*decorators: Callable) -> Callable:
     :param decorator: provided decorator function
     :return: a class decorator that transforms the class (& it's functions) and returns it
     """
-    if not all(callable(decorator) for decorator in decorators):
-        raise TypeError("All decorators must be callable")
-
     deco_composer = deco_superposition(*decorators)
 
     def inner(cls):

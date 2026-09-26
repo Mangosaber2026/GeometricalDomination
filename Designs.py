@@ -9,6 +9,7 @@ from .UniversalFunctions.Validators.FctInputValidators import validate
 from collections.abc import Callable
 from typing import TypeAlias
 from .TurtleFunctions import TurtleFct
+from functools import wraps
 
 designs_dict: TypeAlias = dict[str, Callable[[list[ChainTurtle]], list[ChainTurtle] | None]]
 
@@ -22,6 +23,7 @@ def turtles(amount: int):
     if amount <= 0:
         raise ValueError("Number of turtles must be greater than 0!!!")
     def decorator(func):
+        @wraps(func)
         def wrapper():
             tls: list[ChainTurtle] = tls_color(tl_num=amount)
             func(tls)
@@ -493,4 +495,4 @@ def get_Patterns_dict() -> designs_dict:
     }
 
 # DICTIONARY: ALL COMMANDS OF MAIN MENU
-PATTERNS = get_Patterns_dict()
+PATTERNS: dict[str, Callable[[list[ChainTurtle]], list[ChainTurtle]|None]] = get_Patterns_dict()

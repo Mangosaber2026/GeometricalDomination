@@ -4,7 +4,7 @@ from inspect import signature
 from functools import wraps
 
 
-def validate(value: Any, TYPE: type|tuple[type, ...], name: str = "value") -> None:
+def validate(value: Any, TYPE: type|tuple[type, ...], name: str = "value") -> bool:
     """
     Takes a value and validates it against the given type and name
     :param value: given value
@@ -28,8 +28,9 @@ def validate(value: Any, TYPE: type|tuple[type, ...], name: str = "value") -> No
             type_name = TYPE.__name__
 
         raise TypeError(f"{name!r} must be a {type_name!r} value, not {type(value).__name__!r}!")
+    return True
 
-def validate_func(func: Callable, *args, **kwargs) -> None:
+def validate_func(func: Callable, *args, **kwargs) -> bool:
     """
     Takes a function and it's arguments and validates it against the given type of the arguments
     :param func: given function
@@ -45,6 +46,7 @@ def validate_func(func: Callable, *args, **kwargs) -> None:
 
         if parameter.annotation is not parameter.empty:
             validate(value, parameter.annotation, name)
+    return True
 
 def validation_deco(func) -> Callable:
     """
