@@ -5,7 +5,7 @@ from .GetVariable import get_num
 from .DecoratorArchive import cls_deco_superposition
 from .TypingVariables import Real
 from .ClassToDict import classes_to_dict
-from .Validators.FctInputValidators import validation_deco
+from .Validators.QuantumFuncValidators import qtm_validation_decorator
 
 
 @cls_deco_superposition(staticmethod)
@@ -46,7 +46,7 @@ class HelperFunctions:
         row_count: int = get_num(int, "Enter row pairs count(ℕ≥1): ", MIN=1)
         return row_count
 
-    @validation_deco
+    @qtm_validation_decorator
     def diameter_sq(length: Real) -> tuple[Real,Real]:
         """
         Calculates the diameter of a square with given length
@@ -77,7 +77,7 @@ class HelperFunctions:
 
 helper = HelperFunctions
 
-@validation_deco
+@qtm_validation_decorator
 def sine(angle: Real) -> Real:
     """
     Calculates the sine of a given angle

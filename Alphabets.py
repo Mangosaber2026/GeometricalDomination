@@ -6,7 +6,7 @@ from typing import TypeAlias
 from .UniversalFunctions.HelperFunctions import sine, Real
 from .UniversalFunctions.DecoratorArchive import cls_deco_superposition
 from .UniversalFunctions.ClassToDict import classes_to_dict
-from .UniversalFunctions.Validators.FctInputValidators import validation_deco
+from .UniversalFunctions.Validators.QuantumFuncValidators import qtm_validation_decorator
 
 alphabet_function: TypeAlias = Callable[[Real, ChainTurtle], None]
 
@@ -27,7 +27,7 @@ class AlphabetsMeta(type):
 def alphabets_main_deco(cls):
     """
     Takes the Alphabets class and transforms it's subclasses Letters, Punctuation and Shapes with
-    the decorators staticmethod and validation_deco
+    the decorators staticmethod and qtm_validation_decorator
     :param cls: Alphabets class
     :return: decorated Alphabets class
     """
@@ -36,7 +36,7 @@ def alphabets_main_deco(cls):
         cls.Punctuation,
         cls.Shapes,
     ):
-        cls_deco_superposition(staticmethod, validation_deco)(category)
+        cls_deco_superposition(staticmethod, qtm_validation_decorator)(category)
     return cls
 
 @alphabets_main_deco

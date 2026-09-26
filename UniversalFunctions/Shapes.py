@@ -4,13 +4,14 @@ from .HelperFunctions import sine
 from .DecoratorArchive import cls_deco_superposition
 from .TypingVariables import Real
 from .ClassToDict import classes_to_dict
-from .Validators.FctInputValidators import validation_deco
+from .Validators.QuantumFuncValidators import qtm_validation_decorator
+
 
 class ShapesMeta(type):
     def __new__(mcls, name, bases, namespace) -> type:
         for func_name, func in namespace.items():
             if callable(func) and not func_name.startswith("_"):
-                namespace[func_name] = validation_deco(func)
+                namespace[func_name] = qtm_validation_decorator(func)
 
         return super().__new__(mcls, name, bases, namespace)
 

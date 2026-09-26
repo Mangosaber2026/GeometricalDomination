@@ -1,8 +1,9 @@
 from time import sleep as rest
-from .Validators.FctInputValidators import validate, validation_deco
+from .Validators.FctInputValidators import validate
+from .Validators.QuantumFuncValidators import qtm_validation_decorator
 
 
-@validation_deco
+@qtm_validation_decorator
 def get_str(str_input: str, *check_values: str|dict|list|tuple) -> str:
     """
     Checks whether the input string matches the allowed values (*check_values)

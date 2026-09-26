@@ -2,13 +2,17 @@ from .CustomTurtleShapes import CUSTOM_SHAPES
 from .TurtleSkeleton import tl, ChainTurtle
 from .UniversalFunctions.StringCheck import get_str
 from .GlobalVariables import UV
-from .UniversalFunctions.Validators.FctInputValidators import validation_deco
+from .UniversalFunctions.Validators.QuantumFuncValidators import qtm_validation_decorator
 from .UniversalFunctions.DecoratorArchive import deco_superposition
 
 class TurtleFct:
-    @deco_superposition(classmethod, validation_deco)
+    @deco_superposition(classmethod, qtm_validation_decorator)
     def change_shape(cls, tls_num: None|ChainTurtle = None) -> None:
-        """Lets the user choose different turtles shapes, including a custom option"""
+        """
+        Lets the user choose different turtles shapes, including a custom option
+        :param tls_num: None|ChainTurtle
+        :return: None
+        """
         turtle_shapes_list: list[str] = tl.getshapes()
         user_shape: str = get_str(f'''
             Here are the options for the turtle shape:
@@ -26,9 +30,13 @@ class TurtleFct:
             else:
                 cls._user_tls_shape_ft()
 
-    @deco_superposition(staticmethod, validation_deco)
+    @deco_superposition(staticmethod, qtm_validation_decorator)
     def _user_tls_shape_ft(tls_num: None|ChainTurtle = None) -> None:
-        """Lets the user create custom turtle shapes"""
+        """
+        Lets the user create custom turtle shapes
+        :param tls_num: None|ChainTurtle
+        :return: None
+        """
         user_shape: str = get_str(f'''
             Here are some custom options:
             {CUSTOM_SHAPES.keys()}

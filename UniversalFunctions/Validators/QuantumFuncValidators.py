@@ -4,6 +4,7 @@ from typing import get_origin
 from .QuantumValidators import qtm_lt_validator
 from .FctInputValidators import validate
 from functools import wraps
+from .SimpleValidators import callable_validator
 
 
 def qtm_func_validator(func: Callable, *args, **kwargs) -> bool:
@@ -16,9 +17,7 @@ def qtm_func_validator(func: Callable, *args, **kwargs) -> bool:
     :param kwargs: keyword arguments
     :return: True if the provided argument matches the expected type, raises an error if not
     """
-    if not callable(func):
-        raise TypeError(f"The provided item {func} is not callable")
-
+    callable_validator(func)
     sig = signature(func)
     bound = sig.bind(*args, **kwargs)
 
@@ -46,11 +45,10 @@ def qtm_validation_decorator(func: Callable) -> Callable:
     :param func: provided function
     :return: validated function
     """
-    if not callable(func):
-        raise TypeError(f"The provided item {func} is not callable")
+    callable_validator(func)
 
     @wraps(func)
     def wrapper(*args, **kwargs):
         qtm_func_validator(func, *args, **kwargs)
-        return func
+        return func(*args, **kwargs)
     return wrapper

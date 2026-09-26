@@ -1,8 +1,10 @@
 from collections.abc import Callable
 from .Validators.QuantumValidators import qtm_lt_validator
+from .Validators.QuantumFuncValidators import qtm_validation_decorator
 
 
-def cls_deco_superposition(*decorators: Callable) -> Callable:
+@qtm_validation_decorator
+def cls_deco_superposition(*decorators: tuple[Callable, ...]) -> Callable:
     """
     DECORATOR!!   Creates a class decorator that applies the given decorator to every user defined function
     :param decorator: provided decorator function
@@ -17,7 +19,8 @@ def cls_deco_superposition(*decorators: Callable) -> Callable:
         return cls
     return inner
 
-def deco_superposition(*decorators: Callable) -> Callable:
+@qtm_validation_decorator
+def deco_superposition(*decorators: tuple[Callable, ...]) -> Callable:
     """
     DECORATOR! this decorator takes multiple decorators and applies them to the given function the same way python would naturally
     :param decorators: decorator functions

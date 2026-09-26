@@ -1,7 +1,4 @@
 from typing import Any, get_args
-from collections.abc import Callable
-from inspect import signature
-from functools import wraps
 
 
 def validate(value: Any, TYPE: type|tuple[type, ...], name: str = "value") -> bool:
@@ -29,33 +26,3 @@ def validate(value: Any, TYPE: type|tuple[type, ...], name: str = "value") -> bo
 
         raise TypeError(f"{name!r} must be a {type_name!r} value, not {type(value).__name__!r}!")
     return True
-
-def validate_func(func: Callable, *args, **kwargs) -> bool:
-    """
-    Takes a function and it's arguments and validates it against the given type of the arguments
-    :param func: given function
-    :param args: given arguments
-    :param kwargs: given specified arguments
-    :return:
-    """
-    sig = signature(func)
-    bound = sig.bind(*args, **kwargs)
-
-    for name, value in bound.arguments.items():
-        parameter = sig.parameters[name]
-
-        if parameter.annotation is not parameter.empty:
-            validate(value, parameter.annotation, name)
-    return True
-
-def validation_deco(func) -> Callable:
-    """
-    DECORATOR: takes a function and validates it's inputs against the given type of the arguments
-    :param func: function
-    :return: function
-    """
-    @wraps(func)
-    def wrapper(*args, **kwargs) -> Any:
-        validate_func(func, *args, **kwargs)
-        return func(*args, **kwargs)
-    return wrapper
