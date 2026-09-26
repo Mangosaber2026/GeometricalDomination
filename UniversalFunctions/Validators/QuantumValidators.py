@@ -1,6 +1,6 @@
 from typing import Any, get_args, get_origin
 
-def quantum_type_validator(value: list[Any], TYPE: Any, name: str) -> bool:
+def quantum_type_validator(value: list[Any]|tuple[Any], TYPE: Any, name: str) -> bool:
     """
     Takes a list of ONE specific element and validates its contents against the expected type
     :param value: list of elements
@@ -9,8 +9,8 @@ def quantum_type_validator(value: list[Any], TYPE: Any, name: str) -> bool:
     :return: True if the contents of value satisfy the expected type
     """
 
-    if not isinstance(value, list):
-        raise TypeError("Value must be a list containing ONE type of object!")
+    if not isinstance(value, (list, tuple)):
+        raise TypeError("Value must be a list/tuple containing ONE type of object!")
 
     if get_origin(TYPE) is not list:
         raise TypeError(f"{TYPE} must be a list for a specific type! e.g. list[int]")
@@ -24,5 +24,3 @@ def quantum_type_validator(value: list[Any], TYPE: Any, name: str) -> bool:
             raise TypeError(f"{name}[{index}] must be of type {element_type[0].__name__!r}!")
 
     return True
-
-print(quantum_type_validator(["3", "hello"], list[str], "numbers"))
