@@ -1,4 +1,5 @@
 from collections.abc import Callable
+from .Validators.QuantumValidators import qtm_lt_validator
 
 
 def cls_deco_superposition(*decorators: Callable) -> Callable:
@@ -22,9 +23,7 @@ def deco_superposition(*decorators: Callable) -> Callable:
     :param decorators: decorator functions
     :return: supplied function
     """
-
-    if not all(callable(decorator) for decorator in decorators):
-        raise TypeError("All decorators must be callable")
+    qtm_lt_validator(decorators, tuple[Callable, ...], "decorators")
     def inner_deco(func):
         for decorator in reversed(decorators):
             func = decorator(func)

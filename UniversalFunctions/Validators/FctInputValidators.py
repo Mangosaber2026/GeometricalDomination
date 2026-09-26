@@ -21,7 +21,7 @@ def validate(value: Any, TYPE: type|tuple[type, ...], name: str = "value") -> bo
     if not isinstance(TYPE, (type, tuple)):
         raise TypeError(f"{TYPE!r} is not a valid type!")
 
-    elif not isinstance(value, TYPE):
+    if not isinstance(value, TYPE):
         if isinstance(TYPE, tuple):
             type_name = " or ".join(t.__name__ for t in TYPE)
         else:
