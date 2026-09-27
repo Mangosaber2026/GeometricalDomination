@@ -18,6 +18,11 @@ def SU() -> None:
     global screen
     screen.update()
 
+def mainloop() -> None:
+    """This function keeps the turtle screen open"""
+    global screen
+    screen.mainloop()
+
 def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurtle] | None:
     """This function creates a turtle list with their colors or adds newly creates turtles to the UV["tls"] list
     to be used for the user_drawing_ft()
