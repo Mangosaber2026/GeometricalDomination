@@ -1,3 +1,14 @@
+"""
+This module contains the HelperFunctions class which provides a collection of reusable helper functions
+so that the user can easily use them without having to write the code for them again.
+
+Some other functions:
+
+sine -> calculates sine value
+
+range_f -> acts like the conventional range function except for that this takes rational inputs
+"""
+
 from typing import Any, Annotated
 from collections.abc import Generator
 from math import sqrt, sin, radians

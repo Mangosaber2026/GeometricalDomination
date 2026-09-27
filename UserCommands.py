@@ -1,3 +1,7 @@
+"""
+This module contains the class Command, which contains functions for the user_drawing_ft() function.
+"""
+
 from .GlobalVariables import t_now, UV
 from .GlobalFunctions import SU, tls_color
 from .Alphabets import ALPHABETS

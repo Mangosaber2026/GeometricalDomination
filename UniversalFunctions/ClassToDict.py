@@ -1,14 +1,19 @@
+"""
+This module contains a function that takes all functions in a class and make a dictionary with them.
+"""
+
 from collections.abc import Callable
-from .Validators.QuantumValidators import qtm_lt_validator
+from .Validators.QuantumFuncValidators import qtm_validation_decorator
 
 
+@qtm_validation_decorator
 def classes_to_dict(*classes: tuple[type, ...]) -> dict[str, Callable]:
     """
-    Takes given classes, extracts the name + function of each class and returns a dictionary
-    :param classes:
-    :return:
+    Extracts callable objects from the given classes and returns them
+    as a dictionary mapping their names to the corresponding objects
+    :param classes: Classes from which the callables are extracted
+    :return: Dictionary of callable names and their objects
     """
-    qtm_lt_validator(classes, tuple[type, ...], "classes")
     dictionary = {}
     for cls in classes:
         dictionary.update({

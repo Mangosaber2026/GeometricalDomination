@@ -1,3 +1,13 @@
+"""
+This module contains a dictionary (UV) which contains important info about turtles and user_drawing_ft().
+
+Other functions:
+
+t_now() -> lets users take the current UV turtle
+
+t_shape() -> lets users take the current turtle shape
+"""
+
 from .TurtleSkeleton import ChainTurtle
 from typing import Any
 

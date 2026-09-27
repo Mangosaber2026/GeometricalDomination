@@ -1,3 +1,7 @@
+"""
+This module contains the class Usershape which contains functions to make a customized turtle shape.
+"""
+
 from typing import TypeAlias
 from collections.abc import Callable, Sequence
 from .UniversalFunctions.TypingVariables import Real

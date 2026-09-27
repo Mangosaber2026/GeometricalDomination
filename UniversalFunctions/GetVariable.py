@@ -1,6 +1,10 @@
+"""
+This module contains an extremely important function: get_num, which takes a numerical value from the user.
+"""
+
 from time import sleep as rest
 from typing import overload
-from .Validators.FctInputValidators import validate
+from .Validators.FctInputValidators import ctm_validate
 from .TypingVariables import Real
 
 
@@ -22,20 +26,20 @@ def get_num(TYPE: type[float]|type[int], entry: str, **options) -> Real:
     if TYPE not in (int, float):
         raise TypeError("TYPE must be type float or int")
 
-    validate(entry, str, "entry")
+    ctm_validate(entry, str, "entry")
 
     if "MIN" in options:
-        validate(options["MIN"], Real, "MIN")
+        ctm_validate(options["MIN"], Real, "MIN")
 
     if "MAX" in options:
-        validate(options["MAX"], Real, "MAX")
+        ctm_validate(options["MAX"], Real, "MAX")
 
     if "MIN" in options and "MAX" in options:
         if options["MIN"] >= options["MAX"]:
             raise ValueError("MIN has to be less than MAX!")
 
     if "store" in options:
-        validate(options["store"], (Real, type(None)), "store")
+        ctm_validate(options["store"], (Real, type(None)), "store")
 
     if (
         "store" in options

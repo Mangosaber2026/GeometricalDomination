@@ -1,4 +1,11 @@
-# WELCOME TO MY TURTLE DSL; HOPE YOU ENJOY!
+"""
+WELCOME TO MY TURTLE DSAPI with an embedded DSL; HOPE YOU ENJOY!
+
+This module is the entry point to the whole program, which can be run with "main()".
+
+Author: Miah M. Sabiq
+"""
+
 from .Designs import *
 from .UserCommands import *
 from .GlobalFunctions import reset_tls

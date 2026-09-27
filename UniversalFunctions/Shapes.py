@@ -1,3 +1,7 @@
+"""
+This module contains the Shapes class which provides premade drawing functions with ChainTurtle().
+"""
+
 from typing import Literal
 from ..TurtleSkeleton import ChainTurtle
 from .HelperFunctions import sine

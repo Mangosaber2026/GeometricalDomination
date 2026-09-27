@@ -1,3 +1,7 @@
+"""
+This module contains the class TurtleFct which lets the user change the turtle shape to a customized one.
+"""
+
 from .CustomTurtleShapes import CUSTOM_SHAPES
 from .TurtleSkeleton import tl, ChainTurtle
 from .UniversalFunctions.StringCheck import get_str

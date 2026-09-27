@@ -1,6 +1,11 @@
+"""
+This module contains special validators which belong to the CTM Dimension.
+"""
+
 from collections.abc import Callable
 
-def callable_validator(func: Callable) -> bool:
+
+def ctm_callable_validator(func: Callable) -> bool:
     """
     Takes a function and checks if it is callable or not.
     :param func: provided function

@@ -1,3 +1,8 @@
+"""
+This module contains the Alphabets class which provides a collection of functions for drawing English letters,
+punctuation, and shapes (heart, star).
+"""
+
 from .TurtleSkeleton import ChainTurtle
 from math import sqrt, cos, asin, radians, degrees
 from .Shapes_Dictionary import Shapes

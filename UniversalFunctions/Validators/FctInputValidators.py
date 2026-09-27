@@ -1,13 +1,18 @@
+"""
+This module contains validators from the CTM Dimension.
+"""
+
 from typing import Any, get_args
 
 
-def validate(value: Any, TYPE: type|tuple[type, ...], name: str = "value") -> bool:
+def ctm_validate(value: Any, TYPE: type | tuple[type, ...], name: str = "value") -> bool:
     """
     Takes a value and validates it against the given type and name
     :param value: given value
     :param TYPE: given type
-    :param name: given parameter
-    :return: None
+    :param name: name of the value
+    :return: bool if value meets expected type
+    :raises TypeError: if TYPE is invalid or value does not match TYPE
     """
     if get_args(TYPE):
         TYPE = tuple(

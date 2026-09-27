@@ -1,3 +1,7 @@
+"""
+This module contains dictionaries which contain all shape functions from the Shapes.py module.
+"""
+
 from .UniversalFunctions.Shapes import Shapes
 
 # DICTIONARY: SHAPES REQUIRING LENGTH

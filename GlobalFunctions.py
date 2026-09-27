@@ -1,9 +1,14 @@
+"""
+This module contains a very useful function: tls_color, which lets the user create any number of turtles with
+colors and get a list with them.
+"""
+
 from .UniversalFunctions.GetVariable import get_num
 from .TurtleSkeleton import tl, ChainTurtle
 from .GlobalVariables import t_shape, UV
 from turtle import TurtleGraphicsError
 from time import sleep as rest
-from .UniversalFunctions.Validators.FctInputValidators import validate
+from .UniversalFunctions.Validators.FctInputValidators import ctm_validate
 
 screen = tl.Screen()
 screen.getcanvas().winfo_toplevel().state("zoomed")
@@ -23,15 +28,15 @@ def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurt
     :return: tls_num: turtle list with colored turtles, entry: list with colored turtles + number of turtles ,otherwise: index of last turtle
     """
     if "tl_num" in options:
-        validate(options["tl_num"], int, "tl_num")
+        ctm_validate(options["tl_num"], int, "tl_num")
         if options["tl_num"] <= 0:
             raise ValueError("tl_num must be greater than 0")
         turtles_num_count = options["tl_num"]
     elif "entry" in options:
-        validate(options["entry"], int, "entry")
+        ctm_validate(options["entry"], int, "entry")
         turtles_num_count = get_num(int, options["entry"], MIN=1)
     elif "index" in options:
-        validate(options["index"], int, "index")
+        ctm_validate(options["index"], int, "index")
         if options["index"] <= 0:
             raise ValueError("index must be greater than 0")
         turtles_num_count = options["index"]
@@ -64,7 +69,7 @@ def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurt
 def reset_tls(tls_list: list[ChainTurtle]) -> None:
     """This function deletes the drawings of given turtle list + turtles"""
     for turtle in tls_list:
-        validate(turtle, ChainTurtle, "turtle")
+        ctm_validate(turtle, ChainTurtle, "turtle")
 
     for t in tls_list:
         t.clear(); t.ht()

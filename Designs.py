@@ -1,3 +1,7 @@
+"""
+This module contains an arsenal of premade geometrical designs/patterns and decorators for them.
+"""
+
 from .GlobalFunctions import SU, tls_color
 from .Shapes_Dictionary import Shapes
 from .TurtleSkeleton import ChainTurtle
@@ -5,7 +9,7 @@ from math import pi, sqrt, degrees, asin
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.HelperFunctions import helper, sine, range_f
 from .UniversalFunctions.ClassToDict import classes_to_dict
-from .UniversalFunctions.Validators.FctInputValidators import validate
+from .UniversalFunctions.Validators.FctInputValidators import ctm_validate
 from collections.abc import Callable
 from typing import TypeAlias
 from .TurtleFunctions import TurtleFct
@@ -19,7 +23,7 @@ def turtles(amount: int):
     Takes a given number of turtles, gets their colors from the user and executes the function
     :param amount: number of turtles > 0
     """
-    validate(amount, int, "amount")
+    ctm_validate(amount, int, "amount")
     if amount <= 0:
         raise ValueError("Number of turtles must be greater than 0!!!")
     def decorator(func):
