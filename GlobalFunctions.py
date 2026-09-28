@@ -25,13 +25,11 @@ def get_screen():
 
 def SU() -> None:
     """This function updates the turtle screen"""
-    tl_screen = get_screen()
-    tl_screen.update()
+    get_screen().update()
 
 def mainloop() -> None:
     """This function keeps the turtle screen open"""
-    global screen
-    screen.mainloop()
+    get_screen().mainloop()
 
 def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurtle] | None:
     """This function creates a turtle list with their colors or adds newly creates turtles to the UV["tls"] list
