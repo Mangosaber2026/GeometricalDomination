@@ -10,13 +10,23 @@ from turtle import TurtleGraphicsError
 from time import sleep as rest
 from .UniversalFunctions.Validators.FctInputValidators import ctm_validate
 
-screen = tl.Screen()
-screen.getcanvas().winfo_toplevel().state("zoomed")
-screen.tracer(0)
+_screen = None
+
+def get_screen():
+    """Initiates the turtle screen when the function is called"""
+    global _screen
+
+    if _screen is None:
+        _screen = tl.Screen()
+        _screen.getcanvas().winfo_toplevel().state("zoomed")
+        _screen.tracer(0)
+
+    return _screen
+
 def SU() -> None:
     """This function updates the turtle screen"""
-    global screen
-    screen.update()
+    tl_screen = get_screen()
+    tl_screen.update()
 
 def mainloop() -> None:
     """This function keeps the turtle screen open"""
