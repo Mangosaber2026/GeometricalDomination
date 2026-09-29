@@ -6,6 +6,7 @@ from time import sleep as rest
 from typing import overload
 from .Validators.FctInputValidators import ctm_validate
 from .TypingVariables import Real
+from .Validators.ValidationClasses import LessThan
 
 
 @overload
@@ -28,15 +29,12 @@ def get_num(TYPE: type[float]|type[int], entry: str, **options) -> Real:
 
     ctm_validate(entry, str, "entry")
 
-    if "MIN" in options:
-        ctm_validate(options["MIN"], Real, "MIN")
-
-    if "MAX" in options:
-        ctm_validate(options["MAX"], Real, "MAX")
+    for item in ("MAX", "MIN"):
+        if item in options:
+            ctm_validate(options[item], Real, item)
 
     if "MIN" in options and "MAX" in options:
-        if options["MIN"] >= options["MAX"]:
-            raise ValueError("MIN has to be less than MAX!")
+        LessThan(options["MAX"])(options["MIN"])
 
     if "store" in options:
         ctm_validate(options["store"], (Real, type(None)), "store")

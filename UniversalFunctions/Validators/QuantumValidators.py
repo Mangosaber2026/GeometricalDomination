@@ -2,8 +2,8 @@
 This module contains type validators for list and tuple which belong to the QTM Dimension.
 """
 
-from typing import Any, get_args, get_origin
-
+from typing import Any, get_args, get_origin, Annotated
+from .FctInputValidators import ctm_validate
 
 def qtm_lt_validator(value: list[Any] | tuple[Any, ...], TYPE: Any, name: str) -> bool:
     """
@@ -17,8 +17,7 @@ def qtm_lt_validator(value: list[Any] | tuple[Any, ...], TYPE: Any, name: str) -
     if origin not in (list, tuple):
         raise TypeError(f"{TYPE} must be a list or tuple for a specific type! e.g. list[int]")
 
-    if not isinstance(value, origin):
-        raise TypeError(f"{name} must be of type {origin.__name__!r}!")
+    ctm_validate(value, origin)
 
     element_type = get_args(TYPE)
     if origin is list:
@@ -32,5 +31,26 @@ def qtm_lt_validator(value: list[Any] | tuple[Any, ...], TYPE: Any, name: str) -
     for index, element in enumerate(value):
         if not isinstance(element, element_type[0]):
             raise TypeError(f"{name}[{index}] must be of type {element_type[0].__name__!r}!")
+
+    return True
+
+def qtm_constr_validator(value, annotation, name) -> bool:
+    """
+    Takes a value and its annotation and compares it against the expected type
+    :param value: given value
+    :param annotation: given annotation
+    :param name: name of value
+    :return: True, if validation succeeds
+    """
+
+    if get_origin(annotation) is not Annotated:
+        raise TypeError(f"{annotation} is not an Annotated type!")
+
+    type_obj, *constraints = get_args(annotation)
+
+    ctm_validate(value, type_obj, name)
+
+    for constraint in constraints:
+        constraint(value)
 
     return True

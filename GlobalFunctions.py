@@ -46,7 +46,7 @@ def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurt
             raise ValueError("tl_num must be greater than 0")
         turtles_num_count = options["tl_num"]
     elif "entry" in options:
-        ctm_validate(options["entry"], int, "entry")
+        ctm_validate(options["entry"], str, "entry")
         turtles_num_count = get_num(int, options["entry"], MIN=1)
     elif "index" in options:
         ctm_validate(options["index"], int, "index")

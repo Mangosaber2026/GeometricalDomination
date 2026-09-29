@@ -54,6 +54,7 @@ def user_drawing_ft() -> None:
             if you're an experienced programmer and know the program inside out, then here's another option:
             exec -> pythons execution function
             Enter choice: ''', COMMANDS, SHAPES_LENGTH, SHAPES_LENGTH_SIDES, SHAPES_RADIUS, ("n","exec"))
+        get_screen()
 
         if user_choice in COMMANDS:
             COMMANDS[user_choice]()

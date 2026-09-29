@@ -30,7 +30,6 @@ def deco_superposition(*decorators: tuple[Callable, ...]) -> Callable:
     :param decorators: decorator functions
     :return: supplied function
     """
-    qtm_lt_validator(decorators, tuple[Callable, ...], "decorators")
     def inner_deco(func):
         for decorator in reversed(decorators):
             func = decorator(func)

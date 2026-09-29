@@ -17,6 +17,7 @@ from .DecoratorArchive import cls_deco_superposition
 from .TypingVariables import Real
 from .ClassToDict import classes_to_dict
 from .Validators.QuantumFuncValidators import qtm_validation_decorator
+from .Validators.ValidationClasses import LessThan, Positive
 
 
 @cls_deco_superposition(staticmethod)
@@ -106,20 +107,15 @@ def cosine(angle: Real) -> Real:
     """
     return cos(radians(angle))
 
-def range_f(start: Real,stop: Annotated[Real, "stop >= start"],step: Annotated[Real, "step > 0"]) -> Generator[Real,Any,None]:
+@qtm_validation_decorator
+def range_f(start: Real, stop: Real, step: Annotated[Real, Positive()]) -> Generator[Real,Any,None]:
     """
     Lets the user choose Real inputs for start, stop and step
     :param start: start value; Real number
     :param stop: stop value; Real number >= start
     :param step: step value; Real number > 0
     """
-    if not all(isinstance(x, Real) for x in [start, stop, step]):
-        raise TypeError("All inputs must be real numbers!")
-
-    if stop < start:
-        raise ValueError("Stop value must be greater than start value!")
-    if step <= 0:
-        raise ValueError("Step value must be greater than 0!")
+    LessThan(stop)(start)
 
     while start < stop:
         yield start

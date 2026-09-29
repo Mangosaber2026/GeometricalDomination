@@ -2,7 +2,7 @@
 This module contains an arsenal of premade geometrical designs/patterns and decorators for them.
 """
 
-from .GlobalFunctions import SU, tls_color
+from .GlobalFunctions import SU, tls_color, get_screen
 from .Shapes_Dictionary import Shapes
 from .TurtleSkeleton import ChainTurtle
 from math import pi, sqrt, degrees, asin
@@ -29,6 +29,7 @@ def turtles(amount: int):
     def decorator(func):
         @wraps(func)
         def wrapper():
+            get_screen()
             tls: list[ChainTurtle] = tls_color(tl_num=amount)
             func(tls)
             SU(); return tls

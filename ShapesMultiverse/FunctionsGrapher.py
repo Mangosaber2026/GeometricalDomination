@@ -36,6 +36,14 @@ class Drawing:
         """
         cls._render(cls.generate)
 
+@cls_deco_superposition(staticmethod)
+class LinearFct(Drawing):
+    def generate() -> list_xy:
+        x_val = [x/10 for x in range(0, 4001)]
+        y_val = [3*x + 4 for x in x_val]
+
+        return x_val, y_val
+
 
 @cls_deco_superposition(staticmethod)
 class SineWave(Drawing):

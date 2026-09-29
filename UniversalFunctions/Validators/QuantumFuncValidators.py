@@ -4,8 +4,8 @@ This module contains a validator and decorator from the QTM Dimension.
 
 from collections.abc import Callable
 from inspect import signature
-from typing import get_origin
-from .QuantumValidators import qtm_lt_validator
+from typing import get_origin, Annotated
+from .QuantumValidators import qtm_lt_validator, qtm_constr_validator
 from .FctInputValidators import ctm_validate
 from functools import wraps
 from .SimpleValidators import ctm_callable_validator
@@ -34,6 +34,10 @@ def qtm_func_validator(func: Callable, *args, **kwargs) -> bool:
 
         if origin in (list, tuple):
             qtm_lt_validator(value, type_, name)
+
+        elif origin is Annotated:
+            qtm_constr_validator(value, type_, name)
+
         else:
             ctm_validate(value, type_, name)
 
