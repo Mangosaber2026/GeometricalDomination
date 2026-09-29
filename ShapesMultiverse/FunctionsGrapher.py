@@ -1,4 +1,4 @@
-from ..UniversalFunctions.HelperFunctions import sine
+from ..UniversalFunctions.HelperFunctions import sine, cosine
 from ..GlobalFunctions import SU, mainloop, get_screen, tls_color
 from ..UniversalFunctions.DecoratorArchive import cls_deco_superposition
 from ..UniversalFunctions.TypingVariables import Real
@@ -43,9 +43,22 @@ class SineWave(Drawing):
     def generate() -> list_xy:
         """
         Generate the coordinates of the sine wave.
-        :return: list of coordinates of the sine wave (tuple of x values and y values).
+        :return: list of coordinates of the sine wave (tuple of x and y values).
         """
         x_val = [x/10 for x in range(0, 4001)]
         y_val = [100 * sine(x) for x in x_val]
+
+        return x_val, y_val
+
+@cls_deco_superposition(staticmethod)
+class CosineWave(Drawing):
+    """Class for drawing a cosine wave."""
+    def generate() -> list_xy:
+        """
+        Generate the coordinates of the cosine wave.
+        :return: list of coordinates of the cosine wave (tuple of x and y values
+        """
+        x_val = [x/10 for x in range(0, 4001)]
+        y_val = [100 * cosine(x) for x in x_val]
 
         return x_val, y_val

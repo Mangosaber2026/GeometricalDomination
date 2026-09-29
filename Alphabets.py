@@ -16,6 +16,7 @@ from .UniversalFunctions.Validators.QuantumFuncValidators import qtm_validation_
 alphabet_function: TypeAlias = Callable[[Real, ChainTurtle], None]
 
 class AlphabetsMeta(type):
+    """METACLASS: specifically designed for the Alphabets class, not to be used conventionally!"""
     def __getattr__(cls, func: str) -> alphabet_function:
         for category in (
             cls.Letters,
@@ -46,7 +47,9 @@ def alphabets_main_deco(cls):
 
 @alphabets_main_deco
 class Alphabets(metaclass=AlphabetsMeta):
+    """A collection of classes containing functions to draw the English alphabets, punctuation and shapes."""
     class Letters:
+        """A collection of functions to draw the English alphabets."""
         def A(height: Real, tls: ChainTurtle) -> None:
             """
             Draws the letter A with a ChainTurtle
@@ -273,6 +276,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.fd_inv(height).rt(90).fd(side_b).rt(130).fd(side_a).lt(130).fd(side_b).fd_inv(height/10).lt(90)
 
     class Punctuation:
+        """A collection of functions to draw English punctuation marks."""
         def space(height: Real, tls: ChainTurtle) -> None:
             """
             Traces an invisible space with a ChainTurtle
@@ -336,6 +340,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.circle(height*0.1, 90).fd(height*0.05).lt(90).fd(height*0.05).end_fill().rt(180).fd_inv(height*0.15).lt(90)
 
     class Shapes:
+        """A collection of functions to draw shapes (and mathematical symbols)."""
         def plus(height: Real, tls: ChainTurtle) -> None:
             """
             Draws a plus with given height and ChainTurtle
