@@ -8,6 +8,7 @@ from typing import TypeAlias
 list_xy: TypeAlias = tuple[list[Real], list[Real]]
 
 class Drawing:
+    """Parent class for drawing/rendering mathematical functions."""
     @staticmethod
     def _render(generator_func) -> None:
         """
@@ -38,7 +39,7 @@ class Drawing:
 
 @cls_deco_superposition(staticmethod)
 class SineWave(Drawing):
-
+    """Class for drawing a sine wave."""
     def generate() -> list_xy:
         """
         Generate the coordinates of the sine wave.
