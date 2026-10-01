@@ -6,17 +6,20 @@ from .CustomTurtleShapes import CUSTOM_SHAPES
 from .TurtleSkeleton import tl, ChainTurtle
 from .UniversalFunctions.StringCheck import get_str
 from .GlobalVariables import UV
-from .UniversalFunctions.Validators.QuantumFuncValidators import qtm_validation_decorator
-from .UniversalFunctions.DecoratorArchive import deco_superposition
+from .UniversalFunctions.Validators.ValidationClasses import TypeValidate
+
 
 class TurtleFct:
-    @deco_superposition(classmethod, qtm_validation_decorator)
-    def change_shape(cls, tls_num: None|ChainTurtle = None) -> None:
+    @classmethod
+    def change_shape(cls, tls_num: ChainTurtle|None = None) -> None:
         """
         Lets the user choose different turtles shapes, including a custom option
         :param tls_num: None|ChainTurtle
         :return: None
         """
+        if tls_num is not None:
+            TypeValidate(ChainTurtle)(tls_num, name="tls_num")
+
         turtle_shapes_list: list[str] = tl.getshapes()
         user_shape: str = get_str(f'''
             Here are the options for the turtle shape:
@@ -34,13 +37,16 @@ class TurtleFct:
             else:
                 cls._user_tls_shape_ft()
 
-    @deco_superposition(staticmethod, qtm_validation_decorator)
-    def _user_tls_shape_ft(tls_num: None|ChainTurtle = None) -> None:
+    @staticmethod
+    def _user_tls_shape_ft(tls_num: ChainTurtle|None = None) -> None:
         """
         Lets the user create custom turtle shapes
         :param tls_num: None|ChainTurtle
         :return: None
         """
+        if tls_num is not None:
+            TypeValidate(ChainTurtle)(tls_num, name="tls_num")
+
         user_shape: str = get_str(f'''
             Here are some custom options:
             {CUSTOM_SHAPES.keys()}
