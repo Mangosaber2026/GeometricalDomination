@@ -1,7 +1,7 @@
 """
 This module contains an arsenal of premade geometrical designs/patterns and decorators for them.
 """
-
+from .UniversalFunctions.Validators.QuantumFuncValidators import qtm_validation_decorator
 from .GlobalFunctions import SU, tls_color, get_screen
 from .Shapes_Dictionary import Shapes
 from .TurtleSkeleton import ChainTurtle
@@ -9,7 +9,7 @@ from math import pi, sqrt, degrees, asin
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.HelperFunctions import helper, sine, range_f
 from .UniversalFunctions.ClassToDict import classes_to_dict
-from .UniversalFunctions.Validators.ValidationClasses import int_validate, GreaterThan
+from .UniversalFunctions.Validators.ValidationClasses import GreaterThan
 from collections.abc import Callable
 from typing import TypeAlias, Final, Literal
 from .TurtleFunctions import TurtleFct
@@ -17,6 +17,7 @@ from functools import wraps
 
 designs_dict: TypeAlias = dict[str, Callable[[list[ChainTurtle]], list[ChainTurtle] | None]]
 
+@qtm_validation_decorator
 def turtles(amount: int):
     """
     DECORATOR:
@@ -24,10 +25,7 @@ def turtles(amount: int):
     :param amount: number of turtles > 0
     """
     name: Final[str] = "amount"
-    int_validate()(amount, name)
     GreaterThan(0)(amount, name)
-    if amount <= 0:
-        raise ValueError("Number of turtles must be greater than 0!!!")
     def decorator(func):
         @wraps(func)
         def wrapper():

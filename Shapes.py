@@ -3,12 +3,12 @@ This module contains the Shapes class which provides premade drawing functions w
 """
 
 from typing import Literal
-from ..TurtleSkeleton import ChainTurtle
-from .HelperFunctions import sine
-from .DecoratorArchive import cls_deco_superposition
-from .TypingVariables import Real
-from .ClassToDict import classes_to_dict
-from .Validators.QuantumFuncValidators import qtm_validation_decorator
+from .TurtleSkeleton import ChainTurtle
+from .UniversalFunctions.HelperFunctions import sine
+from .UniversalFunctions.DecoratorArchive import cls_deco_superposition
+from .UniversalFunctions.TypingVariables import Real
+from .UniversalFunctions.ClassToDict import classes_to_dict
+from .UniversalFunctions.Validators.QuantumFuncValidators import qtm_validation_decorator
 
 
 class ShapesMeta(type):
