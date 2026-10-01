@@ -6,9 +6,9 @@ from collections.abc import Callable
 from inspect import signature
 from typing import get_origin, Annotated
 from .QuantumValidators import qtm_lt_validator, qtm_constr_validator
-from .FctInputValidators import ctm_validate
 from functools import wraps
 from .SimpleValidators import ctm_callable_validator
+from .ValidationClasses import TypeValidate
 
 
 def qtm_func_validator(func: Callable, *args, **kwargs) -> bool:
@@ -39,7 +39,7 @@ def qtm_func_validator(func: Callable, *args, **kwargs) -> bool:
             qtm_constr_validator(value, type_, name)
 
         else:
-            ctm_validate(value, type_, name)
+            TypeValidate(type_)(value, name=name)
 
     return True
 

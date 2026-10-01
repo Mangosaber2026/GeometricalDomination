@@ -9,9 +9,9 @@ from math import pi, sqrt, degrees, asin
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.HelperFunctions import helper, sine, range_f
 from .UniversalFunctions.ClassToDict import classes_to_dict
-from .UniversalFunctions.Validators.FctInputValidators import ctm_validate
+from .UniversalFunctions.Validators.ValidationClasses import int_validate, GreaterThan
 from collections.abc import Callable
-from typing import TypeAlias
+from typing import TypeAlias, Final, Literal
 from .TurtleFunctions import TurtleFct
 from functools import wraps
 
@@ -23,7 +23,9 @@ def turtles(amount: int):
     Takes a given number of turtles, gets their colors from the user and executes the function
     :param amount: number of turtles > 0
     """
-    ctm_validate(amount, int, "amount")
+    name: Final[str] = "amount"
+    int_validate()(amount, name)
+    GreaterThan(0)(amount, name)
     if amount <= 0:
         raise ValueError("Number of turtles must be greater than 0!!!")
     def decorator(func):
@@ -67,7 +69,7 @@ class DesignsMeta(type):
 @designs_decorator
 class Designs(metaclass=DesignsMeta):
     class TurtleOne:
-        TURTLE_COUNT = 1
+        TURTLE_COUNT: Final[Literal[1]] = 1
 
         def hexaflower(tls: list[ChainTurtle]) -> None:
             """
@@ -161,7 +163,7 @@ class Designs(metaclass=DesignsMeta):
                 tls[0].fd_inv(lotuses * radius * 2).lt(90).fd_inv(radius * 2).rt(90)
 
     class TurtleTwo:
-        TURTLE_COUNT = 2
+        TURTLE_COUNT: Final[Literal[2]] = 2
 
         def duo_spiral(tls: list[ChainTurtle]) -> None:
             """
@@ -307,7 +309,7 @@ class Designs(metaclass=DesignsMeta):
             Shapes.SOD(radius * 2, tls[1])
 
     class TurtleThree:
-        TURTLE_COUNT = 3
+        TURTLE_COUNT: Final[Literal[3]] = 3
 
         def squares10(tls: list[ChainTurtle]) -> None:
             """
@@ -343,7 +345,7 @@ class Designs(metaclass=DesignsMeta):
             Shapes.hexagon_ft(hexa_side, tls[2])
 
     class TurtleFour:
-        TURTLE_COUNT = 4
+        TURTLE_COUNT: Final[Literal[4]] = 4
 
         def flower_4petals(tls: list[ChainTurtle]) -> None:
             """
@@ -410,7 +412,7 @@ class Designs(metaclass=DesignsMeta):
                 tls[3].fd_inv(length).rt(90).fd(length * 4).bk(length * 4).lt(90)
 
     class TurtleSix:
-        TURTLE_COUNT = 6
+        TURTLE_COUNT: Final[Literal[6]] = 6
 
         def circles6(tls: list[ChainTurtle]) -> None:
             """

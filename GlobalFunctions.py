@@ -8,7 +8,7 @@ from .TurtleSkeleton import tl, ChainTurtle
 from .GlobalVariables import t_shape, UV
 from turtle import TurtleGraphicsError
 from time import sleep as rest
-from .UniversalFunctions.Validators.FctInputValidators import ctm_validate
+from .UniversalFunctions.Validators.ValidationClasses import int_validate, Positive, str_validate, TypeValidate
 
 _screen = None
 
@@ -41,18 +41,22 @@ def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurt
     :return: tls_num: turtle list with colored turtles, entry: list with colored turtles + number of turtles ,otherwise: index of last turtle
     """
     if "tl_num" in options:
-        ctm_validate(options["tl_num"], int, "tl_num")
-        if options["tl_num"] <= 0:
-            raise ValueError("tl_num must be greater than 0")
-        turtles_num_count = options["tl_num"]
+        tl_num_name = "tl_num"
+        tl_num = options[tl_num_name]
+        int_validate()(tl_num, tl_num_name)
+        Positive()(tl_num, tl_num_name)
+        turtles_num_count = tl_num
     elif "entry" in options:
-        ctm_validate(options["entry"], str, "entry")
-        turtles_num_count = get_num(int, options["entry"], MIN=1)
+        entry_name = "entry"
+        entry = options[entry_name]
+        str_validate()(entry, entry_name)
+        turtles_num_count = get_num(int, entry, MIN=1)
     elif "index" in options:
-        ctm_validate(options["index"], int, "index")
-        if options["index"] <= 0:
-            raise ValueError("index must be greater than 0")
-        turtles_num_count = options["index"]
+        index_name = "index"
+        index = options[index_name]
+        int_validate()(index, index_name)
+        Positive()(index, index_name)
+        turtles_num_count = index
     else:
         print("NONE of the entered options exist!")
         return None
@@ -82,7 +86,7 @@ def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurt
 def reset_tls(tls_list: list[ChainTurtle]) -> None:
     """This function deletes the drawings of given turtle list + turtles"""
     for turtle in tls_list:
-        ctm_validate(turtle, ChainTurtle, "turtle")
+        TypeValidate(ChainTurtle)(turtle, "turtle")
 
     for t in tls_list:
         t.clear(); t.ht()

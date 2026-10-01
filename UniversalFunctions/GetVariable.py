@@ -3,10 +3,9 @@ This module contains an extremely important function: get_num, which takes a num
 """
 
 from time import sleep as rest
-from typing import overload
-from .Validators.FctInputValidators import ctm_validate
-from .TypingVariables import Real
-from .Validators.ValidationClasses import LessThan
+from typing import overload, Literal
+from numbers import Real
+from .Validators.ValidationClasses import LessThan, str_validate, real_validate, TypeValidate, GreaterOrEqual, LessOrEqual
 
 
 @overload
@@ -27,17 +26,17 @@ def get_num(TYPE: type[float]|type[int], entry: str, **options) -> Real:
     if TYPE not in (int, float):
         raise TypeError("TYPE must be type float or int")
 
-    ctm_validate(entry, str, "entry")
+    str_validate()(entry, name="entry")
 
     for item in ("MAX", "MIN"):
         if item in options:
-            ctm_validate(options[item], Real, item)
+            real_validate()(options[item], name=item)
 
     if "MIN" in options and "MAX" in options:
         LessThan(options["MAX"])(options["MIN"])
 
     if "store" in options:
-        ctm_validate(options["store"], (Real, type(None)), "store")
+        TypeValidate((Real, type(None)))(options["store"], name="store")
 
     if (
         "store" in options
@@ -62,30 +61,21 @@ def get_num(TYPE: type[float]|type[int], entry: str, **options) -> Real:
                     value: Real = TYPE(reserve)
             else:
                 value: Real = TYPE(input(entry))
-            if "MIN" in options and "MAX" in options and (value < options["MIN"] or value > options["MAX"]):
-                if TYPE == int:
-                    print(f"INTEGER must be between {options['MIN']} and {options['MAX']}!")
-                elif TYPE == float:
-                    print(f"RATIONAL NUMBER must be between {options['MIN']} and {options['MAX']}!")
-                rest(1.5); continue
-            elif "MIN" in options and value < options["MIN"]:
-                if TYPE == int:
-                    print(f"Enter INTEGER > {options['MIN']}!")
-                elif TYPE == float:
-                    print(f"Enter RATIONAL NUMBER > {options['MIN']}!")
-                rest(1.5); continue
-            elif "MAX" in options and value > options['MAX']:
-                if TYPE == int:
-                    print(f"Enter INTEGER < {options['MAX']}!")
-                elif TYPE == float:
-                    print(f"Enter RATIONAL NUMBER < {options['MAX']}!")
-                rest(1.5); continue
+            value_name: Literal["value"] = "value"
+
+            if "MIN" in options and "MAX" in options:
+                GreaterOrEqual(options["MIN"])(value, name=value_name)
+                LessOrEqual(options["MAX"])(value, name=value_name)
+
+            elif "MIN" in options:
+                GreaterOrEqual(options["MIN"])(value, name=value_name)
+
+            elif "MAX" in options:
+                LessOrEqual(options["MAX"])(value, name=value_name)
+
             elif "store" in options:
                 options["store"] = value
             return value
-        except ValueError:
-            if TYPE == int:
-                print(f"Enter INTEGER!")
-            elif TYPE == float:
-                print("Enter RATIONAL NUMBER!")
+        except ValueError as error:
+            print(error)
             rest(1.5)
