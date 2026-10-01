@@ -8,13 +8,16 @@ from numbers import Real
 from .Validators.ValidationClasses import LessThan, str_validate, real_validate, TypeValidate, GreaterOrEqual, LessOrEqual
 
 
-@overload
-def get_num(TYPE: type[int], entry: str, **options) -> int: ...
+type int_type = type[int]
+type float_type = type[float]
 
 @overload
-def get_num(TYPE: type[float], entry: str, **options) -> float: ...
+def get_num(TYPE: int_type, entry: str, **options) -> int: ...
 
-def get_num(TYPE: type[float]|type[int], entry: str, **options) -> Real:
+@overload
+def get_num(TYPE: float_type, entry: str, **options) -> float: ...
+
+def get_num(TYPE: float_type|int_type, entry: str, **options) -> Real:
     """
     Gets a real numerical value from the user
 

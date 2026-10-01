@@ -7,13 +7,16 @@ from .TurtleSkeleton import ChainTurtle
 from math import sqrt, cos, asin, radians, degrees
 from .Shapes_Dictionary import Shapes
 from collections.abc import Callable
-from typing import TypeAlias
 from .UniversalFunctions.HelperFunctions import sine, Real
 from .UniversalFunctions.DecoratorArchive import cls_deco_superposition
 from .UniversalFunctions.ClassToDict import classes_to_dict
 from .UniversalFunctions.Validators.QuantumFuncValidators import qtm_validation_decorator
 
-alphabet_function: TypeAlias = Callable[[Real, ChainTurtle], None]
+type alphabet_function = Callable[[Real, ChainTurtle], None]
+
+type alphabet_dict = dict[str, alphabet_function]
+
+type full_alphabet_dict = dict[str, alphabet_function | Callable[[], full_alphabet_dict]]
 
 class AlphabetsMeta(type):
     """METACLASS: specifically designed for the Alphabets class, not to be used conventionally!"""
@@ -414,33 +417,33 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.seth(direction - 90).fd(height * 0.4).lt(90)
 
     @classmethod
-    def list_alphabets(cls) -> dict[str, alphabet_function]:
+    def list_alphabets(cls) -> full_alphabet_dict:
         """
         Creates a dictionary with the functions in Alphabets and returns it
         :return: dictionary containing function names -> function
         """
         dictionary = classes_to_dict(cls.Letters, cls.Punctuation, cls.Shapes)
         name: str
-        item: alphabet_function
+        item: alphabet_function | Callable[[], full_alphabet_dict]
         for name, item in vars(cls).items():
             if not isinstance(item, type) and isinstance(item, Callable):
                 dictionary[name] = item
 
         return dictionary
 
-def letters_functions() -> dict[str, alphabet_function]:
+def letters_functions() -> alphabet_dict:
     """
     Takes all Letters in Alphabets.Letters and returns a dictionary
-    :return: dictionary
+    :return: letter dictionary
     """
     return {
         name: func
         for name, func in classes_to_dict(Alphabets.Letters).items()
     }
 
-letters_dict: dict[str, alphabet_function] = letters_functions()
+letters_dict: alphabet_dict = letters_functions()
 # ALPHABET DICTIONARY
-ALPHABETS: dict[str, alphabet_function] = {
+ALPHABETS: alphabet_dict = {
     **letters_dict,
     " ": Alphabets.space,
     ".": Alphabets.dot,

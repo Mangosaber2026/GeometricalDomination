@@ -6,9 +6,9 @@ from typing import Literal
 from .TurtleSkeleton import ChainTurtle
 from .UniversalFunctions.HelperFunctions import sine
 from .UniversalFunctions.DecoratorArchive import cls_deco_superposition
-from .UniversalFunctions.TypingVariables import Real
 from .UniversalFunctions.ClassToDict import classes_to_dict
 from .UniversalFunctions.Validators.QuantumFuncValidators import qtm_validation_decorator
+from numbers import Real
 
 
 class ShapesMeta(type):

@@ -7,7 +7,6 @@ from inspect import signature
 from typing import get_origin, Annotated
 from .QuantumValidators import qtm_lt_validator, qtm_constr_validator
 from functools import wraps
-from .SimpleValidators import ctm_callable_validator
 from .ValidationClasses import TypeValidate
 
 
@@ -19,7 +18,7 @@ def qtm_func_validator(func: Callable, *args, **kwargs) -> bool:
     :param kwargs: keyword arguments
     :return: True if the provided argument matches the expected type, raises an error if not
     """
-    ctm_callable_validator(func)
+    TypeValidate(Callable)(func, name=func.__name__)
     sig = signature(func)
     bound = sig.bind(*args, **kwargs)
 
@@ -51,7 +50,7 @@ def qtm_validation_decorator(func: Callable) -> Callable:
     :param func: provided function
     :return: validated function
     """
-    ctm_callable_validator(func)
+    TypeValidate(Callable)(func, name=func.__name__)
 
     @wraps(func)
     def wrapper(*args, **kwargs):

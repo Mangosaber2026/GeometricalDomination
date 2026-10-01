@@ -31,7 +31,9 @@ def mainloop() -> None:
     """This function keeps the turtle screen open"""
     get_screen().mainloop()
 
-def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurtle] | None:
+type turtle_list = list[ChainTurtle]
+
+def tls_color(**options) -> int | tuple[turtle_list, int] | turtle_list | None:
     """This function creates a turtle list with their colors or adds newly creates turtles to the UV["tls"] list
     to be used for the user_drawing_ft()
 
@@ -60,7 +62,7 @@ def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurt
     else:
         print("NONE of the entered options exist!")
         return None
-    tls: list[ChainTurtle] = []
+    tls: turtle_list = []
 
     for color_num in range(turtles_num_count):
         while True:
@@ -83,7 +85,7 @@ def tls_color(**options) -> int | tuple[list[ChainTurtle], int] | list[ChainTurt
     return None
 
 
-def reset_tls(tls_list: list[ChainTurtle]) -> None:
+def reset_tls(tls_list: turtle_list) -> None:
     """This function deletes the drawings of given turtle list + turtles"""
     for turtle in tls_list:
         TypeValidate(ChainTurtle)(turtle, "turtle")

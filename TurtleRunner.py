@@ -67,10 +67,13 @@ def user_drawing_ft() -> None:
         elif user_choice == "exec":
             exec_ft()
         elif user_choice == "n":
-            print("Thank you for using Sabiq's own pattern drawing program!"); rest(2)
-            reset_tls(UV["tls"]); UV["t"]=None; break
+            print("Thank you for using Sabiq's own pattern drawing program!")
+            rest(2)
+            reset_tls(UV["tls"]); UV["t"]=None
+            break
         SU()
-        if UV["delay"] is not None: rest(UV["delay"])
+        if UV["delay"] is not None:
+            rest(UV["delay"])
 
 # /////////////////////////////////
 # //////// MAIN OPERATION ////////

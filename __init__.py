@@ -23,3 +23,4 @@ from .Shapes_Dictionary import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
 from .TurtleRunner import main, user_drawing_ft
 from .TurtleSkeleton import ChainTurtle
 from .UserCommands import Command, COMMANDS
+from .Shapes import Shapes

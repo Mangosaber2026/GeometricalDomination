@@ -14,10 +14,10 @@ from collections.abc import Generator
 from math import sqrt, sin, radians, cos
 from .GetVariable import get_num
 from .DecoratorArchive import cls_deco_superposition
-from .TypingVariables import Real
 from .ClassToDict import classes_to_dict
 from .Validators.QuantumFuncValidators import qtm_validation_decorator
 from .Validators.ValidationClasses import LessThan, Positive
+from numbers import Real
 
 
 @cls_deco_superposition(staticmethod)

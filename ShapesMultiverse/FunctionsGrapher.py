@@ -1,11 +1,10 @@
 from ..UniversalFunctions.HelperFunctions import sine, cosine
 from ..GlobalFunctions import SU, mainloop, get_screen, tls_color
 from ..UniversalFunctions.DecoratorArchive import cls_deco_superposition
-from ..UniversalFunctions.TypingVariables import Real
-from typing import TypeAlias
+from numbers import Real
 
 
-list_xy: TypeAlias = tuple[list[Real], list[Real]]
+type list_xy = tuple[list[Real], list[Real]]
 
 class Drawing:
     """Parent class for drawing/rendering mathematical functions."""

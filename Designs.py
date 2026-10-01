@@ -15,7 +15,13 @@ from typing import TypeAlias, Final, Literal
 from .TurtleFunctions import TurtleFct
 from functools import wraps
 
-designs_dict: TypeAlias = dict[str, Callable[[list[ChainTurtle]], list[ChainTurtle] | None]]
+
+type PATTERNS_type = dict[
+str,
+Callable[[list[ChainTurtle]], list[ChainTurtle]]
+| Callable[[], list[ChainTurtle]]
+| Callable[[], PATTERNS_type]
+]
 
 @qtm_validation_decorator
 def turtles(amount: int):
@@ -476,14 +482,14 @@ class Designs(metaclass=DesignsMeta):
         TurtleFct.change_shape()
 
     @classmethod
-    def _list_designs(cls) -> designs_dict:
+    def _list_designs(cls) -> PATTERNS_type:
         """
         Creates a dictionary with all the designs and returns it
         :return: dictionary
         """
-        dictionary: designs_dict = {}
+        dictionary = {}
         name: str
-        item: Callable[[list[ChainTurtle]|None], list[ChainTurtle]]
+        item: Callable
         for name, item in vars(cls).items():
             if name.startswith("Turtle") and isinstance(item, type):
                 dictionary.update(classes_to_dict(item))
@@ -492,7 +498,8 @@ class Designs(metaclass=DesignsMeta):
 
         return dictionary
 
-def get_Patterns_dict() -> designs_dict:
+def get_Patterns_dict() -> PATTERNS_type:
+    """PATTERNS dictionary launcher"""
     return {
         name.replace("_", " "): func
         for name, func in Designs._list_designs().items()
@@ -500,4 +507,4 @@ def get_Patterns_dict() -> designs_dict:
     }
 
 # DICTIONARY: ALL COMMANDS OF MAIN MENU
-PATTERNS: dict[str, Callable[[list[ChainTurtle]], list[ChainTurtle]|None]] = get_Patterns_dict()
+PATTERNS: PATTERNS_type = get_Patterns_dict()

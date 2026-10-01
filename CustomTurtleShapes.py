@@ -2,17 +2,16 @@
 This module contains the class Usershape which contains functions to make a customized turtle shape.
 """
 
-from typing import TypeAlias
 from collections.abc import Callable, Sequence
-from .UniversalFunctions.TypingVariables import Real
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.HelperFunctions import helper, sine
 from .UniversalFunctions.DecoratorArchive import cls_deco_superposition
 from .UniversalFunctions.ClassToDict import classes_to_dict
 from .TurtleSkeleton import tl
+from numbers import Real
 
-return_shape: TypeAlias = Sequence[tuple[Real,Real]] | None
-user_shape_dict: TypeAlias = dict[str, Callable[[], return_shape]]
+type return_shape = Sequence[tuple[Real,Real]] | None
+type user_shape_dict = dict[str, Callable[[], return_shape]]
 
 @cls_deco_superposition(staticmethod)
 class UserShape:
