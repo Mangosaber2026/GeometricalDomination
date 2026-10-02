@@ -11,6 +11,9 @@ from .UniversalFunctions.HelperFunctions import sine, Real
 from .UniversalFunctions.DecoratorArchive import cls_deco_superposition
 from .UniversalFunctions.ClassToDict import classes_to_dict
 from .UniversalFunctions.Validators.QuantumFuncValidators import qtm_validation_decorator
+from .UniversalFunctions.Validators.ValidationClasses import Positive
+from typing import Annotated
+
 
 type alphabet_function = Callable[[Real, ChainTurtle], None]
 
@@ -53,7 +56,7 @@ class Alphabets(metaclass=AlphabetsMeta):
     """A collection of classes containing functions to draw the English alphabets, punctuation and shapes."""
     class Letters:
         """A collection of functions to draw the English alphabets."""
-        def A(height: Real, tls: ChainTurtle) -> None:
+        def A(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter A with a ChainTurtle
             :param height: height of letter A
@@ -62,7 +65,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             a = (height*0.6) / sine(70); b = (height*0.4) / sine(70); c = 2 * sqrt(a**2 - (height*0.6)**2)
             tls.rt(20).fd(b).rt(70).fd(c).bk(c).lt(70).fd(a).rt(140).fd(a + b).lt(70).fd_inv(height/10).lt(90)
 
-        def B(height: Real, tls: ChainTurtle) -> None:
+        def B(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter B with a ChainTurtle
             :param height: height of letter B
@@ -70,7 +73,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.fd(height).rt(90).fd(height/5).circle(-(height/4), 180).lt(180).circle(-(height/4), 180).fd(height/5).rt(180).fd_inv(height/2+5).lt(90)
 
-        def C(height: Real, tls: ChainTurtle) -> None:
+        def C(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter C with a ChainTurtle
             :param height: height of letter C
@@ -78,7 +81,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.rt(90).fd_inv(height/2).lt(90).fd_inv(height).lt(90).circle(height/2, 180).fd_inv(height/10).lt(90)
 
-        def D(height: Real, tls: ChainTurtle) -> None:
+        def D(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter D with a ChainTurtle
             :param height: height of letter D
@@ -86,7 +89,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.fd(height).rt(90).circle(-(height/2), 180).rt(180).fd_inv(height/2+10).lt(90)
 
-        def E(height: Real, tls: ChainTurtle) -> None:
+        def E(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter E with a ChainTurtle
             :param height: height of letter E
@@ -96,7 +99,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             for _ in range(3): tls.lt(90).fd(height/2)
             tls.bk(height/2).rt(90).fd(height/2).lt(90).fd(height/2).fd_inv(height/10).lt(90)
 
-        def F(height: Real, tls: ChainTurtle) -> None:
+        def F(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter F with a ChainTurtle
             :param height: height of letter F
@@ -105,7 +108,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             for _ in range(2): tls.fd(height/2).rt(90).fd(height/2).bk(height/2).lt(90)
             tls.lt(90).bk_inv(height*0.6).rt(90).bk_inv(height)
 
-        def G(height: Real, tls: ChainTurtle) -> None:
+        def G(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter G with a ChainTurtle
             :param height: height of letter G
@@ -113,7 +116,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.rt(90).fd_inv(height/2).lt(90).fd_inv(height).lt(90).circle(height/2, 180).lt(90).fd(height/2).lt(90).fd(height*0.3).rt(180).fd_inv(height*0.4).lt(90).bk_inv(height/2)
 
-        def H(height: Real, tls: ChainTurtle) -> None:
+        def H(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter H with a ChainTurtle
             :param height: height of letter H
@@ -121,7 +124,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.fd(height).bk(height/2).rt(90).fd(height/2).lt(90).fd(height/2).bk(height).rt(90).fd_inv(height/10).lt(90)
 
-        def I(height: Real, tls: ChainTurtle) -> None:
+        def I(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter I with a ChainTurtle
             :param height: height of letter I
@@ -129,7 +132,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.rt(90).fd(height/2).bk(height/4).lt(90).fd(height).rt(90).bk(height/4).fd(height/2).fd_inv(height/10).lt(90).bk_inv(height)
 
-        def J(height: Real, tls: ChainTurtle) -> None:
+        def J(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter J with a ChainTurtle
             :param height: height of letter J
@@ -137,7 +140,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.fd_inv(height).rt(90).fd(height*0.6).rt(90).fd(height*0.7).circle(-(height*0.3), 180).rt(90).fd_inv(height*0.7).lt(90).bk_inv(height*0.3)
 
-        def K(height: Real, tls: ChainTurtle) -> None:
+        def K(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter K with a ChainTurtle
             :param height: height of letter K
@@ -146,7 +149,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             diagonal = sqrt((height/2) ** 2 * 2)
             tls.fd(height).bk(height/2).rt(45).fd(diagonal).bk(diagonal).rt(90).fd(diagonal).lt(45).fd_inv(height/10).lt(90)
 
-        def L(height: Real, tls: ChainTurtle) -> None:
+        def L(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter L with a ChainTurtle
             :param height: height of letter L
@@ -154,7 +157,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.fd(height).bk(height).rt(90).fd(height*0.45).fd_inv(height/10).lt(90)
 
-        def M(height: Real, tls: ChainTurtle) -> None:
+        def M(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter M with a ChainTurtle
             :param height: height of letter M
@@ -163,7 +166,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             diagonal = (height / cos(radians(30))) / 2
             tls.fd(height).rt(150).fd(diagonal).lt(120).fd(diagonal).rt(150).fd(height).lt(90).fd_inv(height/10).lt(90)
 
-        def N(height: Real, tls: ChainTurtle) -> None:
+        def N(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter N with a ChainTurtle
             :param height: height of letter N
@@ -172,7 +175,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             diagonal = height / cos(radians(30))
             tls.fd(height).rt(150).fd(diagonal).lt(150).fd(height).bk(height).rt(90).fd_inv(height/10).lt(90)
 
-        def O(height: Real, tls: ChainTurtle) -> None:
+        def O(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter O with a ChainTurtle
             :param height: height of letter O
@@ -180,7 +183,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.fd_inv(height*0.4).rt(180).circle(height*0.4, 180).fd(height/5).circle(height*0.4, 180).fd(height/5).lt(90).fd_inv(height*0.9).lt(90).bk_inv(height*0.4)
 
-        def P(height: Real, tls: ChainTurtle) -> None:
+        def P(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter P with a ChainTurtle
             :param height: height of letter P
@@ -188,7 +191,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.fd(height).rt(90).circle(-(height*0.27), 180).rt(180).fd_inv(height*0.37).lt(90).bk_inv(height*0.46)
 
-        def Q(height: Real, tls: ChainTurtle) -> None:
+        def Q(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter Q with a ChainTurtle
             :param height: height of letter Q
@@ -198,7 +201,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             side_a = sqrt((height*0.35)**2 + (height/2)**2); turn_right = degrees(asin((height/2) / side_a))
             tls.rt(180 - turn_right).fd(side_a).lt(90 - turn_right).fd_inv(height/10).lt(90)
 
-        def R(height: Real, tls: ChainTurtle) -> None:
+        def R(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter R with a ChainTurtle
             :param height: height of letter R
@@ -206,7 +209,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.fd(height).rt(90).circle(-(height*0.27), 180).lt(120).fd((height*0.46) / sine(60)).lt(60).fd_inv(height/10).lt(90)
 
-        def S(height: Real, tls: ChainTurtle) -> None:
+        def S(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter S with a ChainTurtle
             :param height: height of letter S
@@ -215,7 +218,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             geo_fix = sine(20) - sine(272); radius = height * 0.27
             tls.rt(90).fd_inv(height*0.54).lt(90).fd_inv(height*0.54 + geo_fix*radius).lt(20).circle(radius, 0.7*360).circle(-radius, 0.7*360).pu().circle(-radius, 0.3*360).rt(2).fd(37).lt(90).bk(height*0.54).pd()
 
-        def T(height: Real, tls: ChainTurtle) -> None:
+        def T(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter T with a ChainTurtle
             :param height: height of letter T
@@ -223,7 +226,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.rt(90).fd_inv(height*0.45).lt(90).fd(height).lt(90).fd(height*0.45).bk(height*0.9).bk_inv(height/10).rt(90).bk_inv(height)
 
-        def U(height: Real, tls: ChainTurtle) -> None:
+        def U(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter U with a ChainTurtle
             :param height: height of letter U
@@ -231,7 +234,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.fd_inv(height).rt(180).fd(height*0.7).circle(height*0.3, 180).fd(height*0.7).rt(90).fd_inv(height/10).lt(90).bk_inv(height)
 
-        def V(height: Real, tls: ChainTurtle) -> None:
+        def V(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter V with a ChainTurtle
             :param height: height of letter V
@@ -240,7 +243,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             diagonal = height / sine(65)
             tls.fd_inv(height).rt(155).fd(diagonal).lt(130).fd(diagonal).rt(65).fd_inv(height/10).lt(90).bk_inv(height)
 
-        def W(height: Real, tls: ChainTurtle) -> None:
+        def W(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter W with a ChainTurtle
             :param height: height of letter W
@@ -251,7 +254,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.fd(side_c).rt(150).fd(side_c).lt(150).fd(side_a)
             tls.rt(75).fd_inv(height/10).lt(90).bk_inv(height)
 
-        def X(height: Real, tls: ChainTurtle) -> None:
+        def X(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter X with a ChainTurtle
             :param height: height of letter X
@@ -260,7 +263,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             a_half = (height/2) / sine(55); side_b = sqrt((a_half **2) - (height/2)**2)
             tls.rt(35).fd(a_half *2).lt(125).fd_inv(side_b * 2).lt(125).fd(a_half *2).lt(55).fd_inv(height/10).lt(90)
 
-        def Y(height: Real, tls: ChainTurtle) -> None:
+        def Y(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter Y with a ChainTurtle
             :param height: height of letter Y
@@ -269,7 +272,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             side = (height*0.4) / sine(55); width = sqrt(side**2 - (height*0.4)**2); tls.rt(90).fd_inv(width).lt(90).fd((height*0.6)).rt(35).fd(side)
             tls.bk(side).lt(70).fd(side).rt(35).bk_inv(height).rt(90).fd_inv(2 * width + height/10).lt(90)
 
-        def Z(height: Real, tls: ChainTurtle) -> None:
+        def Z(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws the letter Z with a ChainTurtle
             :param height: height of letter Z
@@ -280,7 +283,7 @@ class Alphabets(metaclass=AlphabetsMeta):
 
     class Punctuation:
         """A collection of functions to draw English punctuation marks."""
-        def space(height: Real, tls: ChainTurtle) -> None:
+        def space(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Traces an invisible space with a ChainTurtle
             :param height: to calculate the amount of space
@@ -288,7 +291,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.rt(90).fd_inv(height/4).lt(90)
 
-        def dot(height: Real, tls: ChainTurtle) -> None:
+        def dot(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws a dot with given height and ChainTurtle
             :param height: height of the letters
@@ -296,7 +299,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             """
             tls.rt(90).fd_inv(height/20).dot(height/10).fd_inv(height*0.15).lt(90)
 
-        def exclamation(height: Real, tls: ChainTurtle) -> None:
+        def exclamation(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws an exclamation mark with given height and turtle
             :param height: height of the letters
@@ -305,7 +308,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.fd_inv(height/5); Shapes.rectangle_fill(height*0.8, height/10, -1, tls)
             tls.lt(180).fd_inv(height/10).circle_fill(height/20, 540).bk_inv(height/20).rt(90).fd_inv(height/10).lt(90)
 
-        def question(height: Real, tls: ChainTurtle) -> None:
+        def question(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws a question mark with given height and ChainTurtle
             :param height: height of the letters
@@ -315,7 +318,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.circle(height/5, 216).rt(90).fd(height/10).rt(90).circle(-height/5, 216).circle(height/5, 216)
             tls.end_fill().lt(54).fd_inv(height).lt(90).fd_inv(height/10).dot(height/10).fd_inv(height/4).lt(90)
 
-        def apostrophe(height: Real, tls: ChainTurtle) -> None:
+        def apostrophe(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws an apostrophe with given height and ChainTurtle
             :param height: height of the letters
@@ -324,7 +327,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.fd_inv(height*0.7); Shapes.rectangle_fill(height*0.3, height/20, -1, tls)
             tls.rt(90).fd_inv(height*0.15).lt(90).bk_inv(height*0.7)
 
-        def colon(height: Real, tls: ChainTurtle) -> None:
+        def colon(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws a colon with given height and ChainTurtle
             :param height: height of the letters
@@ -333,7 +336,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.rt(90).fd_inv(height*0.07).circle_fill(height*0.07, 360).lt(90).fd_inv(height*0.28)
             tls.rt(90).circle_fill(height*0.07, 360).fd_inv(height*0.17).lt(90).bk_inv(height*0.28)
 
-        def comma(height: Real, tls: ChainTurtle) -> None:
+        def comma(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws a comma with given height and ChainTurtle
             :param height: height of the letters
@@ -344,7 +347,7 @@ class Alphabets(metaclass=AlphabetsMeta):
 
     class Shapes:
         """A collection of functions to draw shapes (and mathematical symbols)."""
-        def plus(height: Real, tls: ChainTurtle) -> None:
+        def plus(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
             Draws a plus with given height and ChainTurtle
             :param height: height of the letters
@@ -355,7 +358,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.fd_inv(height * 0.35).lt(90).bk_inv(height / 2)
 
 
-        def equals(height: Real, tls: ChainTurtle) -> None:
+        def equals(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
                 Draws an equal sign with given height and ChainTurtle
                 :param height: height of the letters
@@ -364,7 +367,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.fd_inv(height * 0.3).rt(90).fd(height / 2).lt(90).fd_inv(height * 0.4).lt(90).fd(height / 2).bk_inv(height * 0.6).rt(90).bk_inv(height * 0.7)
 
 
-        def times(height: Real, tls: ChainTurtle) -> None:
+        def times(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
                 Draws a multiplication sign with given height and ChainTurtle
                 :param height: height of the letters
@@ -376,7 +379,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.lt(45).fd_inv(side + height / 10).lt(90).bk_inv(height / 2)
 
 
-        def minus(height: Real, tls: ChainTurtle) -> None:
+        def minus(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
                 Draws a minus sign with given height and ChainTurtle
                 :param height: height of the letters
@@ -385,7 +388,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.fd_inv(height / 2).rt(90).fd(height / 2).fd_inv(height / 10).lt(90).bk_inv(height / 2)
 
 
-        def underline(height: Real, tls: ChainTurtle) -> None:
+        def underline(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
                 Draws an underline with given height and ChainTurtle
                 :param height: height of the letters
@@ -394,7 +397,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.rt(90).fd(height / 2).fd_inv(height / 10).lt(90)
 
 
-        def heart(height: Real, tls: ChainTurtle) -> None:
+        def heart(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
                 Draws a heart with given height and ChainTurtle
                 :param height: height of the letters
@@ -405,7 +408,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             tls.fd(height * 0.65).end_fill().lt(135).fd_inv(height * 0.65).lt(90)
 
 
-        def star(height: Real, tls: ChainTurtle) -> None:
+        def star(height: Annotated[Real, Positive], tls: ChainTurtle) -> None:
             """
                 Draws a star with given height and ChainTurtle
                 :param height: height of the letters

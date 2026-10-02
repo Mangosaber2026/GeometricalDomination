@@ -9,9 +9,9 @@ from math import pi, sqrt, degrees, asin
 from .UniversalFunctions.GetVariable import get_num
 from .UniversalFunctions.HelperFunctions import helper, sine, range_f
 from .UniversalFunctions.ClassToDict import classes_to_dict
-from .UniversalFunctions.Validators.ValidationClasses import GreaterThan
+from .UniversalFunctions.Validators.ValidationClasses import GreaterThan, int_validate
 from collections.abc import Callable
-from typing import TypeAlias, Final, Literal
+from typing import Final, Literal, Annotated
 from .TurtleFunctions import TurtleFct
 from functools import wraps
 
@@ -24,14 +24,12 @@ Callable[[list[ChainTurtle]], list[ChainTurtle]]
 ]
 
 @qtm_validation_decorator
-def turtles(amount: int):
+def turtles(amount: Annotated[int, int_validate(), GreaterThan(0)]):
     """
     DECORATOR:
     Takes a given number of turtles, gets their colors from the user and executes the function
     :param amount: number of turtles > 0
     """
-    name: Final[str] = "amount"
-    GreaterThan(0)(amount, name)
     def decorator(func):
         @wraps(func)
         def wrapper():
@@ -261,7 +259,7 @@ class Designs(metaclass=DesignsMeta):
             :param tls: list of 2 chainable turtles
             """
             length: float | int = helper.length_float()
-            pairs_count: int = get_num(int, "How many pairs of stars?", MIN=1)
+            pairs_count: int = get_num(int, "Number of pairs of stars: ", MIN=1)
             tls[1].lt(30)
             for _ in range(pairs_count):
                 for t in tls:

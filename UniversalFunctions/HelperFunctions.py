@@ -59,7 +59,7 @@ class HelperFunctions:
         return row_count
 
     @qtm_validation_decorator
-    def diameter_sq(length: Real) -> tuple[Real,Real]:
+    def diameter_sq(length: Annotated[Real, Positive]) -> tuple[Real,Real]:
         """
         Calculates the diameter of a square with given length
         :return: diameter, diameter/2

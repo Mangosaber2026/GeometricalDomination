@@ -46,7 +46,7 @@ def real_validate() -> TypeValidate:
     return TypeValidate(Real)
 
 class RealValidationParent:
-    def __init__(self, expected: Real):
+    def __init__(self, expected: Real) -> None:
         self._validator = real_validate()
         self._validator(expected)
         self.expected = expected
@@ -106,4 +106,23 @@ class GreaterOrEqual(RealValidationParent):
             str_validate()(name, "name")
         if self.expected > value:
             raise ValueError(f"Entered value ({name}) is expected to be greater than or equal to {self.expected!r}!")
+        return True
+
+class TupleValidate:
+    """Makes sure the entered value is a tuple of any value"""
+    def __init__(self, *expected: type) -> None:
+        """Validates and sets the tuple to a variable"""
+        for item in expected:
+            TypeValidate(type)(item)
+        self.expected = expected
+
+    def __call__(self, value: tuple, name: str|None = None) -> bool:
+        """Validates the entered value, expected to be a tuple of expected value/s"""
+        TypeValidate(tuple)(value)
+        if name is not None:
+            str_validate()(name, "name")
+        if len(self.expected) != len(value):
+            raise ValueError(f"Entered value ({name}) must have the same number of elements as the provided expected tuple!")
+        for expected_type, actual_value in zip(self.expected, value):
+            TypeValidate(expected_type)(actual_value)
         return True
