@@ -4,16 +4,16 @@ punctuation, and shapes (heart, star).
 """
 
 from .TurtleSkeleton import ChainTurtle
-from math import sqrt, cos, asin, radians, degrees
+from math import sqrt, asin,  degrees
 from .Shapes_Dictionary import Shapes
 from collections.abc import Callable
-from ..UniversalFunctions.HelperFunctions import sine, Real
-from ..UniversalFunctions.DecoratorArchive import cls_deco_superposition
-from ..UniversalFunctions.ClassToDict import classes_to_dict
-from ..UniversalFunctions.Validators.QuantumFuncValidators import qtm_validation_decorator
-from ..UniversalFunctions.Validators.ValidationClasses import Positive
+import UF as uf
 from typing import Annotated
+from numbers import Real
 
+sine = uf.sine
+cosine = uf.cosine
+Positive = uf.Positive
 
 type alphabet_function = Callable[[Real, ChainTurtle], None]
 
@@ -48,7 +48,7 @@ def alphabets_main_deco(cls):
         cls.Punctuation,
         cls.Shapes,
     ):
-        cls_deco_superposition(staticmethod, qtm_validation_decorator)(category)
+        uf.cls_deco_superposition(staticmethod, uf.qtm_validation_decorator)(category)
     return cls
 
 @alphabets_main_deco
@@ -163,7 +163,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             :param height: height of letter M
             :param tls: a ChainTurtle
             """
-            diagonal = (height / cos(radians(30))) / 2
+            diagonal = (height / cosine(30)) / 2
             tls.fd(height).rt(150).fd(diagonal).lt(120).fd(diagonal).rt(150).fd(height).lt(90).fd_inv(height/10).lt(90)
 
         def N(height: Annotated[Real, Positive()], tls: ChainTurtle) -> None:
@@ -172,7 +172,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             :param height: height of letter N
             :param tls: a ChainTurtle
             """
-            diagonal = height / cos(radians(30))
+            diagonal = height / cosine(30)
             tls.fd(height).rt(150).fd(diagonal).lt(150).fd(height).bk(height).rt(90).fd_inv(height/10).lt(90)
 
         def O(height: Annotated[Real, Positive()], tls: ChainTurtle) -> None:
@@ -425,7 +425,7 @@ class Alphabets(metaclass=AlphabetsMeta):
         Creates a dictionary with the functions in Alphabets and returns it
         :return: dictionary containing function names -> function
         """
-        dictionary = classes_to_dict(cls.Letters, cls.Punctuation, cls.Shapes)
+        dictionary = uf.classes_to_dict(cls.Letters, cls.Punctuation, cls.Shapes)
         name: str
         item: alphabet_function | Callable[[], full_alphabet_dict]
         for name, item in vars(cls).items():
@@ -441,7 +441,7 @@ def letters_functions() -> alphabet_dict:
     """
     return {
         name: func
-        for name, func in classes_to_dict(Alphabets.Letters).items()
+        for name, func in uf.classes_to_dict(Alphabets.Letters).items()
     }
 
 letters_dict: alphabet_dict = letters_functions()

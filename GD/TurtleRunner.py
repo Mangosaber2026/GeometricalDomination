@@ -9,7 +9,7 @@ Author: Miah M. Sabiq
 from .Designs import *
 from .UserCommands import *
 from .GlobalFunctions import reset_tls
-from ..UniversalFunctions.StringCheck import get_str
+from UF.StringCheck import get_str
 from .Shapes_Dictionary import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
 
 # //////////////////////////////////////

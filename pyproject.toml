@@ -19,6 +19,6 @@ authors = [
 
 [tool.setuptools.packages.find]
 include = [
+    "GD*",
     "ShapesMultiverse*",
-    "UniversalFunctions*",
 ]

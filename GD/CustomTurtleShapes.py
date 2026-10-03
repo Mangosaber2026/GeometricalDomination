@@ -3,12 +3,13 @@ This module contains the class Usershape which contains functions to make a cust
 """
 
 from collections.abc import Callable, Sequence
-from ..UniversalFunctions.GetVariable import get_num
-from ..UniversalFunctions.HelperFunctions import helper, sine
-from ..UniversalFunctions.DecoratorArchive import cls_deco_superposition
-from ..UniversalFunctions.ClassToDict import classes_to_dict
+from UF.GetVariable import get_num
+from UF.HelperFunctions import helper, sine
+from UF.DecoratorArchive import cls_deco_superposition
+from UF.ClassToDict import classes_to_dict
 from .TurtleSkeleton import tl
 from numbers import Real
+
 
 type return_shape = Sequence[tuple[Real,Real]] | None
 type user_shape_dict = dict[str, Callable[[], return_shape]]

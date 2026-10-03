@@ -4,7 +4,7 @@ This module contains the class ChainTurtle() which is the foundational object ar
 
 import turtle as tl
 from collections.abc import Callable
-from ..UniversalFunctions.ClassToDict import classes_to_dict
+from UF.ClassToDict import classes_to_dict
 
 
 class ChainTurtle(tl.Turtle):
@@ -98,13 +98,13 @@ class ChainTurtle(tl.Turtle):
         :param radius: radius in pixels
         """
         self.begin_fill().circle(radius).end_fill(); return self
-    def color(self,turtle_color):
+    def color(self, turtle_color):
         """
         Lets the user change the color of the turtle trace and turtle color itself
         :param turtle_color: valid turtle color
         """
         super().color(turtle_color); return self
-    def teleport(self,x,y):
+    def teleport(self, x, y):
         """
         Makes the turtle to go a specific coordinate with no trace
         :param x: x position in pixels

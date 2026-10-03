@@ -4,11 +4,11 @@ This module contains the Shapes class which provides premade drawing functions w
 
 from typing import Literal, Annotated
 from .TurtleSkeleton import ChainTurtle
-from ..UniversalFunctions.HelperFunctions import sine
-from ..UniversalFunctions.DecoratorArchive import cls_deco_superposition
-from ..UniversalFunctions.ClassToDict import classes_to_dict
-from ..UniversalFunctions.Validators.QuantumFuncValidators import qtm_validation_decorator
-from ..UniversalFunctions.Validators.ValidationClasses import Positive
+from UF.HelperFunctions import sine
+from UF.DecoratorArchive import cls_deco_superposition
+from UF.ClassToDict import classes_to_dict
+from UF.Validators.QuantumFuncValidators import qtm_validation_decorator
+from UF.Validators.ValidationClasses import Positive
 from numbers import Real
 
 

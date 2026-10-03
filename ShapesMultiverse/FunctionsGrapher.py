@@ -1,7 +1,7 @@
-from ..UniversalFunctions.HelperFunctions import sine, cosine, range_f
-from GD.GlobalFunctions import SU, mainloop, get_screen, tls_color
+from ..GD.GlobalFunctions import SU, mainloop, get_screen, tls_color
 from numbers import Real
-from ..UniversalFunctions.Validators.ValidationClasses import TupleValidate
+from collections.abc import Callable
+import UF as uf
 
 
 type list_xy = tuple[list[Real], list[Real]]
@@ -13,12 +13,12 @@ class Drawing:
         Takes the start and end values of desired domain
         :param domain: tuple of start and end values (real numbers)
         """
-        TupleValidate(Real, Real, Real)(domain, name="domain")
+        uf.TupleValidate(Real, Real, Real)(domain, name="domain")
         self.domain = domain
         self.start, self.end, self.steps = domain
 
     @staticmethod
-    def _render(generator_func) -> None:
+    def _render(generator_func: Callable[[], list_xy]) -> None:
         """
         Renders the function produced by the provided generator function.
 
@@ -45,7 +45,7 @@ class Drawing:
 
 class LinearFct(Drawing):
     def generate(self) -> list_xy:
-        x_val = [x/10 for x in range_f(self.start, self.end, self.steps)]
+        x_val = [x/10 for x in uf.range_f(self.start, self.end, self.steps)]
         y_val = [3*x + 4 for x in x_val]
 
         return x_val, y_val
@@ -58,8 +58,8 @@ class SineWave(Drawing):
         Generate the coordinates of the sine wave.
         :return: list of coordinates of the sine wave (tuple of x and y values).
         """
-        x_val = [x/10 for x in range_f(self.start, self.end, self.steps)]
-        y_val = [100 * sine(x) for x in x_val]
+        x_val = [x/10 for x in uf.range_f(self.start, self.end, self.steps)]
+        y_val = [100 * uf.sine(x) for x in x_val]
 
         return x_val, y_val
 
@@ -70,8 +70,8 @@ class CosineWave(Drawing):
         Generate the coordinates of the cosine wave.
         :return: list of coordinates of the cosine wave (tuple of x and y values)
         """
-        x_val = [x/10 for x in range_f(self.start, self.end, self.steps)]
-        y_val = [100 * cosine(x) for x in x_val]
+        x_val = [x/10 for x in uf.range_f(self.start, self.end, self.steps)]
+        y_val = [100 * uf.cosine(x) for x in x_val]
 
         return x_val, y_val
 
@@ -82,6 +82,6 @@ class AbsoluteX(Drawing):
         Generate the coordinates of the absolute x value.
         :return: list of coordinates of the absolute x value (tuple of x and y values).
         """
-        x_val = [x/10 for x in range_f(self.start, self.end, self.steps)]
+        x_val = [x/10 for x in uf.range_f(self.start, self.end, self.steps)]
         y_val = [100 * abs(x) for x in x_val]
         return x_val, y_val

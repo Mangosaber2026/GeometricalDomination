@@ -4,9 +4,9 @@ This module contains the class TurtleFct which lets the user change the turtle s
 
 from .CustomTurtleShapes import CUSTOM_SHAPES
 from .TurtleSkeleton import tl, ChainTurtle
-from ..UniversalFunctions.StringCheck import get_str
+from UF.StringCheck import get_str
 from .GlobalVariables import UV
-from ..UniversalFunctions.Validators.ValidationClasses import TypeValidate
+from UF.Validators.ValidationClasses import TypeValidate
 
 
 class TurtleFct:

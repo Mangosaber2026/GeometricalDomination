@@ -3,12 +3,12 @@ This module contains a very useful function: tls_color, which lets the user crea
 colors and get a list with them.
 """
 
-from ..UniversalFunctions.GetVariable import get_num
+from UF.GetVariable import get_num
 from .TurtleSkeleton import tl, ChainTurtle
 from .GlobalVariables import t_shape, UV
 from turtle import TurtleGraphicsError
 from time import sleep as rest
-from ..UniversalFunctions.Validators.ValidationClasses import int_validate, Positive, str_validate, TypeValidate
+from UF.Validators.ValidationClasses import int_validate, Positive, str_validate, TypeValidate
 
 _screen = None
 

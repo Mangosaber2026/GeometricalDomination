@@ -1,15 +1,15 @@
 """
 This module contains an arsenal of premade geometrical designs/patterns and decorators for them.
 """
-from ..UniversalFunctions.Validators.QuantumFuncValidators import qtm_validation_decorator
+from UF.Validators.QuantumFuncValidators import qtm_validation_decorator
 from .GlobalFunctions import SU, tls_color, get_screen
 from .Shapes_Dictionary import Shapes
 from .TurtleSkeleton import ChainTurtle
 from math import pi, sqrt, degrees, asin
-from ..UniversalFunctions.GetVariable import get_num
-from ..UniversalFunctions.HelperFunctions import helper, sine, range_f
-from ..UniversalFunctions.ClassToDict import classes_to_dict
-from ..UniversalFunctions.Validators.ValidationClasses import GreaterThan, int_validate
+from UF.GetVariable import get_num
+from UF.HelperFunctions import helper, sine, range_f
+from UF.ClassToDict import classes_to_dict
+from UF.Validators.ValidationClasses import GreaterThan, int_validate
 from collections.abc import Callable
 from typing import Final, Literal, Annotated
 from .TurtleFunctions import TurtleFct
