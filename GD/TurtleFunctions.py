@@ -4,9 +4,8 @@ This module contains the class TurtleFct which lets the user change the turtle s
 
 from .CustomTurtleShapes import CUSTOM_SHAPES
 from .TurtleSkeleton import tl, ChainTurtle
-from UF.StringCheck import get_str
 from .GlobalVariables import UV
-from UF.Validators.ValidationClasses import TypeValidate
+import UF as uf
 
 
 class TurtleFct:
@@ -18,10 +17,10 @@ class TurtleFct:
         :return: None
         """
         if tls_num is not None:
-            TypeValidate(ChainTurtle)(tls_num, name="tls_num")
+            uf.TypeValidate(ChainTurtle)(tls_num, name="tls_num")
 
         turtle_shapes_list: list[str] = tl.getshapes()
-        user_shape: str = get_str(f'''
+        user_shape: str = uf.get_str(f'''
             Here are the options for the turtle shape:
             {turtle_shapes_list}
             custom -> custom turtle shapes
@@ -45,9 +44,9 @@ class TurtleFct:
         :return: None
         """
         if tls_num is not None:
-            TypeValidate(ChainTurtle)(tls_num, name="tls_num")
+            uf.TypeValidate(ChainTurtle)(tls_num, name="tls_num")
 
-        user_shape: str = get_str(f'''
+        user_shape: str = uf.get_str(f'''
             Here are some custom options:
             {CUSTOM_SHAPES.keys()}
             Enter choice: 
