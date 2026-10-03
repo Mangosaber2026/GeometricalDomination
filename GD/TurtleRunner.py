@@ -9,8 +9,8 @@ Author: Miah M. Sabiq
 from .Designs import *
 from .UserCommands import *
 from .GlobalFunctions import reset_tls
-from UF.StringCheck import get_str
 from .Shapes_Dictionary import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
+import UF as uf
 
 # //////////////////////////////////////
 # //////// USER DRAWING PROGRAM ///////
@@ -19,7 +19,7 @@ def user_drawing_ft() -> None:
     """This is THE executer for the more custom user-friendly drawing program"""
     UV["t"]: int = tls_color(index=1)
     while True:
-        user_choice: str = get_str('''BELOW ARE SETTINGS:
+        user_choice: str = uf.get_str('''BELOW ARE SETTINGS:
             create tls -> create multiple turtles
             change tls -> change to a different turtle
             change shape -> change turtle shape for current turtle
@@ -83,7 +83,7 @@ def main() -> None:
     print("There are 6 turtles in total, you can decide the trace & turtle color!"); rest(1.5)
     tls_list: list[ChainTurtle] | None = None
     while True:
-        program_choice: str = get_str('''Here are the options
+        program_choice: str = uf.get_str('''Here are the options
         
         circles6 -> 6 circles with 6 turtles
         duo spiral -> beautiful duo spiral
