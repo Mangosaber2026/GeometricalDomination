@@ -3,10 +3,10 @@ This module contains the class Usershape which contains functions to make a cust
 """
 
 from collections.abc import Callable, Sequence
-from .UniversalFunctions.GetVariable import get_num
-from .UniversalFunctions.HelperFunctions import helper, sine
-from .UniversalFunctions.DecoratorArchive import cls_deco_superposition
-from .UniversalFunctions.ClassToDict import classes_to_dict
+from ..UniversalFunctions.GetVariable import get_num
+from ..UniversalFunctions.HelperFunctions import helper, sine
+from ..UniversalFunctions.DecoratorArchive import cls_deco_superposition
+from ..UniversalFunctions.ClassToDict import classes_to_dict
 from .TurtleSkeleton import tl
 from numbers import Real
 

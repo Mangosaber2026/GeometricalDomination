@@ -4,7 +4,7 @@ This module contains the class ChainTurtle() which is the foundational object ar
 
 import turtle as tl
 from collections.abc import Callable
-from .UniversalFunctions.ClassToDict import classes_to_dict
+from ..UniversalFunctions.ClassToDict import classes_to_dict
 
 
 class ChainTurtle(tl.Turtle):

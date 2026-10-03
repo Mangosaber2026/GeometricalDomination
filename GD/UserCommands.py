@@ -8,10 +8,10 @@ from .Alphabets import ALPHABETS
 from time import sleep as rest
 from collections.abc import Callable
 from typing import TypeAlias
-from .UniversalFunctions.GetVariable import get_num
-from .UniversalFunctions.HelperFunctions import helper
-from .UniversalFunctions.DecoratorArchive import cls_deco_superposition
-from .UniversalFunctions.ClassToDict import classes_to_dict
+from ..UniversalFunctions.GetVariable import get_num
+from ..UniversalFunctions.HelperFunctions import helper
+from ..UniversalFunctions.DecoratorArchive import cls_deco_superposition
+from ..UniversalFunctions.ClassToDict import classes_to_dict
 from .TurtleFunctions import TurtleFct
 from numbers import Real
 

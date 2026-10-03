@@ -1,5 +1,5 @@
 from ..UniversalFunctions.HelperFunctions import sine, cosine, range_f
-from ..GlobalFunctions import SU, mainloop, get_screen, tls_color
+from GD.GlobalFunctions import SU, mainloop, get_screen, tls_color
 from numbers import Real
 from ..UniversalFunctions.Validators.ValidationClasses import TupleValidate
 
