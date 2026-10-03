@@ -1,20 +1,20 @@
 """
 This module contains an arsenal of premade geometrical designs/patterns and decorators for them.
 """
-from UF.Validators.QuantumFuncValidators import qtm_validation_decorator
 from .GlobalFunctions import SU, tls_color, get_screen
 from .Shapes_Dictionary import Shapes
 from .TurtleSkeleton import ChainTurtle
-from math import pi, sqrt, degrees, asin
-from UF.GetVariable import get_num
-from UF.HelperFunctions import helper, sine, range_f
-from UF.ClassToDict import classes_to_dict
-from UF.Validators.ValidationClasses import GreaterThan, int_validate
+from math import pi, sqrt
 from collections.abc import Callable
 from typing import Final, Literal, Annotated
 from .TurtleFunctions import TurtleFct
 from functools import wraps
+import UF as uf
 
+helper = uf.helper
+sine = uf.sine
+GreaterThan = uf.GreaterThan
+int_validate = uf.int_validate
 
 type PATTERNS_type = dict[
 str,
@@ -23,7 +23,7 @@ Callable[[list[ChainTurtle]], list[ChainTurtle]]
 | Callable[[], PATTERNS_type]
 ]
 
-@qtm_validation_decorator
+@uf.qtm_validation_decorator
 def turtles(amount: Annotated[int, int_validate(), GreaterThan(0)]):
     """
     DECORATOR:
@@ -194,7 +194,7 @@ class Designs(metaclass=DesignsMeta):
             tls[0].teleport(0, 0).seth(180)
             tls[1].teleport(0, 0).lt(90)
 
-            for c in range_f(0, length + 1, interval):
+            for c in uf.range_f(0, length + 1, interval):
                 tls[0].setpos(c / 2, c / 2)
                 tls[1].setpos((sqrt(2) * c) / 2, 0)
                 Shapes.square(c, tls[0])
@@ -259,7 +259,7 @@ class Designs(metaclass=DesignsMeta):
             :param tls: list of 2 chainable turtles
             """
             length: float | int = helper.length_float()
-            pairs_count: int = get_num(int, "Number of pairs of stars: ", MIN=1)
+            pairs_count: int = uf.get_num(int, "Number of pairs of stars: ", MIN=1)
             tls[1].lt(30)
             for _ in range(pairs_count):
                 for t in tls:
@@ -276,7 +276,7 @@ class Designs(metaclass=DesignsMeta):
 
             height = sqrt(radius ** 2 - (radius / 2) ** 2)
             side_c = sqrt(radius ** 2 + (radius * 2) ** 2 + radius * (radius * 2))
-            angle_b = degrees(asin(((radius * 2) * sine(120)) / side_c))
+            angle_b = uf.asine(((radius * 2) * sine(120)) / side_c)
             angle_a = 180 - (angle_b + 120)
             tls[0].rt(30)
 
@@ -369,7 +369,7 @@ class Designs(metaclass=DesignsMeta):
             interval: float | int = helper.intervals_f()
             for i, t in enumerate(tls):
                 t.lt(i * 90)
-            for a in range_f(0, length + 1, interval):
+            for a in uf.range_f(0, length + 1, interval):
                 for t in tls:
                     Shapes.square_half(a, t)
 
@@ -378,12 +378,12 @@ class Designs(metaclass=DesignsMeta):
             Draws squares in each quadrant
             :param tls: list of 4 chainable turtles
             """
-            length: float | int = get_num(float, "Enter max side length(ℚ>0): ", MIN=1)
+            length: float | int = uf.get_num(float, "Enter max side length(ℚ>0): ", MIN=1)
             interval: float | int = helper.intervals_f()
 
             for i, t in enumerate(tls):
                 t.lt(i * 90)
-            for a in range_f(0, length + 1, interval):
+            for a in uf.range_f(0, length + 1, interval):
                 for t in tls:
                     Shapes.square(a, t)
 
@@ -461,13 +461,13 @@ class Designs(metaclass=DesignsMeta):
         tls: list[ChainTurtle]
         petals_count: int
         tls, petals_count = tls_color(entry="Enter petal count: ")
-        circles_num: int = get_num(int, "Enter circles count: ", MIN=1)
+        circles_num: int = uf.get_num(int, "Enter circles count: ", MIN=1)
         interval: float | int = helper.intervals_f()
 
         angle = int(360 / petals_count)
         for i in range(petals_count):
             tls[i].lt(i * angle)
-        for a in range_f(0, circles_num + 1, interval):
+        for a in uf.range_f(0, circles_num + 1, interval):
             for b in range(petals_count):
                 tls[b].circle(a)
         for t in tls:
@@ -490,7 +490,7 @@ class Designs(metaclass=DesignsMeta):
         item: Callable
         for name, item in vars(cls).items():
             if name.startswith("Turtle") and isinstance(item, type):
-                dictionary.update(classes_to_dict(item))
+                dictionary.update(uf.classes_to_dict(item))
             elif callable(item):
                 dictionary[name] = item
 
