@@ -3,12 +3,12 @@ This module contains a very useful function: tls_color, which lets the user crea
 colors and get a list with them.
 """
 
-from UF.GetVariable import get_num
 from .TurtleSkeleton import tl, ChainTurtle
 from .GlobalVariables import t_shape, UV
 from turtle import TurtleGraphicsError
 from time import sleep as rest
-from UF.Validators.ValidationClasses import int_validate, Positive, str_validate, TypeValidate
+import UF as uf
+
 
 _screen = None
 
@@ -45,19 +45,19 @@ def tls_color(**options) -> int | tuple[turtle_list, int] | turtle_list | None:
     if "tl_num" in options:
         tl_num_name = "tl_num"
         tl_num = options[tl_num_name]
-        int_validate()(tl_num, tl_num_name)
-        Positive()(tl_num, tl_num_name)
+        uf.int_validate()(tl_num, tl_num_name)
+        uf.Positive()(tl_num, tl_num_name)
         turtles_num_count = tl_num
     elif "entry" in options:
         entry_name = "entry"
         entry = options[entry_name]
-        str_validate()(entry, entry_name)
-        turtles_num_count = get_num(int, entry, MIN=1)
+        uf.str_validate()(entry, entry_name)
+        turtles_num_count = uf.get_num(int, entry, MIN=1)
     elif "index" in options:
         index_name = "index"
         index = options[index_name]
-        int_validate()(index, index_name)
-        Positive()(index, index_name)
+        uf.int_validate()(index, index_name)
+        uf.Positive()(index, index_name)
         turtles_num_count = index
     else:
         print("NONE of the entered options exist!")
@@ -88,7 +88,7 @@ def tls_color(**options) -> int | tuple[turtle_list, int] | turtle_list | None:
 def reset_tls(tls_list: turtle_list) -> None:
     """This function deletes the drawings of given turtle list + turtles"""
     for turtle in tls_list:
-        TypeValidate(ChainTurtle)(turtle, "turtle")
+        uf.TypeValidate(ChainTurtle)(turtle, "turtle")
 
     for t in tls_list:
         t.clear(); t.ht()
