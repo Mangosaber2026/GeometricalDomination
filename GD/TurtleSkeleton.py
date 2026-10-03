@@ -4,7 +4,7 @@ This module contains the class ChainTurtle() which is the foundational object ar
 
 import turtle as tl
 from collections.abc import Callable
-from UF.ClassToDict import classes_to_dict
+import UF as uf
 
 
 class ChainTurtle(tl.Turtle):
@@ -127,4 +127,4 @@ class ChainTurtle(tl.Turtle):
         Creates a dictionary with all ChainTurtle methods and returns it
         :return: dictionary
         """
-        return classes_to_dict(cls)
+        return uf.classes_to_dict(cls)
