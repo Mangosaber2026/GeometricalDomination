@@ -4,23 +4,22 @@ This module contains the Shapes class which provides premade drawing functions w
 
 from typing import Literal, Annotated
 from .TurtleSkeleton import ChainTurtle
-from UF.HelperFunctions import sine
-from UF.DecoratorArchive import cls_deco_superposition
-from UF.ClassToDict import classes_to_dict
-from UF.Validators.QuantumFuncValidators import qtm_validation_decorator
-from UF.Validators.ValidationClasses import Positive
 from numbers import Real
+import UF as uf
 
+
+sine = uf.sine
+Positive = uf.Positive
 
 class ShapesMeta(type):
     def __new__(mcls, name, bases, namespace) -> type:
         for func_name, func in namespace.items():
             if callable(func) and not func_name.startswith("_"):
-                namespace[func_name] = qtm_validation_decorator(func)
+                namespace[func_name] = uf.qtm_validation_decorator(func)
 
         return super().__new__(mcls, name, bases, namespace)
 
-@cls_deco_superposition(staticmethod)
+@uf.cls_deco_superposition(staticmethod)
 class Shapes(metaclass=ShapesMeta):
 # ====== STAR OF DAVID ======
     def SOD(side: Annotated[Real, Positive()],tls_num: ChainTurtle) -> None:
@@ -210,4 +209,4 @@ class Shapes(metaclass=ShapesMeta):
         Creates a dictionary with all Shapes and returns it
         :return: dictionary
         """
-        return classes_to_dict(Shapes)
+        return uf.classes_to_dict(Shapes)
