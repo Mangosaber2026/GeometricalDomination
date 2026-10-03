@@ -3,22 +3,21 @@ This module contains the class Usershape which contains functions to make a cust
 """
 
 from collections.abc import Callable, Sequence
-from UF.GetVariable import get_num
-from UF.HelperFunctions import helper, sine
-from UF.DecoratorArchive import cls_deco_superposition
-from UF.ClassToDict import classes_to_dict
 from .TurtleSkeleton import tl
 from numbers import Real
+import UF as uf
+
+helper = uf.helper
 
 
 type return_shape = Sequence[tuple[Real,Real]] | None
 type user_shape_dict = dict[str, Callable[[], return_shape]]
 
-@cls_deco_superposition(staticmethod)
+@uf.cls_deco_superposition(staticmethod)
 class UserShape:
     def custom_circle() -> return_shape:
         """Creates a custom circle turtle shape"""
-        radius: Real = get_num(float, "Enter the radius: ")
+        radius: Real = uf.get_num(float, "Enter the radius: ")
         tl.begin_poly()
         tl.circle(radius)
         tl.end_poly()
@@ -44,7 +43,7 @@ class UserShape:
         """Creates a custom regular polygon turtle shape"""
         length: Real = helper.length_float(); sides: int = helper.sides_num()
 
-        radius = length / (2 * sine(180 / sides)); angle_to_right = (180 - (180 * (sides - 2)) / sides) / 2
+        radius = length / (2 * uf.sine(180 / sides)); angle_to_right = (180 - (180 * (sides - 2)) / sides) / 2
         tl.begin_poly()
         tl.rt(angle_to_right); tl.circle(radius, 360, sides); tl.lt(angle_to_right)
         tl.end_poly()
@@ -67,7 +66,7 @@ class UserShape:
         Creates a dictionary with the functions in UserShape and returns it
         :return: dictionary containing function names -> function
         """
-        return classes_to_dict(cls)
+        return uf.classes_to_dict(cls)
 
 def get_UserShape_dict() -> user_shape_dict:
     """
@@ -76,7 +75,7 @@ def get_UserShape_dict() -> user_shape_dict:
     """
     return {
         f"cm {name.removeprefix('custom_')}": func
-        for name, func in classes_to_dict(UserShape).items()
+        for name, func in UserShape._list_shapes().items()
         if not name.startswith("_")
     }
 
