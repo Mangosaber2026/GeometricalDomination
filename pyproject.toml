@@ -4,13 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "GeometricalDomination"
-version = "2.0.0"
+version = "2.1.0"
 description = "A Python turtle graphics library and DSL for creating geometric drawings."
 readme = "README.md"
 requires-python = ">=3.14"
 
 dependencies = [
-    "UniversalFunctions"
+    "UniversalFunctions>=1.2.0",
+    "numpy",
 ]
 
 authors = [

@@ -4,7 +4,7 @@ punctuation, and shapes (heart, star).
 """
 
 from .TurtleSkeleton import ChainTurtle
-from math import sqrt, asin,  degrees
+from math import sqrt
 from .Shapes_Dictionary import Shapes
 from collections.abc import Callable
 import UF as uf
@@ -198,7 +198,7 @@ class Alphabets(metaclass=AlphabetsMeta):
             :param tls: a ChainTurtle
             """
             tls.rt(90).fd_inv(height/2).circle(height/2, 360).lt(90).fd_inv(height*0.35)
-            side_a = sqrt((height*0.35)**2 + (height/2)**2); turn_right = degrees(asin((height/2) / side_a))
+            side_a = sqrt((height*0.35)**2 + (height/2)**2); turn_right = uf.asine((height/2) / side_a)
             tls.rt(180 - turn_right).fd(side_a).lt(90 - turn_right).fd_inv(height/10).lt(90)
 
         def R(height: Annotated[Real, Positive()], tls: ChainTurtle) -> None:
