@@ -8,3 +8,28 @@ from .TurtleRunner import main, user_drawing_ft
 from .TurtleSkeleton import ChainTurtle
 from .UserCommands import Command, COMMANDS
 from .Shapes import Shapes
+
+__all__ = [
+    "Alphabets",
+    "ALPHABETS",
+    "UserShape",
+    "CUSTOM_SHAPES",
+    "PATTERNS",
+    "SU",
+    "get_screen",
+    "mainloop",
+    "tls_color",
+    "reset_tls",
+    "UV",
+    "t_now",
+    "t_shape",
+    "SHAPES_LENGTH",
+    "SHAPES_RADIUS",
+    "SHAPES_LENGTH_SIDES",
+    "main",
+    "user_drawing_ft",
+    "ChainTurtle",
+    "Command",
+    "COMMANDS",
+    "Shapes",
+]
