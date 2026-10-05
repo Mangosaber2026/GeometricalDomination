@@ -8,6 +8,7 @@ from numbers import Real
 import UF as uf
 import numpy as np
 from typing import Final, Literal
+from ..GD.Shapes import Shapes
 
 
 type list_xy = tuple[list[Real], list[Real]]
@@ -42,8 +43,9 @@ class Drawing:
                             )(coordinates, name)
         get_screen()
         xval, yval = coordinates
-        turtle = tls_color(tl_num=1)
+        turtle = tls_color(tl_num=2)
 
+        Shapes.lines(700, 4, turtle[1])
         for x, y in zip(xval, yval):
             turtle[0].setpos(x, y)
 
@@ -58,10 +60,15 @@ class Drawing:
         self.render(self.generate())
 
 class LinearFct(Drawing):
+    def __init__(self, domain: tuple[Real, Real, int], k: Real, d: Real) -> None:
+        super().__init__(domain)
+        uf.TypeValidate(Real)(k, name="k")
+        uf.TypeValidate(Real)(d, name="d")
+        self.k, self.d = k, d
+
     def generate(self) -> list_xy:
         x_val = self.x_val()
-        y_val = [3*x + 4 for x in x_val]
-
+        y_val = [self.k * x + self.d for x in x_val]
         return x_val, y_val
 
 
@@ -78,7 +85,6 @@ class SineWave(Drawing):
         """
         x_val = self.x_val()
         y_val = [100 * uf.sine(x) for x in x_val]
-
         return x_val, y_val
 
 class CosineWave(Drawing):
@@ -90,7 +96,6 @@ class CosineWave(Drawing):
         """
         x_val = self.x_val()
         y_val = [100 * uf.cosine(x) for x in x_val]
-
         return x_val, y_val
 
 class AbsoluteX(Drawing):
@@ -102,4 +107,20 @@ class AbsoluteX(Drawing):
         """
         x_val = self.x_val()
         y_val = [100 * abs(x) for x in x_val]
+        return x_val, y_val
+
+class QuadraticFct(Drawing):
+    """Class for drawing a quadratic function."""
+    def __init__(
+            self,
+            domain: tuple[Real, Real, int],
+            a: Real, b: Real, c: Real,
+    ) -> None:
+        super().__init__(domain)
+        uf.SequenceValidate(Real, ...)((a, b, c), name="variables")
+        self.a, self.b, self.c = a, b, c
+
+    def generate(self) -> list_xy:
+        x_val = self.x_val()
+        y_val = [(self.a*x**2) + (self.b*x) + self.c for x in x_val]
         return x_val, y_val
