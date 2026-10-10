@@ -1,15 +1,7 @@
-"""
-WELCOME TO MY TURTLE DSAPI with an embedded DSL; HOPE YOU ENJOY!
-
-This module is the entry point to the whole program, which can be run with "main()".
-
-Author: Miah M. Sabiq
-"""
-
 from .Designs import *
-from .UserCommands import COMMANDS
+from .UserCommands import COMMANDS, exec_ft
 from .GlobalFunctions import reset_tls
-from .Shapes_Dictionary import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
+from .ShapesDictionaries import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
 import UF as uf
 from time import sleep as rest
 from .GlobalVariables import UV, t_now
@@ -17,8 +9,7 @@ from .GlobalVariables import UV, t_now
 # //////////////////////////////////////
 # //////// USER DRAWING PROGRAM ///////
 # ////////////////////////////////////
-def user_drawing_ft() -> None:
-    """This is THE executer for the more custom user-friendly drawing program"""
+def user_drawing_ft():
     UV["t"]: int = tls_color(index=1)
     while True:
         user_choice: str = uf.get_str('''BELOW ARE SETTINGS:
@@ -81,8 +72,7 @@ def user_drawing_ft() -> None:
 # /////////////////////////////////
 # //////// MAIN OPERATION ////////
 # ///////////////////////////////
-def main() -> None:
-    """This is THE executer of the ENTIRE Turtle DSL"""
+def main():
     print("There are 6 turtles in total, you can decide the trace & turtle color!"); rest(1.5)
     tls_list: list[ChainTurtle] | None = None
     while True:

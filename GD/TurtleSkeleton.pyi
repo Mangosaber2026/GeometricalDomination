@@ -1,6 +1,12 @@
+"""
+This module contains the class ChainTurtle() which is the foundational object around which this entire software has been made.
+"""
+
 from numbers import Real
 from collections.abc import Callable
 
+
+tl = tl
 
 class ChainTurtle:
     """This class adds chaining functionality to turtle.Turtle"""

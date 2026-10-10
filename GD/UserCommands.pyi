@@ -1,3 +1,7 @@
+"""
+This module contains the class Command, which contains functions for the user_drawing_ft() function.
+"""
+
 import UF as uf
 from collections.abc import Callable
 from .TurtleSkeleton import ChainTurtle

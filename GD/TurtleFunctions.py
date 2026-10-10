@@ -1,7 +1,3 @@
-"""
-This module contains the class TurtleFct which lets the user change the turtle shape to a customized one.
-"""
-
 from .CustomTurtleShapes import CUSTOM_SHAPES
 from .TurtleSkeleton import tl, ChainTurtle
 from .GlobalVariables import UV
@@ -10,12 +6,7 @@ import UF as uf
 
 class TurtleFct:
     @classmethod
-    def change_shape(cls, tls_num: ChainTurtle|None = None) -> ChainTurtle | str:
-        """
-        Lets the user choose different turtles shapes, including a custom option
-        :param tls_num: None|ChainTurtle
-        :return: None
-        """
+    def change_shape(cls, tls_num = None):
         if tls_num is not None:
             uf.TypeValidate(ChainTurtle)(tls_num, name="tls_num")
 
@@ -36,17 +27,12 @@ class TurtleFct:
                 return user_shape
         else:
             if tls_num is not None:
-                return cls._user_tls_shape_ft(tls_num)
+                return cls.user_tls_shape_ft(tls_num)
             else:
-                return cls._user_tls_shape_ft()
+                return cls.user_tls_shape_ft()
 
     @staticmethod
-    def _user_tls_shape_ft(tls_num: ChainTurtle|None = None) -> ChainTurtle | str:
-        """
-        Lets the user create custom turtle shapes
-        :param tls_num: None|ChainTurtle
-        :return: None
-        """
+    def user_tls_shape_ft(tls_num = None):
         if tls_num is not None:
             uf.TypeValidate(ChainTurtle)(tls_num, name="tls_num")
 

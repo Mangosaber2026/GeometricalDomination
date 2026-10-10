@@ -1,7 +1,3 @@
-"""
-This module contains the class ChainTurtle() which is the foundational object around which this entire software has been made.
-"""
-
 import turtle as tl
 import UF as uf
 

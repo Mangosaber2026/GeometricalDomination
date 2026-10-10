@@ -5,7 +5,7 @@ punctuation, and shapes (heart, star).
 
 from .TurtleSkeleton import ChainTurtle
 from math import sqrt
-from .Shapes_Dictionary import Shapes
+from .Shapes import Shapes
 from collections.abc import Callable
 import UF as uf
 from typing import Annotated

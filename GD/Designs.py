@@ -2,7 +2,7 @@
 This module contains an arsenal of premade geometrical designs/patterns and decorators for them.
 """
 from .GlobalFunctions import SU, tls_color, get_screen
-from .Shapes_Dictionary import Shapes
+from .Shapes import Shapes
 from .TurtleSkeleton import ChainTurtle
 from math import pi, sqrt
 from collections.abc import Callable
