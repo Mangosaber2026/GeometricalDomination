@@ -22,6 +22,12 @@ UV: dict[str, Any] = {
 def t_now() -> ChainTurtle:
     """
     This function returns the current UV turtle
+
+    >>> turtle = ChainTurtle()
+    >>> UV["tls"].append(turtle)
+    >>> t_now()
+    ChainTurtle()
+
     :return: ChainTurtle
     """
     return UV["tls"][UV["t"]]
@@ -29,6 +35,11 @@ def t_now() -> ChainTurtle:
 def t_shape() -> str:
     """
     This function returns the current UV turtle shape
+
+    >>> UV['tls_shape'] = 'turtle'
+    >>> t_shape()
+    'turtle'
+
     :return: string
     """
     return UV["tls_shape"]

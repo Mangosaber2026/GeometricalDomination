@@ -6,8 +6,6 @@ from .GlobalVariables import t_now, UV
 from .GlobalFunctions import SU, tls_color
 from .Alphabets import ALPHABETS
 from time import sleep as rest
-from collections.abc import Callable
-from typing import TypeAlias
 from .TurtleFunctions import TurtleFct
 from numbers import Real
 import UF as uf
@@ -15,74 +13,73 @@ import UF as uf
 
 helper = uf.helper
 
-command_dict: TypeAlias = dict[str, Callable[[], None]]
-
 @uf.cls_deco_superposition(staticmethod)
 class Command:
-    def fd_ft() -> None:
-        """Forward function for turtle"""
-        distance: Real = uf.get_num(float, "Enter the distance: "); t_now().fd(distance)
+    def fd_ft():
+        return t_now().fd(uf.get_num(float, "Enter the distance: "))
 
-    def bk_ft() -> None:
-        """Backward function for turtle"""
-        distance: Real = uf.get_num(float, "Enter the distance: "); t_now().bk(distance)
+    def bk_ft():
+        return t_now().bk(uf.get_num(float, "Enter the distance: "))
 
-    def rt_ft() -> None:
-        """Right turn function for turtle"""
-        angle: Real = uf.get_num(float, "Enter an angle: "); t_now().rt(angle)
+    def rt_ft():
+        return t_now().rt(uf.get_num(float, "Enter an angle: "))
 
-    def lt_ft() -> None:
-        """Left turn function for turtle"""
-        angle: Real = uf.get_num(float, "Enter an angle: "); t_now().lt(angle)
+    def lt_ft():
+        return t_now().lt(uf.get_num(float, "Enter an angle: "))
 
-    def create_tls() -> None:
-        """Create a chosen number of turtles"""
+    def create_tls():
         turtles, turtles_num = tls_color(entry="Enter desired number of turtles: ")
         UV["tls"].extend(turtles)
         UV["t"]: int = len(UV["tls"]) - 1
+        return turtles
 
-    def change_tls() -> None:
-        """Change from one turtle to another"""
+    def change_tls():
         if len(UV["tls"]) == 1:
-            raise ValueError("There is only one turtle!")
+            raise uf.value_error()(f"""
+                Function: change_tls
+                
+                There is only one turtle in UV["tls"]!
+                Expected: multiple turtles
+                Received: {UV["tls"]}
+                """)
         tls_change: int = uf.get_num(int, "Enter turtle number: ", MIN=1, MAX=len(UV["tls"]))
-        UV["t"] = tls_change-1
+        tls_num = tls_change - 1
+        UV["t"] = tls_num
+        return tls_num
 
-    def clear_ft() -> None:
-        """Clear all turtle drawings"""
+    def clear_ft():
         for t in UV["tls"]: t.clear()
 
-    def clear_tls() -> None:
-        """Clear all turtle drawings + delete turtles"""
-        for t in UV["tls"]: t.clear(); t.ht()
+    def clear_tls():
+        for t in UV["tls"]:
+            t.clear()
+            t.ht()
+
         UV["tls"].clear()
         turtles, turtle_num = tls_color(entry="Enter number of new turtles: ")
         UV["tls"].extend(turtles)
         UV["t"]: int = turtle_num - 1
+        return turtles
 
-    def home_ft() -> None:
-        """Sets turtle's position+heading to home with trace"""
-        t_now().home()
+    def home_ft():
+        return t_now().home()
 
-    def setpos_ft() -> None:
-        """Sets turtle's position to (x|y) without trace"""
-        t_now().teleport(helper.x_ft(),helper.y_ft())
+    def setpos_ft():
+        return t_now().teleport(helper.x_ft(),helper.y_ft())
 
-    def move_to_ft() -> None:
-        """Sets turtle's position to (x|y) with trace"""
-        t_now().goto(helper.x_ft(),helper.y_ft())
+    def move_to_ft():
+        return t_now().setpos(helper.x_ft(),helper.y_ft())
 
-    def set_timer() -> None:
-        """Sets a timer for user_drawing_ft()"""
-        UV["delay"]: Real = uf.get_num(float, "Enter delay: ", MIN=0)
+    def set_timer():
+        time_delay: Real = uf.get_num(float, "Enter delay: ", MIN=0)
+        UV["delay"] = time_delay
+        return time_delay
 
-    def del_timer() -> None:
-        """Deactivates timer for user_drawing_ft()"""
+    def del_timer():
         UV["delay"]: None = None
 
-    def writer() -> None:
-        """Draws out the letters of the English alphabet"""
-        t_now().lt(90); x_val: Real = t_now().xcor()
+    def writer():
+        t_now().lt(90)
         while True:
             while True:
                 text_entry: str = input("""
@@ -101,35 +98,24 @@ class Command:
                     ALPHABETS[letter](vertical_val,t_now())
                 SU()
 
-    def change_shape() -> None:
-        """Lets the user choose different turtles shapes, including a custom option"""
-        TurtleFct.change_shape(tls_num = t_now())
+    def change_shape():
+        return TurtleFct.change_shape(tls_num = t_now())
 
-    def _list_commands() -> command_dict:
-        """
-        Creates a dictionary with all User Commands and returns it
-        :return: dictionary
-        """
-        return uf.classes_to_dict(Command)
-
-def exec_ft() -> None:
-    """Special side function ONLY for debugging purposes"""
+def exec_ft():
     print("Enter exit to exit, otherwise enjoy!"); rest(2)
     while True:
         try:
             executer = input("Enter: ")
             if executer.lower() == "exit":
                 break
-            exec(executer); SU()
+            exec(executer)
+            SU()
+
         except Exception as exception_error:
             print(f"Invalid input! Error: {exception_error}")
             rest(2)
 
-def get_Command_dict() -> command_dict:
-    """
-    Takes all functions from Command and returns a dictionary containing them
-    :return: dictionary
-    """
+def get_Command_dict():
     return {
         name.removesuffix("_ft").replace("_", " "): obj
         for name, obj in uf.classes_to_dict(Command).items()
@@ -137,4 +123,4 @@ def get_Command_dict() -> command_dict:
     }
 
 # COMMAND STORAGE: USER PROGRAM
-COMMANDS: command_dict = get_Command_dict()
+COMMANDS = get_Command_dict()

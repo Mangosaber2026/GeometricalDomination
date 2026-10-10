@@ -7,10 +7,12 @@ Author: Miah M. Sabiq
 """
 
 from .Designs import *
-from .UserCommands import *
+from .UserCommands import COMMANDS
 from .GlobalFunctions import reset_tls
 from .Shapes_Dictionary import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
 import UF as uf
+from time import sleep as rest
+from .GlobalVariables import UV, t_now
 
 # //////////////////////////////////////
 # //////// USER DRAWING PROGRAM ///////
@@ -73,6 +75,7 @@ def user_drawing_ft() -> None:
             break
         SU()
         if UV["delay"] is not None:
+            uf.real_validate()(UV["delay"], name="delay")
             rest(UV["delay"])
 
 # /////////////////////////////////

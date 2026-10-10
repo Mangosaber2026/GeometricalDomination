@@ -13,13 +13,37 @@ easily see it.
 
 Otherwise, hopefully you enjoy this masterpiece!
 """
-from .GD.Alphabets import Alphabets, ALPHABETS
-from .GD.CustomTurtleShapes import UserShape, CUSTOM_SHAPES
-from .GD.Designs import PATTERNS
-from .GD.GlobalFunctions import SU, get_screen, mainloop, tls_color, reset_tls
-from .GD.GlobalVariables import UV, t_now, t_shape
-from .GD.Shapes_Dictionary import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
-from .GD.TurtleRunner import main, user_drawing_ft
-from .GD.TurtleSkeleton import ChainTurtle
-from .GD.UserCommands import Command, COMMANDS
-from .GD.Shapes import Shapes
+from .GD import *
+from .ShapesMultiverse import *
+
+__all__ = [
+    "Alphabets",
+    "ALPHABETS",
+    "UserShape",
+    "CUSTOM_SHAPES",
+    "PATTERNS",
+    "SU",
+    "get_screen",
+    "mainloop",
+    "tls_color",
+    "reset_tls",
+    "UV",
+    "t_now",
+    "t_shape",
+    "SHAPES_LENGTH",
+    "SHAPES_RADIUS",
+    "SHAPES_LENGTH_SIDES",
+    "main",
+    "user_drawing_ft",
+    "ChainTurtle",
+    "Command",
+    "COMMANDS",
+    "Shapes",
+
+    "Drawing",
+    "LinearFct",
+    "SineWave",
+    "CosineWave",
+    "AbsoluteX",
+    "QuadraticFct",
+]

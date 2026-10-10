@@ -34,7 +34,10 @@ class AlphabetsMeta(type):
             if callable(function):
                 return function
 
-        raise AttributeError(f"{cls.__name__} has no attribute {func!r}")
+        raise uf.attribute_error()(f"""
+            Function: AlphabetsMeta.__getattr__
+            {cls.__name__} has no attribute {func!r}
+            """)
 
 def alphabets_main_deco(cls):
     """

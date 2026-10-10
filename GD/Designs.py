@@ -66,7 +66,10 @@ class DesignsMeta(type):
                 if callable(function):
                     return function
 
-        raise AttributeError(f"{cls.__name__} has no attribute {func!r}")
+        raise uf.attribute_error()(f"""
+            Function: DesignsMeta.__getattr__
+            {cls.__name__} has no attribute {func!r}
+            """)
 
 @designs_decorator
 class Designs(metaclass=DesignsMeta):

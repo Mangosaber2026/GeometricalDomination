@@ -2,14 +2,14 @@
 This module contains the Shapes class which provides premade drawing functions with ChainTurtle().
 """
 
-from typing import Literal, Annotated
+from typing import Literal, Annotated, Final
 from .TurtleSkeleton import ChainTurtle
 from numbers import Real
 import UF as uf
 
 
-sine = uf.sine
-Positive = uf.Positive
+sine: Final = uf.sine
+Positive: Final = uf.Positive
 
 class ShapesMeta(type):
     def __new__(mcls, name, bases, namespace) -> type:
