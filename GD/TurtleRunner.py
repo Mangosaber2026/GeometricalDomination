@@ -4,7 +4,7 @@ from .GlobalFunctions import reset_tls
 from .ShapesDictionaries import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
 import UF as uf
 from time import sleep as rest
-from .GlobalVariables import UV, t_now
+from .Foundations import UV, t_now
 
 # //////////////////////////////////////
 # //////// USER DRAWING PROGRAM ///////
