@@ -15,7 +15,6 @@ Otherwise, hopefully you enjoy this masterpiece!
 """
 
 from .Alphabets import Alphabets, ALPHABETS
-from .CustomTurtleShapes import UserShape, CUSTOM_SHAPES
 from .Designs import PATTERNS
 from .Foundations import (
     SU,
@@ -26,6 +25,8 @@ from .Foundations import (
     UV,
     t_now,
     t_shape,
+    UserShape,
+    CUSTOM_SHAPES
 )
 from .ShapesDictionaries import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
 from .TurtleRunner import main, user_drawing_ft

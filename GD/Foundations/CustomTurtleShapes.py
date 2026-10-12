@@ -1,4 +1,4 @@
-from .TurtleHeart import tl
+from ..TurtleHeart import tl
 from numbers import Real
 import UF as uf
 
