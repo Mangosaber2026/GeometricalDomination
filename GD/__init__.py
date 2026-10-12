@@ -14,7 +14,7 @@ easily see it.
 Otherwise, hopefully you enjoy this masterpiece!
 """
 
-from .Alphabets import Alphabets, ALPHABETS
+from .Visuals import Alphabets, ALPHABETS
 from .Designs import PATTERNS
 from .Foundations import (
     SU,

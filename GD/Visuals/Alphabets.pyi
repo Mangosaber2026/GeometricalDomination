@@ -3,7 +3,7 @@ This module contains the Alphabets class which provides a collection of function
 punctuation, and shapes (heart, star).
 """
 
-from .TurtleHeart import ChainTurtle
+from ..TurtleHeart import ChainTurtle
 from numbers import Real
 from collections.abc import Callable
 

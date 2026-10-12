@@ -1,4 +1,4 @@
-from .Alphabets import ALPHABETS
+from .Visuals import ALPHABETS
 from time import sleep as rest
 from .Foundations import (
     t_now,
