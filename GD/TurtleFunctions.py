@@ -1,5 +1,5 @@
 from .CustomTurtleShapes import CUSTOM_SHAPES
-from GD.TurtleHeart.TurtleSkeleton import tl, ChainTurtle
+from .TurtleHeart import tl, ChainTurtle
 from .GlobalVariables import UV
 import UF as uf
 

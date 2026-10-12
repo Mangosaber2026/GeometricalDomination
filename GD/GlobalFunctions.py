@@ -1,4 +1,4 @@
-from GD.TurtleHeart.TurtleSkeleton import tl, ChainTurtle
+from .TurtleHeart import tl, ChainTurtle
 from .GlobalVariables import t_shape, UV
 from turtle import TurtleGraphicsError
 from time import sleep as rest

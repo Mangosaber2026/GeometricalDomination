@@ -3,7 +3,7 @@ This module contains a very useful function: tls_color, which lets the user crea
 colors and get a list with them.
 """
 
-from GD.TurtleHeart.TurtleSkeleton import tl, ChainTurtle
+from .TurtleHeart import tl, ChainTurtle
 
 
 def get_screen() -> tl.Screen:
