@@ -87,6 +87,14 @@ class ChainTurtle(tl.Turtle):
         super().undo()
         return self
 
+    def clear(self):
+        super().clear()
+        return self
+
+    def ht(self):
+        super().ht()
+        return self
+
     @classmethod
     def list_methods(cls):
         return uf.classes_to_dict(cls)

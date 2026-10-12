@@ -1,35 +1,22 @@
-"""
-This module contains an arsenal of premade geometrical designs/patterns and decorators for them.
-"""
 from .GlobalFunctions import SU, tls_color, get_screen
 from .Shapes import Shapes
 from .TurtleSkeleton import ChainTurtle
 from math import pi, sqrt
 from collections.abc import Callable
-from typing import Final, Literal, Annotated
+from typing import Final, Literal
 from .TurtleFunctions import TurtleFct
 from functools import wraps
 import UF as uf
 
+
 helper = uf.helper
 sine = uf.sine
-GreaterThan = uf.GreaterThan
 int_validate = uf.int_validate
 
-type PATTERNS_type = dict[
-str,
-Callable[[list[ChainTurtle]], list[ChainTurtle]]
-| Callable[[], list[ChainTurtle]]
-| Callable[[], PATTERNS_type]
-]
+def turtles(amount):
 
-@uf.qtm_validation_decorator
-def turtles(amount: Annotated[int, int_validate(), GreaterThan(0)]):
-    """
-    DECORATOR:
-    Takes a given number of turtles, gets their colors from the user and executes the function
-    :param amount: number of turtles > 0
-    """
+    uf.ComboValidate(amount, name="amount")(uf.int_validate(), uf.Positive())
+
     def decorator(func):
         @wraps(func)
         def wrapper():
@@ -76,11 +63,8 @@ class Designs(metaclass=DesignsMeta):
     class TurtleOne:
         TURTLE_COUNT: Final[Literal[1]] = 1
 
-        def hexaflower(tls: list[ChainTurtle]) -> None:
-            """
-            Draws flowers with 12 triangle petals in a horizontal + vertical pattern
-            :param tls: list of 1 chainable turtle
-            """
+        def hexaflower(tls):
+
             length: float | int = helper.length_float()
             flower_num: int = helper.object_num()
             row_count: int = helper.row_pair()
@@ -96,18 +80,12 @@ class Designs(metaclass=DesignsMeta):
 
                     tls[0].fd_inv(length_total - diagonal).lt(90).fd_inv(height * 2).rt(90)
 
-        def star_of_david(tls: list[ChainTurtle]) -> None:
-            """
-            Draws a star of David
-            :param tls: list of 1 chainable turtle
-            """
+        def star_of_david(tls):
+
             Shapes.SOD(helper.length_float(), tls[0])
 
-        def diamond_pattern(tls: list[ChainTurtle]) -> None:
-            """
-            Draws a diamond pattern
-            :param tls: list of 1 chainable turtle
-            """
+        def diamond_pattern(tls):
+
             length: float|int = helper.length_float()
             diamond_num: int = helper.object_num()
             row_count: int = helper.row_num()
@@ -119,20 +97,16 @@ class Designs(metaclass=DesignsMeta):
 
                 tls[0].pu().fd((length+height)*diamond_num*2).lt(90).fd(outer_side).rt(90)
 
-        def hidden_sds(tls: list[ChainTurtle]) -> None:
-            """
-            Draws stars of David in the same orientation (1 turtle)
-            :param tls: list of 1 chainable turtle
-            """
-            length: float|int = helper.length_float(); star_count: int = helper.object_num()
+        def hidden_sds(tls):
+
+            length: float|int = helper.length_float()
+            star_count: int = helper.object_num()
+
             for _ in range(star_count):
                 Shapes.SOD(length,tls[0]); length = (length * sine(30))/sine(120)
 
-        def gd_reference(tls: list[ChainTurtle]) -> None:
-            """
-            Draws a square icon that resembles a GD icon
-            :param tls: list of 1 chainable turtle
-            """
+        def gd_reference(tls):
+
             length: float|int = helper.length_float()
 
             diagonal = (length*sine(120))/sine(30); tls[0].lt(30)
@@ -140,11 +114,8 @@ class Designs(metaclass=DesignsMeta):
                 tls[0].begin_fill().fd(diagonal).lt(150).fd(length).rt(120).bk(length).end_fill()
                 tls[0].fd(length).lt(120).fd(length).rt(60).bk(diagonal)
 
-        def tri_wheel(tls: list[ChainTurtle]) -> None:
-            """
-            Draws a wheel made with triangles on the sides
-            :param tls: list of 1 chainable turtle
-            """
+        def tri_wheel(tls):
+
             length: float|int = helper.length_float()
 
             diagonal = (length*sine(120))/sine(30); tls[0].width(3)
@@ -152,11 +123,8 @@ class Designs(metaclass=DesignsMeta):
                 tls[0].begin_fill().fd(diagonal).lt(150).fd(length).rt(120).bk(length).end_fill()
                 tls[0].fd(length).lt(60).fd(length).rt(60).bk(diagonal)
 
-        def lotus_pattern(tls: list[ChainTurtle]) -> None:
-            """
-            Draws a lotus pattern (12 petals)
-            :param tls: list of 1 chainable turtle
-            """
+        def lotus_pattern(tls):
+
             radius: float | int = helper.radius_float()
             lotuses: int = helper.object_num()
             rows: int = helper.row_num()
@@ -170,19 +138,13 @@ class Designs(metaclass=DesignsMeta):
     class TurtleTwo:
         TURTLE_COUNT: Final[Literal[2]] = 2
 
-        def duo_spiral(tls: list[ChainTurtle]) -> None:
-            """
-            Draws 2 overlapping spirals, one to the right and one to the left
-            :param tls: list of 2 chainable turtles
-            """
+        def duo_spiral(tls):
+
             for i in range(500):
                 tls[0].fd(i).rt(91); tls[1].fd(i).lt(91); SU()
 
-        def squares8(tls: list[ChainTurtle]) -> None:
-            """
-            Draws 4 squares on each corner, with 4 squares tilted by 45° in between them + square pattern in between
-            :param tls: list of 2 chainable turtles
-            """
+        def squares8(tls):
+
             length: float | int = helper.length_float()
             interval: float | int = helper.intervals_f()
             diameter, diameter_half = helper.diameter_sq(length)
@@ -208,11 +170,8 @@ class Designs(metaclass=DesignsMeta):
             for t in tls:
                 Shapes.lines(length * 1.5, 4, t)
 
-        def tri_hexaflower(tls: list[ChainTurtle]) -> None:
-            """
-            Draws flowers with 12 triangle petals with lines in the middle in a horizontal + vertical pattern
-            :param tls: list of 2 chainable turtles
-            """
+        def tri_hexaflower(tls):
+
             length: float | int = helper.length_float()
             flower_num: int = helper.object_num()
             row_count: int = helper.row_pair()
@@ -232,11 +191,8 @@ class Designs(metaclass=DesignsMeta):
                     for t in tls:
                         t.fd_inv(length_total - diagonal).lt(90).fd_inv(height * 2).rt(90)
 
-        def sd_pattern(tls: list[ChainTurtle]) -> None:
-            """
-            Draws stars of David in a horizontal + vertical pattern
-            :param tls: list of 2 chainable turtles
-            """
+        def sd_pattern(tls):
+
             length: float | int = helper.length_float()
             star_num: int = helper.object_num()
             row_count: int = helper.row_pair()
@@ -256,11 +212,8 @@ class Designs(metaclass=DesignsMeta):
                     for t in range(2):
                         tls[t].pu().fd((length + height) * (star_num * 2 + (-1) ** row)).lt(90).fd(outer_side * 1.5).rt(90)
 
-        def sd_spiral(tls: list[ChainTurtle]) -> None:
-            """
-            Draws stars of David in a spiral pattern inside a main star with 2 turtles
-            :param tls: list of 2 chainable turtles
-            """
+        def sd_spiral(tls):
+
             length: float | int = helper.length_float()
             pairs_count: int = uf.get_num(int, "Number of pairs of stars: ", MIN=1)
             tls[1].lt(30)
@@ -270,11 +223,8 @@ class Designs(metaclass=DesignsMeta):
                     length = (length * sine(30)) / sine(120)
                     t.lt(60)
 
-        def sd_triflower(tls: list[ChainTurtle]) -> None:
-            """
-            Draws three 6 petalled flowers in triangular shape in a star of David in an external structure
-            :param tls: list of 2 chainable turtles
-            """
+        def sd_triflower(tls):
+
             radius: float | int = helper.radius_float()
 
             height = sqrt(radius ** 2 - (radius / 2) ** 2)
@@ -296,11 +246,8 @@ class Designs(metaclass=DesignsMeta):
             for _ in range(3):
                 tls[0].fd(side_c).lt(180 - (angle_a * 2 + 60)).fd(side_c).lt(180 - (angle_b * 2 + 60))
 
-        def hexaflower_sd(tls: list[ChainTurtle]) -> None:
-            """
-            Draws six 6 petalled flowers in a hexagon pattern, with lines in between the petals, all inside a star of David
-            :param tls: list of 2 chainable turtles
-            """
+        def hexaflower_sd(tls):
+
             radius: float | int = helper.radius_float()
             tls[0].lt(30)
 
@@ -316,11 +263,8 @@ class Designs(metaclass=DesignsMeta):
     class TurtleThree:
         TURTLE_COUNT: Final[Literal[3]] = 3
 
-        def squares10(tls: list[ChainTurtle]) -> None:
-            """
-            Draws 4 squares on each corner, with 4 squares tilted by 45° in between them + Star of David (fill) in the middle
-            :param tls: list of 3 chainable turtles
-            """
+        def squares10(tls):
+
             length: float | int = helper.length_float()
             diameter, d_half = helper.diameter_sq(length)
 
@@ -336,11 +280,8 @@ class Designs(metaclass=DesignsMeta):
             tls[2].teleport(d_half, d_half).lt(45)
             Shapes.square_fill(diameter, tls[2])
 
-        def sd_flower(tls: list[ChainTurtle]) -> None:
-            """
-            Draws a 6 petalled flower inside a star of David inside a hexagon
-            :param tls: list of 3 chainable turtles
-            """
+        def sd_flower(tls):
+
             radius: float | int = helper.radius_float()
             hexa_side = (radius * sine(120)) / sine(30)
             tls[0].lt(30)
@@ -352,49 +293,41 @@ class Designs(metaclass=DesignsMeta):
     class TurtleFour:
         TURTLE_COUNT: Final[Literal[4]] = 4
 
-        def flower_4petals(tls: list[ChainTurtle]) -> None:
-            """
-            Draws a flower with 4 petals
-            :param tls: list of 4 chainable turtles
-            """
+        def flower_4petals(tls):
+
             for i, t in enumerate(tls):
                 t.lt(i * 90)
+
             for a in range(0, 500, 10):
                 for b in range(4):
                     tls[b].circle(a)
 
-        def square4(tls: list[ChainTurtle]) -> None:
-            """
-            Draws 4 squares where the axes slice the squares in half
-            :param tls: list of 4 chainable turtles
-            """
+        def square4(tls):
+
             length: float | int = helper.length_float()
             interval: float | int = helper.intervals_f()
+
             for i, t in enumerate(tls):
                 t.lt(i * 90)
+
             for a in uf.range_f(0, length + 1, interval):
                 for t in tls:
                     Shapes.square_half(a, t)
 
-        def quadrant_square(tls: list[ChainTurtle]) -> None:
-            """
-            Draws squares in each quadrant
-            :param tls: list of 4 chainable turtles
-            """
+        def quadrant_square(tls):
+
             length: float | int = uf.get_num(float, "Enter max side length(ℚ>0): ", MIN=1)
             interval: float | int = helper.intervals_f()
 
             for i, t in enumerate(tls):
                 t.lt(i * 90)
+
             for a in uf.range_f(0, length + 1, interval):
                 for t in tls:
                     Shapes.square(a, t)
 
-        def multi_square_grid(tls: list[ChainTurtle]) -> None:
-            """
-            Draws a 45° tilted grid with 4 turtles => 4 colors
-            :param tls: list of 4 chainable turtles
-            """
+        def multi_square_grid(tls):
+
             length: float | int = helper.length_float()
             x_val = (length * sqrt(2)) / 2
             tls[1].lt(180)
@@ -419,23 +352,21 @@ class Designs(metaclass=DesignsMeta):
     class TurtleSix:
         TURTLE_COUNT: Final[Literal[6]] = 6
 
-        def circles6(tls: list[ChainTurtle]) -> None:
-            """
-            Draws 6 circles (with 6 turtles) 'simultaneously' with each being 60° to the left of the last one
-            :param tls: list of 6 chainable turtles
-            """
+        def circles6(tls):
+
             radius: float|int = helper.radius_float()
 
             step = 2 * pi * radius / 360
             for i,t in enumerate(tls):
                 t.lt(i * 60)
+
             for a in range(0, 360):
                 for b in range(6):
                     tls[b].fd(step).rt(1)
                 SU()
 
-    def duo_triforce() -> list[ChainTurtle]:
-        """Draws a duo triforce, triangles have corresponding colors"""
+    def duo_triforce():
+
         length: float | int = helper.length_float()
 
         color_list = ["red", "blue", "green", "magenta", "cyan", "yellow", "black"]
@@ -459,8 +390,8 @@ class Designs(metaclass=DesignsMeta):
         SU()
         return tls
 
-    def flower_infinite() -> list[ChainTurtle]:
-        """Draws a customized flower: petals + circles number"""
+    def flower_infinite():
+
         tls: list[ChainTurtle]
         petals_count: int
         tls, petals_count = tls_color(entry="Enter petal count: ")
@@ -478,16 +409,12 @@ class Designs(metaclass=DesignsMeta):
         SU()
         return tls
 
-    def change_shape() -> None:
-        """Changes the shape of the turtle according to user input"""
+    def change_shape():
         TurtleFct.change_shape()
 
     @classmethod
-    def _list_designs(cls) -> PATTERNS_type:
-        """
-        Creates a dictionary with all the designs and returns it
-        :return: dictionary
-        """
+    def _list_designs(cls):
+
         dictionary = {}
         name: str
         item: Callable
@@ -499,8 +426,7 @@ class Designs(metaclass=DesignsMeta):
 
         return dictionary
 
-def get_Patterns_dict() -> PATTERNS_type:
-    """PATTERNS dictionary launcher"""
+def get_Patterns_dict():
     return {
         name.replace("_", " "): func
         for name, func in Designs._list_designs().items()
@@ -508,4 +434,4 @@ def get_Patterns_dict() -> PATTERNS_type:
     }
 
 # DICTIONARY: ALL COMMANDS OF MAIN MENU
-PATTERNS: PATTERNS_type = get_Patterns_dict()
+PATTERNS = get_Patterns_dict()
