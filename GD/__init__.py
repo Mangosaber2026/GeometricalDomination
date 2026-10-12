@@ -23,6 +23,9 @@ from .Visuals import (
     get_Patterns_dict,
     PATTERNS,
     Shapes,
+    SHAPES_LENGTH,
+    SHAPES_RADIUS,
+    SHAPES_LENGTH_SIDES,
 )
 from .Foundations import (
     SU,
@@ -36,11 +39,9 @@ from .Foundations import (
     UserShape,
     CUSTOM_SHAPES
 )
-from .ShapesDictionaries import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
 from .TurtleRunner import main, user_drawing_ft
 from .TurtleHeart import ChainTurtle
 from .UserCommands import Command, COMMANDS
-from GD.Visuals.Shapes import Shapes
 
 __all__ = [
     "Alphabets",

@@ -1,4 +1,4 @@
-from .Visuals import Shapes
+from .Shapes import Shapes
 
 
 # DICTIONARY: SHAPES REQUIRING LENGTH

@@ -4,7 +4,7 @@ This module contains dictionaries which contain all shape functions from the Sha
 
 from collections.abc import Callable
 from numbers import Real
-from .TurtleHeart import ChainTurtle
+from ..TurtleHeart import ChainTurtle
 
 
 type shapes_dict_type = dict[str, Callable[[Real, ChainTurtle], None]]

@@ -15,6 +15,12 @@ from .Shapes import (
 Shapes,
 )
 
+from .ShapesDictionaries import (
+SHAPES_LENGTH,
+SHAPES_LENGTH_SIDES,
+SHAPES_RADIUS,
+)
+
 __all__ = [
     "Alphabets",
     "ALPHABETS",
@@ -26,4 +32,8 @@ __all__ = [
     "PATTERNS",
 
     "Shapes",
+
+    "SHAPES_LENGTH",
+    "SHAPES_LENGTH_SIDES",
+    "SHAPES_RADIUS",
 ]
