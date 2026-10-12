@@ -1,12 +1,12 @@
-from .UserCommands import COMMANDS, exec_ft
-from .Visuals import (
+from ..UserCommands import COMMANDS, exec_ft
+from ..Visuals import (
     PATTERNS,
     SHAPES_LENGTH,
     SHAPES_RADIUS,
     SHAPES_LENGTH_SIDES)
 import UF as uf
 from time import sleep as rest
-from .Foundations import (
+from ..Foundations import (
     UV,
     t_now,
     reset_tls,
@@ -14,7 +14,7 @@ from .Foundations import (
     get_screen,
     SU,
 )
-from .TurtleHeart import ChainTurtle
+from ..TurtleHeart import ChainTurtle
 
 # //////////////////////////////////////
 # //////// USER DRAWING PROGRAM ///////
