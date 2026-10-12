@@ -1,7 +1,12 @@
-from .Foundations import t_now, UV, SU, tls_color
 from .Alphabets import ALPHABETS
 from time import sleep as rest
-from .TurtleFunctions import TurtleFct
+from .Foundations import (
+    t_now,
+    UV,
+    SU,
+    tls_color,
+    TurtleFct,
+)
 from numbers import Real
 import UF as uf
 

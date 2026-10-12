@@ -18,6 +18,10 @@ from .CustomTurtleShapes import (
     CUSTOM_SHAPES,
 )
 
+from .TurtleFunctions import (
+TurtleFct,
+)
+
 __all__ = [
     "UV",
     "t_now",
@@ -32,4 +36,6 @@ __all__ = [
     "UserShape",
     "get_UserShape_dict",
     "CUSTOM_SHAPES",
+
+    "TurtleFct",
 ]

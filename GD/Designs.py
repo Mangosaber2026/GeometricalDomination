@@ -1,10 +1,14 @@
-from .Foundations import SU, tls_color, get_screen
 from .Shapes import Shapes
 from .TurtleHeart import ChainTurtle
 from math import pi, sqrt
 from collections.abc import Callable
 from typing import Final, Literal
-from .TurtleFunctions import TurtleFct
+from .Foundations import (
+    SU,
+    tls_color,
+    get_screen,
+    TurtleFct,
+)
 from functools import wraps
 import UF as uf
 

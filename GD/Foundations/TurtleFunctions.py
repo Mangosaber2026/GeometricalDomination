@@ -1,5 +1,6 @@
-from .TurtleHeart import tl, ChainTurtle
-from .Foundations import UV, CUSTOM_SHAPES
+from ..TurtleHeart import tl, ChainTurtle
+from .GlobalVariables import UV
+from .CustomTurtleShapes import CUSTOM_SHAPES
 import UF as uf
 
 
