@@ -2,7 +2,7 @@
 This module contains the class TurtleFct which lets the user change the turtle shape to a customized one.
 """
 
-from .TurtleSkeleton import ChainTurtle
+from .TurtleHeart import ChainTurtle
 
 
 class TurtleFct:

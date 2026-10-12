@@ -1,5 +1,5 @@
 from typing import Literal,  Final
-from .TurtleSkeleton import ChainTurtle
+from .TurtleHeart import ChainTurtle
 from numbers import Real
 import UF as uf
 

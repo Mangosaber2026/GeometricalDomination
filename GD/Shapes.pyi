@@ -3,8 +3,8 @@ This module contains the Shapes class which provides premade drawing functions w
 """
 
 import UF as uf
-from typing import Annotated, Final, Literal
-from .TurtleSkeleton import ChainTurtle
+from typing import Final, Literal
+from .TurtleHeart import ChainTurtle
 from numbers import Real
 
 

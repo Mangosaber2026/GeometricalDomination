@@ -1,9 +1,8 @@
-from .TurtleSkeleton import ChainTurtle
+from .TurtleHeart import ChainTurtle
 from math import sqrt
 from .Shapes import Shapes
 from collections.abc import Callable
 import UF as uf
-from typing import Annotated
 from numbers import Real
 from functools import wraps
 

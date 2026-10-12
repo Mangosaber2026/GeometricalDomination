@@ -1,6 +1,6 @@
 from .GlobalFunctions import SU, tls_color, get_screen
 from .Shapes import Shapes
-from .TurtleSkeleton import ChainTurtle
+from .TurtleHeart import ChainTurtle
 from math import pi, sqrt
 from collections.abc import Callable
 from typing import Final, Literal

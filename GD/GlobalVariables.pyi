@@ -9,7 +9,7 @@ t_shape() -> lets users take the current turtle shape
 """
 
 from typing import Any
-from .TurtleSkeleton import ChainTurtle
+from .TurtleHeart import ChainTurtle
 
 
 UV: dict[str, Any]
