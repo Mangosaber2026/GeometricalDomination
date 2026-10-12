@@ -1,4 +1,4 @@
-from .GlobalFunctions import SU, tls_color, get_screen
+from .Foundations import SU, tls_color, get_screen
 from .Shapes import Shapes
 from .TurtleHeart import ChainTurtle
 from math import pi, sqrt

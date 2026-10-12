@@ -1,10 +1,17 @@
 from .Designs import *
 from .UserCommands import COMMANDS, exec_ft
-from .GlobalFunctions import reset_tls
 from .ShapesDictionaries import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
 import UF as uf
 from time import sleep as rest
-from .Foundations import UV, t_now
+from .Foundations import (
+    UV,
+    t_now,
+    reset_tls,
+    tls_color,
+    get_screen,
+    SU,
+)
+from .TurtleHeart import ChainTurtle
 
 # //////////////////////////////////////
 # //////// USER DRAWING PROGRAM ///////
@@ -52,11 +59,11 @@ def user_drawing_ft():
         if user_choice in COMMANDS:
             COMMANDS[user_choice]()
         elif user_choice in SHAPES_LENGTH:
-            SHAPES_LENGTH[user_choice](helper.length_float(), t_now())
+            SHAPES_LENGTH[user_choice](uf.helper.length_float(), t_now())
         elif user_choice in SHAPES_LENGTH_SIDES:
-            SHAPES_LENGTH_SIDES[user_choice](helper.length_float(), helper.sides_num(), t_now())
+            SHAPES_LENGTH_SIDES[user_choice](uf.helper.length_float(), uf.helper.sides_num(), t_now())
         elif user_choice in SHAPES_RADIUS:
-            SHAPES_RADIUS[user_choice](helper.radius_float(),t_now())
+            SHAPES_RADIUS[user_choice](uf.helper.radius_float(),t_now())
         elif user_choice == "exec":
             exec_ft()
         elif user_choice == "n":

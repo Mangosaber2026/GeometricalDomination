@@ -3,7 +3,7 @@ This module contains a collection of classes and functions for drawing/rendering
 mathematical functions.
 """
 
-from ..GD.GlobalFunctions import SU, mainloop, get_screen, tls_color
+from GD.Foundations.GlobalFunctions import SU, mainloop, get_screen, tls_color
 from numbers import Real
 import UF as uf
 import numpy as np

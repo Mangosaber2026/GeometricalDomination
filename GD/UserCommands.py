@@ -1,5 +1,4 @@
-from .Foundations import t_now, UV
-from .GlobalFunctions import SU, tls_color
+from .Foundations import t_now, UV, SU, tls_color
 from .Alphabets import ALPHABETS
 from time import sleep as rest
 from .TurtleFunctions import TurtleFct
