@@ -1,4 +1,4 @@
-from ..UserCommands import COMMANDS, exec_ft
+from ..UserFeatures import COMMANDS, exec_ft
 from ..Visuals import (
     PATTERNS,
     SHAPES_LENGTH,

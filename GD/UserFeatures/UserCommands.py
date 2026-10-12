@@ -1,6 +1,6 @@
-from .Visuals import ALPHABETS
+from ..Visuals import ALPHABETS
 from time import sleep as rest
-from .Foundations import (
+from ..Foundations import (
     t_now,
     UV,
     SU,
