@@ -14,8 +14,16 @@ easily see it.
 Otherwise, hopefully you enjoy this masterpiece!
 """
 
-from .Visuals import Alphabets, ALPHABETS
-from .Designs import PATTERNS
+from .Visuals import (
+    Alphabets,
+    ALPHABETS,
+    letters_functions,
+    Designs,
+    turtles,
+    get_Patterns_dict,
+    PATTERNS,
+    Shapes,
+)
 from .Foundations import (
     SU,
     get_screen,
@@ -32,14 +40,19 @@ from .ShapesDictionaries import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDE
 from .TurtleRunner import main, user_drawing_ft
 from .TurtleHeart import ChainTurtle
 from .UserCommands import Command, COMMANDS
-from .Shapes import Shapes
+from GD.Visuals.Shapes import Shapes
 
 __all__ = [
     "Alphabets",
     "ALPHABETS",
+    "letters_functions",
+    "Designs",
+    "turtles",
+    "get_Patterns_dict",
+    "PATTERNS",
+    "Shapes",
     "UserShape",
     "CUSTOM_SHAPES",
-    "PATTERNS",
     "SU",
     "get_screen",
     "mainloop",

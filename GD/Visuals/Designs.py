@@ -1,9 +1,9 @@
-from .Shapes import Shapes
-from .TurtleHeart import ChainTurtle
+from GD.Visuals.Shapes import Shapes
+from ..TurtleHeart import ChainTurtle
 from math import pi, sqrt
 from collections.abc import Callable
 from typing import Final, Literal
-from .Foundations import (
+from ..Foundations import (
     SU,
     tls_color,
     get_screen,

@@ -2,7 +2,7 @@
 This module contains an arsenal of premade geometrical designs/patterns and decorators for them.
 """
 from typing import Callable
-from .TurtleHeart import ChainTurtle
+from ..TurtleHeart import ChainTurtle
 
 
 type tls_type = list[ChainTurtle]

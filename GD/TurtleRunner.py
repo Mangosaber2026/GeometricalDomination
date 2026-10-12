@@ -1,4 +1,4 @@
-from .Designs import *
+from .Visuals import PATTERNS
 from .UserCommands import COMMANDS, exec_ft
 from .ShapesDictionaries import SHAPES_LENGTH, SHAPES_RADIUS, SHAPES_LENGTH_SIDES
 import UF as uf

@@ -1,6 +1,6 @@
 from ..TurtleHeart import ChainTurtle
 from math import sqrt
-from ..Shapes import Shapes
+from GD.Visuals.Shapes import Shapes
 from collections.abc import Callable
 import UF as uf
 from numbers import Real

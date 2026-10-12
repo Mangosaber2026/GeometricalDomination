@@ -8,7 +8,7 @@ from numbers import Real
 import UF as uf
 import numpy as np
 from typing import Final, Literal
-from ..GD.Shapes import Shapes
+from GD.Visuals.Shapes import Shapes
 
 
 type list_xy = tuple[list[Real], list[Real]]
