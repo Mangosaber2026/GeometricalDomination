@@ -20,26 +20,60 @@ class Shapes:
     def SOD(side, tls_num):
         side_tls_num(side, tls_num)
         for _ in range(6):
-            tls_num.pu().fd(side).pd().rt(60)
+            (
+                tls_num
+                . pu()
+                . fd(side)
+                . pd()
+                . rt(60)
+            )
             for _ in range(3):
                 tls_num.fd(side).rt(120)
-            tls_num.lt(60).pu().bk(side).pd().lt(60)
+            (
+                tls_num
+                . lt(60)
+                . pu()
+                . bk(side)
+                . pd()
+                . lt(60)
+            )
 
 # ====== STAR OF DAVID FILL ======
     def SOD_fill(side,tls_num):
         side_tls_num(side, tls_num)
 
         for _ in range(6):
-            tls_num.pu().fd(side).pd().rt(60).begin_fill()
+            (
+                tls_num
+                . pu()
+                . fd(side)
+                . pd()
+                . rt(60)
+                . begin_fill()
+            )
             for _ in range(3):
                 tls_num.fd(side).rt(120)
-            tls_num.end_fill().lt(60).pu().bk(side).pd().lt(60)
+            (
+                tls_num
+                . end_fill()
+                . lt(60)
+                . pu()
+                . bk(side)
+                . pd()
+                . lt(60)
+            )
 
 # ====== HEXAGON ======
     def hexagon_ft(side, tls_num):
         side_tls_num(side, tls_num)
-
-        tls_num.pu().fd(side).pd().lt(90).circle(side,360,6)
+        (
+            tls_num
+            . pu()
+            . fd(side)
+            . pd()
+            . lt(90)
+            . circle(side,360,6)
+        )
 
 # ====== TRIANGLE ======
     def triangle_ft(side, tls_num):
@@ -59,7 +93,8 @@ class Shapes:
         side_tls_num(side, tls_num)
 
         tls_num.fd(side/2).lt(120)
-        for _ in range(2): tls_num.fd(side).lt(120)
+        for _ in range(2):
+            tls_num.fd(side).lt(120)
         tls_num.fd(side/2)
 
 # ====== SQUARE ======
@@ -117,14 +152,32 @@ class Shapes:
 
         diagonal = (length*sine(120))/sine(30)
         for _ in range(6):
-            tls_num.fd(diagonal).lt(150).fd(length).rt(120).bk(length)
-            tls_num.fd(length).lt(60).fd(length).rt(30).bk(diagonal)
+            (
+                tls_num
+                . fd(diagonal)
+                . lt(150)
+                . fd(length)
+                . rt(120)
+                . bk(length)
+
+                .fd(length)
+                .lt(60)
+                .fd(length)
+                .rt(30)
+                .bk(diagonal)
+            )
 
     def hexa_flower(radius, tls_num):
         side_tls_num(radius, tls_num)
 
         for _ in range(6):
-            tls_num.circle(-radius,60).rt(120).circle(-radius,60).rt(60)
+            (
+                tls_num
+                . circle(-radius,60)
+                . rt(120)
+                . circle(-radius,60)
+                . rt(60)
+            )
 
 # ====== LOTUS FLOWER ======
     def lotus_flower(radius, tls_num):
@@ -142,7 +195,9 @@ class Shapes:
         uf.TypeValidate(ChainTurtle)(tls_num, name="tls_num")
 
         angle = int(360/lines_num)
-        for _ in range(lines_num): tls_num.fd(distance).bk(distance).lt(angle)
+
+        for _ in range(lines_num):
+            tls_num.fd(distance).bk(distance).lt(angle)
 
 # ====== CIRCLE ======
     def circle_ft(radius, tls_num):
@@ -163,13 +218,20 @@ class Shapes:
         radius = length / (2 * sine(180 / sides))
         angle_to_right = (180-(180*(sides-2))/sides) / 2
 
-        tls_num.rt(angle_to_right).circle(radius,360,sides).lt(angle_to_right)
+        (
+            tls_num
+            . rt(angle_to_right)
+            . circle(radius,360,sides)
+            . lt(angle_to_right)
+        )
 
     def polygon_fill(length, sides, tls_num):
         side_tls_num(length, tls_num)
         uf.ComboValidate(sides, name="sides")(uf.int_validate(), uf.Positive())
 
-        tls_num.begin_fill(); Shapes.polygon(length,sides,tls_num); tls_num.end_fill()
+        tls_num.begin_fill()
+        Shapes.polygon(length,sides,tls_num)
+        tls_num.end_fill()
 
 # ===== SHAPES DICT =====
     def _list_shapes():
