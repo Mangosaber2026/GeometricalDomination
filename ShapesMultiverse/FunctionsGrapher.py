@@ -38,9 +38,10 @@ class Drawing:
         """
         name: Final[Literal["coordinates"]] = "coordinates"
         uf.TypeValidate(tuple)(coordinates, name)
-        uf.SequenceValidate(list, list,
-                            callable_items=(uf.SequenceValidate(Real, ...),)
-                            )(coordinates, name)
+        uf.SequenceValidate(
+                list, list,
+                callable_items=(uf.SequenceValidate(Real, ...),)
+                )(coordinates, name)
         get_screen()
         xval, yval = coordinates
         turtle = tls_color(tl_num=2)
@@ -61,12 +62,14 @@ class Drawing:
 
 class LinearFct(Drawing):
     def __init__(self, domain: tuple[Real, Real, int], k: Real, d: Real) -> None:
+
         super().__init__(domain)
         uf.TypeValidate(Real)(k, name="k")
         uf.TypeValidate(Real)(d, name="d")
         self.k, self.d = k, d
 
     def generate(self) -> list_xy:
+
         x_val = self.x_val()
         y_val = [self.k * x + self.d for x in x_val]
         return x_val, y_val
@@ -116,11 +119,13 @@ class QuadraticFct(Drawing):
             domain: tuple[Real, Real, int],
             a: Real, b: Real, c: Real,
     ) -> None:
+
         super().__init__(domain)
         uf.SequenceValidate(Real, ...)((a, b, c), name="variables")
         self.a, self.b, self.c = a, b, c
 
     def generate(self) -> list_xy:
+
         x_val = self.x_val()
         y_val = [(self.a*x**2) + (self.b*x) + self.c for x in x_val]
         return x_val, y_val
