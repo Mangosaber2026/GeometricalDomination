@@ -8,7 +8,7 @@ GeometricalDomination is a personal Python project built around Python's `turtle
 
 It provides a collection of tools for controlling turtles, creating geometric patterns, drawing letters and symbols, defining custom commands, and simplifying repetitive turtle operations.
 
-The project is structured as a Python package and is currently in the 1.x.x release series.
+The project is structured as a Python package and is currently in the 4.x.x release series.
 
 ## Features
 

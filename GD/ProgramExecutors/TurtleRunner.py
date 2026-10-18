@@ -6,21 +6,13 @@ from ..Visuals import (
     SHAPES_LENGTH_SIDES)
 import UF as uf
 from time import sleep as rest
-from ..Foundations import (
-    UV,
-    t_now,
-    reset_tls,
-    tls_color,
-    get_screen,
-    SU,
-)
-from ..TurtleHeart import ChainTurtle
+import TurtleExtension as tx
 
 # //////////////////////////////////////
 # //////// USER DRAWING PROGRAM ///////
 # ////////////////////////////////////
 def user_drawing_ft():
-    UV["t"]: int = tls_color(index=1)
+    tx.UV["t"]: int = tx.tls_color(index=1)
     while True:
         user_choice: str = uf.get_str('''BELOW ARE SETTINGS:
             create tls -> create multiple turtles
@@ -57,34 +49,43 @@ def user_drawing_ft():
             if you're an experienced programmer and know the program inside out, then here's another option:
             exec -> pythons execution function
             Enter choice: ''', COMMANDS, SHAPES_LENGTH, SHAPES_LENGTH_SIDES, SHAPES_RADIUS, ("n","exec"))
-        get_screen()
+        tx.get_screen()
 
         if user_choice in COMMANDS:
             COMMANDS[user_choice]()
+
         elif user_choice in SHAPES_LENGTH:
-            SHAPES_LENGTH[user_choice](uf.helper.length_float(), t_now())
+            SHAPES_LENGTH[user_choice](uf.helper.length_float(), tx.t_now())
+
         elif user_choice in SHAPES_LENGTH_SIDES:
-            SHAPES_LENGTH_SIDES[user_choice](uf.helper.length_float(), uf.helper.sides_num(), t_now())
+            SHAPES_LENGTH_SIDES[user_choice](uf.helper.length_float(), uf.helper.sides_num(), tx.t_now())
+
         elif user_choice in SHAPES_RADIUS:
-            SHAPES_RADIUS[user_choice](uf.helper.radius_float(),t_now())
+            SHAPES_RADIUS[user_choice](uf.helper.radius_float(),tx.t_now())
+
         elif user_choice == "exec":
             exec_ft()
+
         elif user_choice == "n":
             print("Thank you for using Sabiq's own pattern drawing program!")
             rest(2)
-            reset_tls(UV["tls"]); UV["t"]=None
+
+            tx.reset_tls(tx.UV["tls"])
+            tx.UV["t"] = None
             break
-        SU()
-        if UV["delay"] is not None:
-            uf.real_validate()(UV["delay"], name="delay")
-            rest(UV["delay"])
+
+        tx.SU()
+
+        if tx.UV["delay"] is not None:
+            uf.real_validate()(tx.UV["delay"], name="delay")
+            rest(tx.UV["delay"])
 
 # /////////////////////////////////
 # //////// MAIN OPERATION ////////
 # ///////////////////////////////
 def main():
     print("There are 6 turtles in total, you can decide the trace & turtle color!"); rest(1.5)
-    tls_list: list[ChainTurtle] | None = None
+    tls_list: list[tx.ChainTurtle] | None = None
     while True:
         program_choice: str = uf.get_str('''Here are the options
         
@@ -120,7 +121,9 @@ def main():
         if program_choice == "n":
             print("\nThank you very much for using Sabiq's mini Turtle DSL!!!")
             break
-        if tls_list is not None: reset_tls(tls_list); SU()
+        if tls_list is not None:
+            tx.reset_tls(tls_list)
+            tx.SU()
 
         if program_choice == "own":
             user_drawing_ft()

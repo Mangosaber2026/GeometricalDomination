@@ -1,16 +1,9 @@
-from GD.Visuals.Shapes import Shapes
-from ..TurtleHeart import ChainTurtle
+from .Shapes import Shapes
 from math import pi, sqrt
-from collections.abc import Callable
 from typing import Final, Literal
-from ..Foundations import (
-   SU,
-   tls_color,
-   get_screen,
-   TurtleFct,
-)
 from functools import wraps
 import UF as uf
+import TurtleExtension as tx
 
 
 def turtles(amount):
@@ -20,10 +13,11 @@ def turtles(amount):
    def decorator(func):
       @wraps(func)
       def wrapper():
-         get_screen()
-         tls: list[ChainTurtle] = tls_color(tl_num=amount)
+         tx.get_screen()
+         tls: list[tx.ChainTurtle] = tx.tls_color(tl_num=amount)
          func(tls)
-         SU(); return tls
+         tx.SU()
+         return tls
       return wrapper
    return decorator
 
@@ -241,7 +235,7 @@ class Designs(metaclass=DesignsMeta):
          for i in range(500):
             tls_0.fd(i).rt(91)
             tls_1.fd(i).lt(91)
-            SU()
+            tx.SU()
 
       def squares8(tls):
 
@@ -659,12 +653,12 @@ class Designs(metaclass=DesignsMeta):
          for a in range(0, 360):
             for turtle in tls:
                turtle.fd(step).rt(1)
-            SU()
+            tx.SU()
 
    def duo_triforce():
 
       color_list = ["red", "blue", "green", "magenta", "cyan", "yellow", "black"]
-      tls = [ChainTurtle().color(t) for t in color_list]
+      tls = [tx.ChainTurtle().color(t) for t in color_list]
 
       tls_6 = tls[6]
 
@@ -707,12 +701,12 @@ class Designs(metaclass=DesignsMeta):
       Shapes.triangle_ft(
          side = length_50,
          tls_num = tls_6)
-      SU()
+      tx.SU()
       return tls
 
    def flower_infinite():
 
-      tls, petals_count = tls_color(entry="Enter petal count: ")
+      tls, petals_count = tx.tls_color(entry="Enter petal count: ")
       circles_num = uf.get_num(int, "Enter circles count: ", MIN=1)
       interval = uf.helper.intervals_f()
 
@@ -727,11 +721,11 @@ class Designs(metaclass=DesignsMeta):
 
       for turtle in tls:
          turtle.lt(90).fd(circles_num * 2)
-      SU()
+      tx.SU()
       return tls
 
    def change_shape():
-      TurtleFct.change_shape()
+      tx.TurtleFct.change_shape()
 
    @classmethod
    def _list_designs(cls):

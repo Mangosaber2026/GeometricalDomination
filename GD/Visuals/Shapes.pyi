@@ -4,8 +4,8 @@ This module contains the Shapes class which provides premade drawing functions w
 
 import UF as uf
 from typing import Final, Literal
-from ..TurtleHeart import ChainTurtle
 from numbers import Real
+import TurtleExtension as tx
 
 
 Positive: Final = uf.Positive
@@ -15,7 +15,7 @@ class Shapes:
     """
     This class provides premade shape drawing functions with ChainTurtle().
     """
-    def SOD(side: Real,tls_num: ChainTurtle) -> None:
+    def SOD(side: Real,tls_num: tx.ChainTurtle) -> None:
         """
         Draws a star of David
         :param side: length of star of David
@@ -24,7 +24,7 @@ class Shapes:
         """
         ...
 
-    def SOD_fill(side: Real,tls_num: ChainTurtle) -> None:
+    def SOD_fill(side: Real,tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled star of David
         :param side: length of star of David
@@ -33,7 +33,7 @@ class Shapes:
         """
         ...
 
-    def hexagon_ft(side: Real, tls_num: ChainTurtle) -> None:
+    def hexagon_ft(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a hexagon
         :param side: length of hexagon
@@ -42,7 +42,7 @@ class Shapes:
         """
         ...
 
-    def triangle_ft(side: Real, tls_num: ChainTurtle) -> None:
+    def triangle_ft(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a triangle
         :param side: length of triangle
@@ -51,7 +51,7 @@ class Shapes:
         """
         ...
 
-    def triangle_fill(side: Real, tls_num: ChainTurtle) -> None:
+    def triangle_fill(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled triangle
         :param side: length of triangle
@@ -60,7 +60,7 @@ class Shapes:
         """
         ...
 
-    def triangle_half(side: Real, tls_num: ChainTurtle) -> None:
+    def triangle_half(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a triangle from the middle of a side
         :param side: length of triangle
@@ -69,7 +69,7 @@ class Shapes:
         """
         ...
 
-    def square(side: Real, tls_num: ChainTurtle) -> None:
+    def square(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a square
         :param side: length of square
@@ -78,7 +78,7 @@ class Shapes:
         """
         ...
 
-    def square_fill(side: Real,tls_num: ChainTurtle) -> None:
+    def square_fill(side: Real,tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled square
         :param side: length of square
@@ -87,7 +87,7 @@ class Shapes:
         """
         ...
 
-    def square_half(side: Real, tls_num: ChainTurtle) -> None:
+    def square_half(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a square from the middle of a side
         :param side: length of square
@@ -99,7 +99,7 @@ class Shapes:
     def rectangle(length: Real,
                   width: Real,
                   direction: Literal[-1, 1],
-                  tls_num: ChainTurtle) -> None:
+                  tls_num: tx.ChainTurtle) -> None:
         """
         Draws a rectangle
         :param length: longer side
@@ -113,7 +113,7 @@ class Shapes:
     def rectangle_fill(length: Real,
                        width: Real,
                        direction: Literal[-1,1],
-                       tls_num: ChainTurtle) -> None:
+                       tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled rectangle
         :param length: longer side
@@ -124,7 +124,7 @@ class Shapes:
         """
         ...
 
-    def hexaflower_tri(length: Real, tls_num: ChainTurtle) -> None:
+    def hexaflower_tri(length: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a 12 triangled flower
         :param length: side length of triangles
@@ -133,7 +133,7 @@ class Shapes:
         """
         ...
 
-    def hexa_flower(radius: Real, tls_num: ChainTurtle) -> None:
+    def hexa_flower(radius: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a 6 petalled flower
         :param radius: radius of flower
@@ -142,7 +142,7 @@ class Shapes:
         """
         ...
 
-    def lotus_flower(radius: Real, tls_num: ChainTurtle) -> None:
+    def lotus_flower(radius: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a 12 petalled flower
         :param radius: radius of flower
@@ -151,7 +151,7 @@ class Shapes:
         """
         ...
 
-    def lines(distance: Real, lines_num: int, tls_num: ChainTurtle) -> None:
+    def lines(distance: Real, lines_num: int, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a chosen number of lines, evenly spaced apart
 
@@ -162,7 +162,7 @@ class Shapes:
         """
         ...
 
-    def circle_ft(radius: Real, tls_num: ChainTurtle) -> None:
+    def circle_ft(radius: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a circle with given radius and turtle
         :param radius: radius of circle
@@ -180,7 +180,7 @@ class Shapes:
         """
         ...
 
-    def polygon(length: Real, sides: int, tls_num: ChainTurtle) -> None:
+    def polygon(length: Real, sides: int, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a polygon with given length and sides
         :param length: length of polygon
@@ -190,7 +190,7 @@ class Shapes:
         """
         ...
 
-    def polygon_fill(length: Real, sides: int, tls_num: ChainTurtle) -> None:
+    def polygon_fill(length: Real, sides: int, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled polygon with given length and sides
         :param length: length of polygon

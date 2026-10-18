@@ -4,11 +4,11 @@ This module contains the class Command, which contains functions for the user_dr
 
 import UF as uf
 from collections.abc import Callable
-from ..TurtleHeart import ChainTurtle
 from numbers import Real
+import TurtleExtension as tx
 
 
-type command_dict = dict[str, Callable[[], ChainTurtle | list[ChainTurtle] | int | Real | None]]
+type command_dict = dict[str, Callable[[], tx.ChainTurtle | list[tx.ChainTurtle] | int | Real | None]]
 
 @uf.cls_deco_superposition(staticmethod)
 class Command:
@@ -17,31 +17,31 @@ class Command:
 
     The functions that use turtles in this class are from the UV dictionary!
     """
-    def fd_ft() -> ChainTurtle:
+    def fd_ft() -> tx.ChainTurtle:
         """
         This function makes the turtle go forward.
-        :return: the last ChainTurtle in the UV dictionary.
+        :return: the last tx.ChainTurtle in the UV dictionary.
         """
         ...
-    def bk_ft() -> ChainTurtle:
+    def bk_ft() -> tx.ChainTurtle:
         """
         This function makes the turtle go backward.
-        :return: the last ChainTurtle in the UV dictionary.
+        :return: the last tx.ChainTurtle in the UV dictionary.
         """
         ...
-    def rt_ft() -> ChainTurtle:
+    def rt_ft() -> tx.ChainTurtle:
         """
         This function makes the turtle turn right.
-        :return: the last ChainTurtle in the UV dictionary.
+        :return: the last tx.ChainTurtle in the UV dictionary.
         """
         ...
-    def lt_ft() -> ChainTurtle:
+    def lt_ft() -> tx.ChainTurtle:
         """
         This function makes the turtle turn left.
-        :return: the last ChainTurtle in the UV dictionary.
+        :return: the last tx.ChainTurtle in the UV dictionary.
         """
         ...
-    def create_tls() -> list[ChainTurtle]:
+    def create_tls() -> list[tx.ChainTurtle]:
         """
         This function lets the user create a chosen number of colored turtles.
         :return: a list of new created ChainTurtles.
@@ -59,28 +59,28 @@ class Command:
         :return: None
         """
         ...
-    def clear_tls() -> list[ChainTurtle]:
+    def clear_tls() -> list[tx.ChainTurtle]:
         """
         This function clears all turtles and their drawings in the UV dictionary.
         :return: a list of new created ChainTurtles.
         """
         ...
-    def home_ft() -> ChainTurtle:
+    def home_ft() -> tx.ChainTurtle:
         """
         This function sets the last turtle's (in the UV dictionary) to the home position and heading.
-        :return: the last ChainTurtle in the UV dictionary.
+        :return: the last tx.ChainTurtle in the UV dictionary.
         """
         ...
-    def setpos_ft() -> ChainTurtle:
+    def setpos_ft() -> tx.ChainTurtle:
         """
         This function sets the last turtle's (in the UV dictionary) position to (x|y) without trace.
-        :return: the last ChainTurtle in the UV dictionary.
+        :return: the last tx.ChainTurtle in the UV dictionary.
         """
         ...
-    def move_to_ft() -> ChainTurtle:
+    def move_to_ft() -> tx.ChainTurtle:
         """
         This function sets the turtle's position to (x|y) with trace.
-        :return: the last ChainTurtle in the UV dictionary.
+        :return: the last tx.ChainTurtle in the UV dictionary.
         """
         ...
     def set_timer() -> Real:
@@ -101,10 +101,10 @@ class Command:
         :return: None
         """
         ...
-    def change_shape() -> ChainTurtle:
+    def change_shape() -> tx.ChainTurtle:
         """
         This function lets the user change the shape of the turtle to either default ones, or custom ones.
-        :return: ChainTurtle()
+        :return: tx.ChainTurtle()
         """
         ...
 

@@ -27,21 +27,14 @@ from .Visuals import (
     SHAPES_RADIUS,
     SHAPES_LENGTH_SIDES,
 )
-from .Foundations import (
-    SU,
-    get_screen,
-    mainloop,
-    tls_color,
-    reset_tls,
-    UV,
-    t_now,
-    t_shape,
-    UserShape,
-    CUSTOM_SHAPES
+from .ProgramExecutors import (
+    main,
+    user_drawing_ft,
 )
-from .ProgramExecutors import main, user_drawing_ft
-from .TurtleHeart import ChainTurtle
-from .UserFeatures import Command, COMMANDS
+from .UserFeatures import (
+    Command,
+    COMMANDS,
+)
 
 __all__ = [
     "Alphabets",
@@ -52,22 +45,11 @@ __all__ = [
     "get_Patterns_dict",
     "PATTERNS",
     "Shapes",
-    "UserShape",
-    "CUSTOM_SHAPES",
-    "SU",
-    "get_screen",
-    "mainloop",
-    "tls_color",
-    "reset_tls",
-    "UV",
-    "t_now",
-    "t_shape",
     "SHAPES_LENGTH",
     "SHAPES_RADIUS",
     "SHAPES_LENGTH_SIDES",
     "main",
     "user_drawing_ft",
-    "ChainTurtle",
     "Command",
     "COMMANDS",
     "Shapes",

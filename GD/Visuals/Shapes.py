@@ -1,13 +1,13 @@
 from typing import Literal,  Final
-from GD.TurtleHeart import ChainTurtle
 from numbers import Real
 import UF as uf
+import TurtleExtension as tx
 
 
 sine: Final = uf.sine
 Positive: Final = uf.Positive
 
-def side_tls_num(side: Real, tls_num: ChainTurtle) -> None:
+def side_tls_num(side: Real, tls_num: tx.ChainTurtle) -> None:
     """
     This function validates the parameters side and tls_num of all Shapes functions
     :param side: real number
@@ -18,7 +18,7 @@ def side_tls_num(side: Real, tls_num: ChainTurtle) -> None:
     tls_num_name: Final[Literal["tls_num"]] = "tls_num"
 
     uf.ComboValidate(side, name=side_name)(uf.real_validate(), uf.Positive())
-    uf.TypeValidate(ChainTurtle)(tls_num, name=tls_num_name)
+    uf.TypeValidate(tx.ChainTurtle)(tls_num, name=tls_num_name)
 
 @uf.cls_deco_superposition(staticmethod)
 class Shapes:
@@ -150,9 +150,8 @@ class Shapes:
 # ====== RECTANGLE ======
     def rectangle(length, width, direction, tls_num):
 
-        for item, item_name in zip((length, width), ("length", "width")):
-            uf.ComboValidate(item, name=item_name)(uf.real_validate(), uf.Positive())
-        uf.TypeValidate(ChainTurtle)(tls_num, name="tls_num")
+        for item in (length, width):
+            side_tls_num(item, tls_num)
 
         if direction not in (-1, 1):
             uf.ErrorDedent(ValueError)(f"""
@@ -174,7 +173,7 @@ class Shapes:
 
     def rectangle_fill(length, width, direction, tls_num):
 
-        uf.TypeValidate(ChainTurtle)(tls_num, name="tls_num")
+        uf.TypeValidate(tx.ChainTurtle)(tls_num, name="tls_num")
 
         tls_num.begin_fill()
         Shapes.rectangle(
@@ -237,7 +236,7 @@ class Shapes:
 
         uf.real_validate()(distance, name="distance")
         uf.ComboValidate(lines_num, name="lines_num")(uf.int_validate(), uf.Positive())
-        uf.TypeValidate(ChainTurtle)(tls_num, name="tls_num")
+        uf.TypeValidate(tx.ChainTurtle)(tls_num, name="tls_num")
 
         angle = int(360/lines_num)
 

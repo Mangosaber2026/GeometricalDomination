@@ -1,10 +1,10 @@
-from ..TurtleHeart import ChainTurtle
 from math import sqrt
-from GD.Visuals.Shapes import Shapes
+from .Shapes import Shapes
 from collections.abc import Callable
 import UF as uf
 from numbers import Real
 from functools import wraps
+import TurtleExtension as tx
 
 
 class AlphabetsMeta(type):
@@ -27,7 +27,7 @@ class AlphabetsMeta(type):
             {cls.__name__} has no attribute {func!r}
             """)
 
-def alphabets_validate(height: Real, tls: ChainTurtle) -> tuple[Real, ChainTurtle]:
+def alphabets_validate(height: Real, tls: tx.ChainTurtle) -> tuple[Real, tx.ChainTurtle]:
     """
     This function takes the parameters from all alphabet drawing functions and validates them.
     :param height: height of each letter/punctuation/symbol
@@ -35,7 +35,7 @@ def alphabets_validate(height: Real, tls: ChainTurtle) -> tuple[Real, ChainTurtl
     :return: validated height and tls
     """
     uf.ComboValidate(height, name="height")(uf.real_validate(), uf.Positive())
-    uf.TypeValidate(ChainTurtle)(tls, name="tls")
+    uf.TypeValidate(tx.ChainTurtle)(tls, name="tls")
     return height, tls
 
 def alphabets_deco(func):
@@ -48,7 +48,7 @@ def alphabets_deco(func):
     :return: validated alphabet function
     """
     @wraps(func)
-    def wrapper(height: Real, tls: ChainTurtle):
+    def wrapper(height: Real, tls: tx.ChainTurtle):
         alphabets_validate(height, tls)
         return func(height, tls)
     return wrapper
@@ -273,7 +273,7 @@ class Alphabets(metaclass=AlphabetsMeta):
                 . bk_inv(height_30)
             )
 
-        def K(height: Real, tls: ChainTurtle) -> None:
+        def K(height, tls):
 
             height_50 = uf.pct50(height)
             height_10 = uf.pct10(height)

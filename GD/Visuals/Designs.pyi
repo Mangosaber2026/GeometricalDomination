@@ -2,18 +2,18 @@
 This module contains an arsenal of premade geometrical designs/patterns and decorators for them.
 """
 from typing import Callable
-from ..TurtleHeart import ChainTurtle
+import TurtleExtension as tx
 
 
-type tls_type = list[ChainTurtle]
+type tls_type = list[tx.ChainTurtle]
 type design_func = Callable[[tls_type], None]
 type wrapper_func = Callable[[], tls_type]
 type turtles_return = Callable[[design_func], wrapper_func]
 
 type PATTERNS_type = dict[
 str,
-Callable[[list[ChainTurtle]], list[ChainTurtle]]
-| Callable[[], list[ChainTurtle]]
+Callable[[list[tx.ChainTurtle]], list[tx.ChainTurtle]]
+| Callable[[], list[tx.ChainTurtle]]
 | Callable[[], PATTERNS_type]
 ]
 
