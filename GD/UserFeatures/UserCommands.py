@@ -22,7 +22,7 @@ class Command:
         return tx.t_now().lt(uf.get_num(float, "Enter an angle: "))
 
     def create_tls():
-        turtles, turtles_num = tx.tls_color(entry="Enter desired number of turtles: ")
+        turtles, _ = tx.tls_color(entry="Enter desired number of turtles: ")
         tx.UV["tls"].extend(turtles)
         tx.UV["t"]: int = len(tx.UV["tls"]) - 1
         return turtles

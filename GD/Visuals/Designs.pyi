@@ -1,8 +1,9 @@
 """
 This module contains an arsenal of premade geometrical designs/patterns and decorators for them.
 """
-from typing import Callable
+
 import TurtleExtension as tx
+from collections.abc import Callable
 
 
 type tls_type = list[tx.ChainTurtle]

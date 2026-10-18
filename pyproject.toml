@@ -24,3 +24,6 @@ include = [
     "GD*",
     "ShapesMultiverse*",
 ]
+
+[tool.ruff.lint]
+ignore = ["RUF022"]

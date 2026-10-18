@@ -1,4 +1,4 @@
-from .Alphabets import (
+from .alphabets import (
 Alphabets,
 ALPHABETS,
 letters_functions,
