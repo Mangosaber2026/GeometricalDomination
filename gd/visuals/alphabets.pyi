@@ -7,7 +7,7 @@ from collections.abc import Callable
 from numbers import Real
 
 
-import TurtleExtension as tx
+import turtle_extension as tx
 
 
 type AlphabetFunctionType = Callable[[Real, tx.ChainTurtle], None]

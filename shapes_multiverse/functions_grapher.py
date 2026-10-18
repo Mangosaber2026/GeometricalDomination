@@ -2,7 +2,7 @@ from numbers import Real
 from typing import Final
 
 import numpy as np
-import TurtleExtension as tx
+import turtle_extension as tx
 import uf
 
 from gd.visuals.shapes import Shapes

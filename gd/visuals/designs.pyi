@@ -4,7 +4,7 @@ This module contains an arsenal of premade geometrical designs/patterns and deco
 
 from collections.abc import Callable
 
-import TurtleExtension as tx
+import turtle_extension as tx
 
 
 type TlsType = list[tx.ChainTurtle]

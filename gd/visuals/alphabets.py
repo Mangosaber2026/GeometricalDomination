@@ -3,7 +3,7 @@ from functools import wraps
 from math import sqrt
 from numbers import Real
 
-import TurtleExtension as tx
+import turtle_extension as tx
 import uf
 
 from .shapes import Shapes

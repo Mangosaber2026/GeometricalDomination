@@ -5,7 +5,7 @@ This module contains the class Command, which contains functions for the user_dr
 from collections.abc import Callable
 from numbers import Real
 
-import TurtleExtension as tx
+import turtle_extension as tx
 import uf
 
 <<<<<<< HEAD

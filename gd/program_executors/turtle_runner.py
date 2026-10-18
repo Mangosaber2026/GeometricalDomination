@@ -1,6 +1,6 @@
 from time import sleep as rest
 
-import TurtleExtension as tx
+import turtle_extension as tx
 import uf
 
 from ..user_features import COMMANDS, exec_ft

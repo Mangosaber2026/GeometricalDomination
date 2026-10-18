@@ -2,7 +2,7 @@ from functools import wraps
 from math import pi, sqrt
 from typing import Final
 
-import TurtleExtension as tx
+import turtle_extension as tx
 import uf
 
 from .shapes import Shapes

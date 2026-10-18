@@ -5,7 +5,7 @@ This module contains dictionaries which contain all shape functions from the sha
 from collections.abc import Callable
 from numbers import Real
 
-import TurtleExtension as tx
+import turtle_extension as tx
 
 
 type ShapesDictType = dict[

@@ -5,7 +5,7 @@ This module contains the Shapes class which provides premade drawing functions w
 from numbers import Real
 from typing import Final, Literal
 
-import TurtleExtension as tx
+import turtle_extension as tx
 import uf
 
 
