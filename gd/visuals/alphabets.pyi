@@ -3,16 +3,16 @@ This module contains the Alphabets class which provides a collection of function
 punctuation, and shapes (heart, star).
 """
 
-from numbers import Real
 from collections.abc import Callable
+from numbers import Real
+
 import TurtleExtension as tx
 
+type AlphabetFunctionType = Callable[[Real, tx.ChainTurtle], None]
 
-type alphabet_function = Callable[[Real, tx.ChainTurtle], None]
+type AlphabetDictType = dict[str, AlphabetFunctionType]
 
-type alphabet_dict = dict[str, alphabet_function]
-
-type full_alphabet_dict = dict[str, alphabet_function | Callable[[], full_alphabet_dict]]
+type FullAlphabetDictType = dict[str, AlphabetFunctionType | Callable[[], FullAlphabetDictType]]
 
 class Alphabets:
     """
@@ -26,7 +26,6 @@ class Alphabets:
         :param tls: given ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def B(height: Real, tls: tx.ChainTurtle) -> None:
@@ -36,7 +35,6 @@ class Alphabets:
         :param tls: given ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def C(height: Real, tls: tx.ChainTurtle) -> None:
@@ -46,7 +44,6 @@ class Alphabets:
         :param tls: given ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def D(height: Real, tls: tx.ChainTurtle) -> None:
@@ -56,7 +53,6 @@ class Alphabets:
         :param tls: given ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def E(height: Real, tls: tx.ChainTurtle) -> None:
@@ -66,7 +62,6 @@ class Alphabets:
         :param tls: given ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def F(height: Real, tls: tx.ChainTurtle) -> None:
@@ -76,7 +71,6 @@ class Alphabets:
         :param tls: given ChainTurtle
         :return: None
         """
-        ...
     
     @staticmethod
     def G(height: Real, tls: tx.ChainTurtle) -> None:
@@ -86,7 +80,6 @@ class Alphabets:
         :param tls: given ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def H(height: Real, tls: tx.ChainTurtle) -> None:
@@ -96,7 +89,6 @@ class Alphabets:
         :param tls: given ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def I(height: Real, tls: tx.ChainTurtle) -> None:
@@ -105,7 +97,6 @@ class Alphabets:
         :param height: height of letter I
         :param tls: given ChainTurtle
         """
-        ...
     
     @staticmethod
     def J(height: Real, tls: tx.ChainTurtle) -> None:
@@ -115,7 +106,6 @@ class Alphabets:
         :param tls: given ChainTurtle
         :return: None
         """
-        ...
     
     @staticmethod
     def K(height: Real, tls: tx.ChainTurtle) -> None:
@@ -125,7 +115,6 @@ class Alphabets:
         :param tls: given ChainTurtle
         :return: None
         """
-        ...
     
     @staticmethod
     def L(height: Real, tls: tx.ChainTurtle) -> None:
@@ -135,7 +124,6 @@ class Alphabets:
         :param tls: given ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def M(height: Real, tls: tx.ChainTurtle) -> None:
@@ -145,7 +133,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def N(height: Real, tls: tx.ChainTurtle) -> None:
@@ -155,7 +142,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def O(height: Real, tls: tx.ChainTurtle) -> None:
@@ -165,7 +151,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def P(height: Real, tls: tx.ChainTurtle) -> None:
@@ -175,7 +160,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def Q(height: Real, tls: tx.ChainTurtle) -> None:
@@ -185,7 +169,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def R(height: Real, tls: tx.ChainTurtle) -> None:
@@ -195,7 +178,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def S(height: Real, tls: tx.ChainTurtle) -> None:
@@ -205,7 +187,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def T(height: Real, tls: tx.ChainTurtle) -> None:
@@ -215,7 +196,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def U(height: Real, tls: tx.ChainTurtle) -> None:
@@ -225,7 +205,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def V(height: Real, tls: tx.ChainTurtle) -> None:
@@ -235,7 +214,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def W(height: Real, tls: tx.ChainTurtle) -> None:
@@ -245,7 +223,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def X(height: Real, tls: tx.ChainTurtle) -> None:
@@ -255,7 +232,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def Y(height: Real, tls: tx.ChainTurtle) -> None:
@@ -265,7 +241,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def Z(height: Real, tls: tx.ChainTurtle) -> None:
@@ -275,7 +250,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
 # =========================
 # ====== PUNCTUATION ======
@@ -289,7 +263,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def dot(height: Real, tls: tx.ChainTurtle) -> None:
@@ -299,7 +272,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def exclamation(height: Real, tls: tx.ChainTurtle) -> None:
@@ -309,7 +281,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def question(height: Real, tls: tx.ChainTurtle) -> None:
@@ -319,7 +290,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def apostrophe(height: Real, tls: tx.ChainTurtle) -> None:
@@ -329,7 +299,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def colon(height: Real, tls: tx.ChainTurtle) -> None:
@@ -339,7 +308,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def comma(height: Real, tls: tx.ChainTurtle) -> None:
@@ -349,7 +317,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
 # ====================
 # ====== SHAPES ======
@@ -363,7 +330,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def equals(height: Real, tls: tx.ChainTurtle) -> None:
@@ -373,7 +339,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def times(height: Real, tls: tx.ChainTurtle) -> None:
@@ -383,7 +348,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def minus(height: Real, tls: tx.ChainTurtle) -> None:
@@ -393,7 +357,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def underline(height: Real, tls: tx.ChainTurtle) -> None:
@@ -403,7 +366,6 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @staticmethod
     def heart(height: Real, tls: tx.ChainTurtle) -> None:
@@ -412,7 +374,6 @@ class Alphabets:
         :param height: height of the letters
         :param tls: a ChainTurtle
         """
-        ...
 
     @staticmethod
     def star(height: Real, tls: tx.ChainTurtle) -> None:
@@ -422,23 +383,20 @@ class Alphabets:
         :param tls: a ChainTurtle
         :return: None
         """
-        ...
 
     @classmethod
-    def list_alphabets(cls) -> full_alphabet_dict:
+    def list_alphabets(cls) -> FullAlphabetDictType:
         """
         Creates a dictionary with the functions in Alphabets and returns it.
         :return: dictionary containing function names -> function
         """
-        ...
 
-def letters_functions() -> alphabet_dict:
+def letters_functions() -> AlphabetDictType:
     """
     Takes all Letters in Alphabets.Letters and returns a dictionary.
     :return: letter dictionary
     """
-    ...
 
-letters_dict: alphabet_dict
+letters_dict: AlphabetDictType
 
-ALPHABETS: alphabet_dict
+ALPHABETS: AlphabetDictType

@@ -1,5 +1,4 @@
-from .Shapes import Shapes
-
+from .shapes import Shapes
 
 # DICTIONARY: SHAPES REQUIRING LENGTH
 SHAPES_LENGTH = {

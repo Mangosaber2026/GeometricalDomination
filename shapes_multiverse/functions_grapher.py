@@ -1,12 +1,12 @@
 from numbers import Real
-import UF as uf
+from typing import Final
+
 import numpy as np
-from typing import Final, Literal
-from GD.Visuals.Shapes import Shapes
 import TurtleExtension as tx
+import UF as uf
 
+from gd.visuals.shapes import Shapes
 
-type list_xy = tuple[list[Real], list[Real]]
 
 class Drawing:
 
@@ -25,7 +25,7 @@ class Drawing:
     @staticmethod
     def render(coordinates):
 
-        name: Final[Literal["coordinates"]] = "coordinates"
+        name: Final = "coordinates"
         uf.TypeValidate(tuple)(coordinates, name)
         uf.SequenceValidate(
                 list, list,
@@ -61,7 +61,7 @@ class LinearFct(Drawing):
         uf.TypeValidate(Real)(d, name="d")
         self.k, self.d = k, d
 
-    def generate(self) -> list_xy:
+    def generate(self):
 
         x_val = self.x_val()
         y_val = [self.k * x + self.d for x in x_val]

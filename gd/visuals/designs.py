@@ -1,9 +1,11 @@
-from .Shapes import Shapes
-from math import pi, sqrt
-from typing import Final, Literal
 from functools import wraps
-import UF as uf
+from math import pi, sqrt
+from typing import Final
+
 import TurtleExtension as tx
+import UF as uf
+
+from .shapes import Shapes
 
 
 def turtles(amount):
@@ -55,7 +57,7 @@ class DesignsMeta(type):
 @designs_decorator
 class Designs(metaclass=DesignsMeta):
    class TurtleOne:
-      TURTLE_COUNT: Final[Literal[1]] = 1
+      TURTLE_COUNT: Final = 1
 
       def hexaflower(tls):
 
@@ -225,7 +227,7 @@ class Designs(metaclass=DesignsMeta):
             )
 
    class TurtleTwo:
-      TURTLE_COUNT: Final[Literal[2]] = 2
+      TURTLE_COUNT: Final = 2
 
       def duo_spiral(tls):
 
@@ -478,7 +480,7 @@ class Designs(metaclass=DesignsMeta):
          )
 
    class TurtleThree:
-      TURTLE_COUNT: Final[Literal[3]] = 3
+      TURTLE_COUNT: Final = 3
 
       def squares10(tls):
 
@@ -538,7 +540,7 @@ class Designs(metaclass=DesignsMeta):
          )
 
    class TurtleFour:
-      TURTLE_COUNT: Final[Literal[4]] = 4
+      TURTLE_COUNT: Final = 4
 
       def flower_4petals(tls):
 
@@ -639,7 +641,7 @@ class Designs(metaclass=DesignsMeta):
             )
 
    class TurtleSix:
-      TURTLE_COUNT: Final[Literal[6]] = 6
+      TURTLE_COUNT: Final = 6
 
       def circles6(tls):
 
@@ -650,7 +652,7 @@ class Designs(metaclass=DesignsMeta):
          for i, turtle in enumerate(tls):
             turtle.lt(i * 60)
 
-         for a in range(0, 360):
+         for a in range(360):
             for turtle in tls:
                turtle.fd(step).rt(1)
             tx.SU()

@@ -1,10 +1,12 @@
-from math import sqrt
-from .Shapes import Shapes
 from collections.abc import Callable
-import UF as uf
-from numbers import Real
 from functools import wraps
+from math import sqrt
+from numbers import Real
+
 import TurtleExtension as tx
+import UF as uf
+
+from .shapes import Shapes
 
 
 class AlphabetsMeta(type):

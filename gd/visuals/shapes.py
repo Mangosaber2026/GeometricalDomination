@@ -1,8 +1,8 @@
-from typing import Literal,  Final
 from numbers import Real
-import UF as uf
-import TurtleExtension as tx
+from typing import Final
 
+import TurtleExtension as tx
+import UF as uf
 
 sine: Final = uf.sine
 Positive: Final = uf.Positive
@@ -14,8 +14,8 @@ def side_tls_num(side: Real, tls_num: tx.ChainTurtle) -> None:
     :param tls_num: ChainTurtle instance
     :return: None
     """
-    side_name: Final[Literal["side"]] = "side"
-    tls_num_name: Final[Literal["tls_num"]] = "tls_num"
+    side_name: Final = "side"
+    tls_num_name: Final = "tls_num"
 
     uf.ComboValidate(side, name=side_name)(uf.real_validate(), uf.Positive())
     uf.TypeValidate(tx.ChainTurtle)(tls_num, name=tls_num_name)

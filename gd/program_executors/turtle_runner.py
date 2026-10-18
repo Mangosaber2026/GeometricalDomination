@@ -1,12 +1,11 @@
-from ..UserFeatures import COMMANDS, exec_ft
-from ..Visuals import (
-    PATTERNS,
-    SHAPES_LENGTH,
-    SHAPES_RADIUS,
-    SHAPES_LENGTH_SIDES)
-import UF as uf
 from time import sleep as rest
+
 import TurtleExtension as tx
+import UF as uf
+
+from ..user_features import COMMANDS, exec_ft
+from ..visuals import PATTERNS, SHAPES_LENGTH, SHAPES_LENGTH_SIDES, SHAPES_RADIUS
+
 
 # //////////////////////////////////////
 # //////// USER DRAWING PROGRAM ///////

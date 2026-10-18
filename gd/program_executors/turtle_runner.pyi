@@ -11,11 +11,9 @@ def user_drawing_ft() -> None:
     This is THE EXECUTER for the more custom user-friendly drawing program!
     :return: None
     """
-    ...
 
 def main() -> None:
     """
     This is THE EXECUTER of the ENTIRE Turtle software (including user_drawing_ft)!
     :return: None
     """
-    ...

@@ -14,26 +14,26 @@ easily see it.
 Otherwise, hopefully you enjoy this masterpiece!
 """
 
-from .Visuals import (
-    Alphabets,
-    ALPHABETS,
-    letters_functions,
-    Designs,
-    turtles,
-    get_Patterns_dict,
-    PATTERNS,
-    Shapes,
-    SHAPES_LENGTH,
-    SHAPES_RADIUS,
-    SHAPES_LENGTH_SIDES,
-)
-from .ProgramExecutors import (
+from .program_executors import (
     main,
     user_drawing_ft,
 )
-from .UserFeatures import (
-    Command,
+from .user_features import (
     COMMANDS,
+    Command,
+)
+from .visuals import (
+    ALPHABETS,
+    PATTERNS,
+    SHAPES_LENGTH,
+    SHAPES_LENGTH_SIDES,
+    SHAPES_RADIUS,
+    Alphabets,
+    Designs,
+    Shapes,
+    get_Patterns_dict,
+    letters_functions,
+    turtles,
 )
 
 __all__ = [

@@ -2,11 +2,11 @@
 This module contains the Shapes class which provides premade drawing functions with ChainTurtle().
 """
 
-import UF as uf
-from typing import Final, Literal
 from numbers import Real
-import TurtleExtension as tx
+from typing import Final, Literal
 
+import TurtleExtension as tx
+import UF as uf
 
 Positive: Final = uf.Positive
 
@@ -22,7 +22,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def SOD_fill(side: Real,tls_num: tx.ChainTurtle) -> None:
         """
@@ -31,7 +30,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def hexagon_ft(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
@@ -40,7 +38,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def triangle_ft(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
@@ -49,7 +46,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def triangle_fill(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
@@ -58,7 +54,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def triangle_half(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
@@ -67,7 +62,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def square(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
@@ -76,7 +70,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def square_fill(side: Real,tls_num: tx.ChainTurtle) -> None:
         """
@@ -85,7 +78,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def square_half(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
@@ -94,7 +86,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def rectangle(length: Real,
                   width: Real,
@@ -108,7 +99,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def rectangle_fill(length: Real,
                        width: Real,
@@ -122,7 +112,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def hexaflower_tri(length: Real, tls_num: tx.ChainTurtle) -> None:
         """
@@ -131,7 +120,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def hexa_flower(radius: Real, tls_num: tx.ChainTurtle) -> None:
         """
@@ -140,7 +128,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def lotus_flower(radius: Real, tls_num: tx.ChainTurtle) -> None:
         """
@@ -149,7 +136,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def lines(distance: Real, lines_num: int, tls_num: tx.ChainTurtle) -> None:
         """
@@ -160,7 +146,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def circle_ft(radius: Real, tls_num: tx.ChainTurtle) -> None:
         """
@@ -169,7 +154,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def circle_filler(radius: Real, tls_num) -> None:
         """
@@ -178,7 +162,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def polygon(length: Real, sides: int, tls_num: tx.ChainTurtle) -> None:
         """
@@ -188,7 +171,6 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def polygon_fill(length: Real, sides: int, tls_num: tx.ChainTurtle) -> None:
         """
@@ -198,11 +180,9 @@ class Shapes:
         :param tls_num: a given ChainTurtle
         :return: None
         """
-        ...
 
     def _list_shapes() -> dict:
         """
         Creates a dictionary with all Shapes functions and returns it
         :return: dictionary mapping function name to function
         """
-        ...

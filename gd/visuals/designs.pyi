@@ -2,30 +2,29 @@
 This module contains an arsenal of premade geometrical designs/patterns and decorators for them.
 """
 
-import TurtleExtension as tx
 from collections.abc import Callable
 
+import TurtleExtension as tx
 
-type tls_type = list[tx.ChainTurtle]
-type design_func = Callable[[tls_type], None]
-type wrapper_func = Callable[[], tls_type]
-type turtles_return = Callable[[design_func], wrapper_func]
+type TlsType = list[tx.ChainTurtle]
+type DesignFuncType = Callable[[TlsType], None]
+type WrapperFuncType = Callable[[], TlsType]
+type TurtlesReturnType = Callable[[DesignFuncType], WrapperFuncType]
 
-type PATTERNS_type = dict[
+type PATTERNSType = dict[
 str,
 Callable[[list[tx.ChainTurtle]], list[tx.ChainTurtle]]
 | Callable[[], list[tx.ChainTurtle]]
-| Callable[[], PATTERNS_type]
+| Callable[[], PATTERNSType]
 ]
 
-def turtles(amount: int) -> turtles_return:
+def turtles(amount: int) -> TurtlesReturnType:
     """
     DECORATOR:
     Takes a given number of turtles, gets their colors from the user and executes the function
     :param amount: number of turtles > 0
     :return: list of turtles
     """
-    ...
 
 class Designs:
     """
@@ -35,219 +34,196 @@ class Designs:
 # ========= TURTLE 1 =========
 
     @staticmethod
-    def hexaflower(tls: tls_type) -> None:
+    def hexaflower(tls: TlsType) -> None:
         """
         Draws flowers with 12 triangle petals in a horizontal + vertical pattern.
         :param tls: list of 1 chainable turtle
         :return: None
         """
-        ...
 
     @staticmethod
-    def star_of_david(tls: tls_type) -> None:
+    def star_of_david(tls: TlsType) -> None:
         """
         Draws a star of David.
         :param tls: list of 1 chainable turtle
         :return: None
         """
-        ...
 
     @staticmethod
-    def diamond_pattern(tls: tls_type) -> None:
+    def diamond_pattern(tls: TlsType) -> None:
         """
         Draws a diamond pattern.
         :param tls: list of 1 chainable turtle
         :return: None
         """
-        ...
 
     @staticmethod
-    def hidden_sds(tls: tls_type) -> None:
+    def hidden_sds(tls: TlsType) -> None:
         """
         Draws stars of David in the same orientation (1 turtle).
         :param tls: list of 1 chainable turtle
         :return: None
         """
-        ...
 
     @staticmethod
-    def gd_reference(tls: tls_type) -> None:
+    def gd_reference(tls: TlsType) -> None:
         """
-        Draws a square icon that resembles a GD icon.
+        Draws a square icon that resembles a gd icon.
         :param tls: list of 1 chainable turtle
         :return: None
         """
-        ...
 
     @staticmethod
-    def tri_wheel(tls: tls_type) -> None:
+    def tri_wheel(tls: TlsType) -> None:
         """
         Draws a wheel made with triangles on the sides.
         :param tls: list of 1 chainable turtle
         :return: None
         """
-        ...
     
     @staticmethod
-    def lotus_pattern(tls: tls_type) -> None:
+    def lotus_pattern(tls: TlsType) -> None:
         """
         Draws a lotus pattern (12 petals).
         :param tls: list of 1 chainable turtle
         :return: None
         """
-        ...
     
 # ========= TURTLE 2 =========
 
     @staticmethod
-    def duo_spiral(tls: tls_type) -> None:
+    def duo_spiral(tls: TlsType) -> None:
         """
         Draws 2 overlapping spirals, one to the right and one to the left.
         :param tls: list of 2 chainable turtles
         :return: None
         """
-        ...
 
     @staticmethod
-    def squares8(tls: tls_type) -> None:
+    def squares8(tls: TlsType) -> None:
         """
         Draws 4 squares on each corner, with 4 squares tilted by 45° in between them + square pattern in between.
         :param tls: list of 2 chainable turtles
         :return: None
         """
-        ...
 
     @staticmethod
-    def tri_hexaflower(tls: tls_type) -> None:
+    def tri_hexaflower(tls: TlsType) -> None:
         """
         Draws flowers with 12 triangle petals with lines in the middle in a horizontal + vertical pattern.
         :param tls: list of 2 chainable turtles
         :return: None
         """
-        ...
 
     @staticmethod
-    def sd_pattern(tls: tls_type) -> None:
+    def sd_pattern(tls: TlsType) -> None:
         """
         Draws stars of David in a horizontal + vertical pattern.
         :param tls: list of 2 chainable turtles
         :return: None
         """
-        ...
 
     @staticmethod
-    def sd_spiral(tls: tls_type) -> None:
+    def sd_spiral(tls: TlsType) -> None:
         """
         Draws stars of David in a spiral pattern inside a main star with 2 turtles.
         :param tls: list of 2 chainable turtles
         :return: None
         """
-        ...
 
     @staticmethod
-    def sd_triflower(tls: tls_type) -> None:
+    def sd_triflower(tls: TlsType) -> None:
         """
         Draws three 6 petalled flowers in triangular shape in a star of David in an external structure.
         :param tls: list of 2 chainable turtles
         :return: None
         """
-        ...
 
     @staticmethod
-    def hexaflower_sd(tls: tls_type) -> None:
+    def hexaflower_sd(tls: TlsType) -> None:
         """
         Draws six 6 petalled flowers in a hexagon pattern, with lines in between the petals, all inside a star of David.
         :param tls: list of 2 chainable turtles
         :return: None
         """
-        ...
 
 # ========= TURTLE 3 =========
 
     @staticmethod
-    def squares10(tls: tls_type) -> None:
+    def squares10(tls: TlsType) -> None:
         """
         Draws 4 squares on each corner, with 4 squares tilted by 45° in between them + Star of David (fill) in the middle.
         :param tls: list of 3 chainable turtles
         :return: None
         """
-        ...
 
     @staticmethod
-    def sd_flower(tls: tls_type) -> None:
+    def sd_flower(tls: TlsType) -> None:
         """
         Draws a 6 petalled flower inside a star of David inside a hexagon.
         :param tls: list of 3 chainable turtles
         :return: None
         """
-        ...
 
 # ========= TURTLE 4 =========
 
     @staticmethod
-    def flower_4petals(tls: tls_type) -> None:
+    def flower_4petals(tls: TlsType) -> None:
         """
         Draws a flower with 4 petals.
         :param tls: list of 4 chainable turtles
         :return: None
         """
-        ...
 
     @staticmethod
-    def square4(tls: tls_type) -> None:
+    def square4(tls: TlsType) -> None:
         """
         Draws 4 squares where the axes slice the squares in half.
         :param tls: list of 4 chainable turtles
         :return: None
         """
-        ...
 
     @staticmethod
-    def quadrant_square(tls: tls_type) -> None:
+    def quadrant_square(tls: TlsType) -> None:
         """
         Draws squares in each quadrant.
         :param tls: list of 4 chainable turtles
         :return: None
         """
-        ...
 
     @staticmethod
-    def multi_square_grid(tls: tls_type) -> None:
+    def multi_square_grid(tls: TlsType) -> None:
         """
         Draws a 45° tilted grid with 4 turtles => 4 colors.
         :param tls: list of 4 chainable turtles
         :return: None
         """
-        ...
 
 # ======== TURTLE 6 =========
 
     @staticmethod
-    def circles6(tls: tls_type) -> None:
+    def circles6(tls: TlsType) -> None:
         """
         Draws 6 circles (with 6 turtles) 'simultaneously' with each being 60° to the left of the last one.
         :param tls: list of 6 chainable turtles
         :return: None
         """
-        ...
 
 # ========= TURTLE UNDEFINED =========
 
     @staticmethod
-    def duo_triforce() -> tls_type:
+    def duo_triforce() -> TlsType:
         """
         Draws a duo triforce (Zelda reference), triangles have corresponding colors.
         :return: list of 6 chainable turtles
         """
-        ...
 
     @staticmethod
-    def flower_infinite() -> tls_type:
+    def flower_infinite() -> TlsType:
         """
         Draws a customized flower: petals + circles number.
         :return: list of a chosen number of turtles
         """
-        ...
 
 # ========= NO TURTLES REQUIRED =========
 
@@ -257,21 +233,18 @@ class Designs:
         Changes the shape of the turtle according to user input.
         :return: None
         """
-        ...
 
     @classmethod
-    def _list_designs(cls) -> PATTERNS_type:
+    def _list_designs(cls) -> PATTERNSType:
         """
         Creates a dictionary with all the designs and returns it.
         :return: dictionary
         """
-        ...
 
-def get_Patterns_dict() -> PATTERNS_type:
+def get_Patterns_dict() -> PATTERNSType:
     """
     PATTERNS dictionary launcher.
     :return: dictionary mapping function names with the actual function
     """
-    ...
 
-PATTERNS: PATTERNS_type
+PATTERNS: PATTERNSType

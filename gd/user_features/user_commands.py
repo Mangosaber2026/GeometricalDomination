@@ -1,9 +1,10 @@
-from ..Visuals import ALPHABETS
-from time import sleep as rest
 from numbers import Real
-import UF as uf
-import TurtleExtension as tx
+from time import sleep as rest
 
+import TurtleExtension as tx
+import UF as uf
+
+from ..visuals import ALPHABETS
 
 helper = uf.helper
 

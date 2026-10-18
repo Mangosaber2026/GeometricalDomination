@@ -1,5 +1,5 @@
 """
-Welcome to ShapesMultiverse!!!
+Welcome to shapes_multiverse!!!
 
 Developer: Miah M. Sabiq
 
@@ -7,13 +7,13 @@ This package contains classes which can be used as functions to generate lists w
 mathematical function.
 """
 
-from .FunctionsGrapher import (
-Drawing,
-LinearFct,
-SineWave,
-CosineWave,
-AbsoluteX,
-QuadraticFct,
+from .functions_grapher import (
+    AbsoluteX,
+    CosineWave,
+    Drawing,
+    LinearFct,
+    QuadraticFct,
+    SineWave,
 )
 
 __all__ = [

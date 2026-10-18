@@ -13,14 +13,14 @@ The project is structured as a Python package and is currently in the 4.x.x rele
 ## Features
 
 * Chained turtle commands through `ChainTurtle`
-* Geometric shapes and patterns through `Shapes`
+* Geometric shapes and patterns through `shapes.py`
 * Alphabet and symbol drawing through `alphabets.py`
 * Custom turtle shapes through `UserShape`
 * User-defined drawing commands through `Command`
 * Reusable utility and validation functions through `UniversalFunctions`
 * Reusable decorator composition through `cls_deco_superposition`
 * Multi-turtle drawing functionality through `GlobalFunctions`
-* Complex predefined turtle designs through `Designs`
+* Complex predefined turtle designs through `designs.py`
 
 ## Installation
 
@@ -36,7 +36,7 @@ The main components of the project include:
 
 * `TurtleRunner` — main program execution module
 * `TurtleSkeleton` — extended turtle chaining functionality
-* `Designs` — a collection of complex predefined geometric patterns and designs
+* `designs.py` — a collection of complex predefined geometric patterns and designs
 * `alphabets.py` — a collection of validated English letters, punctuation, and geometric shapes 
 * `UserCommands` — the user-facing command layer of the embedded DSL
 * `CustomTurtleShapes` — the API for creating and managing custom turtle shapes
