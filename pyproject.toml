@@ -26,4 +26,12 @@ include = [
 ]
 
 [tool.ruff.lint]
-ignore = ["RUF022"]
+ignore = [
+    "RUF022",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"gd/user_features/user_commands.py" = [
+    "S102",
+    "BLE001",
+]
