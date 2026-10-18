@@ -3,9 +3,13 @@ from time import sleep as rest
 
 import TurtleExtension as tx
 import uf
+<<<<<<< HEAD
 
+=======
+>>>>>>> experimental
 
 from ..visuals import ALPHABETS
+
 
 helper = uf.helper
 

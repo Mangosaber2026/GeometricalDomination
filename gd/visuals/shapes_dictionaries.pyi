@@ -11,6 +11,10 @@ import TurtleExtension as tx
 type ShapesDictType = dict[
    str, Callable[[Real, tx.ChainTurtle], None]
 ]
+<<<<<<< HEAD
+=======
+
+>>>>>>> experimental
 
 SHAPES_LENGTH: ShapesDictType
 

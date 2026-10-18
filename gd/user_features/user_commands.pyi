@@ -8,8 +8,18 @@ from numbers import Real
 import TurtleExtension as tx
 import uf
 
+<<<<<<< HEAD
+=======
 
-type CommandDictType = dict[str, Callable[[], tx.ChainTurtle | list[tx.ChainTurtle] | int | Real | None]]
+type CommandDictType = dict[
+    str,
+    Callable[
+        [],
+        tx.ChainTurtle | list[tx.ChainTurtle] | int | Real | None
+    ]
+]
+>>>>>>> experimental
+
 
 @uf.cls_deco_superposition(staticmethod)
 class Command:

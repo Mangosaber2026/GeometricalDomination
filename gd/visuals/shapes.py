@@ -8,6 +8,7 @@ import uf
 sine: Final = uf.sine
 Positive: Final = uf.Positive
 
+
 def side_tls_num(side: Real, tls_num: tx.ChainTurtle) -> None:
     """
     This function validates the parameters side and tls_num of all Shapes functions

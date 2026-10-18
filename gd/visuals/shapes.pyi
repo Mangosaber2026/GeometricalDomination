@@ -11,6 +11,7 @@ import uf
 
 Positive: Final = uf.Positive
 
+
 @uf.cls_deco_superposition(staticmethod)
 class Shapes:
     """

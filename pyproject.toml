@@ -21,8 +21,8 @@ authors = [
 
 [tool.setuptools.packages.find]
 include = [
-    "GD*",
-    "ShapesMultiverse*",
+    "gd*",
+    "shapes_multiverse*",
 ]
 
 [tool.ruff.lint]
