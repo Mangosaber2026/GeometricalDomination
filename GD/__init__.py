@@ -52,5 +52,4 @@ __all__ = [
     "user_drawing_ft",
     "Command",
     "COMMANDS",
-    "Shapes",
 ]
