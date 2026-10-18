@@ -6,6 +6,7 @@ from collections.abc import Callable
 
 import TurtleExtension as tx
 
+
 type TlsType = list[tx.ChainTurtle]
 type DesignFuncType = Callable[[TlsType], None]
 type WrapperFuncType = Callable[[], TlsType]

@@ -3,7 +3,7 @@ from typing import Final
 
 import numpy as np
 import TurtleExtension as tx
-import UF as uf
+import uf
 
 from gd.visuals.shapes import Shapes
 

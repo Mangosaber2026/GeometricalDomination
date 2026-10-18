@@ -1,7 +1,7 @@
 from time import sleep as rest
 
 import TurtleExtension as tx
-import UF as uf
+import uf
 
 from ..user_features import COMMANDS, exec_ft
 from ..visuals import PATTERNS, SHAPES_LENGTH, SHAPES_LENGTH_SIDES, SHAPES_RADIUS

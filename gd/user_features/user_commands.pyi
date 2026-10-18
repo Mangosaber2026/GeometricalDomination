@@ -6,7 +6,8 @@ from collections.abc import Callable
 from numbers import Real
 
 import TurtleExtension as tx
-import UF as uf
+import uf
+
 
 type CommandDictType = dict[str, Callable[[], tx.ChainTurtle | list[tx.ChainTurtle] | int | Real | None]]
 

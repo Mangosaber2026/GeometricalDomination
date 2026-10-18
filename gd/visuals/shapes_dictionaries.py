@@ -1,5 +1,6 @@
 from .shapes import Shapes
 
+
 # DICTIONARY: SHAPES REQUIRING LENGTH
 SHAPES_LENGTH = {
     "tri": Shapes.triangle_ft,

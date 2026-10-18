@@ -6,7 +6,8 @@ from numbers import Real
 from typing import Final, Literal
 
 import TurtleExtension as tx
-import UF as uf
+import uf
+
 
 Positive: Final = uf.Positive
 

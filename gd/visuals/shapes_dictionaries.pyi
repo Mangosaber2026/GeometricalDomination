@@ -7,7 +7,10 @@ from numbers import Real
 
 import TurtleExtension as tx
 
-type ShapesDictType = dict[str, Callable[[Real, tx.ChainTurtle], None]]
+
+type ShapesDictType = dict[
+   str, Callable[[Real, tx.ChainTurtle], None]
+]
 
 SHAPES_LENGTH: ShapesDictType
 

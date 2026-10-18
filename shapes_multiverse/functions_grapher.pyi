@@ -5,9 +5,11 @@ mathematical functions.
 
 from numbers import Real
 
+
 type ListXYType = tuple[list[Real], list[Real]]
 
 type DomainType = tuple[Real, Real, int]
+
 
 class Drawing:
    """

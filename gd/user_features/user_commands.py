@@ -2,7 +2,8 @@ from numbers import Real
 from time import sleep as rest
 
 import TurtleExtension as tx
-import UF as uf
+import uf
+
 
 from ..visuals import ALPHABETS
 
