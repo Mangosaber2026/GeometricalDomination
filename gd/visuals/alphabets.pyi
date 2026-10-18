@@ -8,11 +8,13 @@ from numbers import Real
 
 import TurtleExtension as tx
 
+
 type AlphabetFunctionType = Callable[[Real, tx.ChainTurtle], None]
 
 type AlphabetDictType = dict[str, AlphabetFunctionType]
 
 type FullAlphabetDictType = dict[str, AlphabetFunctionType | Callable[[], FullAlphabetDictType]]
+
 
 class Alphabets:
     """

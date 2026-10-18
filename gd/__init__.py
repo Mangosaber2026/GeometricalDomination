@@ -36,6 +36,7 @@ from .visuals import (
     turtles,
 )
 
+
 __all__ = [
     "Alphabets",
     "ALPHABETS",

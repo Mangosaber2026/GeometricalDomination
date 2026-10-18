@@ -3,7 +3,7 @@ from math import pi, sqrt
 from typing import Final
 
 import TurtleExtension as tx
-import UF as uf
+import uf
 
 from .shapes import Shapes
 

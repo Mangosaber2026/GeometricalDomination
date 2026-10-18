@@ -2,10 +2,12 @@ from numbers import Real
 from typing import Final
 
 import TurtleExtension as tx
-import UF as uf
+import uf
+
 
 sine: Final = uf.sine
 Positive: Final = uf.Positive
+
 
 def side_tls_num(side: Real, tls_num: tx.ChainTurtle) -> None:
     """

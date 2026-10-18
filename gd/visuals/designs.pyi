@@ -6,6 +6,7 @@ from collections.abc import Callable
 
 import TurtleExtension as tx
 
+
 type TlsType = list[tx.ChainTurtle]
 type DesignFuncType = Callable[[TlsType], None]
 type WrapperFuncType = Callable[[], TlsType]
@@ -17,6 +18,7 @@ Callable[[list[tx.ChainTurtle]], list[tx.ChainTurtle]]
 | Callable[[], list[tx.ChainTurtle]]
 | Callable[[], PATTERNSType]
 ]
+
 
 def turtles(amount: int) -> TurtlesReturnType:
     """

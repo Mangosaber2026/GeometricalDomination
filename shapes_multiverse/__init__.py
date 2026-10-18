@@ -16,6 +16,7 @@ from .functions_grapher import (
     SineWave,
 )
 
+
 __all__ = [
     "Drawing",
     "LinearFct",

@@ -4,7 +4,7 @@ from math import sqrt
 from numbers import Real
 
 import TurtleExtension as tx
-import UF as uf
+import uf
 
 from .shapes import Shapes
 
