@@ -8,13 +8,11 @@ from numbers import Real
 import turtle_extension as tx
 
 
+#* The type used for [[Shapes]] dictionaries which contain functions
+#* which take a Real number and ChainTurtle and return None
 type ShapesDictType = dict[
    str, Callable[[Real, tx.ChainTurtle], None]
 ]
-<<<<<<< HEAD
-=======
-
->>>>>>> experimental
 
 SHAPES_LENGTH: ShapesDictType
 

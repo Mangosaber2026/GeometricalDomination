@@ -1,3 +1,4 @@
+#* Imports the class, dictionary and functions available in user features section [[user_commands.py]]
 from .user_commands import (
     COMMANDS,
     Command,
@@ -6,6 +7,7 @@ from .user_commands import (
 )
 
 
+#* Specifies all functions, dictionaries and classes available through wildcard import
 __all__ = [
     "Command",
     "get_Command_dict",

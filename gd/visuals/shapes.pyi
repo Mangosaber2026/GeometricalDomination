@@ -3,13 +3,10 @@ This module contains the Shapes class which provides premade drawing functions w
 """
 
 from numbers import Real
-from typing import Final, Literal
+from typing import Literal
 
 import turtle_extension as tx
 import uf
-
-
-Positive: Final = uf.Positive
 
 
 @uf.cls_deco_superposition(staticmethod)
@@ -33,7 +30,7 @@ class Shapes:
         :return: None
         """
 
-    def hexagon_ft(side: Real, tls_num: tx.ChainTurtle) -> None:
+    def hexagon(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a hexagon
         :param side: length of hexagon
@@ -41,7 +38,15 @@ class Shapes:
         :return: None
         """
 
-    def triangle_ft(side: Real, tls_num: tx.ChainTurtle) -> None:
+    def hexagon_fill(side: Real, tls_num: tx.ChainTurtle) -> None:
+        """
+        Draws a filled hexagon
+        :param side: length of hexagon
+        :param tls_num: a given ChainTurtle
+        :return: None
+        """
+
+    def triangle(side: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a triangle
         :param side: length of triangle
@@ -123,6 +128,14 @@ class Shapes:
         :return: None
         """
 
+    def hexaflower_tri_fill(length: Real, tls_num: tx.ChainTurtle) -> None:
+        """
+        Draws a filled 12 triangled flower
+        :param length: side length of triangles
+        :param tls_num: a given ChainTurtle
+        :return:
+        """
+
     def hexa_flower(radius: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a 6 petalled flower
@@ -131,9 +144,25 @@ class Shapes:
         :return: None
         """
 
+    def hexa_flower_fill(radius: Real, tls_num: tx.ChainTurtle) -> None:
+        """
+        Draws a filled 6 petalled flower
+        :param radius: radius of flower
+        :param tls_num: a given ChainTurtle
+        :return: None
+        """
+
     def lotus_flower(radius: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a 12 petalled flower
+        :param radius: radius of flower
+        :param tls_num: a given ChainTurtle
+        :return: None
+        """
+
+    def lotus_flower_fill(radius: Real, tls_num: tx.ChainTurtle) -> None:
+        """
+        Draws a filled 12 petalled flower
         :param radius: radius of flower
         :param tls_num: a given ChainTurtle
         :return: None
@@ -149,7 +178,7 @@ class Shapes:
         :return: None
         """
 
-    def circle_ft(radius: Real, tls_num: tx.ChainTurtle) -> None:
+    def circle(radius: Real, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a circle with given radius and turtle
         :param radius: radius of circle
@@ -183,7 +212,7 @@ class Shapes:
         :return: None
         """
 
-    def _list_shapes() -> dict:
+    def list_shapes() -> dict:
         """
         Creates a dictionary with all Shapes functions and returns it
         :return: dictionary mapping function name to function

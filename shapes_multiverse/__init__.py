@@ -7,6 +7,7 @@ This package contains classes which can be used as functions to generate lists w
 mathematical function.
 """
 
+#* Imports all mathematical functions and parent class in [[functions_grapher.py]]
 from .functions_grapher import (
     AbsoluteX,
     CosineWave,
@@ -17,6 +18,7 @@ from .functions_grapher import (
 )
 
 
+#* Specifies all mathematical functions and parent class in [[functions_grapher.py]]
 __all__ = [
     "Drawing",
     "LinearFct",

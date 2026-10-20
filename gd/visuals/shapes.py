@@ -5,10 +5,6 @@ import turtle_extension as tx
 import uf
 
 
-sine: Final = uf.sine
-Positive: Final = uf.Positive
-
-
 def side_tls_num(side: Real, tls_num: tx.ChainTurtle) -> None:
     """
     This function validates the parameters side and tls_num of all Shapes functions
@@ -22,9 +18,10 @@ def side_tls_num(side: Real, tls_num: tx.ChainTurtle) -> None:
     uf.ComboValidate(side, name=side_name)(uf.real_validate(), uf.Positive())
     uf.TypeValidate(tx.ChainTurtle)(tls_num, name=tls_num_name)
 
+#* Contains predefined shapes which are used all throughout the software
 @uf.cls_deco_superposition(staticmethod)
 class Shapes:
-# ====== STAR OF DAVID ======
+#* ====== STAR OF DAVID ======
     def SOD(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -48,7 +45,7 @@ class Shapes:
                 . lt(60)
             )
 
-# ====== STAR OF DAVID FILL ======
+#* [[Shapes#SOD]] with fill color
     def SOD_fill(side,tls_num):
 
         side_tls_num(side, tls_num)
@@ -74,8 +71,8 @@ class Shapes:
                 . lt(60)
             )
 
-# ====== HEXAGON ======
-    def hexagon_ft(side, tls_num):
+#* ====== HEXAGON ======
+    def hexagon(side, tls_num):
 
         side_tls_num(side, tls_num)
         (
@@ -87,25 +84,39 @@ class Shapes:
             . circle(side,360,6)
         )
 
-# ====== TRIANGLE ======
-    def triangle_ft(side, tls_num):
+# * [[Shapes#hexagon]] with fill color
+    def hexagon_fill(side, tls_num):
+
+        side_tls_num(side, tls_num)
+
+        tls_num.begin_fill()
+        Shapes.hexagon(
+            side = side,
+            tls_num = tls_num,
+        )
+        tls_num.end_fill()
+
+#* ====== TRIANGLE ======
+    def triangle(side, tls_num):
 
         side_tls_num(side, tls_num)
 
         for _ in range(3):
             tls_num.fd(side).lt(120)
 
+# * [[Shapes#triangle]] with fill color
     def triangle_fill(side, tls_num):
 
         side_tls_num(side, tls_num)
 
         tls_num.begin_fill()
-        Shapes.triangle_ft(
+        Shapes.triangle(
             side = side,
             tls_num = tls_num,
         )
         tls_num.end_fill()
 
+#* Triangle starting in the middle of a side
     def triangle_half(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -118,7 +129,7 @@ class Shapes:
 
         tls_num.fd(side_50)
 
-# ====== SQUARE ======
+#* ====== SQUARE ======
     def square(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -126,6 +137,7 @@ class Shapes:
         for _ in range(4):
             tls_num.fd(side).lt(90)
 
+#* [[Shapes#square]] with fill color
     def square_fill(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -137,6 +149,7 @@ class Shapes:
         )
         tls_num.end_fill()
 
+#* Square starting in the middle of a side
     def square_half(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -149,7 +162,7 @@ class Shapes:
 
         tls_num.fd(side_50)
 
-# ====== RECTANGLE ======
+#* ====== RECTANGLE ======
     def rectangle(length, width, direction, tls_num):
 
         for item in (length, width):
@@ -173,6 +186,7 @@ class Shapes:
                 . lt(turn)
             )
 
+#* [[Shapes#rectangle]] with fill color
     def rectangle_fill(length, width, direction, tls_num):
 
         uf.TypeValidate(tx.ChainTurtle)(tls_num, name="tls_num")
@@ -185,12 +199,12 @@ class Shapes:
             tls_num = tls_num)
         tls_num.end_fill()
 
-# ====== HEXAFLOWER ======
+#* ====== HEXAFLOWER TRIANGLE VERSION ======
     def hexaflower_tri(length, tls_num):
 
         side_tls_num(length, tls_num)
 
-        diagonal = (length*sine(120))/sine(30)
+        diagonal = (length*uf.sine(120))/uf.sine(30)
 
         for _ in range(6):
             (
@@ -208,6 +222,19 @@ class Shapes:
                 .bk(diagonal)
             )
 
+#* [[Shapes#hexaflower_tri]] with fill color
+    def hexaflower_tri_fill(length, tls_num):
+
+        side_tls_num(length, tls_num)
+
+        tls_num.begin_fill()
+        Shapes.hexaflower_tri(
+            length = length,
+            tls_num = tls_num,
+        )
+        tls_num.end_fill()
+
+#* ====== HEXAFLOWER CIRCLE VERSION ======
     def hexa_flower(radius, tls_num):
 
         side_tls_num(radius, tls_num)
@@ -221,7 +248,19 @@ class Shapes:
                 . rt(60)
             )
 
-# ====== LOTUS FLOWER ======
+#* [[Shapes#hexa_flower]] with fill color
+    def hexa_flower_fill(radius, tls_num):
+
+        side_tls_num(radius, tls_num)
+
+        tls_num.begin_fill()
+        Shapes.hexa_flower(
+            radius = radius,
+            tls_num = tls_num,
+        )
+        tls_num.end_fill()
+
+#* ====== LOTUS FLOWER ======
     def lotus_flower(radius, tls_num):
 
         side_tls_num(radius, tls_num)
@@ -233,7 +272,20 @@ class Shapes:
             )
             tls_num.lt((-1)**n*30)
 
-# ====== LINES ======
+#* [[Shapes#lotus_flower]] with fill color
+    def lotus_flower_fill(radius, tls_num):
+
+        side_tls_num(radius, tls_num)
+
+        tls_num.begin_fill()
+        Shapes.lotus_flower(
+            radius = radius,
+            tls_num = tls_num,
+        )
+        tls_num.end_fill()
+
+#* ====== LINES ======
+#* Draws evenly spaced lines in a circular pattern
     def lines(distance, lines_num, tls_num):
 
         uf.real_validate()(distance, name="distance")
@@ -245,26 +297,28 @@ class Shapes:
         for _ in range(lines_num):
             tls_num.fd(distance).bk(distance).lt(angle)
 
-# ====== CIRCLE ======
-    def circle_ft(radius, tls_num):
+#* ====== CIRCLE ======
+    def circle(radius, tls_num):
 
         side_tls_num(radius, tls_num)
 
         tls_num.circle(radius)
 
+#* [[Shapes#circle]] with fill color
     def circle_filler(radius, tls_num):
 
         side_tls_num(radius, tls_num)
 
         tls_num.begin_fill().circle(radius).end_fill()
 
-# ====== POLYGON ======
+#* ====== POLYGON ======
+#* Draws a regular polygon with an arbitrary number of sides
     def polygon(length, sides, tls_num):
 
         side_tls_num(length, tls_num)
         uf.ComboValidate(sides, name="sides")(uf.int_validate(), uf.Positive())
 
-        radius = length / (2 * sine(180 / sides))
+        radius = length / (2 * uf.sine(180 / sides))
         angle_to_right = (180-(180*(sides-2))/sides) / 2
 
         (
@@ -274,6 +328,7 @@ class Shapes:
             . lt(angle_to_right)
         )
 
+#* [[Shapes#polygon]] with fill color
     def polygon_fill(length, sides, tls_num):
 
         side_tls_num(length, tls_num)
@@ -287,6 +342,7 @@ class Shapes:
         )
         tls_num.end_fill()
 
-# ===== SHAPES DICT =====
+#* ===== SHAPES DICT =====
+#* Creates and returns a dictionary with all [[Shapes]] available functions
     def list_shapes():
         return uf.classes_to_dict(Shapes)

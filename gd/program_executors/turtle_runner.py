@@ -7,9 +7,9 @@ from ..user_features import COMMANDS, exec_ft
 from ..visuals import PATTERNS, SHAPES_LENGTH, SHAPES_LENGTH_SIDES, SHAPES_RADIUS
 
 
-# //////////////////////////////////////
-# //////// USER DRAWING PROGRAM ///////
-# ////////////////////////////////////
+#? //////////////////////////////////////
+#? //////// USER DRAWING PROGRAM ///////
+#? ////////////////////////////////////
 def user_drawing_ft():
     tx.UV["t"]: int = tx.tls_color(index=1)
     while True:
@@ -79,9 +79,9 @@ def user_drawing_ft():
             uf.real_validate()(tx.UV["delay"], name="delay")
             rest(tx.UV["delay"])
 
-# /////////////////////////////////
-# //////// MAIN OPERATION ////////
-# ///////////////////////////////
+#? /////////////////////////////////
+#? //////// MAIN OPERATION ////////
+#? ///////////////////////////////
 def main():
     print("There are 6 turtles in total, you can decide the trace & turtle color!"); rest(1.5)
     tls_list: list[tx.ChainTurtle] | None = None
@@ -120,6 +120,7 @@ def main():
         if program_choice == "n":
             print("\nThank you very much for using Sabiq's mini Turtle DSL!!!")
             break
+
         if tls_list is not None:
             tx.reset_tls(tls_list)
             tx.SU()

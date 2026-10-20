@@ -6,8 +6,11 @@ mathematical functions.
 from numbers import Real
 
 
+#* The type for the list containing a list of x values
+#* and their corresponding y values
 type ListXYType = tuple[list[Real], list[Real]]
 
+#* The type for the expected values in the domain
 type DomainType = tuple[Real, Real, int]
 
 

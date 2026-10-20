@@ -10,11 +10,17 @@ from numbers import Real
 import turtle_extension as tx
 
 
+#* Type variable for [[Alphabets]] functions
 type AlphabetFunctionType = Callable[[Real, tx.ChainTurtle], None]
 
+#* Type variable for classes which return [[Alphabets]] functions
 type AlphabetDictType = dict[str, AlphabetFunctionType]
 
-type FullAlphabetDictType = dict[str, AlphabetFunctionType | Callable[[], FullAlphabetDictType]]
+#* Type variable for functions which return the entire [[Alphabets]] dictionary
+type FullAlphabetDictType = dict[
+    str,
+    AlphabetFunctionType | Callable[[], FullAlphabetDictType]
+]
 
 
 class Alphabets:

@@ -9,6 +9,8 @@ import uf
 from .shapes import Shapes
 
 
+#* Takes classes from [[Alphabets]] internally and extracts their functions
+#* to be made directly available through [[Alphabets]]
 class AlphabetsMeta(type):
     """
     METACLASS: specifically designed for the Alphabets class, not to be used conventionally!
@@ -58,7 +60,7 @@ def alphabets_deco(func):
 def alphabets_main_deco(cls) -> type:
     """
     Takes the Alphabets class and transforms it's subclasses Letters, Punctuation and Shapes with
-    the decorators staticmethod and qtm_validation_decorator
+    the decorators staticmethod and alphabets_deco
     :param cls: Alphabets class
     :return: decorated Alphabets class
     """
@@ -70,13 +72,13 @@ def alphabets_main_deco(cls) -> type:
         uf.cls_deco_superposition(staticmethod, alphabets_deco)(category)
     return cls
 
+#* Class designed to draw all letters and some punctuation of the English Alphabet
+#* Dictated by the metaclass [[AlphabetsMeta]]
 @alphabets_main_deco
 class Alphabets(metaclass=AlphabetsMeta):
 
+    #* Contains only the letters, they are directly accessible through [[Alphabets]]
     class Letters:
-        """
-        A collection of functions to draw the English alphabets.
-        """
         def A(height, tls):
 
             height_60 = uf.pct60(height)
@@ -600,6 +602,7 @@ class Alphabets(metaclass=AlphabetsMeta):
                 . lt(90)
             )
 
+    #* Contains only the punctuations, they are directly accessible through [[Alphabets]]
     class Punctuation:
         """A collection of functions to draw English punctuation marks."""
         def space(height, tls):
@@ -734,6 +737,7 @@ class Alphabets(metaclass=AlphabetsMeta):
                 . lt(90)
             )
 
+    #* Contains only the shapes, they are directly accessible through [[Alphabets]]
     class Shapes:
         """A collection of functions to draw shapes (and mathematical symbols)."""
         def plus(height, tls):
@@ -820,7 +824,13 @@ class Alphabets(metaclass=AlphabetsMeta):
             height_50 = uf.pct50(height)
             height_10 = uf.pct10(height)
 
-            tls.rt(90).fd(height_50).fd_inv(height_10).lt(90)
+            (
+                tls
+                . rt(90)
+                . fd(height_50)
+                . fd_inv(height_10)
+                . lt(90)
+            )
 
         def heart(height, tls):
 
@@ -870,6 +880,7 @@ class Alphabets(metaclass=AlphabetsMeta):
                 . lt(90)
             )
 
+    #* Creates and returns a dictionary with all the available functions in [[Alphabets]]
     @classmethod
     def list_alphabets(cls):
 
@@ -881,6 +892,7 @@ class Alphabets(metaclass=AlphabetsMeta):
 
         return dictionary
 
+#* Creates and returns a dictionary with all letters in [[Alphabets]]
 def letters_functions():
 
     return {
@@ -888,8 +900,10 @@ def letters_functions():
         for name, func in uf.classes_to_dict(Alphabets.Letters).items()
     }
 
+#* Letters storage created with [[alphabets.py#letters_functions]]
 letters_dict = letters_functions()
-# ALPHABET DICTIONARY
+
+#* ALPHABET dictionary created with [[alphabets.py#letters_functions]] and [[Alphabets]]
 ALPHABETS = {
     **letters_dict,
     " ": Alphabets.space,

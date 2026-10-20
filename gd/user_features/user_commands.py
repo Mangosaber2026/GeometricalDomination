@@ -3,10 +3,6 @@ from time import sleep as rest
 
 import turtle_extension as tx
 import uf
-<<<<<<< HEAD
-
-=======
->>>>>>> experimental
 
 from ..visuals import ALPHABETS
 
@@ -14,25 +10,32 @@ from ..visuals import ALPHABETS
 helper = uf.helper
 
 @uf.cls_deco_superposition(staticmethod)
+#* Class used for the [[turtle_runner.py#user_drawing_ft]]
 class Command:
+    #* Moves the turtle forward [[ChainTurtle#fd]]
     def fd_ft():
         return tx.t_now().fd(uf.get_num(float, "Enter the distance: "))
 
+    #* Moves the turtle backward [[ChainTurtle#bk]]
     def bk_ft():
         return tx.t_now().bk(uf.get_num(float, "Enter the distance: "))
 
+    #* Turns the turtle to the right [[ChainTurtle#rt]]
     def rt_ft():
         return tx.t_now().rt(uf.get_num(float, "Enter an angle: "))
 
+    #* Turns the turtle to the left [[ChainTurtle#lt]]
     def lt_ft():
         return tx.t_now().lt(uf.get_num(float, "Enter an angle: "))
 
+    #* Creates turtles and add them to UV dictionary in [[global_variables.py]]
     def create_tls():
         turtles, _ = tx.tls_color(entry="Enter desired number of turtles: ")
         tx.UV["tls"].extend(turtles)
         tx.UV["t"]: int = len(tx.UV["tls"]) - 1
         return turtles
 
+    #* Lets the user change turtles to UV dictionary in [[global_variables.py#UV]]
     def change_tls():
         if len(tx.UV["tls"]) == 1:
             raise uf.value_error()(f"""
@@ -47,9 +50,12 @@ class Command:
         tx.UV["t"] = tls_num
         return tls_num
 
+    #* Clears all turtles drawings in the UV dictionary
     def clear_ft():
-        for t in tx.UV["tls"]: t.clear()
+        for t in tx.UV["tls"]:
+            t.clear()
 
+    #* Clears all turtles drawings and turtles in the UV dictionary
     def clear_tls():
         for t in tx.UV["tls"]:
             t.clear()
@@ -61,23 +67,29 @@ class Command:
         tx.UV["t"]: int = turtle_num - 1
         return turtles
 
+    #* Sets the turtles position to home
     def home_ft():
         return tx.t_now().home()
 
+    #* Lets the user choose a coordinate to set the turtles position to without trace
     def setpos_ft():
         return tx.t_now().teleport(helper.x_ft(),helper.y_ft())
 
+    #* setpos_ft functionality with trace
     def move_to_ft():
         return tx.t_now().setpos(helper.x_ft(),helper.y_ft())
 
+    #* Sets a time delay for the [[turtle_runner.py#user_drawing_ft]]
     def set_timer():
         time_delay: Real = uf.get_num(float, "Enter delay: ", MIN=0)
         tx.UV["delay"] = time_delay
         return time_delay
 
+    #* Deletes time delay for the [[turtle_runner.py#user_drawing_ft]]
     def del_timer():
         tx.UV["delay"]: None = None
 
+    #* Lets the user write text with [[Alphabets]]
     def writer():
         tx.t_now().lt(90)
         while True:
@@ -98,9 +110,11 @@ class Command:
                     ALPHABETS[letter](vertical_val,tx.t_now())
                 tx.SU()
 
+    #* Changes the shape of future turtles with [[TurtleFct#change_shape]]
     def change_shape():
         return tx.TurtleFct.change_shape(tls_num = tx.t_now())
 
+#* Provides exec feature as a function
 def exec_ft():
     print("Enter exit to exit, otherwise enjoy!"); rest(2)
     while True:
@@ -115,6 +129,7 @@ def exec_ft():
             print(f"Invalid input! Error: {exception_error}")
             rest(2)
 
+#* Creates and returns a dictionary with [[Command]] functions
 def get_Command_dict():
     return {
         name.removesuffix("_ft").replace("_", " "): obj
@@ -122,5 +137,5 @@ def get_Command_dict():
         if not name.startswith("_")
     }
 
-# COMMAND STORAGE: USER PROGRAM
+#* COMMAND dictionary storage generated from [[user_commands.py#get_Command_dict]]
 COMMANDS = get_Command_dict()

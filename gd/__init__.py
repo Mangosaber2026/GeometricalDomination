@@ -14,14 +14,19 @@ easily see it.
 Otherwise, hopefully you enjoy this masterpiece!
 """
 
+#* Imports the executor functions in [[turtle_runner.py]]
 from .program_executors import (
     main,
     user_drawing_ft,
 )
+
+#* Imports the class and dictionary in [[user_commands.py]]
 from .user_features import (
     COMMANDS,
     Command,
 )
+
+#* Imports the functions, decorators and dictionaries in visuals package
 from .visuals import (
     ALPHABETS,
     PATTERNS,
@@ -37,6 +42,7 @@ from .visuals import (
 )
 
 
+#* Specifies all functions, dictionaries and decorators in program_executors, user_features and visuals
 __all__ = [
     "Alphabets",
     "ALPHABETS",

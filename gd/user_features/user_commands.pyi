@@ -8,9 +8,7 @@ from numbers import Real
 import turtle_extension as tx
 import uf
 
-<<<<<<< HEAD
-=======
-
+#* Marks the type used to indicate which function returns a Command dictionary [[Command]]
 type CommandDictType = dict[
     str,
     Callable[
@@ -18,7 +16,6 @@ type CommandDictType = dict[
         tx.ChainTurtle | list[tx.ChainTurtle] | int | Real | None
     ]
 ]
->>>>>>> experimental
 
 
 @uf.cls_deco_superposition(staticmethod)

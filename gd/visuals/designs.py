@@ -8,6 +8,8 @@ import uf
 from .shapes import Shapes
 
 
+#* Decorator to be applied to any function which takes
+#* a list of [[ChainTurtle]] and draws a design with them
 def turtles(amount):
 
    uf.ComboValidate(amount, name="amount")(uf.int_validate(), uf.Positive())
@@ -23,6 +25,8 @@ def turtles(amount):
       return wrapper
    return decorator
 
+#* Decorator only to be applies to classes which contain functions
+#* which take in a list of turtles and draw with them [[Designs]]
 def designs_decorator(cls):
    for name, item in vars(cls).items():
       if isinstance(item, type) and name.startswith("Turtle"):
@@ -37,6 +41,8 @@ def designs_decorator(cls):
 
    return cls
 
+#* Dictates how the [[Designs]] class functions,
+#* makes all functions in inner classes accessible directly through [[Designs]]
 class DesignsMeta(type):
    def __getattr__(cls, func):
       for class_name, category in vars(cls).items():
@@ -54,8 +60,13 @@ class DesignsMeta(type):
             {cls.__name__} has no attribute {func!r}
             """)
 
+#* Contains all premade drawing functions made by the developer
+#* Dictated by the metaclass [[DesignsMeta]]
 @designs_decorator
 class Designs(metaclass=DesignsMeta):
+
+   #* Contains all drawings which require ONE turtle,
+   #* all functions are accessible directly through [[Designs]]
    class TurtleOne:
       TURTLE_COUNT: Final = 1
 
@@ -226,6 +237,8 @@ class Designs(metaclass=DesignsMeta):
                . rt(90)
             )
 
+   # * Contains all drawings which require TWO turtles,
+   # * all functions are accessible directly through [[Designs]]
    class TurtleTwo:
       TURTLE_COUNT: Final = 2
 
@@ -479,6 +492,8 @@ class Designs(metaclass=DesignsMeta):
             tls_num = tls_1,
          )
 
+   # * Contains all drawings which require THREE turtles,
+   # * all functions are accessible directly through [[Designs]]
    class TurtleThree:
       TURTLE_COUNT: Final = 3
 
@@ -534,11 +549,13 @@ class Designs(metaclass=DesignsMeta):
             tls_num = tls_1,
          )
          tls_2.lt(30)
-         Shapes.hexagon_ft(
+         Shapes.hexagon(
             side = hexa_side,
             tls_num = tls_2,
          )
 
+   # * Contains all drawings which require FOUR turtles,
+   # * all functions are accessible directly through [[Designs]]
    class TurtleFour:
       TURTLE_COUNT: Final = 4
 
@@ -640,6 +657,8 @@ class Designs(metaclass=DesignsMeta):
                . lt(90)
             )
 
+   # * Contains all drawings which require SIX turtles,
+   # * all functions are accessible directly through [[Designs]]
    class TurtleSix:
       TURTLE_COUNT: Final = 6
 
@@ -693,14 +712,14 @@ class Designs(metaclass=DesignsMeta):
          )
 
       for _ in range(3):
-         Shapes.triangle_ft(
+         Shapes.triangle(
             side = length,
             tls_num = tls_6,
          )
          tls_6.lt(60).fd(length).lt(60)
 
       tls_6.setpos(length_25, height_50).lt(120)
-      Shapes.triangle_ft(
+      Shapes.triangle(
          side = length_50,
          tls_num = tls_6)
       tx.SU()
@@ -726,11 +745,14 @@ class Designs(metaclass=DesignsMeta):
       tx.SU()
       return tls
 
+   #* Changes the shape of future turtles through [[TurtleFct#change_shape]]
    def change_shape():
       tx.TurtleFct.change_shape()
 
+   #* Creates and returns a dictionary containing all available functions in [[Designs]]
+   #* with the help of [[classes_to_dictionary.py#classes_to_dict]]
    @classmethod
-   def _list_designs(cls):
+   def list_designs(cls):
 
       dictionary = {}
 
@@ -744,12 +766,12 @@ class Designs(metaclass=DesignsMeta):
 
       return dictionary
 
+#* Creates and returns a dictionary containing all functions available through [[Designs]]
 def get_Patterns_dict():
    return {
       name.replace("_", " "): func
-      for name, func in Designs._list_designs().items()
-      if not name.startswith("_")
+      for name, func in Designs.list_designs().items()
    }
 
-# DICTIONARY: ALL COMMANDS OF MAIN MENU
+#* Designs dictionary storage from [[designs.py#get_Patterns_dict]]
 PATTERNS = get_Patterns_dict()
