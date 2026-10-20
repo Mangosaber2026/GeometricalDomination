@@ -16,47 +16,60 @@ Otherwise, hopefully you enjoy this masterpiece!
 
 #* Imports the executor functions in [[turtle_runner.py]]
 from .program_executors import (
-    main,
-    user_drawing_ft,
+
+   #* [[turtle_runner.py]]
+   main,               #* [[turtle_runner.py#main]]
+   user_drawing_ft,    #* [[turtle_runner.py#user_drawing_ft]]
 )
 
 #* Imports the class and dictionary in [[user_commands.py]]
 from .user_features import (
-    COMMANDS,
-    Command,
+
+   #* [[user_commands.py]]
+   COMMANDS,   #* [[user_commands.py]]
+   Command,    #* [[Command]]
 )
 
 #* Imports the functions, decorators and dictionaries in visuals package
 from .visuals import (
-    ALPHABETS,
-    PATTERNS,
-    SHAPES_LENGTH,
-    SHAPES_LENGTH_SIDES,
-    SHAPES_RADIUS,
-    Alphabets,
-    Designs,
-    Shapes,
-    get_Patterns_dict,
-    letters_functions,
-    turtles,
+
+   # * [[alphabets.py]]
+   ALPHABETS,              # * [[alphabets.py]]
+   Alphabets,              # * [[Alphabets]]
+
+   # * [[designs.py]]
+   get_Patterns_dict,      # * [[designs.py#get_Patterns_dict]]
+   letters_functions,      # * [[designs.py]]
+   PATTERNS,               # * [[designs.py]]
+   turtles,                # * [[designs.py#turtles]]
+   Designs,                # * [[Designs]]
+
+   # * [[shapes_dictionaries.py]]
+   SHAPES_LENGTH,          # * [[shapes_dictionaries.py]]
+   SHAPES_LENGTH_SIDES,    # * [[shapes_dictionaries.py]]
+   SHAPES_RADIUS,          # * [[shapes_dictionaries.py]]
+
+   # * [[shapes.py]]
+   Shapes,                 # * [[Shapes]]
+
 )
 
 
 #* Specifies all functions, dictionaries and decorators in program_executors, user_features and visuals
 __all__ = [
-    "Alphabets",
-    "ALPHABETS",
-    "letters_functions",
-    "Designs",
-    "turtles",
-    "get_Patterns_dict",
-    "PATTERNS",
-    "Shapes",
-    "SHAPES_LENGTH",
-    "SHAPES_RADIUS",
-    "SHAPES_LENGTH_SIDES",
-    "main",
-    "user_drawing_ft",
-    "Command",
-    "COMMANDS",
+   "Alphabets",
+   "ALPHABETS",
+   "letters_functions",
+   "Designs",
+   "turtles",
+   "get_Patterns_dict",
+   "PATTERNS",
+   "Shapes",
+   "SHAPES_LENGTH",
+   "SHAPES_RADIUS",
+   "SHAPES_LENGTH_SIDES",
+   "main",
+   "user_drawing_ft",
+   "Command",
+   "COMMANDS",
 ]
