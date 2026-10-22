@@ -7,9 +7,12 @@ import uf
 
 def side_tls_num(side: Real, tls_num: tx.ChainTurtle) -> None:
     """
-    This function validates the parameters side and tls_num of all Shapes functions
+    This function validates the parameters side and tls_num of all Shapes functions.
+
     :param side: real number
+
     :param tls_num: ChainTurtle instance
+    
     :return: None
     """
     side_name: Final = "side"

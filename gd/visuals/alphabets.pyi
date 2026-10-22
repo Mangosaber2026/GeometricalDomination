@@ -31,8 +31,11 @@ class Alphabets:
     def A(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter A with a ChainTurtle.
+
         :param height: height of letter A
+
         :param tls: given ChainTurtle
+
         :return: None
         """
 
@@ -40,8 +43,11 @@ class Alphabets:
     def B(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter B with a ChainTurtle.
+
         :param height: height of letter B
+
         :param tls: given ChainTurtle
+
         :return: None
         """
 
@@ -49,8 +55,11 @@ class Alphabets:
     def C(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter C with a ChainTurtle.
+
         :param height: height of letter C
+
         :param tls: given ChainTurtle
+
         :return: None
         """
 
@@ -58,8 +67,11 @@ class Alphabets:
     def D(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter D with a ChainTurtle.
+
         :param height: height of letter D
+
         :param tls: given ChainTurtle
+
         :return: None
         """
 
@@ -67,8 +79,11 @@ class Alphabets:
     def E(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter E with a ChainTurtle.
+
         :param height: height of letter E
+
         :param tls: given ChainTurtle
+
         :return: None
         """
 
@@ -76,8 +91,11 @@ class Alphabets:
     def F(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter F with a ChainTurtle.
+
         :param height: height of letter F
+
         :param tls: given ChainTurtle
+
         :return: None
         """
     
@@ -85,8 +103,11 @@ class Alphabets:
     def G(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter G with a ChainTurtle.
+
         :param height: height of letter G
+
         :param tls: given ChainTurtle
+
         :return: None
         """
 
@@ -94,8 +115,11 @@ class Alphabets:
     def H(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter H with a ChainTurtle.
+
         :param height: height of letter H
+
         :param tls: given ChainTurtle
+
         :return: None
         """
 
@@ -103,16 +127,23 @@ class Alphabets:
     def I(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter I with a ChainTurtle.
+
         :param height: height of letter I
+
         :param tls: given ChainTurtle
+
+        :return: None
         """
     
     @staticmethod
     def J(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter J with a ChainTurtle.
+
         :param height: height of letter J
+
         :param tls: given ChainTurtle
+
         :return: None
         """
     
@@ -120,8 +151,11 @@ class Alphabets:
     def K(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter K with a ChainTurtle.
+
         :param height: height of letter K
+
         :param tls: given ChainTurtle
+
         :return: None
         """
     
@@ -129,8 +163,11 @@ class Alphabets:
     def L(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter L with a ChainTurtle.
+
         :param height: height of letter L
+
         :param tls: given ChainTurtle
+
         :return: None
         """
 
@@ -138,8 +175,11 @@ class Alphabets:
     def M(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter M with a ChainTurtle.
+
         :param height: height of letter M
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -147,8 +187,11 @@ class Alphabets:
     def N(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter N with a ChainTurtle.
+
         :param height: height of letter N
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -156,8 +199,11 @@ class Alphabets:
     def O(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter O with a ChainTurtle.
+
         :param height: height of letter O
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -165,8 +211,11 @@ class Alphabets:
     def P(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter P with a ChainTurtle.
+
         :param height: height of letter P
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -174,8 +223,11 @@ class Alphabets:
     def Q(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter Q with a ChainTurtle.
+
         :param height: height of letter Q
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -183,8 +235,11 @@ class Alphabets:
     def R(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter R with a ChainTurtle.
+
         :param height: height of letter R
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -192,8 +247,11 @@ class Alphabets:
     def S(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter S with a ChainTurtle.
+
         :param height: height of letter S
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -201,8 +259,11 @@ class Alphabets:
     def T(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter T with a ChainTurtle.
+
         :param height: height of letter T
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -210,8 +271,11 @@ class Alphabets:
     def U(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter U with a ChainTurtle.
+
         :param height: height of letter U
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -219,8 +283,11 @@ class Alphabets:
     def V(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter V with a ChainTurtle.
+
         :param height: height of letter V
+
         :param tls: a ChainTurtle
+        
         :return: None
         """
 
@@ -228,8 +295,11 @@ class Alphabets:
     def W(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter W with a ChainTurtle.
+
         :param height: height of letter W
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -237,8 +307,11 @@ class Alphabets:
     def X(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter X with a ChainTurtle.
+
         :param height: height of letter X
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -246,8 +319,11 @@ class Alphabets:
     def Y(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter Y with a ChainTurtle.
+
         :param height: height of letter Y
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -255,8 +331,11 @@ class Alphabets:
     def Z(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws the letter Z with a ChainTurtle.
+
         :param height: height of letter Z
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -268,8 +347,11 @@ class Alphabets:
     def space(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Traces an invisible space with a ChainTurtle.
+
         :param height: to calculate the amount of space
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -277,8 +359,11 @@ class Alphabets:
     def dot(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws a dot with given height and ChainTurtle.
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -286,8 +371,11 @@ class Alphabets:
     def exclamation(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws an exclamation mark with given height and turtle.
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -295,8 +383,11 @@ class Alphabets:
     def question(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws a question mark with given height and ChainTurtle.
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -304,8 +395,11 @@ class Alphabets:
     def apostrophe(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws an apostrophe with given height and ChainTurtle.
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -313,8 +407,11 @@ class Alphabets:
     def colon(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws a colon with given height and ChainTurtle.
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -322,8 +419,11 @@ class Alphabets:
     def comma(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws a comma with given height and ChainTurtle.
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -335,8 +435,11 @@ class Alphabets:
     def plus(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws a plus with given height and ChainTurtle.
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -344,8 +447,11 @@ class Alphabets:
     def equals(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws an equal sign with given height and ChainTurtle.
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -353,8 +459,11 @@ class Alphabets:
     def times(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws a multiplication sign with given height and ChainTurtle.
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -362,8 +471,11 @@ class Alphabets:
     def minus(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws a minus sign with given height and ChainTurtle.
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -371,8 +483,11 @@ class Alphabets:
     def underline(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws an underline with given height and ChainTurtle.
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -380,16 +495,23 @@ class Alphabets:
     def heart(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws a heart with given height and ChainTurtle
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
+        :return: None
         """
 
     @staticmethod
     def star(height: Real, tls: tx.ChainTurtle) -> None:
         """
         Draws a star with given height and ChainTurtle.
+
         :param height: height of the letters
+
         :param tls: a ChainTurtle
+
         :return: None
         """
 
@@ -397,12 +519,14 @@ class Alphabets:
     def list_alphabets(cls) -> FullAlphabetDictType:
         """
         Creates a dictionary with the functions in Alphabets and returns it.
+
         :return: dictionary containing function names -> function
         """
 
 def letters_functions() -> AlphabetDictType:
     """
     Takes all Letters in Alphabets.Letters and returns a dictionary.
+    
     :return: letter dictionary
     """
 

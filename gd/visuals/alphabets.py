@@ -34,8 +34,11 @@ class AlphabetsMeta(type):
 def alphabets_validate(height: Real, tls: tx.ChainTurtle) -> tuple[Real, tx.ChainTurtle]:
     """
     This function takes the parameters from all alphabet drawing functions and validates them.
+
     :param height: height of each letter/punctuation/symbol
+
     :param tls: an instance of ChainTurtle
+
     :return: validated height and tls
     """
     uf.ComboValidate(height, name="height")(uf.real_validate(), uf.Positive())
@@ -48,7 +51,9 @@ def alphabets_deco(func):
 
     This decorator takes each alphabet function and uses alphabets_validate to validate the functions
     parameters.
+
     :param func: alphabet function
+
     :return: validated alphabet function
     """
     @wraps(func)
@@ -60,8 +65,10 @@ def alphabets_deco(func):
 def alphabets_main_deco(cls) -> type:
     """
     Takes the Alphabets class and transforms it's subclasses Letters, Punctuation and Shapes with
-    the decorators staticmethod and alphabets_deco
+    the decorators staticmethod and alphabets_deco.
+
     :param cls: Alphabets class
+    
     :return: decorated Alphabets class
     """
     for category in (

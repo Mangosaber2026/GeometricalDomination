@@ -22,12 +22,16 @@ class Drawing:
    def __init__(self, domain: DomainType) -> None:
       """
       Takes the start, end and steps value of desired domain.
+
       :param domain: tuple of start, end and steps value of desired domain
+
+      :return: None
       """
 
    def x_val(self) -> list[Real]:
       """
       Returns the x values of desired domain.
+
       :return: list of x values
       """
 
@@ -37,13 +41,16 @@ class Drawing:
       Renders the function produced by the provided generator function.
 
       Initiates the turtle screen before drawing to make sure screen configurations are applied appropriately.
+      
       :param coordinates: tuple containing 2 lists, 1st with x values, 2nd with y values
+      
       :return: None
       """
 
    def draw(self) -> None:
       """
       Generate and render the drawing for this class.
+
       :return: None
       """
 
@@ -59,14 +66,18 @@ class LinearFct(Drawing):
                 ) -> None:
       """
       Takes the start and end values of desired domain.
+
       :param domain: tuple of desired domain
+
       :param k: scaling factor
+
       :param d: y-intercept
       """
 
    def generate(self) -> ListXYType:
       """
       Generates the coordinates of the points of the linear function created with the desired domain.
+      
       :return: list of coordinates
       """
 
@@ -78,6 +89,7 @@ class SineWave(Drawing):
    def generate(self) -> ListXYType:
       """
       Generates the coordinates of the points of the sine wave function created with the desired domain.
+      
       :return: list of coordinates
       """
 
@@ -89,6 +101,7 @@ class CosineWave(Drawing):
    def generate(self) -> ListXYType:
       """
       Generates the coordinates of the points of the cosine wave function created with the desired domain.
+      
       :return: list of coordinates
       """
 
@@ -100,6 +113,7 @@ class AbsoluteX(Drawing):
    def generate(self) -> ListXYType:
       """
       Generates the coordinates of the points of the absolute x values created with the desired domain.
+      
       :return: list of coordinates
       """
 
@@ -117,15 +131,21 @@ class QuadraticFct(Drawing):
    ) -> None:
       """
       Takes the start and end values of desired domain and the parameters a,b,and c.
+
       :param domain: tuple of start and end values of desired domain
+
       :param a: parameter a of a quadratic function
+
       :param b: parameter b of a quadratic function
+
       :param c: parameter c of a quadratic function
+
       :return: None
       """
 
    def generate(self) -> ListXYType:
       """
       Generates the coordinates of the points of the quadratic function created with the desired domain.
+      
       :return: list of coordinates
       """
