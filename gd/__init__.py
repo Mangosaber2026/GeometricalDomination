@@ -1,3 +1,5 @@
+# ⚓ Anchor for this module: [[gd-anchor|gd.__init__.py]] 
+
 """
 Welcome to GeometricalDomination!!!
 
@@ -14,48 +16,63 @@ easily see it.
 Otherwise, hopefully you enjoy this masterpiece!
 """
 
-#* Imports the executor functions in [[turtle_runner.py]]
+ #* 📝 Imports the executor functions in [[program_executors]]
 from .program_executors import (
 
-   #* [[turtle_runner.py]]
-   main,               #* [[turtle_runner.py#main]]
-   user_drawing_ft,    #* [[turtle_runner.py#user_drawing_ft]]
+    #* 📝 [[turtle_runner.py]]
+   main,                
+   # ⚓ Link to source code: [[#]]
+   user_drawing_ft,    
+   # ⚓ Link to source code: [[#]]
 )
 
-#* Imports the class and dictionary in [[user_commands.py]]
+ #* 📝 Imports the class and dictionary in [[user_commands.py]]
 from .user_features import (
 
-   #* [[user_commands.py]]
-   COMMANDS,   #* [[user_commands.py]]
-   Command,    #* [[Command]]
+    #* 📝 [[user_commands.py]]
+   COMMANDS,    
+   # ⚓ Link to source code: [[#]]
+   Command,     
+   # ⚓ Link to source code: [[#]]
 )
 
-#* Imports the functions, decorators and dictionaries in visuals package
+ #* 📝 Imports the functions, decorators and dictionaries in visuals package
 from .visuals import (
 
    # * [[alphabets.py]]
-   ALPHABETS,              # * [[alphabets.py]]
-   Alphabets,              # * [[Alphabets]]
+   ALPHABETS,              
+   # ⚓ Link to source code: [[#]]
+   Alphabets,              
+   # ⚓ Link to source code: [[#]]
 
    # * [[designs.py]]
-   get_Patterns_dict,      # * [[designs.py#get_Patterns_dict]]
-   letters_functions,      # * [[designs.py]]
-   PATTERNS,               # * [[designs.py]]
-   turtles,                # * [[designs.py#turtles]]
-   Designs,                # * [[Designs]]
+   get_Patterns_dict,      
+   # ⚓ Link to source code: [[#]]
+   letters_functions,     
+   # ⚓ Link to source code: [[#]]
+   PATTERNS,               
+   # ⚓ Link to source code: [[#]]
+   turtles,                
+   # ⚓ Link to source code: [[#]]
+   Designs,                
+   # ⚓ Link to source code: [[#]]
 
    # * [[shapes_dictionaries.py]]
-   SHAPES_LENGTH,          # * [[shapes_dictionaries.py]]
-   SHAPES_LENGTH_SIDES,    # * [[shapes_dictionaries.py]]
-   SHAPES_RADIUS,          # * [[shapes_dictionaries.py]]
+   SHAPES_LENGTH,         
+   # ⚓ Link to source code: [[#]]
+   SHAPES_LENGTH_SIDES,   
+   # ⚓ Link to source code: [[#]]
+   SHAPES_RADIUS,         
+   # ⚓ Link to source code: [[#]]
 
    # * [[shapes.py]]
-   Shapes,                 # * [[Shapes]]
+   Shapes,                 
+   # ⚓ Link to source code: [[#]]
 
 )
 
 
-#* Specifies all functions, dictionaries and decorators in program_executors, user_features and visuals
+ #* 📝 Specifies all functions, dictionaries and decorators in program_executors, user_features and visuals
 __all__ = [
    "Alphabets",
    "ALPHABETS",

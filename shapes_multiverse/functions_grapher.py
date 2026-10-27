@@ -8,15 +8,15 @@ import uf
 from gd.visuals.shapes import Shapes
 
 
-#* Parent class for all mathematical functions:
-#* [[LinearFct]]
-#* [[SineWave]]
-#* [[CosineWave]]
-#* [[AbsoluteX]]
-#* [[QuadraticFct]]
+ #* 📝 Parent class for all mathematical functions:
+ #* 📝 [[LinearFct]]
+ #* 📝 [[SineWave]]
+ #* 📝 [[CosineWave]]
+ #* 📝 [[AbsoluteX]]
+ #* 📝 [[QuadraticFct]]
 class Drawing:
 
-    #* Makes all child classes take a domain for the function
+     #* 📝 Makes all child classes take a domain for the function
     def __init__(self, domain):
 
         uf.SequenceValidate(Real, Real, int)(domain, name="domain")
@@ -29,7 +29,7 @@ class Drawing:
             self.end,
             self.steps+1).tolist()
 
-    #* Renders the generated coordinates from a function
+     #* 📝 Renders the generated coordinates from a function
     @staticmethod
     def render(coordinates):
 
@@ -56,13 +56,13 @@ class Drawing:
         tx.SU()
         tx.mainloop()
 
-    #* Generates the coordinates and feeds them to [[Drawing#render]]
+     #* 📝 Generates the coordinates and feeds them to [[Drawing#render]]
     def draw(self):
 
         self.render(self.generate())
 
-#* Generates the coordinates for a Linear Function
-#* Parent class: [[Drawing]]
+ #* 📝 Generates the coordinates for a Linear Function
+ #* 📝 Parent class: [[Drawing]]
 class LinearFct(Drawing):
 
     def __init__(self, domain, k, d):
@@ -78,8 +78,8 @@ class LinearFct(Drawing):
         y_val = [self.k * x + self.d for x in x_val]
         return x_val, y_val
 
-#* Generates the coordinates of a sine function
-#* Parent class: [[Drawing]]
+ #* 📝 Generates the coordinates of a sine function
+ #* 📝 Parent class: [[Drawing]]
 class SineWave(Drawing):
 
     def generate(self):
@@ -88,8 +88,8 @@ class SineWave(Drawing):
         y_val = [100 * uf.sine(x) for x in x_val]
         return x_val, y_val
 
-#* Generates the coordinates of a cosine function
-#* Parent class: [[Drawing]]
+ #* 📝 Generates the coordinates of a cosine function
+ #* 📝 Parent class: [[Drawing]]
 class CosineWave(Drawing):
 
     def generate(self):
@@ -98,8 +98,8 @@ class CosineWave(Drawing):
         y_val = [100 * uf.cosine(x) for x in x_val]
         return x_val, y_val
 
-#* Generates the coordinates of the function y = |x|
-#* Parent class: [[Drawing]]
+ #* 📝 Generates the coordinates of the function y = |x|
+ #* 📝 Parent class: [[Drawing]]
 class AbsoluteX(Drawing):
 
     def generate(self):
@@ -108,8 +108,8 @@ class AbsoluteX(Drawing):
         y_val = [100 * abs(x) for x in x_val]
         return x_val, y_val
 
-#* Generates the coordinates of a quadratic function
-#* Parent class: [[Drawing]]
+ #* 📝 Generates the coordinates of a quadratic function
+ #* 📝 Parent class: [[Drawing]]
 class QuadraticFct(Drawing):
 
     def __init__(

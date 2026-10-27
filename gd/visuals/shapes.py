@@ -21,10 +21,10 @@ def side_tls_num(side: Real, tls_num: tx.ChainTurtle) -> None:
     uf.ComboValidate(side, name=side_name)(uf.real_validate(), uf.Positive())
     uf.TypeValidate(tx.ChainTurtle)(tls_num, name=tls_num_name)
 
-#* Contains predefined shapes which are used all throughout the software
-@uf.cls_deco_superposition(staticmethod)
+ #* 📝 Contains predefined shapes which are used all throughout the software
 class Shapes:
-#* ====== STAR OF DAVID ======
+ #* 📝 ====== STAR OF DAVID ======
+    @staticmethod
     def SOD(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -48,7 +48,8 @@ class Shapes:
                 . lt(60)
             )
 
-#* [[Shapes#SOD]] with fill color
+ #* 📝 [[Shapes#SOD]] with fill color
+    @staticmethod
     def SOD_fill(side,tls_num):
 
         side_tls_num(side, tls_num)
@@ -74,7 +75,8 @@ class Shapes:
                 . lt(60)
             )
 
-#* ====== HEXAGON ======
+ #* 📝 ====== HEXAGON ======
+    @staticmethod
     def hexagon(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -88,6 +90,7 @@ class Shapes:
         )
 
 # * [[Shapes#hexagon]] with fill color
+    @staticmethod
     def hexagon_fill(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -99,7 +102,8 @@ class Shapes:
         )
         tls_num.end_fill()
 
-#* ====== TRIANGLE ======
+ #* 📝 ====== TRIANGLE ======
+    @staticmethod
     def triangle(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -108,6 +112,7 @@ class Shapes:
             tls_num.fd(side).lt(120)
 
 # * [[Shapes#triangle]] with fill color
+    @staticmethod
     def triangle_fill(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -119,7 +124,8 @@ class Shapes:
         )
         tls_num.end_fill()
 
-#* Triangle starting in the middle of a side
+ #* 📝 Triangle starting in the middle of a side
+    @staticmethod
     def triangle_half(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -132,7 +138,8 @@ class Shapes:
 
         tls_num.fd(side_50)
 
-#* ====== SQUARE ======
+ #* 📝 ====== SQUARE ======
+    @staticmethod
     def square(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -140,7 +147,8 @@ class Shapes:
         for _ in range(4):
             tls_num.fd(side).lt(90)
 
-#* [[Shapes#square]] with fill color
+ #* 📝 [[Shapes#square]] with fill color
+    @staticmethod
     def square_fill(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -152,7 +160,8 @@ class Shapes:
         )
         tls_num.end_fill()
 
-#* Square starting in the middle of a side
+ #* 📝 Square starting in the middle of a side
+    @staticmethod
     def square_half(side, tls_num):
 
         side_tls_num(side, tls_num)
@@ -165,7 +174,8 @@ class Shapes:
 
         tls_num.fd(side_50)
 
-#* ====== RECTANGLE ======
+ #* 📝 ====== RECTANGLE ======
+    @staticmethod
     def rectangle(length, width, direction, tls_num):
 
         for item in (length, width):
@@ -189,7 +199,8 @@ class Shapes:
                 . lt(turn)
             )
 
-#* [[Shapes#rectangle]] with fill color
+ #* 📝 [[Shapes#rectangle]] with fill color
+    @staticmethod
     def rectangle_fill(length, width, direction, tls_num):
 
         uf.TypeValidate(tx.ChainTurtle)(tls_num, name="tls_num")
@@ -202,7 +213,8 @@ class Shapes:
             tls_num = tls_num)
         tls_num.end_fill()
 
-#* ====== HEXAFLOWER TRIANGLE VERSION ======
+ #* 📝 ====== HEXAFLOWER TRIANGLE VERSION ======
+    @staticmethod
     def hexaflower_tri(length, tls_num):
 
         side_tls_num(length, tls_num)
@@ -225,7 +237,8 @@ class Shapes:
                 .bk(diagonal)
             )
 
-#* [[Shapes#hexaflower_tri]] with fill color
+ #* 📝 [[Shapes#hexaflower_tri]] with fill color
+    @staticmethod
     def hexaflower_tri_fill(length, tls_num):
 
         side_tls_num(length, tls_num)
@@ -237,7 +250,8 @@ class Shapes:
         )
         tls_num.end_fill()
 
-#* ====== HEXAFLOWER CIRCLE VERSION ======
+ #* 📝 ====== HEXAFLOWER CIRCLE VERSION ======
+    @staticmethod
     def hexa_flower(radius, tls_num):
 
         side_tls_num(radius, tls_num)
@@ -251,7 +265,8 @@ class Shapes:
                 . rt(60)
             )
 
-#* [[Shapes#hexa_flower]] with fill color
+ #* 📝 [[Shapes#hexa_flower]] with fill color
+    @staticmethod
     def hexa_flower_fill(radius, tls_num):
 
         side_tls_num(radius, tls_num)
@@ -263,7 +278,8 @@ class Shapes:
         )
         tls_num.end_fill()
 
-#* ====== LOTUS FLOWER ======
+ #* 📝 ====== LOTUS FLOWER ======
+    @staticmethod
     def lotus_flower(radius, tls_num):
 
         side_tls_num(radius, tls_num)
@@ -275,7 +291,8 @@ class Shapes:
             )
             tls_num.lt((-1)**n*30)
 
-#* [[Shapes#lotus_flower]] with fill color
+ #* 📝 [[Shapes#lotus_flower]] with fill color
+    @staticmethod
     def lotus_flower_fill(radius, tls_num):
 
         side_tls_num(radius, tls_num)
@@ -287,8 +304,9 @@ class Shapes:
         )
         tls_num.end_fill()
 
-#* ====== LINES ======
-#* Draws evenly spaced lines in a circular pattern
+ #* 📝 ====== LINES ======
+ #* 📝 Draws evenly spaced lines in a circular pattern
+    @staticmethod
     def lines(distance, lines_num, tls_num):
 
         uf.real_validate()(distance, name="distance")
@@ -300,22 +318,25 @@ class Shapes:
         for _ in range(lines_num):
             tls_num.fd(distance).bk(distance).lt(angle)
 
-#* ====== CIRCLE ======
+ #* 📝 ====== CIRCLE ======
+    @staticmethod
     def circle(radius, tls_num):
 
         side_tls_num(radius, tls_num)
 
         tls_num.circle(radius)
 
-#* [[Shapes#circle]] with fill color
+ #* 📝 [[Shapes#circle]] with fill color
+    @staticmethod
     def circle_filler(radius, tls_num):
 
         side_tls_num(radius, tls_num)
 
         tls_num.begin_fill().circle(radius).end_fill()
 
-#* ====== POLYGON ======
-#* Draws a regular polygon with an arbitrary number of sides
+ #* 📝 ====== POLYGON ======
+ #* 📝 Draws a regular polygon with an arbitrary number of sides
+    @staticmethod
     def polygon(length, sides, tls_num):
 
         side_tls_num(length, tls_num)
@@ -331,7 +352,8 @@ class Shapes:
             . lt(angle_to_right)
         )
 
-#* [[Shapes#polygon]] with fill color
+ #* 📝 [[Shapes#polygon]] with fill color
+    @staticmethod
     def polygon_fill(length, sides, tls_num):
 
         side_tls_num(length, tls_num)
@@ -345,7 +367,8 @@ class Shapes:
         )
         tls_num.end_fill()
 
-#* ===== SHAPES DICT =====
-#* Creates and returns a dictionary with all [[Shapes]] available functions
+ #* 📝 ===== SHAPES DICT =====
+ #* 📝 Creates and returns a dictionary with all [[Shapes]] available functions
+    @staticmethod
     def list_shapes():
         return uf.classes_to_dict(Shapes)

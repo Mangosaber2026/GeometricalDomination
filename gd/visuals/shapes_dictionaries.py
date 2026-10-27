@@ -1,7 +1,7 @@
 from .shapes import Shapes
 
 
-#* DICTIONARY: SHAPES REQUIRING LENGTH, [[Shapes]]
+ #* 📝 DICTIONARY: SHAPES REQUIRING LENGTH, [[Shapes]]
 SHAPES_LENGTH = {
     "tri": Shapes.triangle,
     "tri fill": Shapes.triangle_fill,
@@ -16,13 +16,13 @@ SHAPES_LENGTH = {
     "triangle": Shapes.triangle,
 }
 
-#* DICTIONARY: SHAPES REQUIRING LENGTH + SIDES, [[Shapes]]
+ #* 📝 DICTIONARY: SHAPES REQUIRING LENGTH + SIDES, [[Shapes]]
 SHAPES_LENGTH_SIDES = {
     "poly": Shapes.polygon,
     "poly fill": Shapes.polygon_fill,
 }
 
-#* DICTIONARY: SHAPES REQUIRING RADIUS, [[Shapes]]
+ #* 📝 DICTIONARY: SHAPES REQUIRING RADIUS, [[Shapes]]
 SHAPES_RADIUS = {
     "circle": Shapes.circle,
     "circle fill": Shapes.circle_filler,

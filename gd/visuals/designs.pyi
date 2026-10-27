@@ -7,18 +7,18 @@ from collections.abc import Callable
 import turtle_extension as tx
 
 
-#* The type used for a list of [[ChainTurtle]]
+ #* 📝 The type used for a list of [[ChainTurtle]]
 type TlsType = list[tx.ChainTurtle]
 
-#* The type used for one of [[Designs]] functions
+ #* 📝 The type used for one of [[Designs]] functions
 type DesignFuncType = Callable[[TlsType], None]
 
 type WrapperFuncType = Callable[[], TlsType]
 
-#* The type returned from a wrapper that wraps the [[Designs]] functions
+ #* 📝 The type returned from a wrapper that wraps the [[Designs]] functions
 type TurtlesReturnType = Callable[[DesignFuncType], WrapperFuncType]
 
-#* The type for the dictionary retrieved from [[Designs]]
+ #* 📝 The type for the dictionary retrieved from [[Designs]]
 type PATTERNSType = dict[
 str,
 Callable[[list[tx.ChainTurtle]], list[tx.ChainTurtle]]

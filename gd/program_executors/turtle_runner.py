@@ -1,17 +1,23 @@
+# ⚓ Anchor for this module: [[turtle-runner-anchor|turtle_runner.py]] 
+
 from time import sleep as rest
 
 import turtle_extension as tx
 import uf
 
-from ..user_features import COMMANDS, exec_ft
-from ..visuals import PATTERNS, SHAPES_LENGTH, SHAPES_LENGTH_SIDES, SHAPES_RADIUS
+from .. import user_features as user_feats
+from .. import visuals
 
 
 #? //////////////////////////////////////
 #? //////// USER DRAWING PROGRAM ///////
 #? ////////////////////////////////////
+# ⚓ user_drawing_ft anchor: [[user-drawing-ft-anchor|user_drawing_ft()]] 
+#* 📝 This runs the customizable user focused function where
+#* 📝 the user can draw their own designs with internally defined features
 def user_drawing_ft():
-    tx.UV["t"]: int = tx.tls_color(index=1)
+    tx.UV["t"]: int = tx.tls_color(index=1)     # type: ignore
+
     while True:
         user_choice: str = uf.get_str('''BELOW ARE SETTINGS:
             create tls -> create multiple turtles
@@ -47,23 +53,40 @@ def user_drawing_ft():
             
             if you're an experienced programmer and know the program inside out, then here's another option:
             exec -> pythons execution function
-            Enter choice: ''', COMMANDS, SHAPES_LENGTH, SHAPES_LENGTH_SIDES, SHAPES_RADIUS, ("n","exec"))
+            Enter choice: ''',
+            user_feats.COMMANDS, 
+            visuals.SHAPES_LENGTH, 
+            visuals.SHAPES_LENGTH_SIDES, 
+            visuals.SHAPES_RADIUS,
+            ("n","exec")
+            )
+        
         tx.get_screen()
 
-        if user_choice in COMMANDS:
-            COMMANDS[user_choice]()
+        if user_choice in user_feats.COMMANDS:
+            user_feats.COMMANDS[user_choice]()
 
-        elif user_choice in SHAPES_LENGTH:
-            SHAPES_LENGTH[user_choice](uf.helper.length_float(), tx.t_now())
+        elif user_choice in visuals.SHAPES_LENGTH:
+            visuals.SHAPES_LENGTH[user_choice](
+                uf.helper.length_float(),
+                tx.t_now()
+                )
 
-        elif user_choice in SHAPES_LENGTH_SIDES:
-            SHAPES_LENGTH_SIDES[user_choice](uf.helper.length_float(), uf.helper.sides_num(), tx.t_now())
+        elif user_choice in visuals.SHAPES_LENGTH_SIDES:
+            visuals.SHAPES_LENGTH_SIDES[user_choice](
+                uf.helper.length_float(),
+                uf.helper.sides_num(), 
+                tx.t_now()
+                )
 
-        elif user_choice in SHAPES_RADIUS:
-            SHAPES_RADIUS[user_choice](uf.helper.radius_float(),tx.t_now())
+        elif user_choice in visuals.SHAPES_RADIUS:
+            visuals.SHAPES_RADIUS[user_choice](
+                uf.helper.radius_float(), 
+                tx.t_now()
+                )
 
         elif user_choice == "exec":
-            exec_ft()
+            user_feats.exec_ft()
 
         elif user_choice == "n":
             print("Thank you for using Sabiq's own pattern drawing program!")
@@ -82,9 +105,15 @@ def user_drawing_ft():
 #? /////////////////////////////////
 #? //////// MAIN OPERATION ////////
 #? ///////////////////////////////
+# ⚓ main anchor: [[main-anchor|main()]] 
+#* 📝 This is the entrance point to the whole software,
+#* 📝 it lets users draw premade functions as well as [[#user-drawing-ft-anchor|customizable ones]] 
 def main():
-    print("There are 6 turtles in total, you can decide the trace & turtle color!"); rest(1.5)
+    print("There are 6 turtles in total, you can decide the trace & turtle color!")
+    rest(1.5)
+    
     tls_list: list[tx.ChainTurtle] | None = None
+    
     while True:
         program_choice: str = uf.get_str('''Here are the options
         
@@ -115,7 +144,7 @@ def main():
         
         n -> nothing
         own -> make your own design
-        Enter your choice: ''', PATTERNS, ("own","n"))
+        Enter your choice: ''', visuals.PATTERNS, ("own","n"))
 
         if program_choice == "n":
             print("\nThank you very much for using Sabiq's mini Turtle DSL!!!")
@@ -127,6 +156,8 @@ def main():
 
         if program_choice == "own":
             user_drawing_ft()
+
         else:
-            tls_list = PATTERNS[program_choice]()
+            tls_list = visuals.PATTERNS[program_choice]() # type: ignore
+
         rest(3)

@@ -8,8 +8,8 @@ import uf
 from .shapes import Shapes
 
 
-#* Decorator to be applied to any function which takes
-#* a list of [[ChainTurtle]] and draws a design with them
+ #* 📝 Decorator to be applied to any function which takes
+ #* 📝 a list of [[ChainTurtle]] and draws a design with them
 def turtles(amount):
 
    uf.ComboValidate(amount, name="amount")(uf.int_validate(), uf.Positive())
@@ -25,8 +25,8 @@ def turtles(amount):
       return wrapper
    return decorator
 
-#* Decorator only to be applies to classes which contain functions
-#* which take in a list of turtles and draw with them [[Designs]]
+ #* 📝 Decorator only to be applies to classes which contain functions
+ #* 📝 which take in a list of turtles and draw with them [[Designs]]
 def designs_decorator(cls):
    for name, item in vars(cls).items():
       if isinstance(item, type) and name.startswith("Turtle"):
@@ -41,8 +41,8 @@ def designs_decorator(cls):
 
    return cls
 
-#* Dictates how the [[Designs]] class functions,
-#* makes all functions in inner classes accessible directly through [[Designs]]
+ #* 📝 Dictates how the [[Designs]] class functions,
+ #* 📝 makes all functions in inner classes accessible directly through [[Designs]]
 class DesignsMeta(type):
    def __getattr__(cls, func):
       for class_name, category in vars(cls).items():
@@ -60,13 +60,13 @@ class DesignsMeta(type):
             {cls.__name__} has no attribute {func!r}
             """)
 
-#* Contains all premade drawing functions made by the developer
-#* Dictated by the metaclass [[DesignsMeta]]
+ #* 📝 Contains all premade drawing functions made by the developer
+ #* 📝 Dictated by the metaclass [[DesignsMeta]]
 @designs_decorator
 class Designs(metaclass=DesignsMeta):
 
-   #* Contains all drawings which require ONE turtle,
-   #* all functions are accessible directly through [[Designs]]
+    #* 📝 Contains all drawings which require ONE turtle,
+    #* 📝 all functions are accessible directly through [[Designs]]
    class TurtleOne:
       TURTLE_COUNT: Final = 1
 
@@ -745,12 +745,12 @@ class Designs(metaclass=DesignsMeta):
       tx.SU()
       return tls
 
-   #* Changes the shape of future turtles through [[TurtleFct#change_shape]]
+    #* 📝 Changes the shape of future turtles through [[TurtleFct#change_shape]]
    def change_shape():
       tx.TurtleFct.change_shape()
 
-   #* Creates and returns a dictionary containing all available functions in [[Designs]]
-   #* with the help of [[classes_to_dictionary.py#classes_to_dict]]
+    #* 📝 Creates and returns a dictionary containing all available functions in [[Designs]]
+    #* 📝 with the help of [[classes_to_dictionary.py#classes_to_dict]]
    @classmethod
    def list_designs(cls):
 
@@ -766,12 +766,12 @@ class Designs(metaclass=DesignsMeta):
 
       return dictionary
 
-#* Creates and returns a dictionary containing all functions available through [[Designs]]
+ #* 📝 Creates and returns a dictionary containing all functions available through [[Designs]]
 def get_Patterns_dict():
    return {
       name.replace("_", " "): func
       for name, func in Designs.list_designs().items()
    }
 
-#* Designs dictionary storage from [[designs.py#get_Patterns_dict]]
+ #* 📝 Designs dictionary storage from [[designs.py#get_Patterns_dict]]
 PATTERNS = get_Patterns_dict()
