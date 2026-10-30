@@ -50,7 +50,8 @@ class Punctuation:
 
             height_20 = uf.pct20(height)    
             height_10 = uf.pct10(height)    
-            height_5 = uf.Percent(5)(height)    
+            height_5 = uf.Percent(5)(height)
+            height_80 = uf.pct80(height)    
 
             tls.fd_inv(height_20)
             shapes.Shapes.rectangle_fill(height_80, height_10, -1, tls)

@@ -1,4 +1,6 @@
- #* 📝 Imports the class, dictionary and functions available in user features section [[#user-commands-anchor|user_commands.py]] 
+# ⚓ Anchor for this module: [[user-features-anchor|user_features.__init__.py]]  
+ 
+#* 📝 Imports the class, dictionary and functions available in user features section [[#user-commands-anchor|user_commands.py]] 
 from .user_commands import (  # noqa: I001
     COMMANDS,
     # 🔗 Link to source code: [[#COMMANDS-anchor|dictionary COMMANDS]] 

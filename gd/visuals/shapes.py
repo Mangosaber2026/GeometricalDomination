@@ -1,15 +1,19 @@
-from numbers import Real
+# ⚓ Anchor for this module: [[shapes-anchor|shapes.py]] 
+
+import numbers as num
 from typing import Final
 
 import turtle_extension as tx
 import uf
 
+#* 📝 Type for any real number
+type RealType = float | int | num.Real
 
-def side_tls_num(side: Real, tls_num: tx.ChainTurtle) -> None:
+def side_tls_num(side: RealType, tls_num: tx.ChainTurtle) -> None:
     """
     This function validates the parameters side and tls_num of all Shapes functions.
 
-    :param side: real number
+    :param side: RealType number
 
     :param tls_num: ChainTurtle instance
     
@@ -18,14 +22,18 @@ def side_tls_num(side: Real, tls_num: tx.ChainTurtle) -> None:
     side_name: Final = "side"
     tls_num_name: Final = "tls_num"
 
-    uf.ComboValidate(side, name=side_name)(uf.real_validate(), uf.Positive())
-    uf.TypeValidate(tx.ChainTurtle)(tls_num, name=tls_num_name)
+    uf.ComboValidate(value=side, name=side_name)(uf.real_validate(), uf.Positive())
+    uf.TypeValidate(expected=tx.ChainTurtle)(value=tls_num, name=tls_num_name)
 
- #* 📝 Contains predefined shapes which are used all throughout the software
+
+# ⚓ Shapes anchor: [[Shapes-anchor|class Shapes]] 
+#* 📝 Contains predefined shapes which are used all throughout the software
 class Shapes:
- #* 📝 ====== STAR OF DAVID ======
+
+    # ⚓ SOD anchor: [[Shapes-SOD-anchor|SOD()]] 
+    #* 📝 ====== STAR OF DAVID ======
     @staticmethod
-    def SOD(side, tls_num):
+    def SOD(side, tls_num: tx.ChainTurtle):
 
         side_tls_num(side, tls_num)
 
@@ -48,9 +56,11 @@ class Shapes:
                 . lt(60)
             )
 
- #* 📝 [[Shapes#SOD]] with fill color
+
+    # ⚓ SOD_fill anchor: [[Shapes-SOD-fill-anchor|SOD_fill()]] 
+    #* 📝 [[#Shapes-SOD-anchor|SOD()]] with fill color
     @staticmethod
-    def SOD_fill(side,tls_num):
+    def SOD_fill(side, tls_num: tx.ChainTurtle):
 
         side_tls_num(side, tls_num)
 
@@ -75,9 +85,11 @@ class Shapes:
                 . lt(60)
             )
 
- #* 📝 ====== HEXAGON ======
+
+    # ⚓ hexagon anchor: [[Shapes-hexagon-anchor|hexagon()]] 
+    #* 📝 ====== HEXAGON ======
     @staticmethod
-    def hexagon(side, tls_num):
+    def hexagon(side, tls_num: tx.ChainTurtle):
 
         side_tls_num(side, tls_num)
         (
@@ -89,9 +101,11 @@ class Shapes:
             . circle(side,360,6)
         )
 
-# * [[Shapes#hexagon]] with fill color
+
+    # ⚓ hexagon_fill anchor: [[Shapes-hexagon-fill-anchor|hexagon_fill()]] 
+    #* 📝 [[#Shapes-hexagon-anchor|hexagon()]]  with fill color
     @staticmethod
-    def hexagon_fill(side, tls_num):
+    def hexagon_fill(side, tls_num: tx.ChainTurtle):
 
         side_tls_num(side, tls_num)
 
@@ -102,18 +116,22 @@ class Shapes:
         )
         tls_num.end_fill()
 
- #* 📝 ====== TRIANGLE ======
+
+    # ⚓ triangle anchor: [[Shapes-triangle-anchor|triangle()]] 
+    #* 📝 ====== TRIANGLE ======
     @staticmethod
-    def triangle(side, tls_num):
+    def triangle(side, tls_num: tx.ChainTurtle):
 
         side_tls_num(side, tls_num)
 
         for _ in range(3):
             tls_num.fd(side).lt(120)
 
-# * [[Shapes#triangle]] with fill color
+
+    # ⚓ triangle_fill anchor: [[Shapes-triangle-fill-anchor|triangle_fill()]] 
+    #* 📝 [[#Shapes-triangle-anchor|triangle()]]  with fill color
     @staticmethod
-    def triangle_fill(side, tls_num):
+    def triangle_fill(side, tls_num: tx.ChainTurtle):
 
         side_tls_num(side, tls_num)
 
@@ -124,9 +142,11 @@ class Shapes:
         )
         tls_num.end_fill()
 
- #* 📝 Triangle starting in the middle of a side
+
+    # ⚓ triangle_half anchor: [[Shapes-triangle-half-anchor|triangle_half()]] 
+    #* 📝 Triangle starting in the middle of a side
     @staticmethod
-    def triangle_half(side, tls_num):
+    def triangle_half(side, tls_num: tx.ChainTurtle):
 
         side_tls_num(side, tls_num)
         side_50 = uf.pct50(side)
@@ -138,18 +158,22 @@ class Shapes:
 
         tls_num.fd(side_50)
 
- #* 📝 ====== SQUARE ======
+
+    # ⚓ square anchor: [[Shapes-square-anchor|square()]] 
+    #* 📝 ====== SQUARE ======
     @staticmethod
-    def square(side, tls_num):
+    def square(side, tls_num: tx.ChainTurtle):
 
         side_tls_num(side, tls_num)
 
         for _ in range(4):
             tls_num.fd(side).lt(90)
 
- #* 📝 [[Shapes#square]] with fill color
+
+    # ⚓ square_fill anchor: [[Shapes-square-fill-anchor|square_fill()]] 
+    #* 📝 [[#Shapes-square-anchor|square()]]  with fill color
     @staticmethod
-    def square_fill(side, tls_num):
+    def square_fill(side, tls_num: tx.ChainTurtle):
 
         side_tls_num(side, tls_num)
 
@@ -160,9 +184,11 @@ class Shapes:
         )
         tls_num.end_fill()
 
- #* 📝 Square starting in the middle of a side
+
+    # ⚓ square_half anchor: [[Shapes-square-half-anchor|square_half()]] 
+    #* 📝 Square starting in the middle of a side
     @staticmethod
-    def square_half(side, tls_num):
+    def square_half(side, tls_num: tx.ChainTurtle):
 
         side_tls_num(side, tls_num)
         side_50 = uf.pct50(side)
@@ -174,9 +200,11 @@ class Shapes:
 
         tls_num.fd(side_50)
 
- #* 📝 ====== RECTANGLE ======
+
+    # ⚓ rectangle anchor: [[Shapes-rectangle-anchor|rectangle()]] 
+    #* 📝 ====== RECTANGLE ======
     @staticmethod
-    def rectangle(length, width, direction, tls_num):
+    def rectangle(length, width, direction, tls_num: tx.ChainTurtle):
 
         for item in (length, width):
             side_tls_num(item, tls_num)
@@ -199,9 +227,11 @@ class Shapes:
                 . lt(turn)
             )
 
- #* 📝 [[Shapes#rectangle]] with fill color
+
+    # ⚓ rectangle_fill anchor: [[Shapes-rectangle-fill-anchor|rectangle_fill()]] 
+    #* 📝 [[#Shapes-rectangle-anchor|rectangle()]]  with fill color
     @staticmethod
-    def rectangle_fill(length, width, direction, tls_num):
+    def rectangle_fill(length, width, direction, tls_num: tx.ChainTurtle):
 
         uf.TypeValidate(tx.ChainTurtle)(tls_num, name="tls_num")
 
@@ -213,9 +243,11 @@ class Shapes:
             tls_num = tls_num)
         tls_num.end_fill()
 
- #* 📝 ====== HEXAFLOWER TRIANGLE VERSION ======
+
+    # ⚓ hexaflower_tri anchor: [[Shapes-hexaflower-tri-anchor|hexaflower_tri()]] 
+    #* 📝 ====== HEXAFLOWER TRIANGLE VERSION ======
     @staticmethod
-    def hexaflower_tri(length, tls_num):
+    def hexaflower_tri(length, tls_num: tx.ChainTurtle):
 
         side_tls_num(length, tls_num)
 
@@ -237,9 +269,11 @@ class Shapes:
                 .bk(diagonal)
             )
 
- #* 📝 [[Shapes#hexaflower_tri]] with fill color
+
+    # ⚓ hexaflower_tri_fill anchor: [[Shapes-hexaflower-tri-fill-anchor|hexaflower_tri_fill()]] 
+    #* 📝 [[#Shapes-hexaflower-tri-anchor|hexaflower_tri()]]  with fill color
     @staticmethod
-    def hexaflower_tri_fill(length, tls_num):
+    def hexaflower_tri_fill(length, tls_num: tx.ChainTurtle):
 
         side_tls_num(length, tls_num)
 
@@ -250,9 +284,11 @@ class Shapes:
         )
         tls_num.end_fill()
 
- #* 📝 ====== HEXAFLOWER CIRCLE VERSION ======
+
+    # ⚓ hexa_flower anchor: [[Shapes-hexa-flower-anchor|hexa_flower()]] 
+    #* 📝 ====== HEXAFLOWER CIRCLE VERSION ======
     @staticmethod
-    def hexa_flower(radius, tls_num):
+    def hexa_flower(radius, tls_num: tx.ChainTurtle):
 
         side_tls_num(radius, tls_num)
 
@@ -265,9 +301,11 @@ class Shapes:
                 . rt(60)
             )
 
- #* 📝 [[Shapes#hexa_flower]] with fill color
+
+    # ⚓ hexa_flower_fill anchor: [[Shapes-hexa-flower-fill-anchor|hexa_flower_fill()]] 
+    #* 📝 [[#Shapes-hexa-flower-anchor|hexa_flower()]] with fill color
     @staticmethod
-    def hexa_flower_fill(radius, tls_num):
+    def hexa_flower_fill(radius, tls_num: tx.ChainTurtle):
 
         side_tls_num(radius, tls_num)
 
@@ -278,9 +316,11 @@ class Shapes:
         )
         tls_num.end_fill()
 
- #* 📝 ====== LOTUS FLOWER ======
+
+    # ⚓ lotus_flower anchor: [[Shapes-lotus-flower-anchor|lotus_flower()]] 
+    #* 📝 ====== LOTUS FLOWER ======
     @staticmethod
-    def lotus_flower(radius, tls_num):
+    def lotus_flower(radius, tls_num: tx.ChainTurtle):
 
         side_tls_num(radius, tls_num)
 
@@ -291,9 +331,11 @@ class Shapes:
             )
             tls_num.lt((-1)**n*30)
 
- #* 📝 [[Shapes#lotus_flower]] with fill color
+
+    # ⚓ lotus_flower_fill anchor: [[Shapes-lotus-flower-fill-anchor|lotus_flower_fill()]] 
+    #* 📝 [[#Shapes-lotus-flower-anchor|lotus_flower()]] with fill color
     @staticmethod
-    def lotus_flower_fill(radius, tls_num):
+    def lotus_flower_fill(radius, tls_num: tx.ChainTurtle):
 
         side_tls_num(radius, tls_num)
 
@@ -304,10 +346,12 @@ class Shapes:
         )
         tls_num.end_fill()
 
- #* 📝 ====== LINES ======
- #* 📝 Draws evenly spaced lines in a circular pattern
+
+    # ⚓ lines anchor: [[Shapes-lines-anchor|lines()]] 
+    #* 📝 ====== LINES ======
+    #* 📝 Draws evenly spaced lines in a circular pattern
     @staticmethod
-    def lines(distance, lines_num, tls_num):
+    def lines(distance, lines_num, tls_num: tx.ChainTurtle):
 
         uf.real_validate()(distance, name="distance")
         uf.ComboValidate(lines_num, name="lines_num")(uf.int_validate(), uf.Positive())
@@ -318,26 +362,32 @@ class Shapes:
         for _ in range(lines_num):
             tls_num.fd(distance).bk(distance).lt(angle)
 
- #* 📝 ====== CIRCLE ======
+
+    # ⚓ circle anchor: [[Shapes-circle-anchor|circle()]] 
+    #* 📝 ====== CIRCLE ======
     @staticmethod
-    def circle(radius, tls_num):
+    def circle(radius, tls_num: tx.ChainTurtle):
 
         side_tls_num(radius, tls_num)
 
         tls_num.circle(radius)
 
- #* 📝 [[Shapes#circle]] with fill color
+
+    # ⚓ circle_filler anchor: [[Shapes-circle-filler-anchor|circle_filler()]] 
+    #* 📝 [[#Shapes-circle-anchor|circle()]] with fill color
     @staticmethod
-    def circle_filler(radius, tls_num):
+    def circle_filler(radius, tls_num: tx.ChainTurtle):
 
         side_tls_num(radius, tls_num)
 
         tls_num.begin_fill().circle(radius).end_fill()
 
- #* 📝 ====== POLYGON ======
- #* 📝 Draws a regular polygon with an arbitrary number of sides
+
+    # ⚓ polygon anchor: [[Shapes-polygon-anchor|polygon()]] 
+    #* 📝 ====== POLYGON ======
+    #* 📝 Draws a regular polygon with an arbitrary number of sides
     @staticmethod
-    def polygon(length, sides, tls_num):
+    def polygon(length, sides, tls_num: tx.ChainTurtle):
 
         side_tls_num(length, tls_num)
         uf.ComboValidate(sides, name="sides")(uf.int_validate(), uf.Positive())
@@ -352,9 +402,11 @@ class Shapes:
             . lt(angle_to_right)
         )
 
- #* 📝 [[Shapes#polygon]] with fill color
+
+    # ⚓ polygon_fill anchor: [[Shapes-polygon-fill-anchor|polygon_fill()]] 
+    #* 📝 [[#Shapes-polygon-anchor|polygon()]] with fill color
     @staticmethod
-    def polygon_fill(length, sides, tls_num):
+    def polygon_fill(length, sides, tls_num: tx.ChainTurtle):
 
         side_tls_num(length, tls_num)
         uf.ComboValidate(sides, name="sides")(uf.int_validate(), uf.Positive())
@@ -367,8 +419,10 @@ class Shapes:
         )
         tls_num.end_fill()
 
- #* 📝 ===== SHAPES DICT =====
- #* 📝 Creates and returns a dictionary with all [[Shapes]] available functions
+
+    # ⚓ list_shapes anchor: [[Shapes-list-shapes-anchor|list_shapes()]] 
+    #* 📝 ===== SHAPES DICT =====
+    #* 📝 Creates and returns a dictionary with all [[#Shapes-anchor|Shapes]] available functions
     @staticmethod
     def list_shapes():
         return uf.classes_to_dict(Shapes)

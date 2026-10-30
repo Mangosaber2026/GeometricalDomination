@@ -2,16 +2,23 @@
 This module contains a collection of classes and functions for drawing/rendering or calculating
 mathematical functions.
 """
+#* 📝 File type: Python type stub (.pyi)
+#* 📝 Purpose: Describes the module's interface for documentation,
+#* 📝         editor support, and static type checking.
+#* 📝 Runtime: Contains no implementation; see the corresponding
+#* 📝         .py file for executable code.
 
-from numbers import Real
+import numbers as num
 
+#* 📝 Type for any real number
+type RealType = float | int | num.Real
 
  #* 📝 The type for the list containing a list of x values
  #* 📝 and their corresponding y values
-type ListXYType = tuple[list[Real], list[Real]]
+type ListXYType = tuple[list[RealType], list[RealType]]
 
  #* 📝 The type for the expected values in the domain
-type DomainType = tuple[Real, Real, int]
+type DomainType = tuple[RealType, RealType, int]
 
 
 class Drawing:
@@ -28,12 +35,14 @@ class Drawing:
       :return: None
       """
 
-   def x_val(self) -> list[Real]:
+
+   def x_val(self) -> list[RealType]:
       """
       Returns the x values of desired domain.
 
       :return: list of x values
       """
+
 
    @staticmethod
    def render(coordinates: ListXYType) -> None:
@@ -47,12 +56,14 @@ class Drawing:
       :return: None
       """
 
+
    def draw(self) -> None:
       """
       Generate and render the drawing for this class.
 
       :return: None
       """
+
 
 class LinearFct(Drawing):
    """
@@ -61,8 +72,8 @@ class LinearFct(Drawing):
 
    def __init__(self,
                 domain: DomainType,
-                k: Real,
-                d: Real
+                k: RealType,
+                d: RealType
                 ) -> None:
       """
       Takes the start and end values of desired domain.
@@ -74,12 +85,14 @@ class LinearFct(Drawing):
       :param d: y-intercept
       """
 
+
    def generate(self) -> ListXYType:
       """
       Generates the coordinates of the points of the linear function created with the desired domain.
       
       :return: list of coordinates
       """
+
 
 class SineWave(Drawing):
    """
@@ -93,6 +106,7 @@ class SineWave(Drawing):
       :return: list of coordinates
       """
 
+
 class CosineWave(Drawing):
    """
    This class contains methods for drawing/rendering cosine wave functions.
@@ -104,6 +118,7 @@ class CosineWave(Drawing):
       
       :return: list of coordinates
       """
+
 
 class AbsoluteX(Drawing):
    """
@@ -117,6 +132,7 @@ class AbsoluteX(Drawing):
       :return: list of coordinates
       """
 
+
 class QuadraticFct(Drawing):
    """
    This class contains methods for drawing/rendering quadratic functions.
@@ -125,9 +141,9 @@ class QuadraticFct(Drawing):
    def __init__(
          self,
          domain: DomainType,
-         a: Real,
-         b: Real,
-         c: Real,
+         a: RealType,
+         b: RealType,
+         c: RealType,
    ) -> None:
       """
       Takes the start and end values of desired domain and the parameters a,b,and c.
@@ -142,6 +158,7 @@ class QuadraticFct(Drawing):
 
       :return: None
       """
+      
 
    def generate(self) -> ListXYType:
       """

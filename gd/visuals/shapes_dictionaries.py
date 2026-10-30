@@ -1,7 +1,9 @@
+# ⚓ Anchor for this module: [[shapes-dictionaries-anchor|shapes_dictionaries.py]] 
+
 from .shapes import Shapes
 
-
- #* 📝 DICTIONARY: SHAPES REQUIRING LENGTH, [[Shapes]]
+# ⚓ SHAPES_LENGTH anchor: [[SHAPES-LENGTH-anchor|dictionary SHAPES_LENGTH]] 
+#* 📝 DICTIONARY: SHAPES REQUIRING LENGTH, [[#Shapes-anchor|class Shapes]] 
 SHAPES_LENGTH = {
     "tri": Shapes.triangle,
     "tri fill": Shapes.triangle_fill,
@@ -16,13 +18,15 @@ SHAPES_LENGTH = {
     "triangle": Shapes.triangle,
 }
 
- #* 📝 DICTIONARY: SHAPES REQUIRING LENGTH + SIDES, [[Shapes]]
+# ⚓ SHAPES_LENGTH_SIDES anchor: [[SHAPES-LENGTH-SIDES-anchor|dictionary SHAPES_LENGTH_SIDES]] 
+#* 📝 DICTIONARY: SHAPES REQUIRING LENGTH + SIDES, [[#Shapes-anchor|class Shapes]] 
 SHAPES_LENGTH_SIDES = {
     "poly": Shapes.polygon,
     "poly fill": Shapes.polygon_fill,
 }
 
- #* 📝 DICTIONARY: SHAPES REQUIRING RADIUS, [[Shapes]]
+# ⚓ SHAPES_RADIUS anchor: [[SHAPES-RADIUS-anchor|dictionary SHAPES_RADIUS]] 
+#* 📝 DICTIONARY: SHAPES REQUIRING RADIUS, [[#Shapes-anchor|class Shapes]] 
 SHAPES_RADIUS = {
     "circle": Shapes.circle,
     "circle fill": Shapes.circle_filler,

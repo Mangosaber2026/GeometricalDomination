@@ -5,6 +5,11 @@ This module is the entry point to the whole program, which can be run with "main
 
 Author: Miah M. Sabiq
 """
+#* 📝 File type: Python type stub (.pyi)
+#* 📝 Purpose: Describes the module's interface for documentation,
+#* 📝         editor support, and static type checking.
+#* 📝 Runtime: Contains no implementation; see the corresponding
+#* 📝         .py file for executable code.
 
 def user_drawing_ft() -> None:
     """

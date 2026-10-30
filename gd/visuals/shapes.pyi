@@ -1,12 +1,21 @@
 """
 This module contains the Shapes class which provides premade drawing functions with ChainTurtle().
 """
+#* 📝 File type: Python type stub (.pyi)
+#* 📝 Purpose: Describes the module's interface for documentation,
+#* 📝         editor support, and static type checking.
+#* 📝 Runtime: Contains no implementation; see the corresponding
+#* 📝         .py file for executable code.
 
-from numbers import Real
-from typing import Literal
+import numbers as num  # noqa: I001
+import typing as tp
 
 import turtle_extension as tx
 import uf
+
+
+#* 📝 Type for any real number
+type RealType = float | int | num.Real
 
 
 @uf.cls_deco_superposition(staticmethod)
@@ -14,7 +23,9 @@ class Shapes:
     """
     This class provides premade shape drawing functions with ChainTurtle().
     """
-    def SOD(side: Real,tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def SOD(side: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a star of David
 
@@ -25,7 +36,9 @@ class Shapes:
         :return: None
         """
 
-    def SOD_fill(side: Real,tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def SOD_fill(side: RealType,tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled star of David
 
@@ -36,7 +49,9 @@ class Shapes:
         :return: None
         """
 
-    def hexagon(side: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def hexagon(side: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a hexagon
 
@@ -47,7 +62,9 @@ class Shapes:
         :return: None
         """
 
-    def hexagon_fill(side: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def hexagon_fill(side: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled hexagon
 
@@ -58,7 +75,9 @@ class Shapes:
         :return: None
         """
 
-    def triangle(side: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def triangle(side: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a triangle
 
@@ -69,7 +88,9 @@ class Shapes:
         :return: None
         """
 
-    def triangle_fill(side: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def triangle_fill(side: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled triangle
 
@@ -80,7 +101,9 @@ class Shapes:
         :return: None
         """
 
-    def triangle_half(side: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def triangle_half(side: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a triangle from the middle of a side
 
@@ -91,7 +114,9 @@ class Shapes:
         :return: None
         """
 
-    def square(side: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def square(side: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a square
 
@@ -102,7 +127,9 @@ class Shapes:
         :return: None
         """
 
-    def square_fill(side: Real,tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def square_fill(side: RealType,tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled square
 
@@ -113,7 +140,9 @@ class Shapes:
         :return: None
         """
 
-    def square_half(side: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def square_half(side: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a square from the middle of a side
 
@@ -124,9 +153,11 @@ class Shapes:
         :return: None
         """
 
-    def rectangle(length: Real,
-                  width: Real,
-                  direction: Literal[-1, 1],
+
+    @staticmethod
+    def rectangle(length: RealType,
+                  width: RealType,
+                  direction: tp.Literal[-1, 1],
                   tls_num: tx.ChainTurtle) -> None:
         """
         Draws a rectangle
@@ -142,9 +173,11 @@ class Shapes:
         :return: None
         """
 
-    def rectangle_fill(length: Real,
-                       width: Real,
-                       direction: Literal[-1,1],
+
+    @staticmethod
+    def rectangle_fill(length: RealType,
+                       width: RealType,
+                       direction: tp.Literal[-1,1],
                        tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled rectangle
@@ -160,7 +193,9 @@ class Shapes:
         :return: None
         """
 
-    def hexaflower_tri(length: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def hexaflower_tri(length: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a 12 triangled flower
 
@@ -171,7 +206,9 @@ class Shapes:
         :return: None
         """
 
-    def hexaflower_tri_fill(length: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def hexaflower_tri_fill(length: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled 12 triangled flower
 
@@ -182,7 +219,9 @@ class Shapes:
         :return:
         """
 
-    def hexa_flower(radius: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def hexa_flower(radius: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a 6 petalled flower
 
@@ -193,7 +232,9 @@ class Shapes:
         :return: None
         """
 
-    def hexa_flower_fill(radius: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def hexa_flower_fill(radius: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled 6 petalled flower
 
@@ -204,7 +245,9 @@ class Shapes:
         :return: None
         """
 
-    def lotus_flower(radius: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def lotus_flower(radius: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a 12 petalled flower
 
@@ -215,7 +258,9 @@ class Shapes:
         :return: None
         """
 
-    def lotus_flower_fill(radius: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def lotus_flower_fill(radius: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled 12 petalled flower
 
@@ -226,7 +271,9 @@ class Shapes:
         :return: None
         """
 
-    def lines(distance: Real, lines_num: int, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def lines(distance: RealType, lines_num: int, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a chosen number of lines, evenly spaced apart
 
@@ -239,7 +286,9 @@ class Shapes:
         :return: None
         """
 
-    def circle(radius: Real, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def circle(radius: RealType, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a circle with given radius and turtle
 
@@ -250,7 +299,9 @@ class Shapes:
         :return: None
         """
 
-    def circle_filler(radius: Real, tls_num) -> None:
+
+    @staticmethod
+    def circle_filler(radius: RealType, tls_num) -> None:
         """
         Draws a filled circle with given radius and turtle
 
@@ -261,7 +312,9 @@ class Shapes:
         :return: None
         """
 
-    def polygon(length: Real, sides: int, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def polygon(length: RealType, sides: int, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a polygon with given length and sides
 
@@ -274,7 +327,9 @@ class Shapes:
         :return: None
         """
 
-    def polygon_fill(length: Real, sides: int, tls_num: tx.ChainTurtle) -> None:
+
+    @staticmethod
+    def polygon_fill(length: RealType, sides: int, tls_num: tx.ChainTurtle) -> None:
         """
         Draws a filled polygon with given length and sides
 
@@ -287,6 +342,8 @@ class Shapes:
         :return: None
         """
 
+
+    @staticmethod
     def list_shapes() -> dict:
         """
         Creates a dictionary with all Shapes functions and returns it

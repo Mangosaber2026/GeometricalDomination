@@ -1,3 +1,5 @@
+# ⚓ Anchor for this module: [[shapes-multiverse-anchor|shapes_multiverse.__init__.py]] 
+
 """
 Welcome to shapes_multiverse!!!
 
@@ -7,18 +9,23 @@ This package contains classes which can be used as functions to generate lists w
 mathematical function.
 """
 
- #* 📝 Imports all mathematical functions and parent class in [[functions_grapher.py]]
+ #* 📝 Imports all mathematical functions and parent class in [[#functions-grapher-anchor|functions_grapher.py]] 
 from .functions_grapher import (
-    AbsoluteX,
-    CosineWave,
-    Drawing,
-    LinearFct,
-    QuadraticFct,
-    SineWave,
+ AbsoluteX,
+ # 🔗 Link to source code: [[#AbsoluteX-anchor|class AbsoluteX]] 
+ CosineWave,
+ # 🔗 Link to source code: [[#CosineWave-anchor|class CosineWave]] 
+ Drawing,
+ # 🔗 Link to source code: [[#Drawing-anchor|class Drawing]] 
+ LinearFct,
+ # 🔗 Link to source code: [[#LinearFct-anchor|class LinearFct]] 
+ QuadraticFct,
+ # 🔗 Link to source code: [[#QuadraticFct-anchor|class QuadraticFct]] 
+ SineWave,
+ # 🔗 Link to source code: [[#SineWave-anchor|class SineWave]] 
 )
 
-
- #* 📝 Specifies all mathematical functions and parent class in [[functions_grapher.py]]
+#* 📝 Specifies all mathematical functions and parent class in [[#functions-grapher-anchor|functions_grapher.py]] 
 __all__ = [
     "Drawing",
     "LinearFct",

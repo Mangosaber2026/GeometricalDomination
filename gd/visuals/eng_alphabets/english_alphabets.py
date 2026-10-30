@@ -11,15 +11,20 @@ from . import english_letters, english_punctuations, english_shapes
 class Alphabets(
     english_letters.Letters,
     english_punctuations.Punctuation,
-    english_shapes.EngShapes,
+    english_shapes.EngShapes
     ):
 
 
     # ⚓ list_alphabets anchor: [[Alphabets-list-alphabets-anchor|list_alphabets()]] 
     #* 📝 Creates and returns a dictionary with all the available functions in [[#Alphabets-anchor|Alphabets]] 
-    @classmethod
-    def list_alphabets(cls):
-        return uf.classes_to_dict(cls)
+    @staticmethod
+    def list_alphabets():
+        return uf.classes_to_dict(
+            Alphabets,
+            english_letters.Letters,
+            english_punctuations.Punctuation,
+            english_shapes.EngShapes
+            )
 
 
 # ⚓ letters_functions anchor: [[letters-functions-anchor|letters_functions()]] 

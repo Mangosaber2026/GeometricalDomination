@@ -1,19 +1,31 @@
 """
 This module contains the class Command, which contains functions for the user_drawing_ft() function.
 """
+#* 📝 File type: Python type stub (.pyi)
+#* 📝 Purpose: Describes the module's interface for documentation,
+#* 📝         editor support, and static type checking.
+#* 📝 Runtime: Contains no implementation; see the corresponding
+#* 📝         .py file for executable code.
 
-import collections.abc as cabc
+import collections.abc as cabc  # noqa: I001
 import numbers as num
 
 import turtle_extension as tx
 import uf
+
+
+#* 📝 Type for any real number
+type RealType = float | int | num.Real
+
+#* 📝 Type for turtle lists
+type TurtleList = list[tx.ChainTurtle]
 
  #* 📝 Marks the type used to indicate which function returns a Command dictionary [[Command]]
 type CommandDictType = dict[
     str,
     cabc.Callable[
         [],
-        tx.ChainTurtle | list[tx.ChainTurtle] | int | num.Real | None
+        tx.ChainTurtle | TurtleList | int | RealType | None
     ]
 ]
 
@@ -62,7 +74,7 @@ class Command:
 
 
     @staticmethod
-    def create_tls() -> list[tx.ChainTurtle]:
+    def create_tls() -> TurtleList:
         """
         This function lets the user create a chosen number of colored turtles.
 
@@ -89,7 +101,7 @@ class Command:
 
 
     @staticmethod
-    def clear_tls() -> list[tx.ChainTurtle]:
+    def clear_tls() -> TurtleList:
         """
         This function clears all turtles and their drawings in the UV dictionary.
 
@@ -125,7 +137,7 @@ class Command:
 
 
     @staticmethod
-    def set_timer() -> num.Real:
+    def set_timer() -> RealType:
         """
         This functions sets a time delay for user_drawing_ft().
         
