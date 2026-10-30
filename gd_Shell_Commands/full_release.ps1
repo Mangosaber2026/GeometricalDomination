@@ -1,65 +1,120 @@
+﻿# ⚓ Anchor for this module: [[full-release-anchor|full_release.ps1]]
+#* 📝 This module contains the full release workflow,
+#* 📝 considering the user is on branch experimental.
 
+. (Join-Path $PSScriptRoot "get_project_root.ps1")
+. (Join-Path $PSScriptRoot "lastexitcode_check.ps1")
 
 function experimental_push {
 
     git add -A
 
-    $message = Read-Host "Enter commit message"
+    $message = (Read-Host "📦 Enter commit message").Trim()
 
-    if (-not $message.Trim()) {
-        Write-Host "Commit message cannot be empty."
+    if (-not $message) {
+        Write-Host "⚠️ Commit message cannot be empty."
         return
     }
 
     git commit -m $message
 
-    if ($LASTEXITCODE -ne 0) { return }
+    if (-not (Test-LastExitCode)) { return }
 
     git push origin experimental
 
-    if ($LASTEXITCODE -ne 0) { return }
+    if (-not (Test-LastExitCode)) { return }
 
     git switch main
 
-    if ($LASTEXITCODE -ne 0) { return }
+    if (-not (Test-LastExitCode)) { return }
+
+    #* 📝 Check whether the main working tree is clean.
 
     $main_status = git status --porcelain
 
-    if (-not $main_status) {
+    if (-not (Test-LastExitCode)) { return }
 
-        git merge experimental
+    if ($main_status) {
+        Write-Host "⚠️ Main working tree is not clean!"
+        return
+    }
 
-        if ($LASTEXITCODE -ne 0) { return }
+    #* 📝 Fetch the latest remote information.
 
-        git push origin main
+    git fetch origin
 
-        if ($LASTEXITCODE -ne 0) { return }
+    if (-not (Test-LastExitCode)) {
+        throw "❌ Failed to fetch origin."
+    }
 
-        $version_tag = Read-Host "Enter version release tag: "
+    #* 📝 Compare local main with origin/main.
 
-        if ($version_tag -match '^\d+\.\d+\.\d+$') {
-            Write-Host "Valid version tag."
-            }
-        else {
-            Write-Host "Invalid version tag."
-            }
+    $status = git rev-list --left-right --count main...origin/main
 
-        git tag "v$version_tag"
+    if (-not (Test-LastExitCode)) {
+        throw "❌ Failed to compare main with origin/main."
+    }
 
-        if ($LASTEXITCODE -ne 0) { return }
+    $counts = $status.Trim() -split '\s+'
 
-        git push origin "v$version_tag"
+    $LocalAhead = [int]$counts[0]
+    $RemoteAhead = [int]$counts[1]
 
-        if ($LASTEXITCODE -ne 0) { return }
+    if ($LocalAhead -ne 0 -or $RemoteAhead -ne 0) {
+        Write-Host "⚠️ Main and origin/main are not synchronized."
+        Write-Host "Local commits ahead: $LocalAhead"
+        Write-Host "Remote commits ahead: $RemoteAhead"
+        return
+    }
 
-        Write-Host "Release completed successfully!"
+    Write-Host "☑️ Main is synchronized with origin/main."
 
+    #* 📝 Merge experimental into main.
+
+    git merge experimental
+
+    if (-not (Test-LastExitCode)) { return }
+
+    git push origin main
+
+    if (-not (Test-LastExitCode)) { return }
+
+    #* 📝 Validate and create the version tag.
+
+    $version_tag = (Read-Host "🏷️ Enter version release tag").Trim()
+
+    if ($version_tag -match '^\d+\.\d+\.\d+$') {
+        Write-Host "☑️ Valid version tag."
     }
     else {
-        Write-Host "Main working tree is not clean."
+        Write-Host "❌ Invalid version tag."
+        return
     }
+
+    git tag "v$version_tag"
+
+    if (-not (Test-LastExitCode)) { return }
+
+    git push origin "v$version_tag"
+
+    if (-not (Test-LastExitCode)) { return }
+
+    Write-Host "🎉 Release completed successfully!"
+
+    #* 📝 Return to experimental.
+
+    git switch experimental
+
+    if (-not (Test-LastExitCode)) {
+        Write-Host "❌ Return to branch experimental failed."
+        return
+    }
+
+    Write-Host "🎉 Returned to branch experimental!"
 }
 
+
+Set-GDRepositoryPath
 
 $branch = git branch --show-current
 
@@ -67,6 +122,5 @@ if ($branch -eq "experimental") {
     experimental_push
 }
 else {
-    Write-Host "Not on experimental."
+    Write-Host "⚠️ Current branch is not experimental!"
 }
-
