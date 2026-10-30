@@ -16,7 +16,7 @@ easily see it.
 Otherwise, hopefully you enjoy this masterpiece!
 """
 
- #* 📝 Imports the executor functions in [[#program-executors-anchor|program_executors]] 
+#* 📝 Imports the executor functions in [[#program-executors-anchor|program_executors]] 
 from .program_executors import (
  #* 📝 [[#turtle-runner-anchor|turtle_runner.py]] 
  main,
@@ -37,8 +37,8 @@ from .user_features import (
 #* 📝 Imports the functions, decorators and dictionaries in [[#visuals-anchor|visuals]] 
 from .visuals import (
  #* 📝 [[#english-alphabets-anchor|english_alphabets.py]] 
- ALPHABETS,
- # 🔗 Link to source code: [[#ALPHABETS-anchor|dictionary ALPHABETS]] 
+ ENG_ALPHABETS,
+ # 🔗 Link to source code: [[#ENG_ALPHABETS-anchor|dictionary ENG_ALPHABETS]] 
  PATTERNS,
  # 🔗 Link to source code: [[#PATTERNS-anchor|dictionary PATTERNS]] 
  #* 📝 [[#shapes-dictionaries-anchor|shapes_dictionaries.py]] 
@@ -48,10 +48,10 @@ from .visuals import (
  # 🔗 Link to source code: [[#SHAPES-LENGTH-SIDES-anchor|dictionary SHAPES_LENGTH_SIDES]] 
  SHAPES_RADIUS,
  # 🔗 Link to source code: [[#SHAPES-RADIUS-anchor|dictionary SHAPES_RADIUS]] 
- Alphabets,
- # 🔗 Link to source code: [[#Alphabets-anchor|class Alphabets]] 
  Designs,
  # 🔗 Link to source code: [[#Designs-anchor|class Designs]] 
+ EngAlphabets,
+ # 🔗 Link to source code: [[#EngAlphabets-anchor|class EngAlphabets]] 
  #* 📝 [[#shapes-anchor|shapes.py]] 
  Shapes,
  # 🔗 Link to source code: [[#Shapes-anchor|class Shapes]] 
@@ -64,10 +64,10 @@ from .visuals import (
  # 🔗 Link to source code: [[#turtles-anchor|decorator turtles(amount)]] 
 )
 
- #* 📝 Specifies all functions, dictionaries and decorators in program_executors, user_features and visuals
+#* 📝 Specifies all functions, dictionaries and decorators in program_executors, user_features and visuals
 __all__ = [
-   "Alphabets",
-   "ALPHABETS",
+   "EngAlphabets",
+   "ENG_ALPHABETS",
    "letters_functions",
    "Designs",
    "turtles",

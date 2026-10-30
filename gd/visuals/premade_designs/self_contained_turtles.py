@@ -5,7 +5,7 @@ import math
 import turtle_extension as tx
 import uf
 
-from .. import shapes
+from ..premade_shapes import shapes
 
 
 # ⚓ TurtleSelfMade anchor: [[TurtleSelfMade-anchor|class TurtleSelfMade]] 

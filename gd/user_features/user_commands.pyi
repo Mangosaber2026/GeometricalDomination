@@ -172,6 +172,15 @@ class Command:
         """
 
 
+    @staticmethod
+    def list_commands() -> CommandDictType:
+        """
+        This function creates a dictionary with all the functions inside the class Command and returns it.
+            
+        :return: dictionary of function names mapped with the actual function.
+        """
+
+
 def exec_ft() -> None:
     """
     Special side function ONLY for debugging purposes

@@ -8,7 +8,7 @@ import uf
 
 
 # ⚓ alphabets_validate anchor: [[alphabets-validate-anchor|alphabets_validate()]] 
-#* 📝 Validates the inputs of the functions of [[#Alphabets-anchor|Alphabets]] 
+#* 📝 Validates the inputs of the functions of [[#EngAlphabets-anchor|EngAlphabets]] 
 def alphabets_validate(height, tls):
 
     uf.ComboValidate(height, name="height")(uf.real_validate(), uf.Positive())
@@ -19,7 +19,7 @@ def alphabets_validate(height, tls):
 
 
 # ⚓ alphabets_deco anchor: [[alphabets-deco-anchor|alphabets_deco()]] 
-#* 📝 Decorates [[#Alphabets-anchor|Alphabets]] functions and validates them through [[#alphabets-validate-anchor|alphabets_validate()]] 
+#* 📝 Decorates [[#EngAlphabets-anchor|EngAlphabets]] functions and validates them through [[#alphabets-validate-anchor|alphabets_validate()]] 
 def alphabets_deco(func):
 
     @ft.wraps(func)

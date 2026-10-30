@@ -5,7 +5,7 @@ import math
 import turtle_extension as tx
 import uf
 
-from .. import shapes
+from ..premade_shapes import shapes
 from . import designs_decorator as designs_deco
 
 #* 📝 The type used for a list of [[#ChainTurtle-anchor|ChainTurtle]] instances

@@ -11,12 +11,12 @@ from .. import visuals
 # ⚓ Command anchor: [[Command-anchor|class Command]] 
 #* 📝 Class used for the [[#user-drawing-ft-anchor|user_drawing_ft()]] 
 #* 📝 Contains functions which are used to let the user make their own drawings
-@uf.cls_deco_superposition(staticmethod)
 class Command:
 
     # ⚓ fd_ft anchor: [[Command-fd-ft-anchor|fd_ft()]] 
-     #* 📝 Moves the turtle forward with [[#ChainTurtle-forward-anchor|ChainTurtle().forward()]] 
-    def fd_ft():    # pyright: ignore[reportSelfClsParameterName]
+    #* 📝 Moves the turtle forward with [[#ChainTurtle-forward-anchor|ChainTurtle().forward()]] 
+    @staticmethod
+    def fd_ft():   
 
         return tx.t_now().forward(
             uf.get_num(
@@ -28,7 +28,8 @@ class Command:
 
     # ⚓ bk_ft anchor: [[Command-bk-ft-anchor|bk_ft()]] 
      #* 📝 Moves the turtle backward with [[#ChainTurtle-backward-anchor|ChainTurtle().backward()]] 
-    def bk_ft():    # pyright: ignore[reportSelfClsParameterName]
+    @staticmethod
+    def bk_ft():   
 
         return tx.t_now().backward(
             uf.get_num(
@@ -40,7 +41,8 @@ class Command:
 
     # ⚓ rt_ft anchor: [[Command-rt-ft-anchor|rt_ft()]] 
      #* 📝 Turns the turtle to the right with [[#ChainTurtle-right-anchor|ChainTurtle().right()]] 
-    def rt_ft():    # pyright: ignore[reportSelfClsParameterName]
+    @staticmethod
+    def rt_ft():    
 
         return tx.t_now().right(
             uf.get_num(
@@ -51,7 +53,8 @@ class Command:
 
     # ⚓ lt_ft anchor: [[Command-lt-ft-anchor|lt_ft()]] 
      #* 📝 Turns the turtle to the left with [[#ChainTurtle-left-anchor|ChainTurtle().left()]] 
-    def lt_ft():   # pyright: ignore[reportSelfClsParameterName]
+    @staticmethod
+    def lt_ft():  
 
         return tx.t_now().left(
             uf.get_num(
@@ -62,33 +65,40 @@ class Command:
 
     # ⚓ create_tls anchor: [[Command-create-tls-anchor|create_tls()]] 
      #* 📝 Creates turtles and add them to the [[#UV-anchor|UV dictionary]] 
-    def create_tls():    # pyright: ignore[reportSelfClsParameterName]
+    @staticmethod
+    def create_tls():   
 
         turtles, _ = tx.tls_color(entry="Enter desired number of turtles: ")    # pyright: ignore[reportGeneralTypeIssues]
-        tx.UV["tls"].extend(turtles)
-        tx.UV["t"] = len(tx.UV["tls"]) - 1
+        UV_tls: list[tx.ChainTurtle] = tx.UV["tls"]
+        UV_tls.extend(turtles)                                                  # pyright: ignore[reportArgumentType]
+        tx.UV["t"] = len(UV_tls) - 1
 
         return turtles
     
 
     # ⚓ change_tls anchor: [[Command-change-tls-anchor|change_tls()]] 
      #* 📝 Lets the user change turtles to [[#UV-anchor|UV dictionary]] 
-    def change_tls():    # pyright: ignore[reportSelfClsParameterName]
+    @staticmethod
+    def change_tls():    
 
-        if len(tx.UV["tls"]) == 1:
+        UV_tls: list[tx.ChainTurtle] = tx.UV["tls"]
+        
+        if len(UV_tls) == 1:
             raise uf.value_error()(f"""
                 Function: change_tls
                 
                 There is only one turtle in tx.UV["tls"]!
                 Expected: multiple turtles
-                Received: {tx.UV["tls"]}
+                Received: {UV_tls}
                 """)
+        
         tls_change: int = uf.get_num(
             TYPE=int,
             entry="Enter turtle number: ", 
             MIN=1,
-            MAX=len(tx.UV["tls"])
+            MAX=len(UV_tls)
             )
+        
         tls_num = tls_change - 1
         tx.UV["t"] = tls_num
 
@@ -97,37 +107,46 @@ class Command:
 
     # ⚓ clear_ft anchor: [[Command-clear-ft-anchor|clear_ft()]] 
      #* 📝 Clears all turtles drawings in the [[#UV-anchor|UV dictionary]] 
-    def clear_ft():    # pyright: ignore[reportSelfClsParameterName]
-        for t in tx.UV["tls"]:
+    @staticmethod
+    def clear_ft(): 
+
+        UV_tls: list[tx.ChainTurtle] = tx.UV["tls"] 
+        for t in UV_tls:
             t.clear()
 
 
     # ⚓ clear_tls anchor: [[Command-clear-tls-anchor|clear_tls()]] 
      #* 📝 Clears all turtles drawings and turtles in the [[#UV-anchor|UV dictionary]] 
-    def clear_tls():    # pyright: ignore[reportSelfClsParameterName]
-        for t in tx.UV["tls"]:
+    @staticmethod
+    def clear_tls():   
+        
+        UV_tls: list[tx.ChainTurtle] = tx.UV["tls"]
+
+        for t in UV_tls:
             t.clear()
-            t.ht()
+            t.hideturtle()
 
 
-        tx.UV["tls"].clear()
+        UV_tls.clear()
         turtles, turtle_num = tx.tls_color(entry="Enter number of new turtles: ")   # pyright: ignore[reportGeneralTypeIssues]
-        tx.UV["tls"].extend(turtles)
-        tx.UV["t"] = turtle_num - 1     # pyright: ignore[reportOperatorIssue]
+        UV_tls.extend(turtles)                                                      # pyright: ignore[reportArgumentType]
+        tx.UV["t"] = turtle_num - 1                                                 # pyright: ignore[reportOperatorIssue]
 
         return turtles
 
 
     # ⚓ home_ft anchor: [[Command-home-ft-anchor|home_ft()]] 
      #* 📝 Sets the turtles position to home with [[#ChainTurtle-home-anchor|ChainTurtle().home()]] 
-    def home_ft():    # pyright: ignore[reportSelfClsParameterName]
+    @staticmethod
+    def home_ft():
         return tx.t_now().home()
 
 
     # ⚓ setpos_ft anchor: [[Command-setpos-ft-anchor|setpos_ft()]] 
      #* 📝 Lets the user choose a coordinate to set the turtles position to 
      #* 📝 without a trace with [[#ChainTurtle-teleport-anchor|ChainTurtle().teleport()]] 
-    def setpos_ft():    # pyright: ignore[reportSelfClsParameterName]
+    @staticmethod
+    def setpos_ft():   
 
         return tx.t_now().teleport(
             uf.helper.x_ft(),
@@ -137,7 +156,8 @@ class Command:
 
     # ⚓ move_to_ft anchor: [[Command-move-to-ft-anchor|move_to_ft()]] 
      #* 📝 setpos_ft functionality with trace with [[#ChainTurtle-goto-anchor|ChainTurtle().goto()]] 
-    def move_to_ft():    # pyright: ignore[reportSelfClsParameterName]
+    @staticmethod
+    def move_to_ft():   
 
         return tx.t_now().goto(
             uf.helper.x_ft(),
@@ -147,9 +167,10 @@ class Command:
 
     # ⚓ set_timer anchor: [[Command-set-timer-anchor|set_timer()]] 
      #* 📝 Sets a time delay for [[#user-drawing-ft-anchor|user_drawing_ft()]] 
-    def set_timer():    # pyright: ignore[reportSelfClsParameterName]
+    @staticmethod
+    def set_timer():    
 
-        time_delay: float = uf.get_num(
+        time_delay = uf.get_num(
             TYPE=float,
             entry="Enter delay: ",
             MIN=0
@@ -161,15 +182,17 @@ class Command:
 
     # ⚓ del_timer anchor: [[Command-del-timer-anchor|del_timer()]] 
      #* 📝 Deletes time delay for the [[#user-drawing-ft-anchor|user_drawing_ft()]] 
-    def del_timer():    # pyright: ignore[reportSelfClsParameterName]
+    @staticmethod
+    def del_timer():    
         tx.UV["delay"] = None
 
 
     # ⚓ writer anchor: [[Command-writer-anchor|writer()]] 
-     #* 📝 Lets the user write text with [[#Alphabets-anchor|Alphabets]]
-    def writer():    # pyright: ignore[reportSelfClsParameterName]
+     #* 📝 Lets the user write text with [[#EngAlphabets-anchor|EngAlphabets]] 
+    @staticmethod
+    def writer():   
 
-        tx.t_now().lt(90)   # pyright: ignore[reportArgumentType]
+        tx.t_now().left(90)   # pyright: ignore[reportArgumentType]
         while True:
             while True:
                 text_entry: str = input("""
@@ -177,7 +200,7 @@ class Command:
                 Enter text (% to exit): 
                 """).upper()
 
-                if all(letter in visuals.ALPHABETS for letter in text_entry) or text_entry == "%":
+                if all(letter in visuals.ENG_ALPHABETS for letter in text_entry) or text_entry == "%":
                     break
 
                 else:
@@ -189,21 +212,30 @@ class Command:
 
             else:
                 vertical_val: float = uf.get_num(
-                    float,
-                    "Enter letter height (min=5): ",
+                    TYPE=float,
+                    entry="Enter letter height (min=5): ",
                     MIN=5
-                    )   # pyright: ignore[reportAssignmentType]
+                    )                                                           # pyright: ignore[reportAssignmentType]
                 
                 for letter in text_entry:
-                    visuals.ALPHABETS[letter](vertical_val, tx.t_now())     # pyright: ignore[reportArgumentType]
+                    visuals.ENG_ALPHABETS[letter](vertical_val, tx.t_now())     # pyright: ignore[reportArgumentType]
 
                 tx.SU()
 
 
     # ⚓ change_shape anchor: [[Command-change-shape-anchor|change_shape()]] 
     #* 📝 Changes the shape of future turtles with [[#TurtleFct-change-shape-anchor|Turtle.change_shape()]] 
-    def change_shape():    # pyright: ignore[reportSelfClsParameterName]
+    @staticmethod
+    def change_shape():
         return tx.TurtleFct.change_shape(tls_num = tx.t_now())
+
+
+    # ⚓ list_commands anchor: [[Command-list-commands-anchor|list_commands()]] 
+    #* 📝 Creates and returns a dictionary mapping the function names
+    #* 📝 with the corresponding function of the [[#Command-anchor|Command class]] 
+    @staticmethod
+    def list_commands():
+        return uf.classes_to_dict(Command)
 
 
 # ⚓ exec_ft anchor: [[exec-ft-anchor|exec_ft()]] 
@@ -231,7 +263,7 @@ def exec_ft():
 def get_Command_dict():
     return {
         name.removesuffix("_ft").replace("_", " "): obj
-        for name, obj in uf.classes_to_dict(Command).items()
+        for name, obj in Command.list_commands().items()
     }
 
 

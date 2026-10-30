@@ -1,7 +1,7 @@
 # ⚓ Anchor for this module: [[user-features-anchor|user_features.__init__.py]]  
  
 #* 📝 Imports the class, dictionary and functions available in user features section [[#user-commands-anchor|user_commands.py]] 
-from .user_commands import (  # noqa: I001
+from .user_commands import (
     COMMANDS,
     # 🔗 Link to source code: [[#COMMANDS-anchor|dictionary COMMANDS]] 
     Command,
@@ -11,7 +11,6 @@ from .user_commands import (  # noqa: I001
     get_Command_dict,
     # 🔗 Link to source code: [[#get-Command-dict-anchor|get_Command_dict()]] 
 )
-
 
  #* 📝 Specifies all functions, dictionaries and classes available through wildcard import
 __all__ = [

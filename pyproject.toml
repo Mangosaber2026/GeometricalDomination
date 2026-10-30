@@ -22,7 +22,7 @@ authors = [
 [tool.setuptools.packages.find]
 include = [
     "gd*",
-    "gd_Shell_Commands",
+    "gd_Shell_Commands*",
     "shapes_multiverse*",
 ]
 

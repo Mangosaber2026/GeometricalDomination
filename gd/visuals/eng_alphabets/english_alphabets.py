@@ -6,50 +6,50 @@ import uf
 from . import english_letters, english_punctuations, english_shapes
 
 
-# ⚓ Alphabets anchor: [[Alphabets-anchor|class Alphabets]] 
+# ⚓ Alphabets anchor: [[EngAlphabets-anchor|class EngAlphabets]] 
 #* 📝 Class designed to draw all letters and some punctuation of the English Alphabet
-class Alphabets(
-    english_letters.Letters,
-    english_punctuations.Punctuation,
+class EngAlphabets(
+    english_letters.EngLetters,
+    english_punctuations.EngPunctuation,
     english_shapes.EngShapes
     ):
 
 
     # ⚓ list_alphabets anchor: [[Alphabets-list-alphabets-anchor|list_alphabets()]] 
-    #* 📝 Creates and returns a dictionary with all the available functions in [[#Alphabets-anchor|Alphabets]] 
+    #* 📝 Creates and returns a dictionary with all the available functions in [[#EngAlphabets-anchor|EngAlphabets]] 
     @staticmethod
     def list_alphabets():
         return uf.classes_to_dict(
-            Alphabets,
-            english_letters.Letters,
-            english_punctuations.Punctuation,
+            EngAlphabets,
+            english_letters.EngLetters,
+            english_punctuations.EngPunctuation,
             english_shapes.EngShapes
             )
 
 
 # ⚓ letters_functions anchor: [[letters-functions-anchor|letters_functions()]] 
-#* 📝 Creates and returns a dictionary with all letters in [[#Letters-anchor|Letters]] 
+#* 📝 Creates and returns a dictionary with all letters in [[#EngLetters-anchor|EngLetters]] 
 def letters_functions():
 
     return {
         name: func
-        for name, func in uf.classes_to_dict(english_letters.Letters).items()
+        for name, func in uf.classes_to_dict(english_letters.EngLetters).items()
     }
 
 
 # ⚓ letters_dict anchor: [[letters-dict-anchor|dictionary letters_dict]] 
 #* 📝 Letters storage created with [[#letters-functions-anchor|letters_functions()]] 
-letters_dict = letters_functions()
+eng_letters_dict = letters_functions()
 
 
-Punctuation = english_punctuations.Punctuation
+Punctuation = english_punctuations.EngPunctuation
 EngShapes = english_shapes.EngShapes
 
-# ⚓ ALPHABETS anchor: [[ALPHABETS-anchor|dictionary ALPHABETS]] 
+# ⚓ ALPHABETS anchor: [[ENG_ALPHABETS-anchor|dictionary ENG_ALPHABETS]] 
 #* 📝 ALPHABETS dictionary created with 
 #* 📝 [[#letters-functions-anchor|letters_functions()]] and [[#Punctuation-anchor|Punctuation]] and [[#EngShapes-anchor|EngShapes]] 
-ALPHABETS = {
-    **letters_dict,
+ENG_ALPHABETS = {
+    **eng_letters_dict,
     " ": Punctuation.space,
     ".": Punctuation.dot,
     "!": Punctuation.exclamation,

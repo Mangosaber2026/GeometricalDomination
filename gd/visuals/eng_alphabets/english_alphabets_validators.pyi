@@ -1,4 +1,7 @@
-
+"""
+This module contains the decorators and validators required to validate the 
+inputs given for the variables in the EngAlphabets functions
+"""
 #* 📝 File type: Python type stub (.pyi)
 #* 📝 Purpose: Describes the module's interface for documentation,
 #* 📝         editor support, and static type checking.
@@ -6,11 +9,10 @@
 #* 📝         .py file for executable code.
 
 
-import collections.abc as cabc  # noqa: I001
+import collections.abc as cabc
 import numbers as num
 
 import turtle_extension as tx
-
 
 def alphabets_validate(height: num.Real, tls: tx.ChainTurtle) -> tuple[num.Real, tx.ChainTurtle]:
     """

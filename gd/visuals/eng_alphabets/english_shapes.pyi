@@ -1,14 +1,16 @@
-
+"""
+This module contains the class `EngShapes` which contains functions 
+to draw some shapes which can be drawn alongside text.
+"""
 #* 📝 File type: Python type stub (.pyi)
 #* 📝 Purpose: Describes the module's interface for documentation,
 #* 📝         editor support, and static type checking.
 #* 📝 Runtime: Contains no implementation; see the corresponding
 #* 📝         .py file for executable code.
 
-import numbers as num  # noqa: I001
+import numbers as num
 
 import turtle_extension as tx
-
 
 class EngShapes:
 
@@ -24,6 +26,7 @@ class EngShapes:
         :return: None
         """
 
+
     @staticmethod
     def equals(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -35,6 +38,7 @@ class EngShapes:
 
         :return: None
         """
+
 
     @staticmethod
     def times(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -48,6 +52,7 @@ class EngShapes:
         :return: None
         """
 
+
     @staticmethod
     def minus(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -59,6 +64,7 @@ class EngShapes:
 
         :return: None
         """
+
 
     @staticmethod
     def underline(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -72,6 +78,7 @@ class EngShapes:
         :return: None
         """
 
+
     @staticmethod
     def heart(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -83,6 +90,7 @@ class EngShapes:
 
         :return: None
         """
+        
 
     @staticmethod
     def star(height: num.Real, tls: tx.ChainTurtle) -> None:

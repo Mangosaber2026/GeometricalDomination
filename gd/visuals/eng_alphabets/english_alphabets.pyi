@@ -9,30 +9,29 @@ punctuation, and shapes (heart, star).
 #* 📝         .py file for executable code.
 
 
-import collections.abc as cabc  # noqa: I001
+import collections.abc as cabc
 import numbers as num
 
 import turtle_extension as tx
 
 from . import english_letters, english_punctuations, english_shapes
 
-
- #* 📝 Type variable for [[Alphabets]] functions
+ #* 📝 Type variable for Alphabets functions
 type AlphabetFunctionType = cabc.Callable[[num.Real, tx.ChainTurtle], None]
 
- #* 📝 Type variable for classes which return [[Alphabets]] functions
+ #* 📝 Type variable for classes which return Alphabets functions
 type AlphabetDictType = dict[str, AlphabetFunctionType]
 
- #* 📝 Type variable for functions which return the entire [[Alphabets]] dictionary
+ #* 📝 Type variable for functions which return the entire Alphabets dictionary
 type FullAlphabetDictType = dict[
     str,
     AlphabetFunctionType | cabc.Callable[[], FullAlphabetDictType]
 ]
 
 
-class Alphabets(
-    english_letters.Letters,
-    english_punctuations.Punctuation,
+class EngAlphabets(
+    english_letters.EngLetters,
+    english_punctuations.EngPunctuation,
     english_shapes.EngShapes,
 ):
     """
@@ -47,6 +46,7 @@ class Alphabets(
         :return: dictionary containing function names -> function
         """
 
+
 def letters_functions() -> AlphabetDictType:
     """
     Takes all Letters in Alphabets.Letters and returns a dictionary.
@@ -54,6 +54,6 @@ def letters_functions() -> AlphabetDictType:
     :return: letter dictionary
     """
 
-letters_dict: AlphabetDictType
+eng_letters_dict: AlphabetDictType
 
-ALPHABETS: AlphabetDictType
+ENG_ALPHABETS: AlphabetDictType

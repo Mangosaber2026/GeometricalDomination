@@ -2,10 +2,10 @@
 
 #* 📝 Imports the class, function and dictionary available in [[#eng-alphabets-anchor|alphabets.py]] 
 from .eng_alphabets import (
-    ALPHABETS,
-    # 🔗 Link to source code: [[#ALPHABETS-anchor|dictionary ALPHABETS]] 
-    Alphabets,
-    # 🔗 Link to source code: [[#Alphabets-anchor|class Alphabets]] 
+    ENG_ALPHABETS,
+    # 🔗 Link to source code: [[#ENG_ALPHABETS-anchor|dictionary ALPHABETS]] 
+    EngAlphabets,
+    # 🔗 Link to source code: [[#EngAlphabets-anchor|class EngAlphabets]] 
     letters_functions,
     # 🔗 Link to source code: [[#letters-functions-anchor|letters_functions()]] 
 )
@@ -23,13 +23,13 @@ from .premade_designs import (
 )
 
 #* 📝 Imports the class available in [[#shapes-anchor|shapes.py]] 
-from .shapes import (
+from .premade_shapes.shapes import (
     Shapes,
     # 🔗 Link to source code: [[#Shapes-anchor|class Shapes]] 
 )
 
 #* 📝 Imports the dictionaries available in [[#shapes-dictionaries-anchor|shapes_dictionaries.py]] 
-from .shapes_dictionaries import (
+from .premade_shapes.shapes_dictionaries import (
     SHAPES_LENGTH,
     # 🔗 Link to source code: [[#SHAPES-LENGTH-anchor|dictionary SHAPES_LENGTH]] 
     SHAPES_LENGTH_SIDES,
@@ -40,8 +40,8 @@ from .shapes_dictionaries import (
 
 #* 📝 Specifies all functions, dictionaries and classes available through wildcard import
 __all__ = [
-    "Alphabets",
-    "ALPHABETS",
+    "EngAlphabets",
+    "ENG_ALPHABETS",
     "letters_functions",
 
     "Designs",

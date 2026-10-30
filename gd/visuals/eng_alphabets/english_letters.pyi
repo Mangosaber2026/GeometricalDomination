@@ -1,16 +1,18 @@
-
+"""
+This module contains the class `EngLetters` which contains functions to draw all the
+letters of the English alphabet
+"""
 #* 📝 File type: Python type stub (.pyi)
 #* 📝 Purpose: Describes the module's interface for documentation,
 #* 📝         editor support, and static type checking.
 #* 📝 Runtime: Contains no implementation; see the corresponding
 #* 📝         .py file for executable code.
 
-import numbers as num  # noqa: I001
+import numbers as num
 
 import turtle_extension as tx
 
-
-class Letters:
+class EngLetters:
     
     @staticmethod
     def A(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -24,6 +26,7 @@ class Letters:
         :return: None
         """
 
+
     @staticmethod
     def B(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -35,6 +38,7 @@ class Letters:
 
         :return: None
         """
+
 
     @staticmethod
     def C(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -48,6 +52,7 @@ class Letters:
         :return: None
         """
 
+
     @staticmethod
     def D(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -59,6 +64,7 @@ class Letters:
 
         :return: None
         """
+
 
     @staticmethod
     def E(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -72,6 +78,7 @@ class Letters:
         :return: None
         """
 
+
     @staticmethod
     def F(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -83,6 +90,7 @@ class Letters:
 
         :return: None
         """
+
     
     @staticmethod
     def G(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -96,6 +104,7 @@ class Letters:
         :return: None
         """
 
+
     @staticmethod
     def H(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -108,6 +117,7 @@ class Letters:
         :return: None
         """
 
+
     @staticmethod
     def I(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -119,6 +129,7 @@ class Letters:
 
         :return: None
         """
+
     
     @staticmethod
     def J(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -131,6 +142,7 @@ class Letters:
 
         :return: None
         """
+
     
     @staticmethod
     def K(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -143,6 +155,7 @@ class Letters:
 
         :return: None
         """
+
     
     @staticmethod
     def L(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -156,6 +169,7 @@ class Letters:
         :return: None
         """
 
+
     @staticmethod
     def M(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -167,6 +181,7 @@ class Letters:
 
         :return: None
         """
+
 
     @staticmethod
     def N(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -180,6 +195,7 @@ class Letters:
         :return: None
         """
 
+
     @staticmethod
     def O(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -191,6 +207,7 @@ class Letters:
 
         :return: None
         """
+
 
     @staticmethod
     def P(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -204,6 +221,7 @@ class Letters:
         :return: None
         """
 
+
     @staticmethod
     def Q(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -215,6 +233,7 @@ class Letters:
 
         :return: None
         """
+
 
     @staticmethod
     def R(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -228,6 +247,7 @@ class Letters:
         :return: None
         """
 
+
     @staticmethod
     def S(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -239,6 +259,7 @@ class Letters:
 
         :return: None
         """
+
 
     @staticmethod
     def T(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -252,6 +273,7 @@ class Letters:
         :return: None
         """
 
+
     @staticmethod
     def U(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -263,6 +285,7 @@ class Letters:
 
         :return: None
         """
+
 
     @staticmethod
     def V(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -276,6 +299,7 @@ class Letters:
         :return: None
         """
 
+
     @staticmethod
     def W(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -287,6 +311,7 @@ class Letters:
 
         :return: None
         """
+
 
     @staticmethod
     def X(height: num.Real, tls: tx.ChainTurtle) -> None:
@@ -300,6 +325,7 @@ class Letters:
         :return: None
         """
 
+
     @staticmethod
     def Y(height: num.Real, tls: tx.ChainTurtle) -> None:
         """
@@ -311,6 +337,7 @@ class Letters:
 
         :return: None
         """
+
 
     @staticmethod
     def Z(height: num.Real, tls: tx.ChainTurtle) -> None:

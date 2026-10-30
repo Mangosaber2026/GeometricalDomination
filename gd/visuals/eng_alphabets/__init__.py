@@ -3,10 +3,10 @@
 
 #* 📝 Imports dictionaries, classes and functions from [[#english-alphabets-anchor|english_alphabets.py]] 
 from .english_alphabets import (  # noqa: I001
-    ALPHABETS,
-    # 🔗 Link to source code: [[#ALPHABETS-anchor|dictionary ALPHABETS]] 
-    Alphabets,
-    # 🔗 Link to source code: [[#Alphabets-anchor|class Alphabets]] 
+    ENG_ALPHABETS,
+    # 🔗 Link to source code: [[#ENG_ALPHABETS-anchor|dictionary ALPHABETS]] 
+    EngAlphabets,
+    # 🔗 Link to source code: [[#EngAlphabets-anchor|class EngAlphabets]] 
     letters_functions,
     # 🔗 Link to source code: [[#letters-functions-anchor|letters_functions()]] 
 )
@@ -14,7 +14,7 @@ from .english_alphabets import (  # noqa: I001
 
 #* 📝 Specifies all available dictionaries, classes and functions through wildcard import
 __all__ = [
-    "ALPHABETS",
-    "Alphabets",
+    "ENG_ALPHABETS",
+    "EngAlphabets",
     "letters_functions"
 ]
