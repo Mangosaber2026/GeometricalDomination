@@ -1,7 +1,7 @@
 ﻿# ⚓ Anchor for this module: [[check-code-anchor|check_code.ps1]] 
 #* 📝 Checks Python code using Ruff.
 
-. (Join-Path $PSScriptRoot "get_project_root.ps1")
+Import-Module (Join-Path $PSScriptRoot "universal_shell_functions\get_project_root.psm1") -Force
 
 function Invoke-CodeFixing {
     $fixCode = (Read-Host "Do you want to fix the code too with ruff? (y/n)").Trim()
@@ -28,6 +28,6 @@ function Invoke-CodeFixing {
     }
 }
 
-Set-GDRepositoryRoot
+Set-GDRepositoryPath
 
 Invoke-CodeFixing

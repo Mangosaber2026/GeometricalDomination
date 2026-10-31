@@ -2,8 +2,8 @@
 #* 📝 This module contains the full release workflow,
 #* 📝 considering the user is on branch experimental.
 
-. (Join-Path $PSScriptRoot "get_project_root.ps1")
-. (Join-Path $PSScriptRoot "lastexitcode_check.ps1")
+Import-Module (Join-Path $PSScriptRoot "universal_shell_functions\get_project_root.psm1") -Force
+Import-Module (Join-Path $PSScriptRoot "universal_shell_functions\lastexitcode_check.psm1") -Force
 
 function experimental_push {
 

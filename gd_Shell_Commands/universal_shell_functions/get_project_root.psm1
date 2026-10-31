@@ -2,8 +2,13 @@
 #* 📂 Ensures that PowerShell is operating from the Geometrical Domination repository root.
 
 function Set-GDRepositoryPath {
-    $RepoRoot = Split-Path -Parent $PSScriptRoot
+    $RepoRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
+
     $CurrentPath = (Get-Location).Path
+    
+    Write-Host "Module directory: $PSScriptRoot"
+    Write-Host "Calculated repository root: $RepoRoot"
+    Write-Host "Current directory: $CurrentPath"
 
     if ($CurrentPath -eq $RepoRoot) {
         Write-Host "✅ Already operating from the correct repository path:"
