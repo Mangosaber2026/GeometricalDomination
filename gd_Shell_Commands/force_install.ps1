@@ -1,22 +1,29 @@
 ﻿# ⚓ Anchor for this module: [[force-install-anchor|force_install.ps1]] 
 #* 📝 Installs a selected version of GeometricalDomination
 
+using module ./universal_shell_functions/shell_helper.psm1
+
+<#
+.SYNOPSIS
+Gets a version of GeometricalDomination from the user.
+#>
 function install_version {
-    $Version = (Read-Host "📦 Enter desired installation version").Trim()
+    while ($true) {
+        $version_tag = (Read-Host "📦 Enter desired installation version").Trim()
 
-    if ($Version -notmatch '^\d+\.\d+\.\d+$') {
-        Write-Host "❌ Invalid version tag."
-        return
+        if ($version_tag -match '^\d+\.\d+\.\d+$') {
+            [ShellHelper]::Achieved("Valid version tag.")
+            return $version_tag
+        }
+
+        [ShellHelper]::Error("Invalid version tag. Expected format: X.Y.Z (e.g. 6.2.0).")
     }
-
-    Write-Host "☑️ Valid version tag."
-    return $Version
 }
 
 $Version = install_version
 
 if (-not $Version) {
-    throw "Installation cancelled: no valid version provided."
+    throw "❌ Installation cancelled: no valid version provided."
 }
 
 $PipArgs = @(
@@ -33,8 +40,6 @@ $PipArgs = @(
 
 & py @PipArgs
 
-if ($LASTEXITCODE -ne 0) {
-    throw "❌ GeometricalDomination installation failed."
+if ([ShellHelper]::TestLastExitCode("GeometricalDomination version $Version installation")) {
+    [ShellHelper]::Success("GeometricalDomination version $Version installation complete!")
 }
-
-Write-Host "🎉 GeometricalDomination version $Version installation complete!"

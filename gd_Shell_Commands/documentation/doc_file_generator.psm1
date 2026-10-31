@@ -1,9 +1,5 @@
 ﻿
-Import-Module (
-    Join-Path (
-        Split-Path $PSScriptRoot -Parent
-    ) "universal_shell_functions\lastexitcode_check.psm1"
-) -Force
+using module ../universal_shell_functions/shell_helper.psm1
 
 function New-GDDocumentationStructure {
     param (
@@ -11,60 +7,68 @@ function New-GDDocumentationStructure {
         [string]$TargetPath
     )
 
-    # Resolve relative paths
-    if (-not [System.IO.Path]::IsPathRooted($TargetPath)) {
-        $TargetPath = Join-Path (Get-Location).Path $TargetPath
-    }
+    try {
+        # Resolve relative paths
+        if (-not [System.IO.Path]::IsPathRooted($TargetPath)) {
+            $TargetPath = Join-Path (Get-Location).Path $TargetPath
+        }
 
-    # Validate target directory
-    if (-not (Test-Path -LiteralPath $TargetPath -PathType Container)) {
-        throw "❌ Target directory does not exist: $TargetPath"
-    }
+        # Validate target directory
+        if (-not (Test-Path -LiteralPath $TargetPath -PathType Container)) {
+            throw "Target directory does not exist: $TargetPath"
+        }
 
-    # Resolve the absolute path
-    $TargetPath = (Resolve-Path -LiteralPath $TargetPath).Path
+        # Resolve absolute path
+        $TargetPath = (Resolve-Path -LiteralPath $TargetPath -ErrorAction Stop).Path
 
-    # Discover Python files directly inside the directory
-    $PythonFiles = Get-ChildItem -Path $TargetPath -Filter "*.py" -File
-
-    # Count discovered files
-    $FileCount = $PythonFiles.Count
-
-    Write-Host "📂 Target directory: $TargetPath"
-    Write-Host "🐍 Python files found: $FileCount"
-
-    # Define documentation directory paths
-    $DirectoryName = Split-Path $TargetPath -Leaf
-    $DocsDirectoryName = "${DirectoryName}_docs"
-
-    $DocsPath = Join-Path $TargetPath $DocsDirectoryName
-    $ImagesPath = Join-Path $DocsPath "images"
-
-    # Create directories if they do not already exist
-    New-Item -Path $DocsPath -ItemType Directory -Force | Out-Null
-    New-Item -Path $ImagesPath -ItemType Directory -Force | Out-Null
-
-    Write-Host "📁 Documentation directory prepared."
-    Write-Host "🖼️ Images directory prepared."
-
-    # Generate Markdown documentation files
-    foreach ($PythonFile in $PythonFiles) {
-
-    # Extract module name and construct documentation filename
-    $ModuleName = $PythonFile.BaseName
-    $DocumentationFileName = "$ModuleName.md"
-    $DocumentationFilePath = Join-Path $DocsPath $DocumentationFileName
-
-    # Only generate files that do not already exist
-    if (-not (Test-Path -LiteralPath $DocumentationFilePath)) {
-
-        # Construct a readable module title
-        $Title = [System.Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase(
-            ($ModuleName -replace '[_-]+', ' ').Trim().ToLowerInvariant()
+        # Discover Python files directly inside the directory
+        $PythonFiles = @(
+            Get-ChildItem -LiteralPath $TargetPath -Filter "*.py" -File -ErrorAction Stop
         )
 
-        # Define Markdown template
-        $DocumentationContent = @"
+        $FileCount = $PythonFiles.Count
+
+        [ShellHelper]::ShowPath("Target directory: $TargetPath")
+        [ShellHelper]::ShowPyInfo("Python files found: $FileCount")
+
+        if ($FileCount -eq 0) {
+            [ShellHelper]::Warning("No Python files found. Documentation templates will not be generated.")
+        }
+
+        # Define documentation directory paths
+        $DirectoryName = Split-Path $TargetPath -Leaf
+        $DocsDirectoryName = "${DirectoryName}_docs"
+
+        $DocsPath = Join-Path $TargetPath $DocsDirectoryName
+        $ImagesPath = Join-Path $DocsPath "images"
+
+        # Create directories
+        New-Item -Path $DocsPath -ItemType Directory -Force -ErrorAction Stop | Out-Null
+        New-Item -Path $ImagesPath -ItemType Directory -Force -ErrorAction Stop | Out-Null
+
+        Write-Host "📁 Documentation directory prepared."
+        Write-Host "🖼️ Images directory prepared."
+
+        # Generate Markdown documentation files
+        foreach ($PythonFile in $PythonFiles) {
+
+            $ModuleName = $PythonFile.BaseName
+            $DocumentationFileName = "$ModuleName.md"
+            $DocumentationFilePath = Join-Path $DocsPath $DocumentationFileName
+
+            # Preserve existing documentation
+            if (Test-Path -LiteralPath $DocumentationFilePath -PathType Leaf) {
+                [ShellHelper]::Information("Documentation already exists: $DocumentationFileName")
+                continue
+            }
+
+            # Construct readable module title
+            $Title = [System.Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase(
+                ($ModuleName -replace '[\_-]+', ' ').Trim().ToLowerInvariant()
+            )
+
+            # Define Markdown template
+            $DocumentationContent = @"
 # $Title
 
 ## Preview
@@ -82,14 +86,18 @@ function New-GDDocumentationStructure {
 [View source code](../$($PythonFile.Name))
 "@
 
-        # Create Markdown file with its template
-        Set-Content -LiteralPath $DocumentationFilePath `
-            -Value $DocumentationContent -Encoding utf8
+            # Create Markdown file
+            Set-Content -LiteralPath $DocumentationFilePath `
+                -Value $DocumentationContent `
+                -Encoding utf8 `
+                -ErrorAction Stop
 
-        Write-Host "📝 Created documentation: $DocumentationFileName"
+            [ShellHelper]::Information("📝 Created documentation: $DocumentationFileName")
+        }
+
+        [ShellHelper]::Success("Documentation structure generated successfully!")
     }
-    else {
-        Write-Host "⏭️ Documentation already exists: $DocumentationFileName"
-    }
+    catch {
+        throw "❌ Documentation generation failed: $($_.Exception.Message)"
     }
 }
