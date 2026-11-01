@@ -1,4 +1,5 @@
 # ⚓ Anchor for this module: [[designs-decorator-anchor|designs_decorator.py]] 
+#* 📝 [Click here to see module description](./premade_designs_docs/designs_decorator.md) 
 
 import functools as ft
 
@@ -7,8 +8,7 @@ import uf
 
 
 # ⚓ turtles anchor: [[turtles-anchor|@turtles(amount)]] 
-#* 📝 Decorator to be applied to any function which takes
-#* 📝 a list of [[ChainTurtle]] and draws a design with them
+#* 📝 [Click here to see function description](./premade_designs_docs/designs_decorator.md:10) 
 def turtles(amount):
 
    uf.ComboValidate(amount, name="amount")(uf.int_validate(), uf.Positive())
@@ -18,7 +18,7 @@ def turtles(amount):
       def wrapper():
          
          tx.get_screen()
-         tls: list[tx.ChainTurtle] = tx.tls_color(tl_num=amount)
+         tls: list[tx.ChainTurtle] = tx.tls_color(tl_num=amount)              # pyright: ignore[reportAssignmentType]
          func(tls)
          tx.SU()
 
