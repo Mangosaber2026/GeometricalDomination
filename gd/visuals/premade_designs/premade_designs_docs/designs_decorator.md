@@ -1,5 +1,9 @@
 ﻿# Designs Decorator
 
+## Source Code
+
+[View source code](../designs_decorator.py)
+
 ## Overview
 
 This module is primarily there to contain decorators used throughout the python modules of

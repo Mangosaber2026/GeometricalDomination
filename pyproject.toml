@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "GeometricalDomination"
-version = "6.4.0"
+version = "6.5.0"
 description = "A Python turtle graphics library and DSL for creating geometric drawings."
 readme = "README.md"
 requires-python = ">=3.14"
@@ -24,6 +24,18 @@ include = [
     "gd*",
     "gd_Shell_Commands*",
     "shapes_multiverse*",
+    "package_requirements*",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.1",
+    "pytest>=9.1.1",
+]
+
+release = [
+    "build>=1.6.1",
+    "twine>=7.0.0",
 ]
 
 [tool.ruff.lint]

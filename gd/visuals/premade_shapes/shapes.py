@@ -22,7 +22,7 @@ def side_tls_num(side: RealType, tls_num: tx.ChainTurtle) -> None:
     side_name: Final = "side"
     tls_num_name: Final = "tls_num"
 
-    uf.ComboValidate(value=side, name=side_name)(uf.real_validate(), uf.Positive())
+    uf.Positive()(value=side, name=side_name)
     uf.TypeValidate(expected=tx.ChainTurtle)(value=tls_num, name=tls_num_name)
 
 

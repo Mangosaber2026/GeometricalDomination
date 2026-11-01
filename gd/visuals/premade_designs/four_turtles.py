@@ -13,12 +13,11 @@ type TurtleListType = list[tx.ChainTurtle]
 
 
 # ⚓ TurtleFour anchor: [[TurtleFour-anchor|class TurtleFour]] 
-#* 📝 Contains all drawings which require FOUR turtles,
-#* 📝 all functions are accessible directly through [[#Designs-anchor|class Designs]] 
+#* 📝 [Click here to see class description](./premade_designs_docs/four_turtles.md)
 class TurtleFour:
 
       # ⚓ flower_4petals anchor: [[TurtleFour-flower-4petals|flower_4petals()]] 
-      #* 📝 Draws a flower with 4 petals with 500 circles
+      #* 📝 [Click here to see function description](./premade_designs_docs/four_turtles.md)
       @staticmethod
       @designs_deco.turtles(4)
       def flower_4petals(tls: TurtleListType):
@@ -32,7 +31,7 @@ class TurtleFour:
 
 
       # ⚓ square4 anchor: [[TurtleFour-square4-anchor|square4()]] 
-      #* 📝 Draws 4 colors of squares horizontal to the 4 axes
+      #* 📝 [Click here to see function description](./premade_designs_docs/four_turtles.md) 
       @staticmethod
       @designs_deco.turtles(4)
       def square4(tls: TurtleListType):
@@ -43,7 +42,7 @@ class TurtleFour:
          for i, turtle in enumerate(tls):
             turtle.lt(i * 90)
 
-         for side_length in uf.range_f(0, length + 1, interval):           # pyright: ignore[reportArgumentType]
+         for side_length in uf.range_f(interval, length + 1, interval):           # pyright: ignore[reportArgumentType]
             for turtle in tls:
                shapes.Shapes.square_half(
                   side = side_length,
@@ -52,7 +51,7 @@ class TurtleFour:
 
 
       # ⚓ quadrant_square anchor: [[TurtleFour-quadrant-square-anchor|quadrant_square()]] 
-      #* 📝 Draws 4 colors of squares in each quadrant
+      #* 📝 [Click here to see function description](./premade_designs_docs/four_turtles.md) 
       @staticmethod
       @designs_deco.turtles(4)
       def quadrant_square(tls: TurtleListType):
@@ -63,7 +62,7 @@ class TurtleFour:
          for i, turtle in enumerate(tls):
             turtle.lt(i * 90)
 
-         for side_length in uf.range_f(0, length + 1, interval):
+         for side_length in uf.range_f(interval, length + 1, interval):
             for turtle in tls:
                shapes.Shapes.square(
                   side = side_length,
@@ -72,7 +71,7 @@ class TurtleFour:
 
 
       # ⚓ multi_square_grid anchor: [[TurtleFour-multi-square-grid-anchor|multi_square_grid()]] 
-      #* 📝 Draws a symmetrical checkerboard pattern with 4 turtles
+      #* 📝 [Click here to see function description](./premade_designs_docs/four_turtles.md) 
       @staticmethod
       @designs_deco.turtles(4)
       def multi_square_grid(tls: TurtleListType):
