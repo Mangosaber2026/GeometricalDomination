@@ -1,4 +1,5 @@
 # ⚓ Anchor for this module: [[one-turtle-anchor|one_turtle.py]] 
+#* 📝 [Click here to see module description](./premade_designs_docs/one_turtle.md) 
 
 import math
 
@@ -13,12 +14,11 @@ type TurtleListType = list[tx.ChainTurtle]
 
 
 # ⚓ TurtleOne anchor: [[TurtleOne-anchor|class TurtleOne]] 
-#* 📝 Contains all drawings which require ONE turtle,
-#* 📝 all functions are accessible directly through [[#Designs-anchor|Designs]] 
+#* 📝 [Click here to see class description](./premade_designs_docs/one_turtle.md) 
 class TurtleOne:
 
 	# ⚓ hexaflower anchor: [[TurtleOne-hexaflower-anchor|hexaflower()]] 
-	#* 📝 Draws rows and collumns of hexaflowers using [[#Shapes-hexaflower-tri-anchor|hexaflower_tri()]] 
+	#* 📝 [Click here to see function description](./premade_designs_docs/one_turtle.md)
 	@staticmethod
 	@designs_deco.turtles(1)
 	def hexaflower(tls: TurtleListType):
@@ -58,7 +58,7 @@ class TurtleOne:
 
 
 	# ⚓ star_of_david anchor: [[TurtleOne-star-of-david-anchor|star_of_david()]] 
-	#* 📝 Draws a star of David with [[#Shapes-SOD-anchor|SOD()]] 
+	#* 📝 [Click here to see function description](./premade_designs_docs/one_turtle.md) 
 	@staticmethod
 	@designs_deco.turtles(1)
 	def star_of_david(tls: TurtleListType):
@@ -71,7 +71,7 @@ class TurtleOne:
 
 
 	# ⚓ diamond_pattern anchor: [[TurtleOne-diamond-pattern-anchor|diamond_pattern()]] 
-	#* 📝 Draws rows and columns with a diamond pattern with [[#Shapes-SOD-anchor|SOD()]] 
+	#* 📝 [Click here to see function description](./premade_designs_docs/one_turtle.md) 
 	@staticmethod
 	@designs_deco.turtles(1)
 	def diamond_pattern(tls: TurtleListType):
@@ -108,7 +108,7 @@ class TurtleOne:
 
 
 	# ⚓ hidden_sds anchor: [[TurtleOne-hidden-sds-anchor|hidden_sds()]] 
-	#* 📝 Draws rotating cyclic stars of David in a star of David frame
+	#* 📝 [Click here to see function description](./premade_designs_docs/one_turtle.md) 
 	@staticmethod
 	@designs_deco.turtles(1)
 	def hidden_sds(tls: TurtleListType):
@@ -127,7 +127,7 @@ class TurtleOne:
 
 
 	# ⚓ gd_reference anchor: [[TurtleOne-gd-reference-anchor|gd_reference()]] 
-	#* 📝 Draws an icon similar to one in the game Geometry Dash
+	#* 📝 [Click here to see function description](./premade_designs_docs/one_turtle.md) 
 	@staticmethod
 	@designs_deco.turtles(1)
 	def gd_reference(tls: TurtleListType):
@@ -159,7 +159,7 @@ class TurtleOne:
 
 
 	# ⚓ tri_wheel anchor: [[TurtleOne-tri-wheel-anchor|tri_wheel()]] 
-	#* 📝 Draws a wheel with joined filled triangles
+	#* 📝 [Click here to see function description](./premade_designs_docs/one_turtle.md) 
 	@staticmethod
 	@designs_deco.turtles(1)
 	def tri_wheel(tls: TurtleListType):
@@ -191,7 +191,7 @@ class TurtleOne:
 
 
 	# ⚓ lotus_pattern anchor: [[TurtleOne-lotus-pattern-anchor|lotus_pattern()]] 
-	#* 📝 Draws a pattern similar to lotuses with [[#Shapes-lotus-flower-anchor|lotus_flower()]] 
+	#* 📝 [Click here to see function description](./premade_designs_docs/one_turtle.md) 
 	@staticmethod
 	@designs_deco.turtles(1)
 	def lotus_pattern(tls: TurtleListType):

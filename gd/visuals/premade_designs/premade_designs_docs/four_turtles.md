@@ -2,7 +2,7 @@
 
 ## Source Code: Four Turtles module
 
-[View source code](../four_turtles.py)
+[View source code](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/four_turtles.py)
 
 ## Overview
 
@@ -29,7 +29,7 @@ This function draws a four-petaled flower consisting of 500 circles.
 
 ##### Source code: flower_4petals
 
-[Click here to inspect the source code of TurtleFour.flower_4petals()](../four_turtles.py)
+[Click here to inspect the source code of TurtleFour.flower_4petals()](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/four_turtles.py)
 
 Comment Linking: [[#TurtleFour-flower-4petals-anchor|TurtleFour.flower_4petals()]] 
 
@@ -45,7 +45,7 @@ This function draws four differently coloured squares, aligned with the four coo
 
 ##### Source code: square4
 
-[Click here to inspect the source code of TurtleFour.square4()](../four_turtles.py)
+[Click here to inspect the source code of TurtleFour.square4()](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/four_turtles.py)
 
 Comment Linking: [[#TurtleFour-square4-anchor|TurtleFour.square4()]] 
 
@@ -61,7 +61,7 @@ This function draws 4 colors of squares in each quadrant.
 
 ##### Source code: quadrant_square
 
-[TurtleFour.quadrant_square()](../four_turtles.py)
+[Click here to inspect the source code of TurtleFour.quadrant_square()](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/four_turtles.py)
 
 Comment Linking: [[#TurtleFour-quadrant-square-anchor|TurtleFour.quadrant_square()]] 
 
@@ -77,18 +77,16 @@ This function draws a symmetrical checkerboard pattern with 4 turtles.
 
 ##### Source code: multi_square_grid
 
-[TurtleFour.multi_square_grid()](../four_turtles.py)
+[Click here to inspect the source code of TurtleFour.multi_square_grid()](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/four_turtles.py)
 
 Comment Linking: [[#TurtleFour-multi-square-grid-anchor|TurtleFour.multi_square_grid()]] 
 
 #### Source code: TurtleFour
 
-[class TurtleFour](../four_turtles.py)
+[Click here to inspect the source code of class TurtleFour](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/four_turtles.py)
 
 Comment Linking: [[#TurtleFour-anchor|class TurtleFour]] 
 
-
-
 ## Source Code: Four Turtles module
 
-[View source code](../four_turtles.py)
+[View source code](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/four_turtles.py)

@@ -1,8 +1,8 @@
 ﻿# ⚓ Anchor for this module: [[check-code-anchor|check_code.ps1]] 
 #* 📝 Checks Python code using Ruff.
 
+#* 📝 Imports the ShellHelper class containing reusable functions
 using module ./universal_shell_functions/shell_helper.psm1
-Import-Module (Join-Path $PSScriptRoot "universal_shell_functions\get_project_root.psm1") -Force
 
 <#
 .SYNOPSIS
@@ -18,11 +18,11 @@ function Invoke-CodeFixing([string]$StartingPath) {
     [ShellHelper]::Information("Ruff check has started ...")
 
     if ($fixCode -eq "y") {
-        py -3.14 -m ruff check $StartingPath --fix
+        py -m ruff check $StartingPath --fix
     }
 
     else {
-        py -3.14 -m ruff check $StartingPath
+        py -m ruff check $StartingPath
     }
 
     if ([ShellHelper]::TestLastExitCode("Ruff check")) {
@@ -30,6 +30,8 @@ function Invoke-CodeFixing([string]$StartingPath) {
     }
 }
 
-Set-GDRepositoryPath
+#* 📝 Sets the current path to the GD repository path
+[ShellHelper]::SetGDRepositoryPath()
 
+#* 📝 Invokes the code fixing function with the current path
 Invoke-CodeFixing -StartingPath (Get-Location).Path

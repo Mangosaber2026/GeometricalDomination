@@ -2,7 +2,7 @@
 
 ## Source Code: Designs Module
 
-[View source code](../designs.py)
+[View source code](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/designs.py)
 
 ## Overview
 
@@ -10,7 +10,6 @@ This module contains the [Designs class](../designs.py:19), which exports all pr
 drawing functions in the package [premade_designs](../__init__.py).
 
 ## Classes
-
 
 ### Designs
 
@@ -32,7 +31,7 @@ This function lets the user change the shape of future turtles through [TurtleFc
 
 ##### Source code: change_shape
 
-[Click here to inspect the source code of Designs.change_shape()](../designs.py)
+[Click here to inspect the source code of Designs.change_shape()](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/designs.py)
 
 Comment Linking: [[#Designs-change-shape-anchor|Designs.change_shape()]] 
 
@@ -48,11 +47,9 @@ Comment Linking: [[#classes-to-dict-anchor|classes_to_dict()]]
 
 #### Source Code: Designs
 
-[Click here to inspect the source code of Designs](../designs.py)
+[Click here to inspect the source code of Designs](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/designs.py)
 
 Comment Linking: [[#Designs-anchor|class Designs]] 
-
-
 
 ## Functions
 
@@ -63,7 +60,7 @@ mapping its human-readable function names to their corresponding functions.
 
 #### Source Code: get_Patterns_dict
 
-[Click here to inspect the source code of get_Patterns_dict](../designs.py) 
+[Click here to inspect the source code of get_Patterns_dict](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/designs.py)
 
 Comment Linking: [[#get-Patterns-dict-anchor|get_Patterns_dict()]] 
 
@@ -76,10 +73,10 @@ This dictionary creates and stores a dictionary of [Designs](designs.md#designs)
 
 #### Source Code: PATTERNS
 
-[Click here to inspect the source code of PATTERNS](../designs.py)
+[Click here to inspect the source code of PATTERNS](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/designs.py)
 
 Comment Linking: [[#PATTERNS-anchor|dictionary PATTERNS]] 
 
 ## Source Code: Designs module
 
-[View source code](../designs.py)
+[View source code](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/designs.py)
