@@ -159,7 +159,7 @@ Hope you enjoy!
         Enter your choice: ''', visuals.PATTERNS, ("own","n"))
 
         if program_choice == "n":
-            print("\nThank you very much for using Sabiq's mini Turtle DSL!!!")
+            print("\nThank you very much for using Sabiq's Turtle DSL!!!")
             break
 
         if tls_list is not None:

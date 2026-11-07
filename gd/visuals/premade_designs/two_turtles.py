@@ -208,7 +208,7 @@ class TurtleTwo:
 
 
       # ⚓ sd_triflower anchor: [[TurtleTwo-sd-triflower-anchor|sd_triflower()]] 
-      #* 📝 Draws a complex [[#Shapes-SOD-anchor|star of david]] with a [[#Shapes-hexa-flower-anchor|hexaflower]] in the middle
+      #* 📝 [Click here to see function description](./premade_designs_docs/two_turtles.md) 
       @staticmethod
       @designs_deco.turtles(2)
       def sd_triflower(tls: TurtleListType):
@@ -224,7 +224,11 @@ class TurtleTwo:
          height = math.sqrt(radius ** 2 - radius_50 ** 2)                        # pyright: ignore[reportOperatorIssue]
          height_double = height * 2
 
-         side_c = math.sqrt(radius ** 2 + radius_double ** 2 + radius * 3)       # pyright: ignore[reportOperatorIssue]
+         side_c = math.sqrt(
+                  radius ** 2
+                  + radius_double ** 2                                           # pyright: ignore[reportOperatorIssue]
+                  - 2 * radius * radius_double * uf.cosine(120)                  # pyright: ignore[reportOperatorIssue]
+               )                                                                 # pyright: ignore[reportOperatorIssue]
          angle_b = uf.asine((radius_double * uf.sine(120)) / side_c)             # pyright: ignore[reportOperatorIssue]
          angle_a = 180 - (angle_b + 120)                                         # pyright: ignore[reportOperatorIssue]
          tls_0.rt(30)
@@ -266,7 +270,7 @@ class TurtleTwo:
 
 
       # ⚓ hexaflower_sd anchor: [[TurtleTwo-hexaflower-sd-anchor|hexaflower_sd()]] 
-      #* 📝 Draws 6 [[#Shapes-hexa-flower-anchor|hexaflowers]] in a [[#Shapes-SOD-anchor|star of david]] 
+      #* 📝 [Click here to see function description](./premade_designs_docs/two_turtles.md) 
       @staticmethod
       @designs_deco.turtles(2)
       def hexaflower_sd(tls: TurtleListType):
@@ -299,6 +303,6 @@ class TurtleTwo:
             . rt(150)
          )
          shapes.Shapes.SOD(
-            side = radius * 2,         # pyright: ignore[reportArgumentType]
+            side = radius * 2,                                                   # pyright: ignore[reportArgumentType]
             tls_num = tls_1,
          )

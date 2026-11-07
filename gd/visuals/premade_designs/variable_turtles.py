@@ -1,27 +1,26 @@
 # ⚓ Anchor for this module: [[variable-turtles-anchor|variable_turtles.py]] 
+#* [Click here to inspect the module description](./premade_designs_docs/variable_turtles.md) 
 
 import turtle_extension as tx
 import uf
 
 
 # ⚓ TurtleToChoose anchor: [[TurtleToChoose-anchor|class TurtleToChoose]] 
-#* 📝 Contains premade drawing functions which require the user
-#* 📝 to choose a number of turtles. All functions here are accessible through [[#Designs-anchor|Designs]] 
+#* 📝 [Click here to inspect the class description](./premade_designs_docs/variable_turtles.md) 
 class TurtleToChoose:
 
    # ⚓ flower_infinite anchor: [[TurtleToChoose-flower-infinite-anchor|flower_infinite()]] 
-   #* 📝 Draws an arbitrary number of petals with
-   #* 📝 an arbitrary number of circles
+   #* 📝 [Click here to inspect the function description](./premade_designs_docs/variable_turtles.md) 
    @staticmethod
    def flower_infinite():
 
       tls: list[tx.ChainTurtle]
       
-      tls, petals_count = tx.tls_color(entry="Enter petal count: ")     # pyright: ignore[reportGeneralTypeIssues, reportAssignmentType]
+      tls, petals_count = tx.tls_color(entry="Enter petal count: ")              # pyright: ignore[reportGeneralTypeIssues, reportAssignmentType]
       circles_num = uf.get_num(int, "Enter circles count: ", MIN=1)
       interval = uf.helper.intervals_f()
     
-      angle = int(360 / petals_count)                                   # pyright: ignore[reportOperatorIssue]
+      angle = int(360 / petals_count)                                            # pyright: ignore[reportOperatorIssue]
     
       for i, turtle in enumerate(tls):
          turtle.lt(i * angle)

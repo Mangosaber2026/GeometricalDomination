@@ -102,13 +102,31 @@ This function draws a complex [`star of David`](https://github.com/Mangosaber202
 
 ##### Preview: sd_triflower
 
+![`sd_triflower` showcase](./images/sd_triflower_showcase.png)
 
+[`sd_triflower` showcase](./images/sd_triflower_showcase.png)
 
 ##### Source code: sd_triflower
 
 [Click here to inspec the source code of `TurtleTwo.sd_triflower()`](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/two_turtles.py)
 
 Comment Linking: [[#TurtleTwo-sd-triflower-anchor|TurtleTwo.sd_triflower()]] 
+
+#### hexaflower_sd 
+
+This function draws 6 [`hexaflowers`](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_shapes/shapes.py) in a [`star of David`](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_shapes/shapes.py).
+
+##### Preview: hexaflower_sd
+
+![`hexaflower_sd` showcase](./images/hexaflower_sd_showcase.png)
+
+[`hexaflower_sd` showcase](./images/hexaflower_sd_showcase.png)
+
+#### Source code: hexaflower_sd
+
+[Click here to inspec the source code of `TurtleTwo.hexaflower_sd()`](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/two_turtles.py)
+
+Comment Linking: [[#TurtleTwo-hexaflower-sd-anchor|TurtleTwo.hexaflower_sd()]] 
 
 ### Source code: TurtleTwo
 
