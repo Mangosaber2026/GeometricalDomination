@@ -1,4 +1,5 @@
 # ⚓ Anchor for this module: [[six-turtles-anchor|six_turtles.py]] 
+#* [Click here to see module description](./premade_designs_docs/six_turtles.md) 
 
 import math
 
@@ -12,12 +13,11 @@ type TurtleListType = list[tx.ChainTurtle]
 
 
 # ⚓ TurtleSix anchor: [[TurtleSix-anchor|class TurtleSix]] 
-#* 📝 Contains all drawings which require SIX turtles,
-#* 📝 all functions are accessible directly through [[#Designs-anchor|Designs]] 
+#* 📝 [Click here to see class description](./premade_designs_docs/six_turtles.md) 
 class TurtleSix:
 
       # ⚓ circles6 anchor: [[TurtleSix-circles6-anchor|circles6()]] 
-      #* 📝 Draws 6 circles evenly spaced out at seemingly the same time
+      #* 📝 [Click here to see function description](./premade_designs_docs/six_turtles.md) 
       @staticmethod
       @designs_deco.turtles(6)
       def circles6(tls: TurtleListType):

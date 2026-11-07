@@ -1,4 +1,5 @@
 # ⚓ Anchor for this module: [[self-contained-turtles-anchor|self_contained_turtles.py]] 
+# [Click here to see module description](./premade_designs_docs/self_contained_turtles.md)
 
 import math
 
@@ -9,13 +10,11 @@ from ..premade_shapes import shapes
 
 
 # ⚓ TurtleSelfMade anchor: [[TurtleSelfMade-anchor|class TurtleSelfMade]] 
-#* 📝 Containes functions which create their own turtles for their designs
-#* 📝 All functions here are accessible directly through [[#Designs-anchor|Designs]] 
+#* 📝 [Click here to see class description](./premade_designs_docs/self_contained_turtles.md) 
 class TurtleSelfMade:
 
    # ⚓ duo_triforce anchor: [[duo-triforce-anchor|duo_triforce()]] 
-   #* 📝 Draws and colors a triforce in a triforce with the corresponding colors
-   #* 📝 Reference: Zelda
+   #* 📝 [Click here to see function description](./premade_designs_docs/self_contained_turtles.md)
    @staticmethod
    def duo_triforce():
     

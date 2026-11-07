@@ -1,4 +1,5 @@
 # ⚓ Anchor for this module: [[two-turtles-anchor|two_turtles.py]] 
+#* [Click here to see module description](./premade_designs_docs/two_turtles.md) 
 
 import math
 
@@ -13,13 +14,12 @@ type TurtleListType = list[tx.ChainTurtle]
 
 
 # ⚓ TurtleTwo anchor: [[TurtleTwo-anchor|class TurtleTwo]] 
-#* 📝 Contains all drawings which require TWO turtles,
-#* 📝 all functions are accessible directly through [[#Designs-anchor|Designs]] 
+#* 📝 [Click here to see class description](./premade_designs_docs/two_turtles.md) 
 class TurtleTwo:
 
 
       # ⚓ duo_spiral anchor: [[TurtleTwo-duo-spiral-anchor|duo_spiral()]] 
-      #* 📝 Draws 2 spirals in opposite directions
+      #* 📝 [Click here to see function description](./premade_designs_docs/two_turtles.md) 
       @staticmethod
       @designs_deco.turtles(2)
       def duo_spiral(tls: TurtleListType):
@@ -34,8 +34,7 @@ class TurtleTwo:
 
 
       # ⚓ squares8 anchor: [[TurtleTwo-squares8-anchor|squares8()]] 
-      #* 📝 Draws 2 pairs of 4 squares 45° tilted from each other
-      #* 📝 with growing squares from the middle with axes with diagonal axes
+      #* 📝 [Click here to see function description](./premade_designs_docs/two_turtles.md) 
       @staticmethod
       @designs_deco.turtles(2)
       def squares8(tls: TurtleListType):
@@ -59,15 +58,15 @@ class TurtleTwo:
                   tls_num = turtle,
                )
                distance = diameter / (index + 1)
-               turtle.rt(90).fd_inv(distance)               # pyright: ignore[reportArgumentType]
+               turtle.rt(90).fd_inv(distance)                     # pyright: ignore[reportArgumentType]
 
          tls_0.teleport(0, 0).seth(180)
          tls_1.teleport(0, 0).lt(90)
 
-         for c in uf.range_f(0, length + 1, interval):      # pyright: ignore[reportArgumentType]
+         for c in uf.range_f(interval, length + 1, interval):     # pyright: ignore[reportArgumentType]
             c_half = c / 2
-            tls_0.setpos(c_half, c_half)                    # pyright: ignore[reportArgumentType]
-            tls_1.setpos(math.sqrt(2) * c_half, 0)          # pyright: ignore[reportOperatorIssue]
+            tls_0.setpos(c_half, c_half)                          # pyright: ignore[reportArgumentType]
+            tls_1.setpos(math.sqrt(2) * c_half, 0)                # pyright: ignore[reportOperatorIssue]
             shapes.Shapes.square(
                side = c,
                tls_num = tls_0,
@@ -82,14 +81,14 @@ class TurtleTwo:
 
          for turtle in tls:
             shapes.Shapes.lines(
-               distance = length1_5,                        # pyright: ignore[reportArgumentType]
+               distance = length1_5,                              # pyright: ignore[reportArgumentType]
                lines_num = 4,
                tls_num = turtle,
             )
 
 
       # ⚓ tri_hexaflower anchor: [[TurtleTwo-tri-hexaflower-anchor|tri_hexaflower()]] 
-      #* 📝 Draws a triangular version of [[#Shapes-hexa-flower-anchor|hexaflower]] with [[#Shapes-hexaflower-tri-anchor|hexaflower_tri()]] 
+      #* 📝 [Click here to see function description](./premade_designs_docs/two_turtles.md) 
       @staticmethod
       @designs_deco.turtles(2)
       def tri_hexaflower(tls: TurtleListType):
@@ -142,7 +141,7 @@ class TurtleTwo:
 
 
       # ⚓ sd_pattern anchor: [[TurtleTwo-sd-pattern-anchor|sd_pattern()]] 
-      #* 📝 Draws a pattern with rows and columns of [[#Shapes-SOD-fill-anchor|filled stars of David]] 
+      #* 📝 [Click here to see function description](./premade_designs_docs/two_turtles.md) 
       @staticmethod
       @designs_deco.turtles(2)
       def sd_pattern(tls: TurtleListType):
@@ -189,7 +188,7 @@ class TurtleTwo:
 
 
       # ⚓ sd_spiral anchor: [[TurtleTwo-sd-spiral-anchor|sd_spiral()]] 
-      #* 📝 Draws a spiraling [[#Shapes-SOD-anchor|SOD()]] with 2 turtles cycling
+      #* 📝 [Click here to see function description](./premade_designs_docs/two_turtles.md) 
       @staticmethod
       @designs_deco.turtles(2)
       def sd_spiral(tls: TurtleListType):

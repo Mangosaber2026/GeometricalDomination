@@ -1,4 +1,5 @@
 # ⚓ Anchor for this module: [[three-turtles-anchor|three_turtles.py]] 
+#* [Click here to see module description](./premade_designs_docs/three_turtles.md) 
 
 import turtle_extension as tx
 import uf
@@ -11,12 +12,11 @@ type TurtleListType = list[tx.ChainTurtle]
 
 
 # ⚓ TurtleThree anchor: [[TurtleThree-anchor|class TurtleThree]] 
-#* 📝 Contains all drawings which require THREE turtles,
-#* 📝 all functions are accessible directly through [[#Designs-anchor|Designs]] 
+#* 📝 [Click here to see class description](./premade_designs_docs/three_turtles.md) 
 class TurtleThree:
 
       # ⚓ squares10 anchor: [[TurtleThree-squares10-anchor|squares10()]] 
-      #* 📝 Draws 2 pairs of 4 squares with 2 overlapping square designs in the middle
+      #* 📝 [Click here to see function description](./premade_designs_docs/three_turtles.md) 
       @staticmethod
       @designs_deco.turtles(3)
       def squares10(tls: TurtleListType):
@@ -54,7 +54,7 @@ class TurtleThree:
 
 
       # ⚓ sd_flower anchor: [[TurtleThree-sd-flower-anchor|sd_flower()]] 
-      #* 📝 Draws a [[#Shapes-SOD-anchor|star of david]] with a [[#Shapes-hexaflower-anchor|hexaflower]] in it
+      #* 📝 [Click here to see function description](./premade_designs_docs/three_turtles.md) 
       @staticmethod
       @designs_deco.turtles(3)
       def sd_flower(tls: TurtleListType):

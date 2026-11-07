@@ -109,7 +109,19 @@ def user_drawing_ft():
 #* 📝 This is the entrance point to the whole software,
 #* 📝 it lets users draw premade functions as well as [[#user-drawing-ft-anchor|customizable ones]] 
 def main():
-    print("There are 6 turtles in total, you can decide the trace & turtle color!")
+    print("""
+Welcome to Sabiq's Turtle DSL!!!
+
+This is the main executor of the entire software and presents a collection of premade designs and patterns
+of which the sizes, turtle color and even number of objects are customizable.
+
+The 'own' option takes the user to the user-focused program where the user gets to make their own designs 
+using the very building blocks the developer used to create the premade designs.
+
+The 'n' option terminates the program.
+
+Hope you enjoy!
+""")
     rest(1.5)
     
     tls_list: list[tx.ChainTurtle] | None = None
@@ -158,6 +170,6 @@ def main():
             user_drawing_ft()
 
         else:
-            tls_list = visuals.PATTERNS[program_choice]() # type: ignore
+            tls_list = visuals.PATTERNS[program_choice]()                           # type: ignore
 
         rest(3)
