@@ -34,7 +34,7 @@ Comment Linking: [[#TurtleTwo-duo-spiral-anchor|TurtleTwo.duo_spiral()]]
 
 #### squares8
 
-This function draws 2 pairs of 4 squares 45° tilted from each other with growing squares from the middle with axes with diagonal axes.
+This function draws 2 pairs of 4 squares 45° tilted from each other with growing squares from the middle with diagonal axes.
 
 ##### Preview: squares8
 
