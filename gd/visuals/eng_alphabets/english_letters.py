@@ -1,11 +1,11 @@
 # ⚓ Anchor for this module: [[english-letters-anchor|english_letters.py]] 
 
-import math
+lazy import math
 
-import turtle_extension as tx
-import uf
+lazy import turtle_extension as tx
+lazy import uf
 
-from . import english_alphabets_validators as eng_vls
+lazy from . import english_alphabets_validators as eng_vls
 
 
 # ⚓ EngLetters anchor: [[EngLetters-anchor|class EngLetters]] 

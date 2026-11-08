@@ -1,20 +1,22 @@
 # ⚓ Anchor for this module: [[premade-shapes-anchor|premade_shapes.__init__.py]] 
 
 #* 📝 Imports all available classes in [[#shapes-anchor|shapes.py]] 
-from .shapes import Shapes
-from .shapes_dictionaries import (
-    SHAPES_LENGTH,
-    # 🔗 Link to source code: [[#SHAPES-LENGTH-anchor|dictionary SHAPES_LENGTH]] 
-    SHAPES_LENGTH_SIDES,
-    # 🔗 Link to source code: [[#SHAPES-LENGTH-SIDES-anchor|dictionary SHAPES_LENGTH_SIDES]] 
-    SHAPES_RADIUS,
-    # 🔗 Link to source code: [[#SHAPES-RADIUS-anchor|dictionary SHAPES_RADIUS]] 
+lazy from .shapes import Shapes
+
+#* 📝 Imports all available dictionaries in [[#shapes-dictionaries-anchor|shapes_dictionaries.py]]
+lazy from .shapes_dictionaries import (
+    shapes_length_dict,
+    # 🔗 Link to source code: [[#shapes-length-dict-anchor|shapes_length_dict()]] 
+    shapes_length_sides_dict,
+    # 🔗 Link to source code: [[#shapes-length-sides-dict-anchor|shapes_length_sides_dict()]] 
+    shapes_radius_dict,
+    # 🔗 Link to source code: [[#shapes-radius-dict-anchor|shapes_radius_dict()]] 
 )
 
 __all__ = [
     "Shapes",
 
-    "SHAPES_LENGTH",
-    "SHAPES_LENGTH_SIDES",
-    "SHAPES_RADIUS"
+    "shapes_length_dict",
+    "shapes_length_sides_dict",
+    "shapes_radius_dict"
 ]

@@ -1,12 +1,12 @@
 # ⚓ Anchor for this module: [[six-turtles-anchor|six_turtles.py]] 
 #* [Click here to see module description](./premade_designs_docs/six_turtles.md) 
 
-import math
+lazy import math
 
-import turtle_extension as tx
-import uf
+lazy import turtle_extension as tx
+lazy import uf
 
-from . import designs_decorator as designs_deco
+lazy from . import designs_decorator as designs_deco
 
 #* 📝 The type used for a list of [[#ChainTurtle-anchor|ChainTurtle]] instances
 type TurtleListType = list[tx.ChainTurtle]
@@ -27,9 +27,9 @@ class TurtleSix:
          step = 2 * math.pi * radius / 360         # pyright: ignore[reportOperatorIssue]
 
          for i, turtle in enumerate(tls):
-            turtle.lt(i * 60)
+            turtle.left(i * 60)
 
          for a in range(360):
             for turtle in tls:
-               turtle.fd(step).rt(1)
+               turtle.forward(step).rt(1)
             tx.SU()

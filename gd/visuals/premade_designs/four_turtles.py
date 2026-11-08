@@ -1,13 +1,13 @@
 # ⚓ Anchor for this module: [[four-turtles-anchor|four_turtles.py]] 
 #* 📝 [Click here to see module description](./premade_designs_docs/four_turtles.md) 
 
-import math
+lazy import math
 
-import turtle_extension as tx
-import uf
+lazy import turtle_extension as tx
+lazy import uf
 
-from ..premade_shapes import shapes
-from . import designs_decorator as designs_deco
+lazy from ..premade_shapes import shapes
+lazy from . import designs_decorator as designs_deco
 
 #* 📝 The type used for a list of [[#ChainTurtle-anchor|ChainTurtle]] instances
 type TurtleListType = list[tx.ChainTurtle]
@@ -24,7 +24,7 @@ class TurtleFour:
       def flower_4petals(tls: TurtleListType):
 
          for i, turtle in enumerate(tls):
-            turtle.lt(i * 90)
+            turtle.left(i * 90)
 
          for a in range(0, 500, 10):
             for turtle in tls:
@@ -41,7 +41,7 @@ class TurtleFour:
          interval = uf.helper.intervals_f()
 
          for i, turtle in enumerate(tls):
-            turtle.lt(i * 90)
+            turtle.left(i * 90)
 
          for side_length in uf.range_f(interval, length + 1, interval):           # pyright: ignore[reportArgumentType]
             for turtle in tls:
@@ -61,7 +61,7 @@ class TurtleFour:
          interval = uf.helper.intervals_f()
 
          for i, turtle in enumerate(tls):
-            turtle.lt(i * 90)
+            turtle.left(i * 90)
 
          for side_length in uf.range_f(interval, length + 1, interval):
             for turtle in tls:
@@ -86,10 +86,10 @@ class TurtleFour:
 
          length4 = length * 4
          x_val = (length * math.sqrt(2)) / 2                               # pyright: ignore[reportOperatorIssue]
-         tls_1.lt(180)
+         tls_1.left(180)
 
          for i in range(1, 5, 3):
-            tls_0.teleport(x_val * i, 0).lt(135)
+            tls_0.teleport(x_val * i, 0).left(135)
             shapes.Shapes.square(
                side = length * i,                                          # pyright: ignore[reportArgumentType]
                tls_num = tls_0,
@@ -110,26 +110,26 @@ class TurtleFour:
             lines_num = 4,
             tls_num = tls_2,
          )
-         tls_3.pu().fd(x_val4).rt(135).pd()
+         tls_3.penup().forward(x_val4).right(135).pendown()
 
          for _ in range(3):
             (
                tls_3
                . fd_inv(length)
-               . rt(90)
-               . fd(length4)                                               # pyright: ignore[reportArgumentType]
-               . bk(length4)                                               # pyright: ignore[reportArgumentType]
-               . lt(90)
+               . right(90)
+               . forward(length4)                                               # pyright: ignore[reportArgumentType]
+               . backward(length4)                                               # pyright: ignore[reportArgumentType]
+               . left(90)
             )
 
-         tls_3.pu().fd(length).rt(90).pd()
+         tls_3.penup().forward(length).right(90).pendown()
 
          for _ in range(3):
             (
                tls_3
                . fd_inv(length)
-               . rt(90)
-               . fd(length4)                                               # pyright: ignore[reportArgumentType]
-               . bk(length4)                                               # pyright: ignore[reportArgumentType]
-               . lt(90)
+               . right(90)
+               . forward(length4)                                               # pyright: ignore[reportArgumentType]
+               . backward(length4)                                               # pyright: ignore[reportArgumentType]
+               . left(90)
             )

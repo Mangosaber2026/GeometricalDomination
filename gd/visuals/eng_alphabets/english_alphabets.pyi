@@ -45,15 +45,12 @@ class EngAlphabets(
 
         :return: dictionary containing function names -> function
         """
+        
 
-
-def letters_functions() -> AlphabetDictType:
+def eng_alphabets_dict() -> AlphabetDictType:
     """
-    Takes all Letters in Alphabets.Letters and returns a dictionary.
-    
-    :return: letter dictionary
+    Creates and returns a dictionary mapping all available letters, punctuation and shapes function names 
+    in Alphabets with their corresponding functions.
+
+    :return: dictionary containing function names -> function
     """
-
-eng_letters_dict: AlphabetDictType
-
-ENG_ALPHABETS: AlphabetDictType

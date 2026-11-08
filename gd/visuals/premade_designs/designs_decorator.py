@@ -1,10 +1,10 @@
 # ⚓ Anchor for this module: [[designs-decorator-anchor|designs_decorator.py]] 
 #* 📝 [Click here to see module description](./premade_designs_docs/designs_decorator.md) 
 
-import functools as ft
+lazy import functools as ft
 
-import turtle_extension as tx
-import uf
+lazy import turtle_extension as tx
+lazy import uf
 
 
 # ⚓ turtles anchor: [[turtles-anchor|@turtles(amount)]] 

@@ -1,12 +1,12 @@
 # ⚓ Anchor for this module: [[turtle-runner-anchor|turtle_runner.py]] 
 
-from time import sleep as rest
+lazy from time import sleep as rest
 
-import turtle_extension as tx
-import uf
+lazy import turtle_extension as tx
+lazy import uf
 
-from .. import user_features as user_feats
-from .. import visuals
+lazy from .. import user_features as user_feats
+lazy from .. import visuals
 
 
 #? //////////////////////////////////////
@@ -16,10 +16,16 @@ from .. import visuals
 #* 📝 This runs the customizable user focused function where
 #* 📝 the user can draw their own designs with internally defined features
 def user_drawing_ft():
-    tx.UV["t"]: int = tx.tls_color(index=1)     # type: ignore
+    tx.UV["t"] = tx.tls_color(index=1)
+
+    COMMANDS = user_feats.get_Command_dict()
+    SHAPES_LENGTH = visuals.shapes_length_dict()
+    SHAPES_LENGTH_SIDES = visuals.shapes_length_sides_dict()
+    SHAPES_RADIUS = visuals.shapes_radius_dict()
 
     while True:
-        user_choice: str = uf.get_str('''BELOW ARE SETTINGS:
+        user_choice: str = uf.get_str('''
+        BELOW ARE SETTINGS:
             create tls -> create multiple turtles
             change tls -> change to a different turtle
             change shape -> change turtle shape for current turtle
@@ -54,33 +60,33 @@ def user_drawing_ft():
             if you're an experienced programmer and know the program inside out, then here's another option:
             exec -> pythons execution function
             Enter choice: ''',
-            user_feats.COMMANDS, 
-            visuals.SHAPES_LENGTH, 
-            visuals.SHAPES_LENGTH_SIDES, 
-            visuals.SHAPES_RADIUS,
+            COMMANDS, 
+            SHAPES_LENGTH, 
+            SHAPES_LENGTH_SIDES, 
+            SHAPES_RADIUS,
             ("n","exec")
             )
         
         tx.get_screen()
 
-        if user_choice in user_feats.COMMANDS:
-            user_feats.COMMANDS[user_choice]()
+        if user_choice in COMMANDS:
+            COMMANDS[user_choice]()
 
-        elif user_choice in visuals.SHAPES_LENGTH:
-            visuals.SHAPES_LENGTH[user_choice](
+        elif user_choice in SHAPES_LENGTH:
+            SHAPES_LENGTH[user_choice](
                 uf.helper.length_float(),
                 tx.t_now()
                 )
 
-        elif user_choice in visuals.SHAPES_LENGTH_SIDES:
-            visuals.SHAPES_LENGTH_SIDES[user_choice](
+        elif user_choice in SHAPES_LENGTH_SIDES:
+            SHAPES_LENGTH_SIDES[user_choice](
                 uf.helper.length_float(),
                 uf.helper.sides_num(), 
                 tx.t_now()
                 )
 
-        elif user_choice in visuals.SHAPES_RADIUS:
-            visuals.SHAPES_RADIUS[user_choice](
+        elif user_choice in SHAPES_RADIUS:
+            SHAPES_RADIUS[user_choice](
                 uf.helper.radius_float(), 
                 tx.t_now()
                 )
@@ -98,9 +104,10 @@ def user_drawing_ft():
 
         tx.SU()
 
-        if tx.UV["delay"] is not None:
-            uf.real_validate()(tx.UV["delay"], name="delay")
-            rest(tx.UV["delay"])
+        delay_time = tx.UV["delay"]
+        if delay_time is not None:
+            uf.real_validate()(delay_time, name="delay")
+            rest(delay_time)
 
 #? /////////////////////////////////
 #? //////// MAIN OPERATION ////////
@@ -125,6 +132,7 @@ Hope you enjoy!
     rest(1.5)
     
     tls_list: list[tx.ChainTurtle] | None = None
+    PATTERNS = visuals.get_Patterns_dict()
     
     while True:
         program_choice: str = uf.get_str('''Here are the options
@@ -156,7 +164,7 @@ Hope you enjoy!
         
         n -> nothing
         own -> make your own design
-        Enter your choice: ''', visuals.PATTERNS, ("own","n"))
+        Enter your choice: ''', PATTERNS, ("own","n"))
 
         if program_choice == "n":
             print("\nThank you very much for using Sabiq's Turtle DSL!!!")
@@ -170,6 +178,6 @@ Hope you enjoy!
             user_drawing_ft()
 
         else:
-            tls_list = visuals.PATTERNS[program_choice]()                           # type: ignore
+            tls_list = PATTERNS[program_choice]()                           # type: ignore
 
         rest(3)

@@ -1,11 +1,11 @@
 # ⚓ Anchor for this module: [[user-commands-anchor|user_commands.py]] 
 
-from time import sleep as rest
+lazy from time import sleep as rest
 
-import turtle_extension as tx
-import uf
+lazy import turtle_extension as tx
+lazy import uf
 
-from .. import visuals
+lazy from .. import visuals
 
 
 # ⚓ Command anchor: [[Command-anchor|class Command]] 
@@ -22,12 +22,12 @@ class Command:
             uf.get_num(
                 TYPE=float, 
                 entry="Enter the distance: "
-                )   # pyright: ignore[reportArgumentType]
+                )                                                           # pyright: ignore[reportArgumentType]
             )
 
 
     # ⚓ bk_ft anchor: [[Command-bk-ft-anchor|bk_ft()]] 
-     #* 📝 Moves the turtle backward with [[#ChainTurtle-backward-anchor|ChainTurtle().backward()]] 
+    #* 📝 Moves the turtle backward with [[#ChainTurtle-backward-anchor|ChainTurtle().backward()]] 
     @staticmethod
     def bk_ft():   
 
@@ -35,12 +35,12 @@ class Command:
             uf.get_num(
                 TYPE=float, 
                 entry="Enter the distance: "
-                )   # pyright: ignore[reportArgumentType]
+                )                                                               # pyright: ignore[reportArgumentType]
             )
 
 
     # ⚓ rt_ft anchor: [[Command-rt-ft-anchor|rt_ft()]] 
-     #* 📝 Turns the turtle to the right with [[#ChainTurtle-right-anchor|ChainTurtle().right()]] 
+    #* 📝 Turns the turtle to the right with [[#ChainTurtle-right-anchor|ChainTurtle().right()]] 
     @staticmethod
     def rt_ft():    
 
@@ -48,11 +48,11 @@ class Command:
             uf.get_num(
                 TYPE=float, 
                 entry="Enter an angle: "
-                )   # pyright: ignore[reportArgumentType]
+                )                                                               # pyright: ignore[reportArgumentType]
             )
 
     # ⚓ lt_ft anchor: [[Command-lt-ft-anchor|lt_ft()]] 
-     #* 📝 Turns the turtle to the left with [[#ChainTurtle-left-anchor|ChainTurtle().left()]] 
+    #* 📝 Turns the turtle to the left with [[#ChainTurtle-left-anchor|ChainTurtle().left()]] 
     @staticmethod
     def lt_ft():  
 
@@ -60,11 +60,11 @@ class Command:
             uf.get_num(
                 TYPE=float, 
                 entry="Enter an angle: "
-                )   # pyright: ignore[reportArgumentType]
+                )                                                               # pyright: ignore[reportArgumentType]
             )
 
     # ⚓ create_tls anchor: [[Command-create-tls-anchor|create_tls()]] 
-     #* 📝 Creates turtles and add them to the [[#UV-anchor|UV dictionary]] 
+    #* 📝 Creates turtles and add them to the [[#UV-anchor|UV dictionary]] 
     @staticmethod
     def create_tls():   
 
@@ -77,7 +77,7 @@ class Command:
     
 
     # ⚓ change_tls anchor: [[Command-change-tls-anchor|change_tls()]] 
-     #* 📝 Lets the user change turtles to [[#UV-anchor|UV dictionary]] 
+    #* 📝 Lets the user change turtles to [[#UV-anchor|UV dictionary]] 
     @staticmethod
     def change_tls():    
 
@@ -106,7 +106,7 @@ class Command:
 
 
     # ⚓ clear_ft anchor: [[Command-clear-ft-anchor|clear_ft()]] 
-     #* 📝 Clears all turtles drawings in the [[#UV-anchor|UV dictionary]] 
+    #* 📝 Clears all turtles drawings in the [[#UV-anchor|UV dictionary]] 
     @staticmethod
     def clear_ft(): 
 
@@ -116,7 +116,7 @@ class Command:
 
 
     # ⚓ clear_tls anchor: [[Command-clear-tls-anchor|clear_tls()]] 
-     #* 📝 Clears all turtles drawings and turtles in the [[#UV-anchor|UV dictionary]] 
+    #* 📝 Clears all turtles drawings and turtles in the [[#UV-anchor|UV dictionary]] 
     @staticmethod
     def clear_tls():   
         
@@ -136,15 +136,15 @@ class Command:
 
 
     # ⚓ home_ft anchor: [[Command-home-ft-anchor|home_ft()]] 
-     #* 📝 Sets the turtles position to home with [[#ChainTurtle-home-anchor|ChainTurtle().home()]] 
+    #* 📝 Sets the turtles position to home with [[#ChainTurtle-home-anchor|ChainTurtle().home()]] 
     @staticmethod
     def home_ft():
         return tx.t_now().home()
 
 
     # ⚓ setpos_ft anchor: [[Command-setpos-ft-anchor|setpos_ft()]] 
-     #* 📝 Lets the user choose a coordinate to set the turtles position to 
-     #* 📝 without a trace with [[#ChainTurtle-teleport-anchor|ChainTurtle().teleport()]] 
+    #* 📝 Lets the user choose a coordinate to set the turtles position to 
+    #* 📝 without a trace with [[#ChainTurtle-teleport-anchor|ChainTurtle().teleport()]] 
     @staticmethod
     def setpos_ft():   
 
@@ -155,7 +155,7 @@ class Command:
 
 
     # ⚓ move_to_ft anchor: [[Command-move-to-ft-anchor|move_to_ft()]] 
-     #* 📝 setpos_ft functionality with trace with [[#ChainTurtle-goto-anchor|ChainTurtle().goto()]] 
+    #* 📝 setpos_ft functionality with trace with [[#ChainTurtle-goto-anchor|ChainTurtle().goto()]] 
     @staticmethod
     def move_to_ft():   
 
@@ -166,7 +166,7 @@ class Command:
 
 
     # ⚓ set_timer anchor: [[Command-set-timer-anchor|set_timer()]] 
-     #* 📝 Sets a time delay for [[#user-drawing-ft-anchor|user_drawing_ft()]] 
+    #* 📝 Sets a time delay for [[#user-drawing-ft-anchor|user_drawing_ft()]] 
     @staticmethod
     def set_timer():    
 
@@ -181,18 +181,18 @@ class Command:
 
 
     # ⚓ del_timer anchor: [[Command-del-timer-anchor|del_timer()]] 
-     #* 📝 Deletes time delay for the [[#user-drawing-ft-anchor|user_drawing_ft()]] 
+    #* 📝 Deletes time delay for the [[#user-drawing-ft-anchor|user_drawing_ft()]] 
     @staticmethod
     def del_timer():    
         tx.UV["delay"] = None
 
 
     # ⚓ writer anchor: [[Command-writer-anchor|writer()]] 
-     #* 📝 Lets the user write text with [[#EngAlphabets-anchor|EngAlphabets]] 
+    #* 📝 Lets the user write text with [[#EngAlphabets-anchor|EngAlphabets]] 
     @staticmethod
     def writer():   
 
-        tx.t_now().left(90)   # pyright: ignore[reportArgumentType]
+        tx.t_now().left(90)                                                     # pyright: ignore[reportArgumentType]
         while True:
             while True:
                 text_entry: str = input("""
@@ -200,7 +200,7 @@ class Command:
                 Enter text (% to exit): 
                 """).upper()
 
-                if all(letter in visuals.ENG_ALPHABETS for letter in text_entry) or text_entry == "%":
+                if all(letter in visuals.eng_alphabets_dict() for letter in text_entry) or text_entry == "%":
                     break
 
                 else:
@@ -218,7 +218,7 @@ class Command:
                     )                                                           # pyright: ignore[reportAssignmentType]
                 
                 for letter in text_entry:
-                    visuals.ENG_ALPHABETS[letter](vertical_val, tx.t_now())     # pyright: ignore[reportArgumentType]
+                    visuals.eng_alphabets_dict()[letter](vertical_val, tx.t_now())  # pyright: ignore[reportArgumentType]
 
                 tx.SU()
 
@@ -259,14 +259,9 @@ def exec_ft():
 
 
 # ⚓ get_Command_dict anchor: [[get-Command-dict-anchor|get_Command_dict()]] 
- #* 📝 Creates and returns a dictionary with [[#Command-anchor|Command class]] functions
+#* 📝 Creates and returns a dictionary with [[#Command-anchor|Command class]] functions
 def get_Command_dict():
     return {
         name.removesuffix("_ft").replace("_", " "): obj
         for name, obj in Command.list_commands().items()
     }
-
-
-# ⚓ COMMANDS anchor: [[COMMANDS-anchor|dictionary COMMANDS]] 
- #* 📝 COMMAND dictionary storage generated from [[#get-Command-dict-anchor|get_Command_dict()]] 
-COMMANDS = get_Command_dict()
