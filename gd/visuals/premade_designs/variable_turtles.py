@@ -1,8 +1,8 @@
 # ⚓ Anchor for this module: [[variable-turtles-anchor|variable_turtles.py]] 
 #* [Click here to inspect the module description](./premade_designs_docs/variable_turtles.md) 
 
-import turtle_extension as tx
-import uf
+lazy import turtle_extension as tx
+lazy import uf
 
 
 # ⚓ TurtleToChoose anchor: [[TurtleToChoose-anchor|class TurtleToChoose]] 
@@ -23,14 +23,14 @@ class TurtleToChoose:
       angle = int(360 / petals_count)                                            # pyright: ignore[reportOperatorIssue]
     
       for i, turtle in enumerate(tls):
-         turtle.lt(i * angle)
+         turtle.left(i * angle)
     
       for a in uf.range_f(0, circles_num + 1, interval):
          for turtle in tls:
             turtle.circle(a)
     
       for turtle in tls:
-         turtle.lt(90).fd(circles_num * 2)
+         turtle.left(90).forward(circles_num * 2)
          
       tx.SU()
 

@@ -17,68 +17,58 @@ Otherwise, hopefully you enjoy this masterpiece!
 """
 
 #* 📝 Imports the executor functions in [[#program-executors-anchor|program_executors]] 
-from .program_executors import (
- #* 📝 [[#turtle-runner-anchor|turtle_runner.py]] 
- main,
- # 🔗 Link to source code: [[#main-anchor|main()]] 
- user_drawing_ft,
- # 🔗 Link to source code: [[#user-drawing-ft-anchor|user_drawing_ft()]] 
+lazy from .program_executors import (                          # noqa: I001
+   #* 📝 [[#turtle-runner-anchor|turtle_runner.py]] 
+   main,
+   # 🔗 Link to source code: [[#main-anchor|main()]] 
+   user_drawing_ft,
+   # 🔗 Link to source code: [[#user-drawing-ft-anchor|user_drawing_ft()]] 
 )
 
 #* 📝 Imports the class and dictionary in [[#user-features-anchor|user_features]] 
-from .user_features import (
- #* 📝 [[#user-commands-anchor|user_commands.py]] 
- COMMANDS,
- # 🔗 Link to source code: [[#COMMANDS-anchor|dictionary COMMANDS]] 
- Command,
- # 🔗 Link to source code: [[#Command-anchor|class Command]] 
+lazy from .user_features import (
+   #* 📝 [[#user-commands-anchor|user_commands.py]] 
+   Command,
+   # 🔗 Link to source code: [[#Command-anchor|class Command]] 
 )
 
 #* 📝 Imports the functions, decorators and dictionaries in [[#visuals-anchor|visuals]] 
-from .visuals import (
- #* 📝 [[#english-alphabets-anchor|english_alphabets.py]] 
- ENG_ALPHABETS,
- # 🔗 Link to source code: [[#ENG_ALPHABETS-anchor|dictionary ENG_ALPHABETS]] 
- PATTERNS,
- # 🔗 Link to source code: [[#PATTERNS-anchor|dictionary PATTERNS]] 
- #* 📝 [[#shapes-dictionaries-anchor|shapes_dictionaries.py]] 
- SHAPES_LENGTH,
- # 🔗 Link to source code: [[#SHAPES-LENGTH-anchor|dictionary SHAPES_LENGTH]] 
- SHAPES_LENGTH_SIDES,
- # 🔗 Link to source code: [[#SHAPES-LENGTH-SIDES-anchor|dictionary SHAPES_LENGTH_SIDES]] 
- SHAPES_RADIUS,
- # 🔗 Link to source code: [[#SHAPES-RADIUS-anchor|dictionary SHAPES_RADIUS]] 
- Designs,
- # 🔗 Link to source code: [[#Designs-anchor|class Designs]] 
- EngAlphabets,
- # 🔗 Link to source code: [[#EngAlphabets-anchor|class EngAlphabets]] 
- #* 📝 [[#shapes-anchor|shapes.py]] 
- Shapes,
- # 🔗 Link to source code: [[#Shapes-anchor|class Shapes]] 
- #* 📝 [[#designs-anchor|designs.py]] 
- get_Patterns_dict,
- # 🔗 Link to source code: [[#get-Patterns-dict-anchor|get_Patterns_dict()]] 
- letters_functions,
- # 🔗 Link to source code: [[#letters-functions-anchor|letters_functions()]] 
- turtles,
- # 🔗 Link to source code: [[#turtles-anchor|decorator turtles(amount)]] 
+lazy from .visuals import (
+   Designs,
+   # 🔗 Link to source code: [[#Designs-anchor|class Designs]] 
+   EngAlphabets,
+   # 🔗 Link to source code: [[#EngAlphabets-anchor|class EngAlphabets]] 
+   Shapes,
+   # 🔗 Link to source code: [[#Shapes-anchor|class Shapes]] 
+   get_Patterns_dict,
+   # 🔗 Link to source code: [[#get-Patterns-dict-anchor|get_Patterns_dict()]] 
+   eng_alphabets_dict,
+   # 🔗 Link to source code: [[#eng-alphabets-dict-anchor|eng_alphabets_dict()]] 
+   turtles,
+   # 🔗 Link to source code: [[#turtles-anchor|decorator turtles(amount)]] 
+   shapes_length_dict,
+   # 🔗 Link to source code: [[#shapes-length-dict-anchor|shapes_length_dict()]] 
+   shapes_length_sides_dict,
+   # 🔗 Link to source code: [[#shapes-length-sides-dict-anchor|shapes_length_sides_dict()]] 
+   shapes_radius_dict,
+   # 🔗 Link to source code: [[#shapes-radius-dict-anchor|shapes_radius_dict()]] 
 )
 
 #* 📝 Specifies all functions, dictionaries and decorators in program_executors, user_features and visuals
 __all__ = [
    "EngAlphabets",
-   "ENG_ALPHABETS",
-   "letters_functions",
+   "eng_alphabets_dict",
+
    "Designs",
    "turtles",
    "get_Patterns_dict",
-   "PATTERNS",
    "Shapes",
-   "SHAPES_LENGTH",
-   "SHAPES_RADIUS",
-   "SHAPES_LENGTH_SIDES",
+   "shapes_length_dict",
+   "shapes_length_sides_dict",
+   "shapes_radius_dict",
+
    "main",
    "user_drawing_ft",
+
    "Command",
-   "COMMANDS",
 ]

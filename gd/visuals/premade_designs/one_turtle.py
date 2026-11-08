@@ -1,13 +1,13 @@
 # ⚓ Anchor for this module: [[one-turtle-anchor|one_turtle.py]] 
 #* 📝 [Click here to see module description](./premade_designs_docs/one_turtle.md) 
 
-import math
+lazy import math
 
-import turtle_extension as tx
-import uf
+lazy import turtle_extension as tx
+lazy import uf
 
-from ..premade_shapes import shapes
-from . import designs_decorator as designs_deco
+lazy from ..premade_shapes import shapes
+lazy from . import designs_decorator as designs_deco
 
 #* 📝 The type used for a list of [[#ChainTurtle-anchor|ChainTurtle]] instances
 type TurtleListType = list[tx.ChainTurtle]
@@ -51,9 +51,9 @@ class TurtleOne:
 				(
 					tls_0
 					. fd_inv(length_total - diagonal) 				# pyright: ignore[reportOperatorIssue]
-					. lt(90)
+					. left(90)
 					. fd_inv(height_double)
-					. rt(90)
+					. right(90)
 				)
 
 
@@ -95,16 +95,16 @@ class TurtleOne:
 					side = length,
 					tls_num = tls_0,
 				)
-				tls_0.pu().bk(horizontal_displacement).pd()
+				tls_0.penup().backward(horizontal_displacement).pendown()
 
 			(
             tls_0
-            . pu()
-            . fd(total_horizontal_distance)
-            . lt(90)
-            . fd(outer_side)
-            . rt(90)
-         )
+            . penup()
+            . forward(total_horizontal_distance)
+            . left(90)
+            . forward(outer_side)
+            . right(90)
+         	)
 
 
 	# ⚓ hidden_sds anchor: [[TurtleOne-hidden-sds-anchor|hidden_sds()]] 
@@ -137,24 +137,24 @@ class TurtleOne:
 		length = uf.helper.length_float()
 
 		diagonal = (length * uf.sine(120)) / uf.sine(30) 					# pyright: ignore[reportOperatorIssue]
-		tls_0.lt(30)
+		tls_0.left(30)
 
 		for _ in range(6):
 			(
             tls_0
             . begin_fill()
-            . fd(diagonal) 													# pyright: ignore[reportArgumentType]
-            . lt(150)
-            . fd(length)
-            . rt(120)
-            . bk(length)
+            . forward(diagonal) 													# pyright: ignore[reportArgumentType]
+            . left(150)
+            . forward(length)
+            . right(120)
+            . backward(length)
             . end_fill()
 
-            .fd(length)
-            .lt(120)
-            .fd(length)
-            .rt(60)
-            .bk(diagonal) 													# pyright: ignore[reportArgumentType]
+            . forward(length)
+            . left(120)
+            . forward(length)
+            . right(60)
+            . backward(diagonal) 													# pyright: ignore[reportArgumentType]
          )
 
 
@@ -175,18 +175,18 @@ class TurtleOne:
 			(
             tls_0
             . begin_fill()
-            . fd(diagonal) 													# pyright: ignore[reportArgumentType]
-            . lt(150)
-            . fd(length)
-            . rt(120)
-            . bk(length)
+            . forward(diagonal) 													# pyright: ignore[reportArgumentType]
+            . left(150)
+            . forward(length)
+            . right(120)
+            . backward(length)
             . end_fill()
 
-            .fd(length)
-            .lt(60)
-            .fd(length)
-            .rt(60)
-            .bk(diagonal) 													# pyright: ignore[reportArgumentType]
+            . forward(length)
+            . left(60)
+            . forward(length)
+            . right(60)
+            . backward(diagonal) 													# pyright: ignore[reportArgumentType]
          )
 
 
@@ -216,7 +216,7 @@ class TurtleOne:
 			(
             tls_0
             . fd_inv(lotuses_and_2radius)
-            . lt(90)
+            . left(90)
             . fd_inv(radius_double) 										# pyright: ignore[reportArgumentType]
-            . rt(90)
+            . right(90)
          )

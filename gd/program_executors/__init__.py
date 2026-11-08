@@ -1,7 +1,7 @@
 # ⚓ Anchor for this module: [[program-executors-anchor|program_executors.__init__.py]] 
 
 #* 📝 Imports the executor [[#turtle-runner-anchor|turtle_runner.py]] for the entire GD software
-from .turtle_runner import (
+lazy from .turtle_runner import (
     main,
     # ⚓ Link to source code: [[#main-anchor|main()]] 
     user_drawing_ft,

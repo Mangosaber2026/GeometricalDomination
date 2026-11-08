@@ -1,13 +1,13 @@
 # ⚓ Anchor for this module: [[two-turtles-anchor|two_turtles.py]] 
 #* [Click here to see module description](./premade_designs_docs/two_turtles.md) 
 
-import math
+lazy import math
 
-import turtle_extension as tx
-import uf
+lazy import turtle_extension as tx
+lazy import uf
 
-from ..premade_shapes import shapes
-from . import designs_decorator as designs_deco
+lazy from ..premade_shapes import shapes
+lazy from . import designs_decorator as designs_deco
 
 #* 📝 The type used for a list of [[#ChainTurtle-anchor|ChainTurtle]] instances
 type TurtleListType = list[tx.ChainTurtle]
@@ -28,8 +28,8 @@ class TurtleTwo:
          tls_1 = tls[1]
 
          for i in range(500):
-            tls_0.fd(i).rt(91)
-            tls_1.fd(i).lt(91)
+            tls_0.forward(i).right(91)
+            tls_1.forward(i).left(91)
             tx.SU()
 
 
@@ -49,7 +49,7 @@ class TurtleTwo:
          length1_5 = length * 1.5
 
          tls_0.teleport(diameter_half, diameter_half)
-         tls_1.teleport(0, length_50).lt(45)
+         tls_1.teleport(0, length_50).left(45)
 
          for index, turtle in enumerate(tls):
             for _ in range(4):
@@ -58,10 +58,10 @@ class TurtleTwo:
                   tls_num = turtle,
                )
                distance = diameter / (index + 1)
-               turtle.rt(90).fd_inv(distance)                     # pyright: ignore[reportArgumentType]
+               turtle.right(90).fd_inv(distance)                     # pyright: ignore[reportArgumentType]
 
          tls_0.teleport(0, 0).seth(180)
-         tls_1.teleport(0, 0).lt(90)
+         tls_1.teleport(0, 0).left(90)
 
          for c in uf.range_f(interval, length + 1, interval):     # pyright: ignore[reportArgumentType]
             c_half = c / 2
@@ -76,7 +76,7 @@ class TurtleTwo:
                tls_num = tls_1,
             )
 
-         tls_0.setpos(0, 0).rt(135)
+         tls_0.setpos(0, 0).right(135)
          tls_1.home()
 
          for turtle in tls:
@@ -115,13 +115,13 @@ class TurtleTwo:
          for _ in range(row_count):
             for row in range(2):
                for _ in range(flower_num - row):
-                  tls_1.lt(30)
+                  tls_1.left(30)
                   shapes.Shapes.lines(
                      distance=length_double,                      # pyright: ignore[reportArgumentType]
                      lines_num=6,
                      tls_num=tls_1
                   )
-                  tls_1.rt(30)
+                  tls_1.right(30)
                   shapes.Shapes.hexaflower_tri(
                      length=length,
                      tls_num=tls_0
@@ -134,9 +134,9 @@ class TurtleTwo:
                   (
                      turtle
                      . fd_inv(horizontal_distance)
-                     . lt(90)
+                     . left(90)
                      . fd_inv(height_double)
-                     . rt(90)
+                     . right(90)
                   )
 
 
@@ -166,24 +166,24 @@ class TurtleTwo:
                      side = length,
                      tls_num = tls_0,
                   )
-                  tls_1.lt(30)
+                  tls_1.left(30)
                   shapes.Shapes.SOD_fill(
                      side = side_2,                               # pyright: ignore[reportArgumentType]
                      tls_num = tls_1,
                   )
-                  tls_1.rt(30)
+                  tls_1.right(30)
 
                   for turtle in tls:
-                     turtle.pu().bk(horizontal_distance).pd()
+                     turtle.penup().backward(horizontal_distance).pendown()
 
                for turtle in tls:
                   (
                   turtle
-                  . pu()
-                  . fd((length + height) * (star_num * 2 + (-1) ** row))
-                  . lt(90)
-                  . fd(outer_side * 1.5)                          # pyright: ignore[reportOperatorIssue]
-                  . rt(90)
+                  . penup()
+                  . forward((length + height) * (star_num * 2 + (-1) ** row))
+                  . left(90)
+                  . forward(outer_side * 1.5)                          # pyright: ignore[reportOperatorIssue]
+                  . right(90)
                   )
 
 
@@ -195,7 +195,7 @@ class TurtleTwo:
 
          length = uf.helper.length_float()
          pairs_count = uf.get_num(int, "Number of pairs of stars: ", MIN=1)
-         tls[1].lt(30)
+         tls[1].left(30)
 
          for _ in range(pairs_count):
             for turtle in tls:
@@ -204,7 +204,7 @@ class TurtleTwo:
                   tls_num = turtle,
                )
                length = (length * uf.sine(30)) / uf.sine(120)        # pyright: ignore[reportOperatorIssue]
-               turtle.lt(60)
+               turtle.left(60)
 
 
       # ⚓ sd_triflower anchor: [[TurtleTwo-sd-triflower-anchor|sd_triflower()]] 
@@ -231,14 +231,14 @@ class TurtleTwo:
                )                                                                 # pyright: ignore[reportOperatorIssue]
          angle_b = uf.asine((radius_double * uf.sine(120)) / side_c)             # pyright: ignore[reportOperatorIssue]
          angle_a = 180 - (angle_b + 120)                                         # pyright: ignore[reportOperatorIssue]
-         tls_0.rt(30)
+         tls_0.right(30)
 
          for _ in range(3):
             shapes.Shapes.hexa_flower(
                radius = radius,
                tls_num = tls_0,
             )
-            tls_0.lt(60).circle(radius, 60)
+            tls_0.left(60).circle(radius, 60)
 
          tls_1.teleport(0, -height)
          shapes.Shapes.triangle_half(
@@ -246,7 +246,7 @@ class TurtleTwo:
             tls_num = tls_1,
          )
 
-         tls_1.teleport(0, height_double).lt(180)
+         tls_1.teleport(0, height_double).left(180)
          shapes.Shapes.triangle_half(
             side = radius * 4,                                                   # pyright: ignore[reportArgumentType]
             tls_num = tls_1,
@@ -256,16 +256,16 @@ class TurtleTwo:
             tls_0
             . teleport(-radius_double, height_double)                            # pyright: ignore[reportArgumentType]
             . seth(180)
-            . lt(180 - (60 + angle_b))                                           # pyright: ignore[reportOperatorIssue]
+            . left(180 - (60 + angle_b))                                           # pyright: ignore[reportOperatorIssue]
          )
 
          for _ in range(3):
             (
                tls_0
-               . fd(side_c)
-               . lt(180 - (angle_a * 2 + 60))
-               . fd(side_c)
-               . lt(180 - (angle_b * 2 + 60))                                    # pyright: ignore[reportOperatorIssue]
+               . forward(side_c)
+               . left(180 - (angle_a * 2 + 60))
+               . forward(side_c)
+               . left(180 - (angle_b * 2 + 60))                                    # pyright: ignore[reportOperatorIssue]
             )
 
 
@@ -279,7 +279,7 @@ class TurtleTwo:
          tls_1 = tls[1]
 
          radius = uf.helper.radius_float()
-         tls_0.lt(30)
+         tls_0.left(30)
 
          for _ in range(6):
             shapes.Shapes.hexa_flower(
@@ -292,15 +292,15 @@ class TurtleTwo:
                lines_num = 6,
                tls_num = tls_1,
             )
-            tls_1.lt(60).fd(radius)
+            tls_1.left(60).forward(radius)
 
          (
             tls_1
-            . pu()
-            . lt(90)
+            . penup()
+            . left(90)
             . circle(radius, 60)
-            . pd()
-            . rt(150)
+            . pendown()
+            . right(150)
          )
          shapes.Shapes.SOD(
             side = radius * 2,                                                   # pyright: ignore[reportArgumentType]

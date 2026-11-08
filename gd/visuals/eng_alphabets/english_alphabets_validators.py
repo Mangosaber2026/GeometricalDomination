@@ -1,10 +1,10 @@
 # ⚓ Anchor for this module: [[english-alphabets-validators-anchor|english_alphabets_validators.py]] 
 
-import functools as ft
-import numbers as num
+lazy import functools as ft
+lazy import numbers as num
 
-import turtle_extension as tx
-import uf
+lazy import turtle_extension as tx
+lazy import uf
 
 
 # ⚓ alphabets_validate anchor: [[alphabets-validate-anchor|alphabets_validate()]] 

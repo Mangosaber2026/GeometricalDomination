@@ -1,10 +1,10 @@
 # ⚓ Anchor for this module: [[english-shapes-anchor|english_shapes.py]] 
 
-import turtle_extension as tx
-import uf
+lazy import turtle_extension as tx
+lazy import uf
 
-from ..premade_shapes import shapes
-from . import english_alphabets_validators as eng_vls
+lazy from ..premade_shapes import shapes
+lazy from . import english_alphabets_validators as eng_vls
 
 
 # ⚓ Shapes anchor: [[EngShapes-anchor|class EngShapes]] 

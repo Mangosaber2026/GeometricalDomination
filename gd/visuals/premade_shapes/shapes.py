@@ -1,10 +1,10 @@
 # ⚓ Anchor for this module: [[shapes-anchor|shapes.py]] 
 
-import numbers as num
-from typing import Final
+lazy import numbers as num
+lazy import typing as tp
 
-import turtle_extension as tx
-import uf
+lazy import turtle_extension as tx
+lazy import uf
 
 #* 📝 Type for any real number
 type RealType = float | int | num.Real
@@ -19,8 +19,8 @@ def side_tls_num(side: RealType, tls_num: tx.ChainTurtle) -> None:
     
     :return: None
     """
-    side_name: Final = "side"
-    tls_num_name: Final = "tls_num"
+    side_name: tp.Final = "side"
+    tls_num_name: tp.Final = "tls_num"
 
     uf.Positive()(value=side, name=side_name)
     uf.TypeValidate(expected=tx.ChainTurtle)(value=tls_num, name=tls_num_name)
@@ -40,20 +40,20 @@ class Shapes:
         for _ in range(6):
             (
                 tls_num
-                . pu()
-                . fd(side)
-                . pd()
-                . rt(60)
+                . penup()
+                . forward(side)
+                . pendown()
+                . right(60)
             )
             for _ in range(3):
-                tls_num.fd(side).rt(120)
+                tls_num.forward(side).right(120)
             (
                 tls_num
-                . lt(60)
-                . pu()
-                . bk(side)
-                . pd()
-                . lt(60)
+                . left(60)
+                . penup()
+                . backward(side)
+                . pendown()
+                . left(60)
             )
 
 
@@ -67,22 +67,22 @@ class Shapes:
         for _ in range(6):
             (
                 tls_num
-                . pu()
-                . fd(side)
-                . pd()
-                . rt(60)
+                . penup()
+                . forward(side)
+                . pendown()
+                . right(60)
                 . begin_fill()
             )
             for _ in range(3):
-                tls_num.fd(side).rt(120)
+                tls_num.forward(side).right(120)
             (
                 tls_num
                 . end_fill()
-                . lt(60)
-                . pu()
-                . bk(side)
-                . pd()
-                . lt(60)
+                . left(60)
+                . penup()
+                . backward(side)
+                . pendown()
+                . left(60)
             )
 
 
@@ -94,10 +94,10 @@ class Shapes:
         side_tls_num(side, tls_num)
         (
             tls_num
-            . pu()
-            . fd(side)
-            . pd()
-            . lt(90)
+            . penup()
+            . forward(side)
+            . pendown()
+            . left(90)
             . circle(side,360,6)
         )
 
@@ -125,7 +125,7 @@ class Shapes:
         side_tls_num(side, tls_num)
 
         for _ in range(3):
-            tls_num.fd(side).lt(120)
+            tls_num.forward(side).left(120)
 
 
     # ⚓ triangle_fill anchor: [[Shapes-triangle-fill-anchor|triangle_fill()]] 
@@ -151,12 +151,12 @@ class Shapes:
         side_tls_num(side, tls_num)
         side_50 = uf.pct50(side)
 
-        tls_num.fd(side_50).lt(120)
+        tls_num.forward(side_50).left(120)
 
         for _ in range(2):
-            tls_num.fd(side).lt(120)
+            tls_num.forward(side).left(120)
 
-        tls_num.fd(side_50)
+        tls_num.forward(side_50)
 
 
     # ⚓ square anchor: [[Shapes-square-anchor|square()]] 
@@ -167,7 +167,7 @@ class Shapes:
         side_tls_num(side, tls_num)
 
         for _ in range(4):
-            tls_num.fd(side).lt(90)
+            tls_num.forward(side).left(90)
 
 
     # ⚓ square_fill anchor: [[Shapes-square-fill-anchor|square_fill()]] 
@@ -193,12 +193,12 @@ class Shapes:
         side_tls_num(side, tls_num)
         side_50 = uf.pct50(side)
 
-        tls_num.fd(side_50).lt(90)
+        tls_num.forward(side_50).left(90)
 
         for _ in range(3):
-            tls_num.fd(side).lt(90)
+            tls_num.forward(side).left(90)
 
-        tls_num.fd(side_50)
+        tls_num.forward(side_50)
 
 
     # ⚓ rectangle anchor: [[Shapes-rectangle-anchor|rectangle()]] 
@@ -221,10 +221,10 @@ class Shapes:
         for _ in range(2):
             (
                 tls_num
-                . fd(length)
-                . lt(turn)
-                . fd(width)
-                . lt(turn)
+                . forward(length)
+                . left(turn)
+                . forward(width)
+                . left(turn)
             )
 
 
@@ -256,17 +256,17 @@ class Shapes:
         for _ in range(6):
             (
                 tls_num
-                . fd(diagonal)
-                . lt(150)
-                . fd(length)
-                . rt(120)
-                . bk(length)
+                . forward(diagonal)
+                . left(150)
+                . forward(length)
+                . right(120)
+                . backward(length)
 
-                .fd(length)
-                .lt(60)
-                .fd(length)
-                .rt(30)
-                .bk(diagonal)
+                . forward(length)
+                . lt(60)
+                . forward(length)
+                . right(30)
+                . backward(diagonal)
             )
 
 
@@ -296,9 +296,9 @@ class Shapes:
             (
                 tls_num
                 . circle(-radius,60)
-                . rt(120)
+                . right(120)
                 . circle(-radius,60)
-                . rt(60)
+                . right(60)
             )
 
 
@@ -329,7 +329,7 @@ class Shapes:
                 radius = radius,
                 tls_num = tls_num,
             )
-            tls_num.lt((-1)**n*30)
+            tls_num.left((-1)**n*30)
 
 
     # ⚓ lotus_flower_fill anchor: [[Shapes-lotus-flower-fill-anchor|lotus_flower_fill()]] 
@@ -360,7 +360,7 @@ class Shapes:
         angle = int(360/lines_num)
 
         for _ in range(lines_num):
-            tls_num.fd(distance).bk(distance).lt(angle)
+            tls_num.forward(distance).backward(distance).left(angle)
 
 
     # ⚓ circle anchor: [[Shapes-circle-anchor|circle()]] 
@@ -397,9 +397,9 @@ class Shapes:
 
         (
             tls_num
-            . rt(angle_to_right)
+            . right(angle_to_right)
             . circle(radius,360,sides)
-            . lt(angle_to_right)
+            . left(angle_to_right)
         )
 
 

@@ -195,6 +195,3 @@ def get_Command_dict() -> CommandDictType:
     
     :return: dictionary of function names mapped with the actual function.
     """
-
-
-COMMANDS: CommandDictType

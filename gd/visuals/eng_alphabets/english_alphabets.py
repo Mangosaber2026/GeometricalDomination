@@ -1,9 +1,9 @@
 # ⚓ Anchor for this module: [[english-alphabets-anchor|english_alphabets.py]] 
 
 
-import uf
+lazy import uf
 
-from . import english_letters, english_punctuations, english_shapes
+lazy from . import english_letters, english_punctuations, english_shapes
 
 
 # ⚓ Alphabets anchor: [[EngAlphabets-anchor|class EngAlphabets]] 
@@ -27,41 +27,31 @@ class EngAlphabets(
             )
 
 
-# ⚓ letters_functions anchor: [[letters-functions-anchor|letters_functions()]] 
-#* 📝 Creates and returns a dictionary with all letters in [[#EngLetters-anchor|EngLetters]] 
-def letters_functions():
+def punctuation():
+    return english_punctuations.EngPunctuation
 
+def engshapes():
+    return english_shapes.EngShapes
+
+
+# eng_alphabets_dict anchor: [[eng-alphabets-dict-anchor|eng_alphabets_dict()]] 
+#* 📝 Creates and returns an alphabets dictionary
+#* 📝 mapping [[#EngLetters-anchor|letters]], [[#EngPunctuation-anchor|punctuation]] and [[#EngShapes-anchor|shapes]] to their corresponding functions
+def eng_alphabets_dict():
     return {
-        name: func
-        for name, func in uf.classes_to_dict(english_letters.EngLetters).items()
+    **uf.classes_to_dict(english_letters.EngLetters),
+    " ": punctuation().space,
+    ".": punctuation().dot,
+    "!": punctuation().exclamation,
+    "?": punctuation().question,
+    "'": punctuation().apostrophe,
+    ":": punctuation().colon,
+    ",": punctuation().comma,
+    "+": engshapes().plus,
+    "=": engshapes().equals,
+    "*": engshapes().times,
+    "-": engshapes().minus,
+    "_": engshapes().underline,
+    "<": engshapes().heart,
+    "#": engshapes().star,
     }
-
-
-# ⚓ letters_dict anchor: [[letters-dict-anchor|dictionary letters_dict]] 
-#* 📝 Letters storage created with [[#letters-functions-anchor|letters_functions()]] 
-eng_letters_dict = letters_functions()
-
-
-Punctuation = english_punctuations.EngPunctuation
-EngShapes = english_shapes.EngShapes
-
-# ⚓ ALPHABETS anchor: [[ENG_ALPHABETS-anchor|dictionary ENG_ALPHABETS]] 
-#* 📝 ALPHABETS dictionary created with 
-#* 📝 [[#letters-functions-anchor|letters_functions()]] and [[#Punctuation-anchor|Punctuation]] and [[#EngShapes-anchor|EngShapes]] 
-ENG_ALPHABETS = {
-    **eng_letters_dict,
-    " ": Punctuation.space,
-    ".": Punctuation.dot,
-    "!": Punctuation.exclamation,
-    "?": Punctuation.question,
-    "'": Punctuation.apostrophe,
-    ":": Punctuation.colon,
-    ",": Punctuation.comma,
-    "+": EngShapes.plus,
-    "=": EngShapes.equals,
-    "*": EngShapes.times,
-    "-": EngShapes.minus,
-    "_": EngShapes.underline,
-    "<": EngShapes.heart,
-    "#": EngShapes.star,
-}

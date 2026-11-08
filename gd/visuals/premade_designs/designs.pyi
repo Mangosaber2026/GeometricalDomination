@@ -80,5 +80,3 @@ def get_Patterns_dict() -> PATTERNSType:
     
     :return: dictionary mapping function names with the actual function
     """
-
-PATTERNS: PATTERNSType

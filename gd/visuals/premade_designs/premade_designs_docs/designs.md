@@ -64,19 +64,6 @@ mapping its human-readable function names to their corresponding functions.
 
 Comment Linking: [[#get-Patterns-dict-anchor|get_Patterns_dict()]] 
 
-## Dictionaries
-
-### PATTERNS
-
-This dictionary creates and stores a dictionary of [`Designs`](designs.md#designs) with
-[`get_Patterns_dict`](designs.md#get_patterns_dict).
-
-#### Source Code: PATTERNS
-
-[Click here to inspect the source code of `PATTERNS`](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/designs.py)
-
-Comment Linking: [[#PATTERNS-anchor|dictionary PATTERNS]] 
-
 ## Source Code: Designs module
 
 [View source code](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/designs.py)
