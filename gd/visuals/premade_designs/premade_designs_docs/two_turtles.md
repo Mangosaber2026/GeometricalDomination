@@ -34,7 +34,7 @@ Comment Linking: [[#TurtleTwo-duo-spiral-anchor|TurtleTwo.duo_spiral()]]
 
 #### squares8
 
-This function draws 2 pairs of 4 squares 45° tilted from each other with growing squares from the middle with axes with diagonal axes.
+This function draws 2 pairs of 4 squares 45° tilted from each other with growing squares from the middle with diagonal axes.
 
 ##### Preview: squares8
 
@@ -108,7 +108,7 @@ This function draws a complex [`star of David`](https://github.com/Mangosaber202
 
 ##### Source code: sd_triflower
 
-[Click here to inspec the source code of `TurtleTwo.sd_triflower()`](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/two_turtles.py)
+[Click here to inspect the source code of `TurtleTwo.sd_triflower()`](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/two_turtles.py)
 
 Comment Linking: [[#TurtleTwo-sd-triflower-anchor|TurtleTwo.sd_triflower()]] 
 
@@ -124,7 +124,7 @@ This function draws 6 [`hexaflowers`](https://github.com/Mangosaber2026/Geometri
 
 #### Source code: hexaflower_sd
 
-[Click here to inspec the source code of `TurtleTwo.hexaflower_sd()`](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/two_turtles.py)
+[Click here to inspect the source code of `TurtleTwo.hexaflower_sd()`](https://github.com/Mangosaber2026/GeometricalDomination/blob/main/gd/visuals/premade_designs/two_turtles.py)
 
 Comment Linking: [[#TurtleTwo-hexaflower-sd-anchor|TurtleTwo.hexaflower_sd()]] 
 
