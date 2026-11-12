@@ -1,4 +1,5 @@
 # ⚓ Anchor for this module: [[shapes-anchor|shapes.py]] 
+#* [Click here to see module description](./premade_shapes_docs/shapes.md) 
 
 lazy import numbers as num
 lazy import typing as tp
@@ -27,11 +28,12 @@ def side_tls_num(side: RealType, tls_num: tx.ChainTurtle) -> None:
 
 
 # ⚓ Shapes anchor: [[Shapes-anchor|class Shapes]] 
-#* 📝 Contains predefined shapes which are used all throughout the software
+#* 📝 [Click here to see class description](./premade_shapes_docs/shapes.md) 
 class Shapes:
 
     # ⚓ SOD anchor: [[Shapes-SOD-anchor|SOD()]] 
     #* 📝 ====== STAR OF DAVID ======
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def SOD(side, tls_num: tx.ChainTurtle):
 
@@ -58,7 +60,7 @@ class Shapes:
 
 
     # ⚓ SOD_fill anchor: [[Shapes-SOD-fill-anchor|SOD_fill()]] 
-    #* 📝 [[#Shapes-SOD-anchor|SOD()]] with fill color
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def SOD_fill(side, tls_num: tx.ChainTurtle):
 
@@ -87,7 +89,7 @@ class Shapes:
 
 
     # ⚓ hexagon anchor: [[Shapes-hexagon-anchor|hexagon()]] 
-    #* 📝 ====== HEXAGON ======
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def hexagon(side, tls_num: tx.ChainTurtle):
 
@@ -103,7 +105,7 @@ class Shapes:
 
 
     # ⚓ hexagon_fill anchor: [[Shapes-hexagon-fill-anchor|hexagon_fill()]] 
-    #* 📝 [[#Shapes-hexagon-anchor|hexagon()]]  with fill color
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def hexagon_fill(side, tls_num: tx.ChainTurtle):
 
@@ -118,7 +120,7 @@ class Shapes:
 
 
     # ⚓ triangle anchor: [[Shapes-triangle-anchor|triangle()]] 
-    #* 📝 ====== TRIANGLE ======
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def triangle(side, tls_num: tx.ChainTurtle):
 
@@ -129,7 +131,7 @@ class Shapes:
 
 
     # ⚓ triangle_fill anchor: [[Shapes-triangle-fill-anchor|triangle_fill()]] 
-    #* 📝 [[#Shapes-triangle-anchor|triangle()]]  with fill color
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def triangle_fill(side, tls_num: tx.ChainTurtle):
 
@@ -144,7 +146,7 @@ class Shapes:
 
 
     # ⚓ triangle_half anchor: [[Shapes-triangle-half-anchor|triangle_half()]] 
-    #* 📝 Triangle starting in the middle of a side
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def triangle_half(side, tls_num: tx.ChainTurtle):
 
@@ -160,7 +162,7 @@ class Shapes:
 
 
     # ⚓ square anchor: [[Shapes-square-anchor|square()]] 
-    #* 📝 ====== SQUARE ======
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def square(side, tls_num: tx.ChainTurtle):
 
@@ -171,7 +173,7 @@ class Shapes:
 
 
     # ⚓ square_fill anchor: [[Shapes-square-fill-anchor|square_fill()]] 
-    #* 📝 [[#Shapes-square-anchor|square()]]  with fill color
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def square_fill(side, tls_num: tx.ChainTurtle):
 
@@ -186,7 +188,7 @@ class Shapes:
 
 
     # ⚓ square_half anchor: [[Shapes-square-half-anchor|square_half()]] 
-    #* 📝 Square starting in the middle of a side
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def square_half(side, tls_num: tx.ChainTurtle):
 
@@ -202,7 +204,7 @@ class Shapes:
 
 
     # ⚓ rectangle anchor: [[Shapes-rectangle-anchor|rectangle()]] 
-    #* 📝 ====== RECTANGLE ======
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def rectangle(length, width, direction, tls_num: tx.ChainTurtle):
 
@@ -219,17 +221,12 @@ class Shapes:
 
         turn = direction * 90
         for _ in range(2):
-            (
-                tls_num
-                . forward(length)
-                . left(turn)
-                . forward(width)
-                . left(turn)
-            )
+            for side in (length, width):
+                tls_num.forward(side).left(turn)
 
 
     # ⚓ rectangle_fill anchor: [[Shapes-rectangle-fill-anchor|rectangle_fill()]] 
-    #* 📝 [[#Shapes-rectangle-anchor|rectangle()]]  with fill color
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def rectangle_fill(length, width, direction, tls_num: tx.ChainTurtle):
 
@@ -245,7 +242,7 @@ class Shapes:
 
 
     # ⚓ hexaflower_tri anchor: [[Shapes-hexaflower-tri-anchor|hexaflower_tri()]] 
-    #* 📝 ====== HEXAFLOWER TRIANGLE VERSION ======
+    #* [Click here to see function description](./premade_shapes_docs/shapes.md) 
     @staticmethod
     def hexaflower_tri(length, tls_num: tx.ChainTurtle):
 
@@ -263,7 +260,7 @@ class Shapes:
                 . backward(length)
 
                 . forward(length)
-                . lt(60)
+                . left(60)
                 . forward(length)
                 . right(30)
                 . backward(diagonal)
